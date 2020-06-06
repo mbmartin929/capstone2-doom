@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80047cdedb3c774aa47f8a98f207c51, type: 3}
+  m_Name: Worm
+  m_EditorClassIdentifier: 
+  name: Worm
+  health: 50
+  prefab: {fileID: 4621085877902271149, guid: 204d957c325a08a41bd881bbd3c26aec, type: 3}
