@@ -18,6 +18,8 @@ public class Pistol : MonoBehaviour
     public ParticleSystem pistolMuzzle;
     public GameObject muzzleLight;
 
+    public GameObject hitEffect;
+
     private bool canAttack;
     private Animator anim;
 
@@ -53,6 +55,8 @@ public class Pistol : MonoBehaviour
             if (canAttack)
             {
                 pistolMuzzle.Play();
+
+                Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
 
                 Debug.Log(hit.transform.name);
                 anim.SetTrigger("Shoot");
