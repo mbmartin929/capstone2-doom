@@ -49,6 +49,7 @@ public class EnemyAI : MonoBehaviour
             else
             {
                 anim.SetBool("isChasing", false);
+
             }
         }
         enemyRay = new Ray(transform.position, transform.forward * distance);

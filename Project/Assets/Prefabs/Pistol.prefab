@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7648730109480126501}
   - component: {fileID: 7648730109480126500}
   - component: {fileID: 6426004779527034568}
+  - component: {fileID: 1645848431}
   m_Layer: 9
   m_Name: Pistol
   m_TagString: Untagged
@@ -96,4 +97,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCam: {fileID: 0}
   range: 100
-  startingPos: {x: 0.96, y: -0.658, z: 0.1}
+  startingPos: {x: 0, y: 0, z: 0}
+  actors: []
+  muzzleLightResetTime: 0.1
+  pistolMuzzle: {fileID: 0}
+  muzzleLight: {fileID: 0}
+  hitEffect: {fileID: 3291211880898960590, guid: db1db929cfd7cfa459968e10ecc71399,
+    type: 3}
+--- !u!95 &1645848431
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648730109480126502}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e725077c067cd34da66f9a908c5e916, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
