@@ -50,15 +50,23 @@ public class Pistol : MonoBehaviour
     private void Shoot()
     {
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (canAttack)
         {
-            if (canAttack)
+            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
             {
+                //Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.gameObject.GetComponent<MeshRenderer>().material);
+                //Debug.Log(hit.triangleIndex);
+                //int index = hit.triangleIndex;
+
+                //int subMeshCount = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.subMeshCount;
+
+                //Debug.Log(hit.transform.gameObject.GetComponent<MeshFilter>().mesh.GetTriangles(index));
+
                 pistolMuzzle.Play();
 
                 Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
 
-                Debug.Log(hit.transform.name);
                 anim.SetTrigger("Shoot");
                 StartCoroutine("MuzzleLight");
                 canAttack = false;
