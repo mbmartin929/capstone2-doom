@@ -54,14 +54,60 @@ public class Pistol : MonoBehaviour
         {
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
             {
-                //Debug.Log(hit.transform.name);
-                //Debug.Log(hit.transform.gameObject.GetComponent<MeshRenderer>().material);
-                //Debug.Log(hit.triangleIndex);
-                //int index = hit.triangleIndex;
 
-                //int subMeshCount = hit.transform.gameObject.GetComponent<MeshFilter>().mesh.subMeshCount;
+                // Mesh m = GetMesh(hit.transform.gameObject);
+                // if (m)
+                // {
+                //     int[] hittedTriangle = new int[]
+                //     {
+                //         m.triangles[hit.triangleIndex * 3],
+                //         m.triangles[hit.triangleIndex * 3 + 1],
+                //         m.triangles[hit.triangleIndex * 3 + 2]
+                //     };
+                //     for (int i = 0; i < m.subMeshCount; i++)
+                //     {
+                //         int[] subMeshTris = m.GetTriangles(i);
+                //         for (int j = 0; j < subMeshTris.Length; j += 3)
+                //         {
+                //             if (subMeshTris[j] == hittedTriangle[0] &&
+                //                 subMeshTris[j + 1] == hittedTriangle[1] &&
+                //                 subMeshTris[j + 2] == hittedTriangle[2])
+                //             {
+                //                 Debug.Log(string.Format("triangle index:{0} submesh index:{1} submesh triangle index:{2}", hit.triangleIndex, i, j / 3));
 
-                //Debug.Log(hit.transform.gameObject.GetComponent<MeshFilter>().mesh.GetTriangles(index));
+
+                //             }
+                //         }
+                //     }
+                // }
+
+                if (hit.transform.tag == "Level")
+                {
+                    MeshCollider collider = hit.collider as MeshCollider;
+                    // Remember to handle case where collider is null because you hit a non-mesh primitive...
+
+                    Mesh mesh = collider.sharedMesh;
+
+                    // There are 3 indices stored per triangle
+                    int limit = hit.triangleIndex * 3;
+                    int submesh;
+                    for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                    {
+                        int numIndices = mesh.GetTriangles(submesh).Length;
+                        if (numIndices > limit)
+                            break;
+
+                        limit -= numIndices;
+                    }
+
+                    Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
+
+                    Debug.Log(material.name);
+                }
+                else if (hit.transform.tag == "Enemy")
+                {
+
+                }
 
                 pistolMuzzle.Play();
 
@@ -120,6 +166,24 @@ public class Pistol : MonoBehaviour
                 GetChildObject(child, _tag);
             }
         }
+    }
+
+    static Mesh GetMesh(GameObject go)
+    {
+        if (go)
+        {
+            MeshFilter mf = go.GetComponent<MeshFilter>();
+            if (mf)
+            {
+                Mesh m = mf.sharedMesh;
+                if (!m) { m = mf.mesh; }
+                if (m)
+                {
+                    return m;
+                }
+            }
+        }
+        return (Mesh)null;
     }
 
 }
