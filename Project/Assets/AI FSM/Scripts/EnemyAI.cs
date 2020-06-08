@@ -37,20 +37,23 @@ public class EnemyAI : MonoBehaviour
         ////Physics.Raycast(transform.position, -Vector3.up, out hitInfo, 50.0f);
         Ray enemyRay = new Ray(transform.position, transform.forward * distance);
 
+        Debug.DrawRay(transform.position, transform.forward * distance, Color.green);
 
-        Debug.DrawRay(transform.position + transform.up * 0.75f, transform.forward * distance, Color.red);
         if (Physics.Raycast(enemyRay, out hitInfo, distance))
         {
-            if (hitInfo.collider.tag == "Player")
-            {
-                anim.SetBool("isChasing", true);
-                Debug.Log("PLAYER DETECTED!");
-            }
-            else
-            {
-                anim.SetBool("isChasing", false);
-
-            }
+            if (hitInfo.collider != null)
+            {               
+                if ( hitInfo.collider.tag == "Player")
+                {
+                    Debug.DrawRay(transform.position, transform.forward * distance, Color.red);
+                    anim.SetTrigger("isChasing");
+                    Debug.Log("PLAYER DETECTED");
+                }
+                else
+                {
+                    anim.SetTrigger("isPatrolling");                    
+                }
+            }          
         }
         enemyRay = new Ray(transform.position, transform.forward * distance);
     }
