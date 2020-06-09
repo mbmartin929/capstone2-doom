@@ -10,17 +10,17 @@ public class Patrol : NPCbaseFSM
     private float waitTime;
     public float startTime;
 
-    //void Awake()
-    //{
-
-    //}
+    void Awake()
+    {
+        waitTime = startTime;
+        wayPoints = GameObject.FindGameObjectsWithTag("wayPoints");
+        currentWp = 0;
+    }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        waitTime = startTime;
-        wayPoints = GameObject.FindGameObjectsWithTag("wayPoints");
-        currentWp = 0;
+  
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

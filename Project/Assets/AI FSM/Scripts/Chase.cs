@@ -21,28 +21,16 @@ public class Chase : NPCbaseFSM
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-
-
         agent.isStopped = false;
         agent.SetDestination(opponent.transform.position);
         agent.transform.LookAt(opponent.transform.position);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetBool("isChasing", false);
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            animator.SetBool("isPatrolling", true);
-
-        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+       
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
