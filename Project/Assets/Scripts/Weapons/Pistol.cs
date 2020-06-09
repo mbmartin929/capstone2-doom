@@ -23,6 +23,8 @@ public class Pistol : MonoBehaviour
     private bool canAttack;
     private Animator anim;
 
+    public Vector3 camTransform;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -34,12 +36,15 @@ public class Pistol : MonoBehaviour
         canAttack = true;
         cameraGo = GameObject.FindGameObjectWithTag("Player");
         FindObjectwithTag("MainCamera");
+
+        // camTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        // FindObjectwithTag("MainCamera");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        fpsCam.transform.eulerAngles += camTransform;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -52,34 +57,11 @@ public class Pistol : MonoBehaviour
         RaycastHit hit;
         if (canAttack)
         {
+            //fpsCam.gameObject.transform.Rotate()
+
+
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
             {
-
-                // Mesh m = GetMesh(hit.transform.gameObject);
-                // if (m)
-                // {
-                //     int[] hittedTriangle = new int[]
-                //     {
-                //         m.triangles[hit.triangleIndex * 3],
-                //         m.triangles[hit.triangleIndex * 3 + 1],
-                //         m.triangles[hit.triangleIndex * 3 + 2]
-                //     };
-                //     for (int i = 0; i < m.subMeshCount; i++)
-                //     {
-                //         int[] subMeshTris = m.GetTriangles(i);
-                //         for (int j = 0; j < subMeshTris.Length; j += 3)
-                //         {
-                //             if (subMeshTris[j] == hittedTriangle[0] &&
-                //                 subMeshTris[j + 1] == hittedTriangle[1] &&
-                //                 subMeshTris[j + 2] == hittedTriangle[2])
-                //             {
-                //                 Debug.Log(string.Format("triangle index:{0} submesh index:{1} submesh triangle index:{2}", hit.triangleIndex, i, j / 3));
-
-
-                //             }
-                //         }
-                //     }
-                // }
 
                 if (hit.transform.tag == "Level")
                 {
@@ -103,15 +85,22 @@ public class Pistol : MonoBehaviour
                     Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
 
                     Debug.Log(material.name);
+
+                    Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 }
                 else if (hit.transform.tag == "Enemy")
                 {
-
+                    GameObject bloodSplashGo = Instantiate(hit.transform.GetComponent<TempEnemy>().bloodSplashGo, hit.point, Quaternion.LookRotation(hit.normal));
+                    bloodSplashGo.transform.parent = hit.transform;
+                    if (hit.transform.gameObject != null)
+                    {
+                        hit.transform.GetComponent<TempEnemy>().PlayParticleSystem();
+                    }
                 }
 
                 pistolMuzzle.Play();
 
-                Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+
 
                 anim.SetTrigger("Shoot");
                 StartCoroutine("MuzzleLight");
@@ -160,6 +149,7 @@ public class Pistol : MonoBehaviour
                 actors.Add(child.gameObject);
                 cameraGo = child.gameObject;
                 fpsCam = cameraGo.GetComponent<Camera>();
+                // camTransform = cameraGo.transform;
             }
             if (child.childCount > 0)
             {
@@ -184,6 +174,11 @@ public class Pistol : MonoBehaviour
             }
         }
         return (Mesh)null;
+    }
+
+    public void CameraX(float value)
+    {
+        fpsCam.transform.eulerAngles += new Vector3(value, 0, 0);
     }
 
 }

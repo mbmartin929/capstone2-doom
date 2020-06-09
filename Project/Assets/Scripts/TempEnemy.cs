@@ -7,6 +7,9 @@ public class TempEnemy : MonoBehaviour
     public string name;
     public int health;
 
+    public GameObject bloodSplashGo;
+    public ParticleSystem bloodParticleSystem;
+
     void Start()
     {
 
@@ -19,6 +22,7 @@ public class TempEnemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+
         health -= amount;
         if (health <= 0f)
         {
@@ -29,5 +33,11 @@ public class TempEnemy : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void PlayParticleSystem()
+    {
+        //if ()
+        bloodParticleSystem.Play();
     }
 }
