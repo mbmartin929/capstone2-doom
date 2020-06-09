@@ -15,8 +15,6 @@ public class Motion : MonoBehaviour
     private float idleCounter;
     private float baseFOV;
 
-    public float speed = 8f;
-
     #endregion
 
     // Start is called before the first frame update
@@ -39,8 +37,8 @@ public class Motion : MonoBehaviour
         }
         else
         {
-            HeadBob(movementCounter, 45.0f, 29.75f);
-            movementCounter += Time.deltaTime * speed;
+            HeadBob(movementCounter, 35.50f, 10.55f);
+            movementCounter += Time.deltaTime * 4f;
             weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 8f);
         }
 

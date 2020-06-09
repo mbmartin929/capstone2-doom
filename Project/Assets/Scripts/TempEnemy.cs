@@ -8,8 +8,7 @@ public class TempEnemy : MonoBehaviour
     public int health;
 
     public GameObject bloodSplashGo;
-    public GameObject[] bloodParticleSystemList;
-    public Transform bloodSpawnLocation;
+    public ParticleSystem bloodParticleSystem;
 
     void Start()
     {
@@ -39,11 +38,6 @@ public class TempEnemy : MonoBehaviour
     public void PlayParticleSystem()
     {
         //if ()
-        foreach (GameObject item in bloodParticleSystemList)
-        {
-            if (gameObject == null) return;
-            GameObject bloodParticleGo = Instantiate(item, bloodSpawnLocation.position, bloodSpawnLocation.rotation);
-            bloodParticleGo.transform.parent = transform;
-        }
+        bloodParticleSystem.Play();
     }
 }
