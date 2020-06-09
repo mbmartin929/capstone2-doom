@@ -6,8 +6,10 @@ public class EnemyAI : MonoBehaviour
 {
     Animator anim;
     public GameObject player;
-    public float distance;
+    public float rayCastdistance;
 
+
+ 
 
 
     public GameObject GetPlayer()
@@ -35,26 +37,29 @@ public class EnemyAI : MonoBehaviour
 
         RaycastHit hitInfo;
         ////Physics.Raycast(transform.position, -Vector3.up, out hitInfo, 50.0f);
-        Ray enemyRay = new Ray(transform.position, transform.forward * distance);
+        Ray enemyRay = new Ray(transform.position, transform.forward * rayCastdistance);
 
-        Debug.DrawRay(transform.position, transform.forward * distance, Color.green);
-
-        if (Physics.Raycast(enemyRay, out hitInfo, distance))
+      
+        if (Physics.Raycast(enemyRay, out hitInfo, rayCastdistance))
         {
             if (hitInfo.collider != null)
-            {               
-                if ( hitInfo.collider.tag == "Player")
+            {
+                if (hitInfo.collider.tag == "Player")
                 {
-                    Debug.DrawRay(transform.position, transform.forward * distance, Color.red);
+                    Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.red);
                     anim.SetTrigger("isChasing");
                     Debug.Log("PLAYER DETECTED");
                 }
                 else
                 {
-                    anim.SetTrigger("isPatrolling");                    
+                    Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
+                    anim.SetTrigger("isPatrolling");
+                    Debug.Log("PATROLLING");
+
                 }
             }          
         }
-        enemyRay = new Ray(transform.position, transform.forward * distance);
     }
+
+
 }
