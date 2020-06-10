@@ -7,7 +7,9 @@ public class EnemyAI : MonoBehaviour
     Animator anim;
     public GameObject player;
     public float rayCastdistance;
-
+    public GameObject acid;
+    public GameObject mouth;
+    public float acidSpitrange;
 
  
 
@@ -28,10 +30,27 @@ public class EnemyAI : MonoBehaviour
         enemyRaycast();
         //anim.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
     }
+
+    public void fire()
+    {
+        GameObject a = Instantiate(acid,mouth.transform.position,mouth.transform.rotation);
+        a.GetComponent<Rigidbody>().AddForce(mouth.transform.forward * acidSpitrange);
+    }
+    public void stopFiring()
+    {
+        CancelInvoke("fire");
+    }
+    public void firing()
+    {
+       InvokeRepeating("fire",1f,1f) ;
+    }
+
     public void damageTo()
     {
         ;
     }
+
+
     public void enemyRaycast()
     {
 

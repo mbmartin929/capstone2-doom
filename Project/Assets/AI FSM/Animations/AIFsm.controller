@@ -62,7 +62,7 @@ AnimatorStateMachine:
     m_Position: {x: 50, y: 520, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8510155693875704829}
-    m_Position: {x: 85, y: 585, z: 0}
+    m_Position: {x: 90, y: 590, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -248,7 +248,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2508217766311137731}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 3652696250471630131}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -302,3 +303,19 @@ MonoBehaviour:
   accuracy: 2
   agent: {fileID: 0}
   startTime: 2
+--- !u!114 &3652696250471630131
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe5d68265de4b647a35e2718c662a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  opponent: {fileID: 0}
+  accuracy: 2
+  agent: {fileID: 0}
