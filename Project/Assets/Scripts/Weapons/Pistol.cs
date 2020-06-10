@@ -23,7 +23,8 @@ public class Pistol : MonoBehaviour
     private bool canAttack;
     private Animator anim;
 
-    public Vector3 camTransform;
+    public Vector3 camRotation;
+    public float FOV;
 
     void Awake()
     {
@@ -34,22 +35,31 @@ public class Pistol : MonoBehaviour
     void Start()
     {
         canAttack = true;
+
         cameraGo = GameObject.FindGameObjectWithTag("Player");
         FindObjectwithTag("MainCamera");
 
-        // camTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        // FindObjectwithTag("MainCamera");
+        FOV = fpsCam.fieldOfView;
     }
 
     // Update is called once per frame
     void Update()
     {
-        fpsCam.transform.eulerAngles += camTransform;
+        fpsCam.transform.eulerAngles += camRotation;
+        fpsCam.fieldOfView = FOV;
+        //Debug.Log(fpsCam.transform.eulerAngles);
+
+        //if (fpsCam.fieldOfView)
 
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
+    }
+
+    void FixedUpdate()
+    {
+
     }
 
     private void Shoot()
