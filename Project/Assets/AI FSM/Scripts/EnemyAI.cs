@@ -39,7 +39,7 @@ public class EnemyAI : MonoBehaviour
         ////Physics.Raycast(transform.position, -Vector3.up, out hitInfo, 50.0f);
         Ray enemyRay = new Ray(transform.position, transform.forward * rayCastdistance);
 
-      
+        Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
         if (Physics.Raycast(enemyRay, out hitInfo, rayCastdistance))
         {
             if (hitInfo.collider != null)
@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 else
                 {
-                    Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
+                    
                     anim.SetTrigger("isPatrolling");
                     Debug.Log("PATROLLING");
 
