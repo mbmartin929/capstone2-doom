@@ -7,7 +7,7 @@ public class TempEnemy : MonoBehaviour
     public string name;
     public int health;
 
-    public GameObject bloodSplashGo;
+    public GameObject[] bloodSplashGos;
     public ParticleSystem bloodParticleSystem;
 
     void Start()
@@ -35,9 +35,11 @@ public class TempEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void PlayParticleSystem()
+    public void PlayAllParticleSystems()
     {
-        //if ()
-        bloodParticleSystem.Play();
+        foreach (GameObject item in bloodSplashGos)
+        {
+
+        }
     }
 }
