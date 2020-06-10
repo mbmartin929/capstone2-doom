@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2379092224978696566}
   - component: {fileID: 812878610562800825}
   m_Layer: 0
-  m_Name: Blood Splash Animation2
+  m_Name: Blood Splash Animation4
   m_TagString: Hit Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4043641235270271816}
-  m_LocalRotation: {x: -0.09411916, y: 0.70081496, z: 0.09411916, w: 0.70081496}
+  m_LocalRotation: {x: -0.15522696, y: 0.6898584, z: 0.15522696, w: 0.6898584}
   m_LocalPosition: {x: -3.0750184, y: -4.2583723, z: 17.817503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -15.298, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: -25.362001, y: 90.00001, z: 0}
 --- !u!198 &2379092224978696566
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -168,8 +168,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 8
-      minScalar: 6
+      scalar: 6
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -284,8 +284,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.4
+      scalar: 0.6
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -597,7 +597,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.1
+      scalar: 0.8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4758,7 +4758,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f1de9412338a044dbf6df9bb4733727, type: 2}
+  - {fileID: 2100000, guid: 04de51015633bad4e8df2052fb8c134e, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
