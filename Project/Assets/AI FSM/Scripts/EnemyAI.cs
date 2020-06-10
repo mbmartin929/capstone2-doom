@@ -7,7 +7,9 @@ public class EnemyAI : MonoBehaviour
     Animator anim;
     public GameObject player;
     public float rayCastdistance;
-
+    public GameObject acid;
+    public GameObject mouth;
+    public float acidSpitrange;
 
  
 
@@ -28,10 +30,27 @@ public class EnemyAI : MonoBehaviour
         enemyRaycast();
         //anim.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
     }
+
+    public void fire()
+    {
+        GameObject a = Instantiate(acid,mouth.transform.position,mouth.transform.rotation);
+        a.GetComponent<Rigidbody>().AddForce(mouth.transform.forward * acidSpitrange);
+    }
+    public void stopFiring()
+    {
+        CancelInvoke("fire");
+    }
+    public void firing()
+    {
+       InvokeRepeating("fire",1f,1f) ;
+    }
+
     public void damageTo()
     {
         ;
     }
+
+
     public void enemyRaycast()
     {
 
@@ -39,7 +58,7 @@ public class EnemyAI : MonoBehaviour
         ////Physics.Raycast(transform.position, -Vector3.up, out hitInfo, 50.0f);
         Ray enemyRay = new Ray(transform.position, transform.forward * rayCastdistance);
 
-      
+        Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
         if (Physics.Raycast(enemyRay, out hitInfo, rayCastdistance))
         {
             if (hitInfo.collider != null)
@@ -52,7 +71,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 else
                 {
-                    Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
+                    
                     anim.SetTrigger("isPatrolling");
                     Debug.Log("PATROLLING");
 

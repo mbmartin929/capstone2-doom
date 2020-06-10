@@ -14,6 +14,7 @@ public class NPCbaseFSM : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         NPC = animator.gameObject;
+
         opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
         agent = NPC.GetComponent<NavMeshAgent>();
 
