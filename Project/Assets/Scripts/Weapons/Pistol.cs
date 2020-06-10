@@ -90,11 +90,26 @@ public class Pistol : MonoBehaviour
                 }
                 else if (hit.transform.tag == "Enemy")
                 {
-                    GameObject bloodSplashGo = Instantiate(hit.transform.GetComponent<TempEnemy>().bloodSplashGo, hit.point, Quaternion.LookRotation(hit.normal));
-                    bloodSplashGo.transform.parent = hit.transform;
+                    TempEnemy enemy = hit.transform.GetComponent<TempEnemy>();
+                    foreach (GameObject item in enemy.bloodSplashGos)
+                    {
+                        if (item.tag == "Hit Normal")
+                        {
+                            GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+                            bloodGo.transform.parent = hit.transform;
+                        }
+                        else
+                        {
+                            GameObject bloodGo = Instantiate(item, hit.point, item.transform.rotation);
+                            bloodGo.transform.parent = hit.transform;
+                        }
+
+                    }
+                    // GameObject bloodSplashGo = Instantiate(enemy.bloodSplashGo, hit.point, Quaternion.LookRotation(hit.normal));
+                    // bloodSplashGo.transform.parent = hit.transform;
                     if (hit.transform.gameObject != null)
                     {
-                        hit.transform.GetComponent<TempEnemy>().PlayParticleSystem();
+                        //hit.transform.GetComponent<TempEnemy>().PlayParticleSystem();
                     }
                 }
 
