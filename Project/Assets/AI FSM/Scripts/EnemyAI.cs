@@ -7,11 +7,14 @@ public class EnemyAI : MonoBehaviour
     Animator anim;
     public GameObject player;
     public float rayCastdistance;
+
+
     public GameObject acid;
     public GameObject mouth;
     public float acidSpitrange;
 
- 
+
+    public GameObject bloodSplatter;
 
 
     public GameObject GetPlayer()
@@ -22,12 +25,15 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+    
     }
 
     // Update is called once per frame
     void Update()
     {
         enemyRaycast();
+        dead();
+
         //anim.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
     }
 
@@ -42,14 +48,26 @@ public class EnemyAI : MonoBehaviour
     }
     public void firing()
     {
-       InvokeRepeating("fire",1f,1f) ;
+      
+        anim.SetTrigger("isAttacking");
+
+        //InvokeRepeating("fire",1f,1f) ;
     }
 
     public void damageTo()
     {
         ;
     }
+    public void dead()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("isDead");
+            Instantiate(bloodSplatter, transform.position, transform.rotation);
+        }
+        //HP <= 0 sethp == 0
 
+    }
 
     public void enemyRaycast()
     {
@@ -65,16 +83,20 @@ public class EnemyAI : MonoBehaviour
             {
                 if (hitInfo.collider.tag == "Player")
                 {
+                  
                     Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.red);
                     anim.SetTrigger("isChasing");
                     Debug.Log("PLAYER DETECTED");
+                    firing();
+                 
+                    
                 }
                 else
                 {
                     
                     anim.SetTrigger("isPatrolling");
                     Debug.Log("PATROLLING");
-
+                    stopFiring();
                 }
             }          
         }

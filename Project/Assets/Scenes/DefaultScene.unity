@@ -5839,7 +5839,7 @@ PrefabInstance:
     - target: {fileID: 4621085877902271145, guid: 204d957c325a08a41bd881bbd3c26aec,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.764
+      value: 6.49
       objectReference: {fileID: 0}
     - target: {fileID: 4621085877902271145, guid: 204d957c325a08a41bd881bbd3c26aec,
         type: 3}
@@ -5849,7 +5849,7 @@ PrefabInstance:
     - target: {fileID: 4621085877902271145, guid: 204d957c325a08a41bd881bbd3c26aec,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.835888
+      value: 7.91
       objectReference: {fileID: 0}
     - target: {fileID: 4621085877902271145, guid: 204d957c325a08a41bd881bbd3c26aec,
         type: 3}
@@ -7595,7 +7595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043512866}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.72, y: 2.09, z: -2.13}
+  m_LocalPosition: {x: -2.41, y: 2.09, z: 3.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1945030930}
@@ -7619,6 +7619,8 @@ MonoBehaviour:
   acid: {fileID: 959021523748626345, guid: 13f5bbf918fb70c46b59ab391e4d48d9, type: 3}
   mouth: {fileID: 1945030929}
   acidSpitrange: 500
+  bloodSplatter: {fileID: 8776949695447349946, guid: 58e80f789f73407468ee37bb6d3840ad,
+    type: 3}
 --- !u!195 &1043512871
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7757,7 +7759,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh50928
+  m_Name: pb_Mesh20990
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
