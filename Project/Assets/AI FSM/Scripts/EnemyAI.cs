@@ -13,12 +13,9 @@ public class EnemyAI : MonoBehaviour
     public GameObject mouth;
     public float acidSpitrange;
 
-<<<<<<< HEAD
 
     public GameObject bloodSplatter;
-=======
     public float distanceToStop = 3.0f;
->>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
 
     void Awake()
     {
@@ -29,20 +26,16 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        enemyRaycast();
         dead();
 
         //anim.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
-=======
         EnemyRaycast();
->>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
     }
 
     // Used in animation do not delete
@@ -58,28 +51,19 @@ public class EnemyAI : MonoBehaviour
     }
     public void StopFiring()
     {
-<<<<<<< HEAD
-      
+
         anim.SetTrigger("isAttacking");
 
         //InvokeRepeating("fire",1f,1f) ;
-=======
-        CancelInvoke("fire");
->>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
     }
     // public void Firing()
     // {
     //     InvokeRepeating("Fire", 1f, 1f);
     // }
 
-    public void EnemyRaycast()
-    {
-<<<<<<< HEAD
-        ;
-    }
     public void dead()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetTrigger("isDead");
             Instantiate(bloodSplatter, transform.position, transform.rotation);
@@ -87,14 +71,13 @@ public class EnemyAI : MonoBehaviour
         //HP <= 0 sethp == 0
 
     }
-=======
+    public void EnemyRaycast()
+    {
         RaycastHit hitInfo;
 
         Ray forwardRay = new Ray(transform.position, transform.forward * rayCastdistance);
         Ray rightRay = new Ray(transform.position, (transform.forward - transform.right) * rayCastdistance);
         Ray leftRay = new Ray(transform.position, (transform.forward - (-transform.right)) * rayCastdistance);
->>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
-
         /// <summary>
         // Draws Green Line for raycast visual aide
         // new vector 3 serves as offset for raycast
@@ -107,30 +90,27 @@ public class EnemyAI : MonoBehaviour
         #region Detects Player
         if (Physics.Raycast(forwardRay, out hitInfo, rayCastdistance))
         {
-<<<<<<< HEAD
             if (hitInfo.collider != null)
             {
                 if (hitInfo.collider.tag == "Player")
                 {
-                  
+
                     Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.red);
                     anim.SetTrigger("isChasing");
                     Debug.Log("PLAYER DETECTED");
-                    firing();
-                 
-                    
+                    //firing();
+
+
                 }
                 else
                 {
-                    
+
                     anim.SetTrigger("isPatrolling");
                     Debug.Log("PATROLLING");
-                    stopFiring();
+                    //stopFiring();
                 }
-            }          
-=======
+            }
             PlayerDetection(hitInfo);
->>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
         }
         else if (Physics.Raycast(rightRay, out hitInfo, rayCastdistance))
         {
