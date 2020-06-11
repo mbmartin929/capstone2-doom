@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4319129318257060626}
   - component: {fileID: 3111075684920302406}
   - component: {fileID: 2558568987550734140}
-  - component: {fileID: 265908688462661255}
+  - component: {fileID: -223300681839779070}
   m_Layer: 0
   m_Name: Acid
   m_TagString: Untagged
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a9cd122cf300443a2aa2460a80e5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &265908688462661255
+--- !u!54 &-223300681839779070
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

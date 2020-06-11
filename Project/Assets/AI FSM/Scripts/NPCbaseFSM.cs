@@ -11,15 +11,15 @@ public class NPCbaseFSM : StateMachineBehaviour
     public float accuracy = 2.0f;
     public NavMeshAgent agent;
 
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    void Awake()
     {
-        NPC = animator.gameObject;
-
-        opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
-        agent = NPC.GetComponent<NavMeshAgent>();
 
     }
 
-
-
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        NPC = animator.gameObject;
+        agent = NPC.GetComponent<NavMeshAgent>();
+        opponent = NPC.GetComponent<EnemyAI>().playerGo;
+    }
 }

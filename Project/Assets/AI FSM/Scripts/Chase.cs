@@ -10,27 +10,29 @@ public class Chase : NPCbaseFSM
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log("Chase State");
+
 
         base.OnStateEnter(animator, stateInfo, layerIndex);
-
-
-
+        //agent.isStopped = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        agent.isStopped = false;
         agent.SetDestination(opponent.transform.position);
-        agent.transform.LookAt(opponent.transform.position);
 
+        Vector3 targetRotation = new Vector3(opponent.transform.position.x,
+                                             opponent.transform.position.y,
+                                             opponent.transform.position.z);
+
+        agent.transform.LookAt(targetRotation);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

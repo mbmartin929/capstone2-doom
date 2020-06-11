@@ -157,7 +157,7 @@ public class Pistol : MonoBehaviour
 
     public void FindObjectwithTag(string _tag)
     {
-        Debug.Log(cameraGo.name);
+        // Debug.Log(cameraGo.name);
 
         actors.Clear();
         Transform parent = cameraGo.transform;
