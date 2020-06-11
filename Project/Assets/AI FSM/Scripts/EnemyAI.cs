@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     Animator anim;
-    public GameObject player;
+    public GameObject playerGo;
     public float rayCastdistance;
 
 
@@ -13,14 +13,18 @@ public class EnemyAI : MonoBehaviour
     public GameObject mouth;
     public float acidSpitrange;
 
+<<<<<<< HEAD
 
     public GameObject bloodSplatter;
+=======
+    public float distanceToStop = 3.0f;
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
 
-
-    public GameObject GetPlayer()
+    void Awake()
     {
-        return player;
+        playerGo = GameObject.FindGameObjectWithTag("Player");
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,31 +35,46 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         enemyRaycast();
         dead();
 
         //anim.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
+=======
+        EnemyRaycast();
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
     }
 
-    public void fire()
+    // Used in animation do not delete
+    public void damageTo()
     {
-        GameObject a = Instantiate(acid,mouth.transform.position,mouth.transform.rotation);
+
+    }
+
+    public void Fire()
+    {
+        GameObject a = Instantiate(acid, mouth.transform.position, mouth.transform.rotation);
         a.GetComponent<Rigidbody>().AddForce(mouth.transform.forward * acidSpitrange);
     }
-    public void stopFiring()
+    public void StopFiring()
     {
-        CancelInvoke("fire");
-    }
-    public void firing()
-    {
+<<<<<<< HEAD
       
         anim.SetTrigger("isAttacking");
 
         //InvokeRepeating("fire",1f,1f) ;
+=======
+        CancelInvoke("fire");
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
     }
+    // public void Firing()
+    // {
+    //     InvokeRepeating("Fire", 1f, 1f);
+    // }
 
-    public void damageTo()
+    public void EnemyRaycast()
     {
+<<<<<<< HEAD
         ;
     }
     public void dead()
@@ -68,17 +87,27 @@ public class EnemyAI : MonoBehaviour
         //HP <= 0 sethp == 0
 
     }
-
-    public void enemyRaycast()
-    {
-
+=======
         RaycastHit hitInfo;
-        ////Physics.Raycast(transform.position, -Vector3.up, out hitInfo, 50.0f);
-        Ray enemyRay = new Ray(transform.position, transform.forward * rayCastdistance);
+
+        Ray forwardRay = new Ray(transform.position, transform.forward * rayCastdistance);
+        Ray rightRay = new Ray(transform.position, (transform.forward - transform.right) * rayCastdistance);
+        Ray leftRay = new Ray(transform.position, (transform.forward - (-transform.right)) * rayCastdistance);
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
+
+        /// <summary>
+        // Draws Green Line for raycast visual aide
+        // new vector 3 serves as offset for raycast
+        /// </summary>
 
         Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
-        if (Physics.Raycast(enemyRay, out hitInfo, rayCastdistance))
+        Debug.DrawRay(transform.position, (transform.forward - transform.right) * rayCastdistance, Color.green);
+        Debug.DrawRay(transform.position, (transform.forward - (-transform.right)) * rayCastdistance, Color.green);
+
+        #region Detects Player
+        if (Physics.Raycast(forwardRay, out hitInfo, rayCastdistance))
         {
+<<<<<<< HEAD
             if (hitInfo.collider != null)
             {
                 if (hitInfo.collider.tag == "Player")
@@ -99,8 +128,51 @@ public class EnemyAI : MonoBehaviour
                     stopFiring();
                 }
             }          
+=======
+            PlayerDetection(hitInfo);
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
         }
+        else if (Physics.Raycast(rightRay, out hitInfo, rayCastdistance))
+        {
+            PlayerDetection(hitInfo);
+        }
+        else if (Physics.Raycast(leftRay, out hitInfo, rayCastdistance))
+        {
+            PlayerDetection(hitInfo);
+        }
+        #endregion
+
+        #region Attacks Player
+        Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
+                                             transform.position.y,
+                                             playerGo.transform.position.z);
+
+        if (Vector3.Distance(transform.position, targetPosition) > distanceToStop)
+        {
+            anim.SetTrigger("Attack");
+        }
+        else if (Vector3.Distance(transform.position, targetPosition) < distanceToStop)
+        {
+            anim.SetTrigger("Chase");
+        }
+        #endregion
+
+
     }
 
-
+    private void PlayerDetection(RaycastHit hitInfo)
+    {
+        if (hitInfo.collider != null)
+        {
+            if (hitInfo.collider.tag == "Player")
+            {
+                Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.red);
+                anim.SetTrigger("Chase");
+            }
+            else
+            {
+                anim.SetTrigger("Patrol");
+            }
+        }
+    }
 }

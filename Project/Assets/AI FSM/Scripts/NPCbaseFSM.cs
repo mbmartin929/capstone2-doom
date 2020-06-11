@@ -20,6 +20,10 @@ public class NPCbaseFSM : StateMachineBehaviour
     {
         NPC = animator.gameObject;
         agent = NPC.GetComponent<NavMeshAgent>();
+<<<<<<< HEAD
         opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
+=======
+        opponent = NPC.GetComponent<EnemyAI>().playerGo;
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
     }
 }

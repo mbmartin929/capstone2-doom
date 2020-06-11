@@ -7,21 +7,26 @@ public class Attack : NPCbaseFSM
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        base.OnStateEnter(animator, stateInfo, layerIndex);
-        NPC.GetComponent<EnemyAI>().fire();
+        Debug.Log("Attack State");
 
+        base.OnStateEnter(animator, stateInfo, layerIndex);
+
+        agent.isStopped = true;
+
+        NPC.GetComponent<EnemyAI>().Fire();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
         agent.transform.LookAt(opponent.transform.position);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC.GetComponent<EnemyAI>().stopFiring();
+        NPC.GetComponent<EnemyAI>().StopFiring();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

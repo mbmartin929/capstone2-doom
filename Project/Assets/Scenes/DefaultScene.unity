@@ -7594,14 +7594,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043512866}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -2.41, y: 2.09, z: 3.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalRotation: {x: -0, y: 0.65361106, z: -0, w: 0.7568306}
+  m_LocalPosition: {x: 4.768, y: 2.42, z: 5.211}
+  m_LocalScale: {x: 1.6426799, y: 1.6426799, z: 1.6426799}
+>>>>>>> 0979d4c205e1f7a5f86472fb017fa5b42bb2cff1
   m_Children:
   - {fileID: 1945030930}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 81.629005, z: 0}
 --- !u!114 &1043512870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7614,7 +7620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61ab18376d48cf438770dd6e3075488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 642758103}
+  playerGo: {fileID: 0}
   rayCastdistance: 10
   acid: {fileID: 959021523748626345, guid: 13f5bbf918fb70c46b59ab391e4d48d9, type: 3}
   mouth: {fileID: 1945030929}
@@ -7630,7 +7636,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1043512866}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.45
   m_Speed: 2
   m_Acceleration: 2
   avoidancePriority: 50
@@ -7639,7 +7645,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.67
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -7654,8 +7660,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.76, y: 1.75, z: 0.2}
+  m_Center: {x: 0, y: -0.11, z: 0}
 --- !u!54 &1043512873
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8263,7 +8269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!220 &1450143405
 LightProbeGroup:
   m_ObjectHideFlags: 0
