@@ -68,6 +68,8 @@ public class EnemyAI : MonoBehaviour
             anim.SetTrigger("isDead");
             Instantiate(bloodSplatter, transform.position, transform.rotation);
         }
+
+
         //HP <= 0 sethp == 0
 
     }
