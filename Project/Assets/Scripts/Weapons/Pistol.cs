@@ -132,9 +132,11 @@ public class Pistol : MonoBehaviour
                 canAttack = false;
 
                 UnitController target = hit.transform.GetComponent<UnitController>();
+
                 if (target != null)
                 {
                     target.TakeDamage(10);
+               
                 }
             }
         }
