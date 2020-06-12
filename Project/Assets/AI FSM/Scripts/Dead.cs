@@ -9,6 +9,13 @@ public class Dead : NPCbaseFSM
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log("Dead State");
+
+        isChasing = false;
+        isPatrolling = false;
+        isAttacking = false;
+        isDead = true;
+
         base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = true;
 
