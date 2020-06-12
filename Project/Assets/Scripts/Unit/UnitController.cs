@@ -7,6 +7,8 @@ public class UnitController : MonoBehaviour
     // References Singleton
     protected GameManager gameManager;
 
+
+
     #region Variables
     [Header("Game Objects")]
     public GameObject projectileGo;
@@ -56,6 +58,7 @@ public class UnitController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         if (curArmor <= 0) curHealth -= amount;
+
     }
 
     public void Die()
