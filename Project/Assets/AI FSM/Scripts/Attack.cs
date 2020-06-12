@@ -9,36 +9,24 @@ public class Attack : NPCbaseFSM
     {
         Debug.Log("Attack State");
 
-        isChasing = false;
-        isPatrolling = false;
-        isAttacking = true;
-        isDead = false;
-
         base.OnStateEnter(animator, stateInfo, layerIndex);
+
         agent.isStopped = true;
 
-        //agent.GetComponent<nav.velocity = Vector3.zero
+        NPC.GetComponent<EnemyAI>().Fire();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector3 targetRotation = new Vector3(opponent.transform.position.x,
-                                             agent.transform.position.y,
-                                             opponent.transform.position.z);
 
-        agent.transform.LookAt(targetRotation);
-
-        if (Vector3.Distance(agent.transform.position, targetRotation) > enemyAI.distanceToStop + 3)
-        {
-            agent.GetComponent<EnemyAI>().anim.SetTrigger("Chase");
-        }
+        agent.transform.LookAt(opponent.transform.position);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        NPC.GetComponent<EnemyAI>().StopFiring();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
