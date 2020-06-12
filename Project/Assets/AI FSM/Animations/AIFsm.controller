@@ -64,6 +64,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
+  canAttack: 0
 --- !u!1107 &-4500629729976425877
 AnimatorStateMachine:
   serializedVersion: 5
@@ -264,6 +265,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Dash
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -346,6 +353,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
+  canAttack: 0
 --- !u!114 &3003456233210650733
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,6 +370,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
+  canAttack: 0
   startTime: 2
 --- !u!114 &3652696250471630131
 MonoBehaviour:
@@ -379,6 +388,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
+  canAttack: 0
 --- !u!1102 &7114363299479440746
 AnimatorState:
   serializedVersion: 5
