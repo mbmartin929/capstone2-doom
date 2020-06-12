@@ -15,8 +15,13 @@ public class Patrol : NPCbaseFSM
     {
         Debug.Log("Patrol State");
 
+        isChasing = false;
+        isPatrolling = true;
+        isAttacking = false;
+        isDead = false;
+
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        //agent.isStopped = false;
+        agent.isStopped = false;
 
         waitTime = startTime;
         wayPoints = GameObject.FindGameObjectsWithTag("wayPoints");
@@ -26,14 +31,12 @@ public class Patrol : NPCbaseFSM
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
         if (Vector3.Distance(wayPoints[currentWp].transform.position, NPC.transform.position) < accuracy)
         {
             if (waitTime <= 0)
             {
                 waitTime = startTime;
                 currentWp = Random.Range(0, wayPoints.Length);
-
             }
             else
             {
@@ -42,7 +45,7 @@ public class Patrol : NPCbaseFSM
         }
         agent.SetDestination(wayPoints[currentWp].transform.position);
 
-
+        enemyAI.EnemyRaycast();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
