@@ -131,7 +131,7 @@ public class Pistol : MonoBehaviour
                 StartCoroutine("MuzzleLight");
                 canAttack = false;
 
-                UnitController target = hit.transform.GetComponent<UnitController>();
+                TempEnemy target = hit.transform.GetComponent<TempEnemy>();
                 if (target != null)
                 {
                     target.TakeDamage(10);

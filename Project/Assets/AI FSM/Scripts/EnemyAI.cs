@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Animator anim;
+    Animator anim;
     public GameObject playerGo;
     public float rayCastdistance;
 
@@ -34,7 +34,8 @@ public class EnemyAI : MonoBehaviour
     {
         dead();
 
-        // EnemyRaycast();
+        //anim.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
+        EnemyRaycast();
     }
 
     // Used in animation do not delete
@@ -48,6 +49,17 @@ public class EnemyAI : MonoBehaviour
         GameObject a = Instantiate(acid, mouth.transform.position, mouth.transform.rotation);
         a.GetComponent<Rigidbody>().AddForce(mouth.transform.forward * acidSpitrange);
     }
+    public void StopFiring()
+    {
+
+        anim.SetTrigger("isAttacking");
+
+        //InvokeRepeating("fire",1f,1f) ;
+    }
+    // public void Firing()
+    // {
+    //     InvokeRepeating("Fire", 1f, 1f);
+    // }
 
     public void dead()
     {
@@ -56,44 +68,77 @@ public class EnemyAI : MonoBehaviour
             anim.SetTrigger("isDead");
             Instantiate(bloodSplatter, transform.position, transform.rotation);
         }
+
+
+        //HP <= 0 sethp == 0
+
     }
     public void EnemyRaycast()
     {
-        #region  Raycast info
-        RaycastHit hitInfoForward;
-        RaycastHit hitInfoLeft;
-        RaycastHit hitInfoRight;
+        RaycastHit hitInfo;
 
         Ray forwardRay = new Ray(transform.position, transform.forward * rayCastdistance);
-        Ray rightRay = new Ray(transform.position, (transform.forward * 2 - transform.right) * rayCastdistance);
-        Ray leftRay = new Ray(transform.position, (transform.forward * 2 - (-transform.right)) * rayCastdistance);
+        Ray rightRay = new Ray(transform.position, (transform.forward - transform.right) * rayCastdistance);
+        Ray leftRay = new Ray(transform.position, (transform.forward - (-transform.right)) * rayCastdistance);
         /// <summary>
         // Draws Green Line for raycast visual aide
         // new vector 3 serves as offset for raycast
         /// </summary>
 
         Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
-        Debug.DrawRay(transform.position, (transform.forward * 2 - transform.right) * rayCastdistance, Color.green);
-        Debug.DrawRay(transform.position, (transform.forward * 2 - (-transform.right)) * rayCastdistance, Color.green);
-        #endregion
+        Debug.DrawRay(transform.position, (transform.forward - transform.right) * rayCastdistance, Color.green);
+        Debug.DrawRay(transform.position, (transform.forward - (-transform.right)) * rayCastdistance, Color.green);
 
         #region Detects Player
-        if (Physics.Raycast(forwardRay, out hitInfoForward, rayCastdistance))
+        if (Physics.Raycast(forwardRay, out hitInfo, rayCastdistance))
         {
-            Debug.DrawRay(transform.position, transform.forward * 2 * rayCastdistance, Color.red);
-            PlayerDetection(hitInfoForward);
+            if (hitInfo.collider != null)
+            {
+                if (hitInfo.collider.tag == "Player")
+                {
+
+                    Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.red);
+                    anim.SetTrigger("isChasing");
+                    Debug.Log("PLAYER DETECTED");
+                    //firing();
+
+
+                }
+                else
+                {
+
+                    anim.SetTrigger("isPatrolling");
+                    Debug.Log("PATROLLING");
+                    //stopFiring();
+                }
+            }
+            PlayerDetection(hitInfo);
         }
-        else if (Physics.Raycast(rightRay, out hitInfoLeft, rayCastdistance))
+        else if (Physics.Raycast(rightRay, out hitInfo, rayCastdistance))
         {
-            Debug.DrawRay(transform.position, (transform.forward * 2 - transform.right) * rayCastdistance, Color.red);
-            PlayerDetection(hitInfoLeft);
+            PlayerDetection(hitInfo);
         }
-        else if (Physics.Raycast(leftRay, out hitInfoRight, rayCastdistance))
+        else if (Physics.Raycast(leftRay, out hitInfo, rayCastdistance))
         {
-            Debug.DrawRay(transform.position, (transform.forward * 2 - (-transform.right)) * rayCastdistance, Color.red);
-            PlayerDetection(hitInfoRight);
+            PlayerDetection(hitInfo);
         }
         #endregion
+
+        #region Attacks Player
+        Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
+                                             transform.position.y,
+                                             playerGo.transform.position.z);
+
+        if (Vector3.Distance(transform.position, targetPosition) > distanceToStop)
+        {
+            anim.SetTrigger("Attack");
+        }
+        else if (Vector3.Distance(transform.position, targetPosition) < distanceToStop)
+        {
+            anim.SetTrigger("Chase");
+        }
+        #endregion
+
 
     }
 
@@ -103,6 +148,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (hitInfo.collider.tag == "Player")
             {
+                Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.red);
                 anim.SetTrigger("Chase");
             }
             else

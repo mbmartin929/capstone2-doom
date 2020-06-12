@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    #region Public Variables
-    // Instantiates Singleton
-    public static GameManager Instance { set; get; }
-
-    public int frameRate = 200;
-
-    #endregion 
-
     private void Awake()
     {
-        // Sets Singleton
-        Instance = this;
-
-        // Sets Framerate
-        Application.targetFrameRate = frameRate;
+        Application.targetFrameRate = 300;
     }
 
     // Start is called before the first frame update
