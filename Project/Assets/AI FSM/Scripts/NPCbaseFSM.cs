@@ -6,10 +6,18 @@ public class NPCbaseFSM : StateMachineBehaviour
 {
     public GameObject NPC;
     public GameObject opponent;
-    //private float speed = 2.0f;
-    //private float rotSpeed = 0.5f;
+
     public float accuracy = 2.0f;
     public NavMeshAgent agent;
+
+    protected bool isAttacking;
+    protected bool isPatrolling;
+    protected bool isChasing;
+    protected bool isDead;
+
+    protected EnemyAI enemyAI;
+
+    public bool canAttack;
 
     void Awake()
     {
@@ -21,5 +29,6 @@ public class NPCbaseFSM : StateMachineBehaviour
         NPC = animator.gameObject;
         agent = NPC.GetComponent<NavMeshAgent>();
         opponent = NPC.GetComponent<EnemyAI>().playerGo;
+        enemyAI = NPC.GetComponent<EnemyAI>();
     }
 }
