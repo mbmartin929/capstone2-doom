@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         dead();
-
+        takeDamage();
         // EnemyRaycast();
     }
 
@@ -42,6 +42,16 @@ public class EnemyAI : MonoBehaviour
     {
 
     }
+
+    public void takeDamage()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            anim.Play("GetHit", 0, 0.25f);
+        }
+
+    }
+
 
     public void Fire()
     {
