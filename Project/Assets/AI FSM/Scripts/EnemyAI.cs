@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     public GameObject playerGo;
     public float rayCastdistance;
 
@@ -43,6 +43,11 @@ public class EnemyAI : MonoBehaviour
     {
 
     }
+    public void takeDamage()
+    {
+
+    }
+
 
     public void Fire()
     {
@@ -60,6 +65,8 @@ public class EnemyAI : MonoBehaviour
     // {
     //     InvokeRepeating("Fire", 1f, 1f);
     // }
+
+
 
     public void dead()
     {
