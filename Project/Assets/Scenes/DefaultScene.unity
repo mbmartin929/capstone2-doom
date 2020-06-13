@@ -12816,6 +12816,8 @@ GameObject:
   - component: {fileID: 1708960011}
   - component: {fileID: 1708960013}
   - component: {fileID: 1708960012}
+  - component: {fileID: 1708960014}
+  - component: {fileID: 1708960015}
   m_Layer: 0
   m_Name: ArmorPotion
   m_TagString: ArmorPotion
@@ -12906,6 +12908,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &1708960014
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708960010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1708960015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708960010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61dfe134931bf24b952c372ba0faa8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 642758103}
+  ArmorPotionAmount: 1
 --- !u!1 &1844016701
 GameObject:
   m_ObjectHideFlags: 0
@@ -12918,6 +12947,7 @@ GameObject:
   - component: {fileID: 1844016703}
   - component: {fileID: 1844016702}
   - component: {fileID: 1844016705}
+  - component: {fileID: 1844016706}
   m_Layer: 0
   m_Name: HealthPotion
   m_TagString: HealthPotion
@@ -13021,6 +13051,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.18139023
   m_Center: {x: 0, y: -0.012889683, z: 0}
+--- !u!114 &1844016706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844016701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746ddfcc4f00f5a45be59e95b6dbb536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 642758103}
+  HealthPotionAmount: 1
 --- !u!1 &1881317781
 GameObject:
   m_ObjectHideFlags: 0
