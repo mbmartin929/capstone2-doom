@@ -23,6 +23,11 @@ public class UnitController : MonoBehaviour
 
     void Awake()
     {
+
+    }
+
+    void Start()
+    {
         curHealth = maxHealth;
         curArmor = maxArmor;
     }
@@ -53,17 +58,6 @@ public class UnitController : MonoBehaviour
     {
         if (CurHealth <= 0) return true;
         else return false;
-    }
-
-    public void TakeDamage(int amount)
-    {
-        if (curArmor <= 0) curHealth -= amount;
-
-    }
-
-    public void Die()
-    {
-        Debug.Log("Die");
     }
 
     public void RestoreHealth(int amount)

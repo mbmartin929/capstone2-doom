@@ -31,21 +31,24 @@ public class Patrol : NPCbaseFSM
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(wayPoints[currentWp].transform.position, NPC.transform.position) < accuracy)
+        if (!enemyController.IsDead())
         {
-            if (waitTime <= 0)
+            if (Vector3.Distance(wayPoints[currentWp].transform.position, NPC.transform.position) < accuracy)
             {
-                waitTime = startTime;
-                currentWp = Random.Range(0, wayPoints.Length);
+                if (waitTime <= 0)
+                {
+                    waitTime = startTime;
+                    currentWp = Random.Range(0, wayPoints.Length);
+                }
+                else
+                {
+                    waitTime -= Time.deltaTime;
+                }
             }
-            else
-            {
-                waitTime -= Time.deltaTime;
-            }
-        }
-        agent.SetDestination(wayPoints[currentWp].transform.position);
+            agent.SetDestination(wayPoints[currentWp].transform.position);
 
-        enemyAI.EnemyRaycast();
+            enemyAI.EnemyRaycast();
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

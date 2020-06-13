@@ -19,12 +19,17 @@ public class Dead : NPCbaseFSM
         base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = true;
 
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.isStopped = true;
+        Vector3 targetRotation = new Vector3(opponent.transform.position.x,
+                                             agent.transform.position.y,
+                                             opponent.transform.position.z);
+
+        agent.transform.LookAt(targetRotation);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

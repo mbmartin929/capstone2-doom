@@ -100,7 +100,7 @@ public class Pistol : MonoBehaviour
                 }
                 else if (hit.transform.tag == "Enemy")
                 {
-                    TempEnemy enemy = hit.transform.GetComponent<TempEnemy>();
+                    EnemyController enemy = hit.transform.GetComponent<EnemyController>();
                     foreach (GameObject item in enemy.bloodSplashGos)
                     {
                         if (item.tag == "Hit Normal")
@@ -115,12 +115,13 @@ public class Pistol : MonoBehaviour
                         }
 
                     }
-                    // GameObject bloodSplashGo = Instantiate(enemy.bloodSplashGo, hit.point, Quaternion.LookRotation(hit.normal));
-                    // bloodSplashGo.transform.parent = hit.transform;
+
                     if (hit.transform.gameObject != null)
                     {
-                        //hit.transform.GetComponent<TempEnemy>().PlayParticleSystem();
+
                     }
+
+                    enemy.TakeDamage(10);
                 }
 
                 pistolMuzzle.Play();
@@ -130,14 +131,6 @@ public class Pistol : MonoBehaviour
                 anim.SetTrigger("Shoot");
                 StartCoroutine("MuzzleLight");
                 canAttack = false;
-
-                UnitController target = hit.transform.GetComponent<UnitController>();
-
-                if (target != null)
-                {
-                    target.TakeDamage(10);
-               
-                }
             }
         }
     }

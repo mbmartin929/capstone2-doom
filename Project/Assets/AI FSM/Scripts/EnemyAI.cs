@@ -17,9 +17,12 @@ public class EnemyAI : MonoBehaviour
     public GameObject bloodSplatter;
     public float distanceToStop = 3.0f;
 
+    private EnemyController enemyController;
+
     void Awake()
     {
         playerGo = GameObject.FindGameObjectWithTag("Player");
+        enemyController = GetComponent<EnemyController>();
     }
 
     // Start is called before the first frame update
@@ -32,9 +35,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dead();
 
-        // EnemyRaycast();
     }
 
     // Used in animation do not delete
@@ -45,9 +46,9 @@ public class EnemyAI : MonoBehaviour
 
     public void takeDamage()
     {
-        
+
         anim.Play("GetHit", 0, 0.25f);
-        
+
     }
 
 
@@ -57,14 +58,6 @@ public class EnemyAI : MonoBehaviour
         a.GetComponent<Rigidbody>().AddForce(mouth.transform.forward * acidSpitrange);
     }
 
-    public void dead()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            anim.SetTrigger("isDead");
-            Instantiate(bloodSplatter, transform.position, transform.rotation);
-        }
-    }
     public void EnemyRaycast()
     {
         #region  Raycast info

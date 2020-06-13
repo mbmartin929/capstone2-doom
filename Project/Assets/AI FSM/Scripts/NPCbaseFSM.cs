@@ -16,6 +16,7 @@ public class NPCbaseFSM : StateMachineBehaviour
     protected bool isDead;
 
     protected EnemyAI enemyAI;
+    protected EnemyController enemyController;
 
     public bool canAttack;
 
@@ -30,5 +31,6 @@ public class NPCbaseFSM : StateMachineBehaviour
         agent = NPC.GetComponent<NavMeshAgent>();
         opponent = NPC.GetComponent<EnemyAI>().playerGo;
         enemyAI = NPC.GetComponent<EnemyAI>();
+        enemyController = NPC.GetComponent<EnemyController>();
     }
 }
