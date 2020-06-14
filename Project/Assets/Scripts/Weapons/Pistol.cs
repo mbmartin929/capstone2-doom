@@ -47,6 +47,7 @@ public class Pistol : MonoBehaviour
     {
         fpsCam.transform.eulerAngles += camRotation;
         fpsCam.fieldOfView = FOV;
+
         //Debug.Log(fpsCam.transform.eulerAngles);
 
         //if (fpsCam.fieldOfView)
@@ -64,6 +65,9 @@ public class Pistol : MonoBehaviour
 
     private void Shoot()
     {
+        fpsCam.transform.eulerAngles += camRotation;
+
+
         RaycastHit hit;
         if (canAttack)
         {
