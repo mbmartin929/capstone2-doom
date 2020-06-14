@@ -104,6 +104,8 @@ MonoBehaviour:
   muzzleLight: {fileID: 0}
   hitEffect: {fileID: 3291211880898960590, guid: db1db929cfd7cfa459968e10ecc71399,
     type: 3}
+  camRotation: {x: 0, y: 0, z: 0}
+  FOV: 0
 --- !u!95 &1645848431
 Animator:
   serializedVersion: 3
