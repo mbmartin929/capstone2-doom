@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
+    public GameObject player;
+    protected UnitController unit;
     public string itemName;
     public int healAmount;
     private void Start()
     {
-        
+        unit = player.GetComponent<UnitController>();
     }
 
     public string ItemName
@@ -27,6 +29,8 @@ public class PickUpController : MonoBehaviour
         set
         {
             healAmount = value;
+            
+    
         }
     }
   
