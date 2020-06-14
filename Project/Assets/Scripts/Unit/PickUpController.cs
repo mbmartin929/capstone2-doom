@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    //[SerializeField]
-    //protected int healAmountArmor;
-
-    public GameObject player;
-    protected UnitController unit;
-
+    public string itemName;
+    public int healAmount;
     private void Start()
     {
-        unit = player.GetComponent<UnitController>();
-    }
-    protected virtual void healHp(int healAmountHp)
-    {
-        unit.RestoreHealth(healAmountHp); 
+        
     }
 
-    public virtual void healArmor(int healAmountArmor)
+    public string ItemName
     {
-        unit.RestoreArmor(healAmountArmor);
+        get { return itemName; }
+
+        set
+        {
+            itemName = value;       
+        }
     }
+
+    public int HealAmount
+    {
+        get { return healAmount; }
+        set
+        {
+            healAmount = value;
+        }
+    }
+  
 
 
 

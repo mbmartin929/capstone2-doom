@@ -6,14 +6,13 @@ public class ArmorPotion : PickUpController
 {
     [SerializeField]
     private int healAmountArmor;
-    private void OnTriggerEnter(Collider other)
+
+
+     void Start()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            healArmor(healAmountArmor);
-            Debug.Log("Armor PICKED UP! " + healAmountArmor);
-            Destroy(this.gameObject);
-        }
+        PickUpController Armor = new PickUpController();
+        Armor.itemName = "Armor";
+        Armor.healAmount = healAmountArmor;
     }
 
 }
