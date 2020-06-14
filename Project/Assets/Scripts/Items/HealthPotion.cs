@@ -2,32 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPotion : MonoBehaviour
+public class HealthPotion : PickUpController
 {
-    public GameObject player;
-    protected UnitController unit;
     [SerializeField]
-    private int HealthPotionAmount;
-    // Start is called before the first frame update
-    void Start()
-    {
-        unit = player.GetComponent<UnitController>();
-    }
+    protected int healAmountHp;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            unit.RestoreHealth(HealthPotionAmount);
-            Debug.Log("Hp PICKED UP!");
+            healHp(healAmountHp);
+            Debug.Log("Hp PICKED UP! " + healAmountHp);
             Destroy(this.gameObject);
-            //if(unit.CurHealth < unit.maxHealth)
-            //{
-            //    unit.RestoreHealth(HealthPotionAmount);
-            //    Debug.Log("Hp PICKED UP!");
-            //    Destroy(other.gameObject);
-            //} 
         }
-
     }
+
+    //public GameObject player;
+    //protected UnitController unit;
+    //[SerializeField]
+    //private int HealthPotionAmount;
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    unit = player.GetComponent<UnitController>();
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        unit.RestoreHealth(HealthPotionAmount);
+    //        Debug.Log("Hp PICKED UP!");
+    //        Destroy(this.gameObject);
+    //        //if(unit.CurHealth < unit.maxHealth)
+    //        //{
+    //        //    unit.RestoreHealth(HealthPotionAmount);
+    //        //    Debug.Log("Hp PICKED UP!");
+    //        //    Destroy(other.gameObject);
+    //        //} 
+    //    }
+
+    //}
 }

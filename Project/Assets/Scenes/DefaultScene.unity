@@ -12934,7 +12934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 642758103}
-  ArmorPotionAmount: 1
+  healAmountArmor: 25
 --- !u!1 &1844016701
 GameObject:
   m_ObjectHideFlags: 0
@@ -13064,7 +13064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 642758103}
-  HealthPotionAmount: 1
+  healAmountHp: 14
 --- !u!1 &1881317781
 GameObject:
   m_ObjectHideFlags: 0
