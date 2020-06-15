@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class Patrol : NPCbaseFSM
 {
 
-    GameObject[] wayPoints;
+    Transform[] wayPoints;
     int currentWp;
     private float waitTime;
     public float startTime;
@@ -24,7 +24,7 @@ public class Patrol : NPCbaseFSM
         agent.isStopped = false;
 
         waitTime = startTime;
-        wayPoints = GameObject.FindGameObjectsWithTag("wayPoints");
+        wayPoints = enemyAI.waypoints;
         currentWp = 0;
     }
 

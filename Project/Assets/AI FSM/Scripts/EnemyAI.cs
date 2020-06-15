@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject bloodSplatter;
     public float distanceToStop = 3.0f;
 
+    public Transform[] waypoints;
+
     private EnemyController enemyController;
 
     void Awake()
