@@ -51,7 +51,7 @@ public class EnemyController : UnitController
         }
         else
         {
-
+            Die();
         }
     }
 
@@ -63,7 +63,7 @@ public class EnemyController : UnitController
 
     private IEnumerator GetHit()
     {
-        if (IsDead()) animator.SetTrigger("Dead");
+        if (IsDead()) Die();
         else animator.SetTrigger("Get Hit");
 
         yield return new WaitForSeconds(0.35f);

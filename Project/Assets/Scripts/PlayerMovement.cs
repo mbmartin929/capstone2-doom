@@ -75,11 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
         // velocity.y += gravity * Time.deltaTime;
 
-        Jump();
-        Dash();
-        Smash();
         //CharacterControllerMove();
         //RigidbodyMove();
+
+        // Jump();
+        // Dash();
+        // Smash();
     }
 
     private void FixedUpdate()
