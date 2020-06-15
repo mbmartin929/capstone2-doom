@@ -30,14 +30,20 @@ public class EnemyController : UnitController
 
     public void TakeDamage(int amount)
     {
-        if (!IsDead())
+        if (IsDead())
+        {
+            // This if statement is not being called
+            Debug.Log("Take Damage Die");
+            //Die();
+        }
+        else if (!IsDead())
         {
             StartCoroutine(GetHit());
 
             if (CurArmor <= 0)
             {
-                Debug.Log("Health Damage: " + amount);
-                Debug.Log("Remaining Health: " + CurHealth);
+                // Debug.Log("Health Damage: " + amount);
+                // Debug.Log("Remaining Health: " + CurHealth);
 
                 CurHealth -= amount;
             }
@@ -47,11 +53,11 @@ public class EnemyController : UnitController
                 CurArmor -= amount;
             }
 
-            if (CurHealth <= 0) Die();
-        }
-        else
-        {
-            Die();
+            if (CurHealth <= 0)
+            {
+                Debug.Log("Hi");
+                Die();
+            }
         }
     }
 
@@ -63,10 +69,14 @@ public class EnemyController : UnitController
 
     private IEnumerator GetHit()
     {
-        if (IsDead()) Die();
+        if (IsDead())
+        {
+            Debug.Log("IENumerator Die");
+            //Die();
+        }
         else animator.SetTrigger("Get Hit");
 
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.45f);
 
         if (!IsDead()) animator.SetTrigger("Attack");
         else animator.SetTrigger("Dead");

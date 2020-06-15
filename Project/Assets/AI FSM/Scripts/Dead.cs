@@ -18,8 +18,6 @@ public class Dead : NPCbaseFSM
 
         base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = true;
-
-
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

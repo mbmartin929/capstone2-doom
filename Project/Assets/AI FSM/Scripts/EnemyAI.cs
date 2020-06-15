@@ -40,20 +40,6 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    // Used in animation do not delete
-    public void damageTo()
-    {
-
-    }
-
-    public void takeDamage()
-    {
-
-        anim.Play("GetHit", 0, 0.25f);
-
-    }
-
-
     public void Fire()
     {
         GameObject a = Instantiate(acid, mouth.transform.position, mouth.transform.rotation);
