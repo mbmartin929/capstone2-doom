@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Chase : NPCbaseFSM
 {
-
-
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        base.OnStateEnter(animator, stateInfo, layerIndex);
+        agent.isStopped = false;
+
         Debug.Log("Chase State");
 
         isChasing = true;
         isPatrolling = false;
         isAttacking = false;
         isDead = false;
-
-        base.OnStateEnter(animator, stateInfo, layerIndex);
-        agent.isStopped = false;
-
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,6 +23,8 @@ public class Chase : NPCbaseFSM
     {
         if (!enemyController.IsDead())
         {
+            //Debug.Log("Chasing");
+
             agent.SetDestination(opponent.transform.position);
             Vector3 targetRotation = new Vector3(opponent.transform.position.x,
                                                  agent.transform.position.y,

@@ -13,19 +13,19 @@ public class Patrol : NPCbaseFSM
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Patrol State");
-
-        isChasing = false;
-        isPatrolling = true;
-        isAttacking = false;
-        isDead = false;
-
         base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = false;
 
         waitTime = startTime;
         wayPoints = enemyAI.waypoints;
         currentWp = 0;
+
+        Debug.Log("Patrol State");
+
+        isChasing = false;
+        isPatrolling = true;
+        isAttacking = false;
+        isDead = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
