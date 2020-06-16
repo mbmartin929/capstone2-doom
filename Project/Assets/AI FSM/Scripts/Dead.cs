@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Dead : NPCbaseFSM
 {
-
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -31,7 +29,13 @@ public class Dead : NPCbaseFSM
                                              agent.transform.position.y,
                                              opponent.transform.position.z);
 
-        agent.transform.LookAt(targetRotation);
+        //LookAwayFrom(targetRotation);
+    }
+
+    private void LookAwayFrom(Vector3 point)
+    {
+        point = 2.0f * agent.transform.position - point;
+        agent.transform.LookAt(point);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
