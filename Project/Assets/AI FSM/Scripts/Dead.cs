@@ -18,19 +18,20 @@ public class Dead : NPCbaseFSM
 
         base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = true;
+
+        //agent.GetComponent<EnemyAI>().anim.SetTrigger("Dead");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (enemyController.IsDead())
-        {
-            Vector3 targetRotation = new Vector3(opponent.transform.position.x,
-                                                 agent.transform.position.y,
-                                                 opponent.transform.position.z);
+        //Debug.Log("Dead State Update");
 
-            agent.transform.LookAt(targetRotation);
-        }
+        Vector3 targetRotation = new Vector3(opponent.transform.position.x,
+                                             agent.transform.position.y,
+                                             opponent.transform.position.z);
+
+        agent.transform.LookAt(targetRotation);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

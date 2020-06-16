@@ -6,6 +6,9 @@ public class EnemyController : UnitController
 {
     public GameObject[] bloodSplashGos;
 
+    public int CurrentHealth;
+    public bool isDead;
+
     private EnemyAI enemyAI;
     private Animator animator;
 
@@ -19,13 +22,15 @@ public class EnemyController : UnitController
     void Start()
     {
         CurHealth = maxHealth;
-        Debug.Log(CurHealth);
+        // Debug.Log(CurHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //CurrentHealth = CurHealth;
+        //isDead = IsDead();
+        //if (IsDead()) Die();
     }
 
     public void TakeDamage(int amount)
@@ -38,32 +43,32 @@ public class EnemyController : UnitController
         }
         else if (!IsDead())
         {
-            StartCoroutine(GetHit());
-
             if (CurArmor <= 0)
             {
-                // Debug.Log("Health Damage: " + amount);
-                // Debug.Log("Remaining Health: " + CurHealth);
-
+                // DECREASES HEALTH
                 CurHealth -= amount;
+
+                if (IsDead())
+                {
+                    //Debug.Log("Hi");
+                    Die();
+                }
+                else StartCoroutine(GetHit());
             }
             else
             {
-                Debug.Log("Armor Damage: " + amount);
+                // DECREASES ARMOR
                 CurArmor -= amount;
+                StartCoroutine(GetHit());
             }
 
-            if (CurHealth <= 0)
-            {
-                Debug.Log("Hi");
-                Die();
-            }
+
         }
     }
 
     public void Die()
     {
-        Debug.Log("Die");
+        //Debug.Log("Die");
         animator.SetTrigger("Dead");
     }
 
@@ -74,12 +79,23 @@ public class EnemyController : UnitController
             Debug.Log("IENumerator Die");
             //Die();
         }
-        else animator.SetTrigger("Get Hit");
+        else
+        {
+            animator.SetTrigger("Get Hit");
+        }
 
         yield return new WaitForSeconds(0.45f);
 
-        if (!IsDead()) animator.SetTrigger("Attack");
-        else animator.SetTrigger("Dead");
+        if (!IsDead())
+        {
+            Debug.Log("After IENumerator IS NOT DEAD");
+            animator.SetTrigger("Attack");
+        }
+        else
+        {
+            Debug.Log("After IENumerator IS DEAD");
+            animator.SetTrigger("Dead");
+        }
 
     }
 }

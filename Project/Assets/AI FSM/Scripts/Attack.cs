@@ -7,6 +7,13 @@ public class Attack : NPCbaseFSM
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        base.OnStateEnter(animator, stateInfo, layerIndex);
+
+        if (enemyController.IsDead())
+        {
+            Debug.Log("Attack State DEAD");
+        }
+
         Debug.Log("Attack State");
 
         isChasing = false;
@@ -14,10 +21,7 @@ public class Attack : NPCbaseFSM
         isAttacking = true;
         isDead = false;
 
-        base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = true;
-
-        //agent.GetComponent<nav.velocity = Vector3.zero
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -35,6 +39,10 @@ public class Attack : NPCbaseFSM
             {
                 agent.GetComponent<EnemyAI>().anim.SetTrigger("Chase");
             }
+        }
+        else
+        {
+            agent.GetComponent<EnemyAI>().anim.SetTrigger("Dead");
         }
     }
 
