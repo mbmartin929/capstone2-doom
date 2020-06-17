@@ -19,6 +19,7 @@ public class Pistol : MonoBehaviour
     public GameObject muzzleLight;
 
     public GameObject hitEffect;
+    public GameObject crosshair;
 
     private bool canAttack;
     private Animator anim;
@@ -71,6 +72,7 @@ public class Pistol : MonoBehaviour
         RaycastHit hit;
         if (canAttack)
         {
+            GetComponent<AudioSource>().Play();
             //fpsCam.gameObject.transform.Rotate()
 
 
@@ -105,6 +107,9 @@ public class Pistol : MonoBehaviour
                 else if (hit.transform.tag == "Enemy")
                 {
                     EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+
+                    if (!enemy.IsDead()) crosshair.GetComponent<Animator>().SetTrigger("Crosshair");
+
                     foreach (GameObject item in enemy.bloodSplashGos)
                     {
                         if (item.tag == "Hit Normal")

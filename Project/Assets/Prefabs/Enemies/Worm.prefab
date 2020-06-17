@@ -60,7 +60,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944319065133406735}
-  m_LocalRotation: {x: -0, y: 0.57196236, z: -0, w: 0.82027996}
+  m_LocalRotation: {x: 0, y: 0.57195973, z: 0, w: 0.8202817}
   m_LocalPosition: {x: -3.64, y: 2.499998, z: 3.32}
   m_LocalScale: {x: 1.73, y: 1.73, z: 1.73}
   m_Children:
@@ -81,7 +81,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 4c4849e62406764409145b4cccbd6ee5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -147,7 +147,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.33
-  m_Speed: 6
+  m_Speed: 4
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 300
@@ -179,8 +179,12 @@ MonoBehaviour:
   acidSpitrange: 500
   bloodSplatter: {fileID: 8776949695447349946, guid: 58e80f789f73407468ee37bb6d3840ad,
     type: 3}
-  distanceToStop: 10
-  waypoints: []
+  distanceToStop: 12
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &8944319065133406725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -224,9 +228,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 959021523748626345, guid: 13f5bbf918fb70c46b59ab391e4d48d9,
     type: 3}
-  maxHealth: 80
+  maxHealth: 30
   maxArmor: 0
   bloodSplashGos:
   - {fileID: 4043641235270271816, guid: 3bb3d12e2d421fa458f25f6c516806b7, type: 3}
   - {fileID: 4043641235270271816, guid: 3368ffd57491cc74384f3c3a04987412, type: 3}
   - {fileID: 4043641235270271816, guid: 90d78913900c27d409f54dc681eed630, type: 3}
+  CurrentHealth: 0
+  isDead: 0

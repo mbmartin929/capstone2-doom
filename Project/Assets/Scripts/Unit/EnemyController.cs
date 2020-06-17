@@ -35,6 +35,8 @@ public class EnemyController : UnitController
 
     public void TakeDamage(int amount)
     {
+
+
         if (IsDead())
         {
             // This if statement is not being called
@@ -43,6 +45,7 @@ public class EnemyController : UnitController
         }
         else if (!IsDead())
         {
+            GetComponent<AudioSource>().Play();
             if (CurArmor <= 0)
             {
                 // DECREASES HEALTH

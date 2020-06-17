@@ -16,6 +16,8 @@ public class Chase : NPCbaseFSM
         isPatrolling = false;
         isAttacking = false;
         isDead = false;
+
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
