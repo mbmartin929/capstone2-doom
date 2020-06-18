@@ -7,6 +7,8 @@ public class UnitController : MonoBehaviour
     // References Singleton
     protected GameManager gameManager;
 
+
+
     #region Variables
     [Header("Game Objects")]
     public GameObject projectileGo;

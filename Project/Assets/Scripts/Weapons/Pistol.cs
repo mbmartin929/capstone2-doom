@@ -7,6 +7,8 @@ public class Pistol : MonoBehaviour
     public Camera fpsCam;
     public float range = 100f;
 
+    public Vector3 startingPos;
+
     private GameObject cameraGo;
 
     public List<GameObject> actors = new List<GameObject>();
@@ -47,6 +49,10 @@ public class Pistol : MonoBehaviour
         fpsCam.transform.eulerAngles += camRotation;
         fpsCam.fieldOfView = FOV;
 
+        //Debug.Log(fpsCam.transform.eulerAngles);
+
+        //if (fpsCam.fieldOfView)
+
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -61,6 +67,7 @@ public class Pistol : MonoBehaviour
     private void Shoot()
     {
         fpsCam.transform.eulerAngles += camRotation;
+
 
         RaycastHit hit;
         if (canAttack)
