@@ -6354,9 +6354,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5e045bac36ac90a42a517fed844f5a1e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.741
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6440,6 +6440,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &353679590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6007149237254875987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f6017512c58634ab97746f1b71d9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileGo: {fileID: 0}
+  pistolMuzzle: {fileID: 138009620}
+  muzzleLight: {fileID: 1388014782}
+  hitEffect: {fileID: 3291211880898960590, guid: db1db929cfd7cfa459968e10ecc71399,
+    type: 3}
+  crosshair: {fileID: 43764127196655358}
+  ProjectileType: 0
+  damage: 10
+  range: 150
+  muzzleLightResetTime: 0.1
+  camRotation: {x: 0, y: 0, z: 0}
+  FOV: 80
+  audioShoot: {fileID: 8300000, guid: 5e045bac36ac90a42a517fed844f5a1e, type: 3}
+  audioReload: {fileID: 0}
 --- !u!1001 &4141079536524600181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6471,6 +6497,11 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 43764127196655358}
+    - target: {fileID: 6426004779527034568, guid: 0dd233844e4d1554ea6bd50ea9a840dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7648730109480126500, guid: 0dd233844e4d1554ea6bd50ea9a840dc,
         type: 3}
       propertyPath: m_Sprite
@@ -6581,17 +6612,17 @@ PrefabInstance:
     - target: {fileID: 4113806619459461200, guid: 306d5d024c11a514f878341192bfdf2f,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.6226415
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 4113806619459461200, guid: 306d5d024c11a514f878341192bfdf2f,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.6226415
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 4113806619459461200, guid: 306d5d024c11a514f878341192bfdf2f,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.6226415
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 4113806619459461200, guid: 306d5d024c11a514f878341192bfdf2f,
         type: 3}
@@ -6612,7 +6643,7 @@ PrefabInstance:
     - target: {fileID: 4113806619459461201, guid: 306d5d024c11a514f878341192bfdf2f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.485
+      value: 1.475
       objectReference: {fileID: 0}
     - target: {fileID: 4113806619459461201, guid: 306d5d024c11a514f878341192bfdf2f,
         type: 3}

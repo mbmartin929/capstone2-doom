@@ -2,32 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
-    public Camera fpsCam;
-    public float range = 100f;
+    // References Singleton
+    protected GameManager gameManager;
+    public enum projectileType { raycast, gameOject };
 
-    private GameObject cameraGo;
-
-    public List<GameObject> actors = new List<GameObject>();
-
-    public float muzzleLightResetTime = 0.1f;
-
+    #region Variables
+    [Header("Game Objects")]
+    public GameObject projectileGo;
     public ParticleSystem pistolMuzzle;
     public GameObject muzzleLight;
-
     public GameObject hitEffect;
     public GameObject crosshair;
 
-    private bool canAttack;
-    private Animator anim;
+    [Header("Stats")]
+    public projectileType ProjectileType;
+    public int damage;
+    public float range = 150f;
+    public float muzzleLightResetTime = 0.1f;
 
+    [Header("Others")]
+    protected Camera fpsCam;
+    protected GameObject cameraGo;
     public Vector3 camRotation;
+    private List<GameObject> actors = new List<GameObject>();
+    private Animator anim;
+    private bool canAttack;
     public float FOV;
+
+    protected AudioSource audioSource;
+    public AudioClip audioShoot;
+    public AudioClip audioReload;
+
+    #endregion
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -47,27 +60,24 @@ public class Pistol : MonoBehaviour
         fpsCam.transform.eulerAngles += camRotation;
         fpsCam.fieldOfView = FOV;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
-        }
+        if (ProjectileType == projectileType.raycast) if (Input.GetMouseButtonDown(0)) RaycastShoot();
+            else
+            {
+
+            }
     }
 
-    void FixedUpdate()
-    {
-
-    }
-
-    private void Shoot()
+    protected void RaycastShoot()
     {
         fpsCam.transform.eulerAngles += camRotation;
 
         RaycastHit hit;
         if (canAttack)
         {
-            GetComponent<AudioSource>().Play();
-            //fpsCam.gameObject.transform.Rotate()
+            //GetComponent<AudioSource>().Play();
 
+            // Plays shooting audio
+            audioSource.PlayOneShot(audioShoot);
 
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
             {
@@ -123,7 +133,7 @@ public class Pistol : MonoBehaviour
 
                     }
 
-                    enemy.TakeDamage(10);
+                    enemy.TakeDamage(damage);
                 }
 
                 pistolMuzzle.Play();
@@ -137,7 +147,7 @@ public class Pistol : MonoBehaviour
         }
     }
 
-    private IEnumerator MuzzleLight()
+    protected IEnumerator MuzzleLight()
     {
         muzzleLight.gameObject.SetActive(true);
 
@@ -146,12 +156,13 @@ public class Pistol : MonoBehaviour
         muzzleLight.gameObject.SetActive(false);
     }
 
-    private void FinishShooting()
+    protected void FinishShooting()
     {
         canAttack = true;
         anim.SetTrigger("Idle");
     }
 
+    #region Get Mesh from Raycast
     public void FindObjectwithTag(string _tag)
     {
         // Debug.Log(cameraGo.name);
@@ -203,4 +214,5 @@ public class Pistol : MonoBehaviour
         fpsCam.transform.eulerAngles += new Vector3(value, 0, 0);
     }
 
+    #endregion
 }
