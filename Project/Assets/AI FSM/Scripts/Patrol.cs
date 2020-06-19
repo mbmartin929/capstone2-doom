@@ -47,6 +47,7 @@ public class Patrol : NPCbaseFSM
             }
             agent.SetDestination(wayPoints[currentWp].transform.position);
 
+            //Debug.Log("Hi");
             enemyAI.EnemyRaycast();
         }
     }
