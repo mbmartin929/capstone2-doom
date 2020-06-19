@@ -7,8 +7,6 @@ public class Pistol : MonoBehaviour
     public Camera fpsCam;
     public float range = 100f;
 
-    public Vector3 startingPos;
-
     private GameObject cameraGo;
 
     public List<GameObject> actors = new List<GameObject>();
@@ -74,7 +72,6 @@ public class Pistol : MonoBehaviour
         {
             GetComponent<AudioSource>().Play();
             //fpsCam.gameObject.transform.Rotate()
-
 
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
             {
