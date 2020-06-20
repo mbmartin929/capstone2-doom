@@ -18,10 +18,8 @@ public class PickUpController : MonoBehaviour
         overlayImage.enabled = false;
     }
 
-    public void Update()
-    {
+
   
-    }
 
     public string ItemName
     {
