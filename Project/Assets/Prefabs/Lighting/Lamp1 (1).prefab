@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 7067678413892724611}
   - component: {fileID: 7067678413892724610}
   - component: {fileID: 2784235580505268552}
+  - component: {fileID: 582187734}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7067678413892724637
 Transform:
@@ -29,7 +30,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6554151223332715221}
   m_Father: {fileID: 7067678414696726214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83f87d2547a89174d8ce2ac895b64849, type: 2}
+  - {fileID: 2100000, guid: 4adfd1b019822864da700630fb3b4ea3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,6 +116,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e52446ca919e9a4a82dc82040334b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _LookMode: 1
+--- !u!114 &582187734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067678413892724636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f3b92170d9c78418985fb19f17485b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.75
 --- !u!1 &7067678414696726209
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +144,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7067678414696726214
 Transform:
@@ -139,10 +155,9 @@ Transform:
   m_GameObject: {fileID: 7067678414696726209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.03, y: -0.51, z: -14.73}
-  m_LocalScale: {x: 1.4598, y: 1.4598, z: 1.4598}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 7067678413892724637}
-  - {fileID: 6554151223332715221}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6554151223332715221}
   - component: {fileID: 903781780959171929}
+  - component: {fileID: 895467486}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -170,12 +186,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9125303749089593429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.072, y: 0.79800004, z: 0.212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7067678414696726214}
-  m_RootOrder: 1
+  m_Father: {fileID: 7067678413892724637}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &903781780959171929
 Light:
@@ -188,8 +204,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.9969802, g: 1, b: 0.75, a: 1}
+  m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -228,7 +244,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -238,3 +254,20 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &895467486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125303749089593429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d5ca92e52e0184abef7c6af957c985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minIntensity: 3.5
+  maxIntensity: 5.3
+  minRange: 5.7
+  maxRange: 4.7
+  changeTime: 0.35
