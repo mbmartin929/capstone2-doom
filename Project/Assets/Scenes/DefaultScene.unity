@@ -1378,6 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frameRate: 200
+  playerGo: {fileID: 0}
 --- !u!4 &801051038
 Transform:
   m_ObjectHideFlags: 0
@@ -7237,6 +7238,7 @@ MonoBehaviour:
   player: {fileID: 0}
   itemName: 
   healAmount: 0
+  time: 0
 --- !u!1 &1881317781
 GameObject:
   m_ObjectHideFlags: 0
@@ -8044,7 +8046,7 @@ PrefabInstance:
     - target: {fileID: 8944319065133406728, guid: df0ab383c0050784ea5546a155b326a4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.64
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8944319065133406728, guid: df0ab383c0050784ea5546a155b326a4,
         type: 3}
@@ -8096,6 +8098,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8944319065133406734, guid: df0ab383c0050784ea5546a155b326a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0650128e0ece72c42b6acae9c3191357, type: 2}
     - target: {fileID: 8944319065133406735, guid: df0ab383c0050784ea5546a155b326a4,
         type: 3}
       propertyPath: m_Name
