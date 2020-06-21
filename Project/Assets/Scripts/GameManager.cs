@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { set; get; }
 
     public int frameRate = 200;
+    public GameObject playerGo;
 
     #endregion 
 
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
 
         // Sets Framerate
         Application.targetFrameRate = frameRate;
+
+        // Gets player gameobject
+        playerGo = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Start is called before the first frame update

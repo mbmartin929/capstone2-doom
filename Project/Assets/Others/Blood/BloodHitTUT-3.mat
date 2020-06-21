@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BloodHitTUT-1
+  m_Name: BloodHitTUT-3
   m_Shader: {fileID: -6465566751694194690, guid: 1fa08685438f591409c9862f65ffab5c,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2800
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -25,6 +25,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9FDD3934: 0.35
+    - Vector1_9FDD3934: 0.5
     m_Colors:
     - Color_8DBAE976: {r: 2, g: 2, b: 2, a: 1}

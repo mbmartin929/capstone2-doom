@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyController : UnitController
 {
+    public GameObject bloodFlow;
     public GameObject[] bloodSplashGos;
+    public GameObject[] bloodSplatGos;
 
     public int CurrentHealth;
     public bool isDead;
 
     private EnemyAI enemyAI;
     private Animator animator;
+    private Vector3 trajectory;
+    public float velocity;
 
     void Awake()
     {
@@ -22,6 +26,7 @@ public class EnemyController : UnitController
     void Start()
     {
         CurHealth = maxHealth;
+        trajectory = UnityEngine.Random.insideUnitCircle * velocity;
         // Debug.Log(CurHealth);
     }
 
@@ -35,8 +40,6 @@ public class EnemyController : UnitController
 
     public void TakeDamage(int amount)
     {
-
-
         if (IsDead())
         {
             // This if statement is not being called
@@ -51,9 +54,18 @@ public class EnemyController : UnitController
                 // DECREASES HEALTH
                 CurHealth -= amount;
 
+                for (int i = 0; i <= 1; i++)
+                {
+                    GameObject bloodSplat = Instantiate(bloodSplatGos[Random.Range(0, bloodSplatGos.Length)], transform.position, Quaternion.identity);
+                    //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(150, 200f), transform.position, 500f, 0.0f, ForceMode.Force);
+                    bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-20f, 20f), Random.Range(-10f, 10f));
+                }
+
                 if (IsDead())
                 {
-                    //Debug.Log("Hi");
+                    GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
+                    bloodFlowGo.transform.parent = transform;
+
                     Die();
                 }
                 else StartCoroutine(GetHit());

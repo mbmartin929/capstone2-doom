@@ -25,8 +25,11 @@ public class Pistol : MonoBehaviour
     public Vector3 camRotation;
     public float FOV;
 
+    //private GameManager gameManager;
+
     void Awake()
     {
+        //gameManager = GameManager.Instance;
         anim = GetComponent<Animator>();
     }
 
@@ -109,6 +112,8 @@ public class Pistol : MonoBehaviour
 
                     foreach (GameObject item in enemy.bloodSplashGos)
                     {
+                        //if (!hit.transform.GetComponent<EnemyController>().IsDead())
+                        //{
                         if (item.tag == "Hit Normal")
                         {
                             GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
@@ -116,9 +121,11 @@ public class Pistol : MonoBehaviour
                         }
                         else
                         {
-                            GameObject bloodGo = Instantiate(item, hit.point, item.transform.rotation);
+                            GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
+                                                             item.transform.rotation);
                             bloodGo.transform.parent = hit.transform;
                         }
+                        //}
 
                     }
 
