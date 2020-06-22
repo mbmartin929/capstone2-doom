@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LooksAtPlayer : MonoBehaviour
 {
-    public enum LookMode { LookAway, LookTowards };
+    public enum LookMode { LookAway, LookTowards, Billboards };
     public LookMode _LookMode;
 
     private GameObject target;
@@ -29,6 +29,7 @@ public class LooksAtPlayer : MonoBehaviour
 
         if (_LookMode == LookMode.LookTowards) transform.LookAt(targetRotation);
         else if (_LookMode == LookMode.LookAway) LookAwayFrom(targetRotation);
+        else if (_LookMode == LookMode.Billboards) transform.forward = Camera.main.transform.forward;
     }
 
     private void LookAwayFrom(Vector3 point)
