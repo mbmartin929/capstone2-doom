@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class TempNavMesh : MonoBehaviour
 {
+    public float destinationWaitTime = 3f;
+    public float stopWaitTime;
+
     public Transform[] waypoints;
 
     private NavMeshAgent navMeshAgent;
@@ -15,7 +18,7 @@ public class TempNavMesh : MonoBehaviour
     {
         waypointID = 0;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        InvokeRepeating("GoToDestination", 0.0f, 2.0f);
+        InvokeRepeating("GoToDestination", 0.0f, destinationWaitTime);
     }
 
     // Start is called before the first frame update
