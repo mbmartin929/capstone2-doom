@@ -38,7 +38,6 @@ public class EightDirection : MonoBehaviour
 
     void Update()
     {
-
         //Vector3 viewDirection = -new Vector3(player.transform.forward.x, 0, player.transform.forward.z);
         //transform.LookAt(transform.position + viewDirection);
 
@@ -65,8 +64,6 @@ public class EightDirection : MonoBehaviour
 
     void SpriteDirection()
     {
-
-
         if (angle < 0) angle += 360;
         int directionID = (int)Mathf.Round(angle / 360f * 8) % 8;
         Debug.Log(directionID);
@@ -88,7 +85,7 @@ public class EightDirection : MonoBehaviour
     {
         if (angle < 0) angle += 360;
         int directionID = (int)Mathf.Round(angle / 360f * 8) % 8;
-        Debug.Log(directionID);
+        //Debug.Log(directionID);
 
         for (int i = 0; i < planes.Length; i++)
         {

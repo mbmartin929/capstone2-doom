@@ -19,7 +19,7 @@ public class Dead : NPCbaseFSM
 
         agent.enabled = false;
 
-        //agent.GetComponent<EnemyAI>().anim.SetTrigger("Dead");
+        AISFM.DisableEightDirection();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,9 +27,9 @@ public class Dead : NPCbaseFSM
     {
         //Debug.Log("Dead State Update");
 
-        Vector3 targetRotation = new Vector3(opponent.transform.position.x,
+        Vector3 targetRotation = new Vector3(playerGo.transform.position.x,
                                              agent.transform.position.y,
-                                             opponent.transform.position.z);
+                                             playerGo.transform.position.z);
 
         agent.transform.LookAt(targetRotation);
         //LookAwayFrom(targetRotation);

@@ -16,15 +16,15 @@ public class TempNavMesh : MonoBehaviour
 
     void Awake()
     {
-        waypointID = 0;
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        InvokeRepeating("GoToDestination", 0.0f, destinationWaitTime);
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        waypointID = 0;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        InvokeRepeating("GoToDestination", 0.0f, destinationWaitTime);
     }
 
     // Update is called once per frame
@@ -49,11 +49,10 @@ public class TempNavMesh : MonoBehaviour
     private void GoToDestination()
     {
         //navMeshAgent.destination = RandomNavSphere(transform.position, 10f, -1);
+        Debug.Log("TempNavMesh GoToDestination");
 
         waypointID = Random.Range(0, waypoints.Length);
 
         navMeshAgent.destination = waypoints[waypointID].position;
     }
-
-
 }

@@ -76,8 +76,6 @@ public class EnemyController : UnitController
                 CurArmor -= amount;
                 StartCoroutine(GetHit());
             }
-
-
         }
     }
 

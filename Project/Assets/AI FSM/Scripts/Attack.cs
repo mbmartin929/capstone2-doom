@@ -14,14 +14,16 @@ public class Attack : NPCbaseFSM
             Debug.Log("Attack State DEAD");
         }
 
-        Debug.Log("Attack State");
+        // Debug.Log("Attack State");
 
-        isChasing = false;
-        isPatrolling = false;
-        isAttacking = true;
-        isDead = false;
+        // isChasing = false;
+        // isPatrolling = false;
+        // isAttacking = true;
+        // isDead = false;
 
         agent.isStopped = true;
+
+        AISFM.DisableEightDirection();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -29,20 +31,20 @@ public class Attack : NPCbaseFSM
     {
         if (!enemyController.IsDead())
         {
-            Vector3 targetRotation = new Vector3(opponent.transform.position.x,
+            Vector3 targetRotation = new Vector3(playerGo.transform.position.x,
                                                  agent.transform.position.y,
-                                                 opponent.transform.position.z);
+                                                 playerGo.transform.position.z);
 
             agent.transform.LookAt(targetRotation);
 
-            if (Vector3.Distance(agent.transform.position, targetRotation) > enemyAI.distanceToStop + 3)
+            if (Vector3.Distance(agent.transform.position, targetRotation) > AISFM.distanceToStop + 8.0f)
             {
-                agent.GetComponent<EnemyAI>().anim.SetTrigger("Chase");
+                agent.GetComponent<AISFM>().singleAnim.SetTrigger("Chase");
             }
         }
         else
         {
-            agent.GetComponent<EnemyAI>().anim.SetTrigger("Dead");
+            agent.GetComponent<AISFM>().singleAnim.SetTrigger("Dead");
         }
     }
 
