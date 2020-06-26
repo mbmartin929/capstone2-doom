@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class NPCbaseFSM : StateMachineBehaviour
 {
     public GameObject NPC;
-    public GameObject opponent;
+    public GameObject playerGo;
 
     public float accuracy = 2.0f;
     public NavMeshAgent agent;
@@ -15,10 +15,13 @@ public class NPCbaseFSM : StateMachineBehaviour
     protected bool isChasing;
     protected bool isDead;
 
-    protected EnemyAI enemyAI;
     protected EnemyController enemyController;
 
+    protected AISFM AISFM;
+
     public bool canAttack;
+
+
 
     void Awake()
     {
@@ -30,10 +33,15 @@ public class NPCbaseFSM : StateMachineBehaviour
         NPC = animator.gameObject;
 
         //Debug.Log(animator.gameObject.name);
+        //Debug.Log("Hi");
 
         agent = NPC.GetComponent<NavMeshAgent>();
-        opponent = NPC.GetComponent<EnemyAI>().playerGo;
-        enemyAI = NPC.GetComponent<EnemyAI>();
+
+        AISFM = NPC.GetComponent<AISFM>();
+
+        playerGo = GameManager.Instance.playerGo;
+
         enemyController = NPC.GetComponent<EnemyController>();
     }
+
 }

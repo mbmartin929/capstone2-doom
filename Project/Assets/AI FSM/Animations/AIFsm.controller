@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  opponent: {fileID: 0}
+  playerGo: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
   canAttack: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  opponent: {fileID: 0}
+  playerGo: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
   canAttack: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  opponent: {fileID: 0}
+  playerGo: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
   canAttack: 0
@@ -470,7 +470,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  opponent: {fileID: 0}
+  playerGo: {fileID: 0}
+  accuracy: 2
+  agent: {fileID: 0}
+  canAttack: 0
+--- !u!114 &4222823017254723815
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d71ae60712e76145b6a3465942c575d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  playerGo: {fileID: 0}
   accuracy: 2
   agent: {fileID: 0}
   canAttack: 0
@@ -509,7 +526,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -7994513585589674130}
   - {fileID: 6325792382268818943}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 4222823017254723815}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

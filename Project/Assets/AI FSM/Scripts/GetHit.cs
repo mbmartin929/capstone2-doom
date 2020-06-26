@@ -16,7 +16,7 @@ public class GetHit : NPCbaseFSM
         isAttacking = false;
         isDead = false;
 
-
+        AISFM.DisableEightDirection();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

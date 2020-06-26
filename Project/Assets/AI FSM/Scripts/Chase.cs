@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Chase : NPCbaseFSM
 {
+    private float nextActionTime = 1.0f;
+    private float period = 0.0f;
+
+    private bool oneTime = false;
+
+    private float tempTime;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -12,36 +19,72 @@ public class Chase : NPCbaseFSM
 
         Debug.Log("Chase State");
 
-        isChasing = true;
-        isPatrolling = false;
-        isAttacking = false;
-        isDead = false;
-
-
+        //AISFM.DisableEightDirection();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        tempTime += Time.deltaTime;
         if (!enemyController.IsDead())
         {
-            //Debug.Log("Chasing");
+            // if (Time.time > nextActionTime)
+            // {
+            //     Debug.Log("Next Action Time");
 
-            agent.SetDestination(opponent.transform.position);
-            Vector3 targetRotation = new Vector3(opponent.transform.position.x,
-                                                 agent.transform.position.y,
-                                                 opponent.transform.position.z);
+            //     AISFM.tempPatrol = !AISFM.tempPatrol;
 
-            agent.transform.LookAt(targetRotation);
-
-
-            Vector3 targetPosition = new Vector3(opponent.transform.position.x,
-                                                 agent.transform.position.y,
-                                                 opponent.transform.position.z);
-
-            if (Vector3.Distance(agent.transform.position, targetPosition) < enemyAI.distanceToStop)
+            //     nextActionTime += period;
+            // }
+            if (tempTime > 1.5f)
             {
-                enemyAI.anim.SetTrigger("Attack");
+                tempTime = 0;
+
+                Debug.Log("Next Action Time");
+
+                AISFM.tempPatrol = !AISFM.tempPatrol;
+            }
+            else
+            {
+                AISFM.EnableEightDirection();
+            }
+
+            if (AISFM.tempPatrol)
+            {
+                AISFM.EnableEightDirection();
+                //AISFM.singleAnim.SetTrigger("Patrol");
+                //tempPatrol = false;
+
+                if (!oneTime)
+                {
+                    //Debug.Log("One Time is False!");
+                    AISFM.ChasePatrol(ref AISFM.tempPatrol, ref oneTime);
+                    oneTime = false;
+                }
+
+                //Debug.Log("Outside Void TempPatrol: " + tempPatrol);
+                //Debug.Log("Outside Void OneTime: " + oneTime);
+            }
+            else if (!AISFM.tempPatrol)
+            {
+                AISFM.DisableEightDirection();
+
+                agent.SetDestination(playerGo.transform.position);
+                Vector3 targetRotation = new Vector3(playerGo.transform.position.x,
+                                                     agent.transform.position.y,
+                                                     playerGo.transform.position.z);
+
+                agent.transform.LookAt(targetRotation);
+
+
+                Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
+                                                     agent.transform.position.y,
+                                                     playerGo.transform.position.z);
+
+                if (Vector3.Distance(agent.transform.position, targetPosition) <= AISFM.distanceToStop + 5.0f)
+                {
+                    AISFM.singleAnim.SetTrigger("Attack");
+                }
             }
         }
     }

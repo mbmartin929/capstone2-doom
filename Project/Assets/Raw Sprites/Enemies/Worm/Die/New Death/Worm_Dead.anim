@@ -46,17 +46,17 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 2100000, guid: 8d0cd1b3516d2e44c8e34d9be833de5d, type: 2}
-    - time: 0.083333336
+    - time: 0.16666667
       value: {fileID: 2100000, guid: 933ee29dfdaa83045aa9ab01ff559139, type: 2}
     - time: 0.25
       value: {fileID: 2100000, guid: bd136fee77e8fc3469dd2d7da9339ca1, type: 2}
-    - time: 0.41666666
+    - time: 0.33333334
       value: {fileID: 2100000, guid: 8b8cc14a540b3754a897dd64d3c64444, type: 2}
     - time: 0.5
       value: {fileID: 2100000, guid: 43cff53275a7bc747b0d815186c33327, type: 2}
     attribute: m_Materials.Array.data[0]
     path: 
-    classID: 212
+    classID: 23
     script: {fileID: 0}
   m_SampleRate: 12
   m_WrapMode: 0
@@ -76,7 +76,7 @@ AnimationClip:
       path: 0
       attribute: 0
       script: {fileID: 0}
-      typeID: 212
+      typeID: 23
       customType: 21
       isPPtrCurve: 1
     pptrCurveMapping:

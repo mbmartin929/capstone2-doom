@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Patrol : NPCbaseFSM
 {
-
     Transform[] wayPoints;
     int currentWp;
-    private float waitTime;
-    public float startTime;
+
+    private float nextActionTime = 0.0f;
+    private float period = 3.5f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -16,39 +16,35 @@ public class Patrol : NPCbaseFSM
         base.OnStateEnter(animator, stateInfo, layerIndex);
         agent.isStopped = false;
 
-        waitTime = startTime;
-        wayPoints = enemyAI.waypoints;
+        wayPoints = AISFM.waypoints;
         currentWp = 0;
 
         Debug.Log("Patrol State");
+        //Debug.Log(NPC.name);
 
-        isChasing = false;
-        isPatrolling = true;
-        isAttacking = false;
-        isDead = false;
+        // isChasing = false;
+        // isPatrolling = true;
+        // isAttacking = false;
+        // isDead = false;
+
+        AISFM.EnableEightDirection();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Debug.Log("Patrol State On State Update");
+
         if (!enemyController.IsDead())
         {
-            if (Vector3.Distance(wayPoints[currentWp].transform.position, NPC.transform.position) < accuracy)
+            if (Time.time > nextActionTime)
             {
-                if (waitTime <= 0)
-                {
-                    waitTime = startTime;
-                    currentWp = Random.Range(0, wayPoints.Length);
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
+                nextActionTime += period;
+                Debug.Log("Stop Wait Time");
+                AISFM.GoToDestination();
             }
-            agent.SetDestination(wayPoints[currentWp].transform.position);
 
-            //Debug.Log("Hi");
-            enemyAI.EnemyRaycast();
+            AISFM.EnemyRaycast();
         }
     }
 
@@ -57,17 +53,4 @@ public class Patrol : NPCbaseFSM
     {
 
     }
-
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

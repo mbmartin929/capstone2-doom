@@ -8,28 +8,42 @@ public class EnemyDirectionalSprite : MonoBehaviour
 
     private int directionID = 0;
 
-    private TempNavMesh tempNavMesh;
+    private AISFM AIFSM;
+
+    public bool isOn = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        tempNavMesh = GetComponent<TempNavMesh>();
+        AIFSM = GetComponent<AISFM>();
         //Debug.Log(tempNavMesh.gameObject.name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        directionID = tempNavMesh.waypointID;
-
-        for (int i = 0; i < faces.Length; i++)
+        if (isOn)
         {
-            if (i == directionID)
+            if (!AIFSM.tempPatrol)
             {
-                faces[i].SetActive(true);
-                //planes[i].GetComponent<Animator>().SetInteger("directionID", directionID);
+                //Debug.Log("8D: " + directionID);
+                directionID = AIFSM.waypointID;
             }
-            else faces[i].SetActive(false);
+            else directionID = AIFSM.tempID;
+
+            for (int i = 0; i < faces.Length; i++)
+            {
+                if (i == directionID)
+                {
+                    faces[i].SetActive(true);
+                }
+                else faces[i].SetActive(false);
+            }
         }
+    }
+
+    void FixedUpdate()
+    {
+
     }
 }
