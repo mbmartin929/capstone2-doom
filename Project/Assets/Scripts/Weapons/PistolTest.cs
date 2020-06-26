@@ -18,12 +18,7 @@ public class PistolTest : MonoBehaviour
     public float FOV;
 
 
-    private bool readyToFIre;
-    public float fireTime;
-    public float maxBulletSpread;
-    public float timeToSpread;
-    public float timeToMaxSpread;
-    public float fireDelay;
+    public float spreadFactor = 0.1f;
 
     void Awake()
     {
@@ -62,24 +57,14 @@ public class PistolTest : MonoBehaviour
         if (canAttack)
         {
             Vector3 shootDirection = fpsCam.transform.forward;
-            Quaternion fireRotation = Quaternion.LookRotation(shootDirection);
-            Quaternion randomRotation = Random.rotation;
+            shootDirection.x += Random.Range(-spreadFactor, spreadFactor);
+            shootDirection.y += Random.Range(-spreadFactor, spreadFactor);
 
-            float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, fireTime / timeToMaxSpread); //first shot = perfect, more shots less accurate
-            fireRotation = Quaternion.RotateTowards(fireRotation, randomRotation, Random.Range(0.0f, currentSpread)); //random rotation of bullets
-            if (Physics.Raycast(fpsCam.transform.position, fireRotation * Vector3.forward, out hit, range))
+            if (Physics.Raycast(fpsCam.transform.position, shootDirection, out hit, range))
             {
 
             }
-
-            readyToFIre = false;       
-            Invoke("SetReadytoFire", fireDelay);
         }
     }
 
-
-    private void SetReadyToFire()
-    {
-        readyToFIre = true;
-    }
 }
