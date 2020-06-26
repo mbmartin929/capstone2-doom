@@ -15,12 +15,14 @@ using UnityEngine;
 namespace EightDirectionalSpriteSystem
 {
     [ExecuteInEditMode]
-    [CreateAssetMenu(fileName="NewActorAnimation", menuName="EDSS/Actor Animation", order=8100)]
+    [CreateAssetMenu(fileName = "NewActorAnimation", menuName = "EDSS/Actor Animation", order = 8100)]
     public class ActorAnimation : ScriptableObject
     {
         public enum AnimMode { Once, Loop, PingPong }
 
         public enum AnimDirType { OneDirection, EightDirections }
+
+        public enum AnimAction { Attack, Idle, GetHit, Die }
 
         public string Name
         {
@@ -29,17 +31,22 @@ namespace EightDirectionalSpriteSystem
 
         public AnimDirType AnimType
         {
-            get { return animType;  }
+            get { return animType; }
+        }
+
+        public AnimAction Action
+        {
+            get { return animAction; }
         }
 
         public AnimMode Mode
         {
-            get { return animMode;  }
+            get { return animMode; }
         }
 
         public List<ActorFrame> FrameList
         {
-            get { return frameList;  }
+            get { return frameList; }
         }
 
         public float Speed
@@ -64,6 +71,9 @@ namespace EightDirectionalSpriteSystem
 
         [SerializeField]
         private AnimDirType animType = AnimDirType.OneDirection;
+
+        [SerializeField]
+        private AnimAction animAction = AnimAction.Idle;
 
         [SerializeField]
         private AnimMode animMode = AnimMode.Once;
