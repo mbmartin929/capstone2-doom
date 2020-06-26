@@ -156,7 +156,7 @@ namespace EightDirectionalSpriteSystem
                     }
                 }
             }
-
+            
 
             frameChangeDelay += 1.0f / currentAnimation.Speed;
         }
@@ -167,8 +167,7 @@ namespace EightDirectionalSpriteSystem
                 beforeRenderBillboardEvent();
 
             // calculate camera position on 2D XZ plane
-            //Debug.Log(Camera.current.name);
-            Vector3 cameraPosition2D = Camera.main.transform.position;
+            Vector3 cameraPosition2D = Camera.current.transform.position;
             cameraPosition2D.y = 0.0f;
 
             // calculate billboard position on 2D XZ plane
@@ -204,8 +203,8 @@ namespace EightDirectionalSpriteSystem
                     }
 
 
-                    Material material = currentAnimation.GetMaterial(currentFrameIndex, animFrameDirection);
-                    spriteRenderer.material = material;
+                    Sprite sprite = currentAnimation.GetSprite(currentFrameIndex, animFrameDirection);
+                    spriteRenderer.sprite = sprite;
                 }
 
                 Quaternion billboardRotation = Quaternion.LookRotation(-cameraVector, Vector3.up);

@@ -99,16 +99,16 @@ namespace EightDirectionalSpriteSystem
         public override void OnPreviewGUI(Rect r, GUIStyle background)
         {
             base.OnPreviewGUI(r, background);
-
+                
             ActorAnimation targetAnimation = serializedObject.targetObject as ActorAnimation;
-            Material currSprite = targetAnimation.GetMaterial(currFrame, currDirection);
+            Sprite currSprite = targetAnimation.GetSprite(currFrame, currDirection);
             if (currSprite != null)
             {
                 Texture2D previewTexture = AssetPreview.GetAssetPreview(currSprite);
 
                 if (previewTexture != null)
                 {
-                    //previewTexture.filterMode = currSprite.texture.filterMode;
+                    previewTexture.filterMode = currSprite.texture.filterMode;
                     EditorGUI.DrawTextureTransparent(r, previewTexture, ScaleMode.ScaleToFit);
                 }
             }
@@ -186,7 +186,7 @@ namespace EightDirectionalSpriteSystem
 
         private void InspectorFrameGUI()
         {
-            ActorAnimation.AnimDirType animType = (ActorAnimation.AnimDirType)propAnimType.enumValueIndex;
+            ActorAnimation.AnimDirType animType = (ActorAnimation.AnimDirType) propAnimType.enumValueIndex;
 
             EditorGUILayout.LabelField("Selected frame: " + string.Format("{0:00}", frameList.index + 1));
 
@@ -207,33 +207,33 @@ namespace EightDirectionalSpriteSystem
 
                 EditorGUILayout.BeginHorizontal();
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropBL.objectReferenceValue = EditorGUI.ObjectField(r, spritePropBL.objectReferenceValue, typeof(Material), false);
+                spritePropBL.objectReferenceValue = EditorGUI.ObjectField(r, spritePropBL.objectReferenceValue, typeof(Sprite), false);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropB.objectReferenceValue = EditorGUI.ObjectField(r, spritePropB.objectReferenceValue, typeof(Material), false);
+                spritePropB.objectReferenceValue = EditorGUI.ObjectField(r, spritePropB.objectReferenceValue, typeof(Sprite), false);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropBR.objectReferenceValue = EditorGUI.ObjectField(r, spritePropBR.objectReferenceValue, typeof(Material), false);
+                spritePropBR.objectReferenceValue = EditorGUI.ObjectField(r, spritePropBR.objectReferenceValue, typeof(Sprite), false);
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginHorizontal();
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropL.objectReferenceValue = EditorGUI.ObjectField(r, spritePropL.objectReferenceValue, typeof(Material), false);
+                spritePropL.objectReferenceValue = EditorGUI.ObjectField(r, spritePropL.objectReferenceValue, typeof(Sprite), false);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
                 if (arrowsIcon != null)
                     EditorGUI.DrawTextureTransparent(r, arrowsIcon);
-                //EditorGUI.DrawPreviewTexture(r, m_ArrowsIcon);
+                    //EditorGUI.DrawPreviewTexture(r, m_ArrowsIcon);
                 else
                     EditorGUI.DrawRect(r, Color.white);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropR.objectReferenceValue = EditorGUI.ObjectField(r, spritePropR.objectReferenceValue, typeof(Material), false);
+                spritePropR.objectReferenceValue = EditorGUI.ObjectField(r, spritePropR.objectReferenceValue, typeof(Sprite), false);
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginHorizontal();
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropFL.objectReferenceValue = EditorGUI.ObjectField(r, spritePropFL.objectReferenceValue, typeof(Material), false);
+                spritePropFL.objectReferenceValue = EditorGUI.ObjectField(r, spritePropFL.objectReferenceValue, typeof(Sprite), false);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropF.objectReferenceValue = EditorGUI.ObjectField(r, spritePropF.objectReferenceValue, typeof(Material), false);
+                spritePropF.objectReferenceValue = EditorGUI.ObjectField(r, spritePropF.objectReferenceValue, typeof(Sprite), false);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
-                spritePropFR.objectReferenceValue = EditorGUI.ObjectField(r, spritePropFR.objectReferenceValue, typeof(Material), false);
+                spritePropFR.objectReferenceValue = EditorGUI.ObjectField(r, spritePropFR.objectReferenceValue, typeof(Sprite), false);
                 EditorGUILayout.EndHorizontal();
 
             }
@@ -241,7 +241,7 @@ namespace EightDirectionalSpriteSystem
             {
                 SerializedProperty spriteProp = propSelectedFrameSprites.GetArrayElementAtIndex(0);
                 Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f));
-                spriteProp.objectReferenceValue = EditorGUI.ObjectField(r, new GUIContent(dirNames[0]), spriteProp.objectReferenceValue, typeof(Material), true);
+                spriteProp.objectReferenceValue = EditorGUI.ObjectField(r, new GUIContent(dirNames[0]), spriteProp.objectReferenceValue, typeof(Sprite), true);
             }
         }
 
@@ -267,7 +267,7 @@ namespace EightDirectionalSpriteSystem
         {
             ActorAnimation animation = target as ActorAnimation;
             animation.FrameList.Add(new ActorFrame());
-            if (list.index < 0)
+            if (list.index < 0 )
             {
                 list.index = 0;
             }
@@ -294,7 +294,7 @@ namespace EightDirectionalSpriteSystem
             propSelectedFrame = list.serializedProperty.GetArrayElementAtIndex(list.index);
             if (propSelectedFrame != null)
             {
-                propSelectedFrameSprites = propSelectedFrame.FindPropertyRelative("Materials");
+                propSelectedFrameSprites = propSelectedFrame.FindPropertyRelative("sprites");
             }
             else
             {
@@ -310,7 +310,7 @@ namespace EightDirectionalSpriteSystem
                 propSelectedFrame = list.serializedProperty.GetArrayElementAtIndex(list.index);
                 if (propSelectedFrame != null)
                 {
-                    propSelectedFrameSprites = propSelectedFrame.FindPropertyRelative("Materials");
+                    propSelectedFrameSprites = propSelectedFrame.FindPropertyRelative("sprites");
                 }
                 else
                 {

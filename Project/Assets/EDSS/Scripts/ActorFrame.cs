@@ -20,50 +20,50 @@ namespace EightDirectionalSpriteSystem
     public class ActorFrame
     {
         [SerializeField]
-        private Material[] materials;
+        private Sprite[] sprites;
 
         public ActorFrame()
         {
-            materials = new Material[8];
+            sprites = new Sprite[8];
         }
 
         public ActorFrame(ActorFrame other)
         {
-            materials = new Material[8];
+            sprites = new Sprite[8];
             for (int i = 0; i < 8; i++)
-                materials[i] = other.materials[i];
+                sprites[i] = other.sprites[i];
         }
 
-        public ActorFrame(Material[] materials)
+        public ActorFrame(Sprite[] sprites)
         {
-            this.materials = new Material[8];
+            this.sprites = new Sprite[8];
             for (int i = 0; i < 8; i++)
-                this.materials[i] = materials[i];
+                this.sprites[i] = sprites[i];
         }
 
-        public ActorFrame(Material material)
+        public ActorFrame(Sprite sprite)
         {
-            this.materials = new Material[8];
+            this.sprites = new Sprite[8];
             for (int i = 1; i < 8; i++)
-                this.materials[i] = null;
+                this.sprites[i] = null;
 
-            materials[0] = material;
+            sprites[0] = sprite;
         }
 
-        public void SetSprite(int direction, Material material)
+        public void SetSprite(int direction, Sprite sprite)
         {
-            if (materials == null)
+            if (sprites == null)
                 return;
 
-            materials[direction % 8] = material;
+            sprites[direction % 8] = sprite;
         }
 
-        public Material GetSprite(int direction)
+        public Sprite GetSprite(int direction)
         {
-            if (materials == null)
+            if (sprites == null)
                 return null;
 
-            return materials[direction % 8];
+            return sprites[direction % 8];
         }
     }
 }
