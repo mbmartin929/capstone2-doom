@@ -15,6 +15,7 @@ namespace EightDirectionalSpriteSystem
         private SerializedProperty propAnimMode;
         private SerializedProperty propFrameList;
         private SerializedProperty propSpeed;
+        private SerializedProperty propActionType;
 
         private ReorderableList frameList;
         private SerializedProperty propSelectedFrame;
@@ -30,6 +31,7 @@ namespace EightDirectionalSpriteSystem
         private GUIContent animTypeLabel = new GUIContent("Anim Type");
         private GUIContent animModeLabel = new GUIContent("Anim Mode");
         private GUIContent animationSpeedLabel = new GUIContent("Speed (fps)");
+        private GUIContent animationActionLabel = new GUIContent("Action");
 
         private Texture2D arrowsIcon;
 
@@ -41,6 +43,7 @@ namespace EightDirectionalSpriteSystem
             EditorGUILayout.PropertyField(propAnimType, animTypeLabel);
             EditorGUILayout.PropertyField(propAnimMode, animModeLabel);
             EditorGUILayout.Slider(propSpeed, 0.01f, 60.0f, animationSpeedLabel);
+            EditorGUILayout.PropertyField(propActionType, animationActionLabel);
 
             frameList.DoLayoutList();
 
@@ -99,7 +102,7 @@ namespace EightDirectionalSpriteSystem
         public override void OnPreviewGUI(Rect r, GUIStyle background)
         {
             base.OnPreviewGUI(r, background);
-                
+
             ActorAnimation targetAnimation = serializedObject.targetObject as ActorAnimation;
             Sprite currSprite = targetAnimation.GetSprite(currFrame, currDirection);
             if (currSprite != null)
@@ -125,6 +128,7 @@ namespace EightDirectionalSpriteSystem
             propAnimType = serializedObject.FindProperty("animType");
             propAnimMode = serializedObject.FindProperty("animMode");
             propSpeed = serializedObject.FindProperty("speed");
+            propActionType = serializedObject.FindProperty("animAction");
             propFrameList = serializedObject.FindProperty("frameList");
 
             frameList = new ReorderableList(serializedObject, propFrameList, true, true, true, true);
@@ -186,7 +190,8 @@ namespace EightDirectionalSpriteSystem
 
         private void InspectorFrameGUI()
         {
-            ActorAnimation.AnimDirType animType = (ActorAnimation.AnimDirType) propAnimType.enumValueIndex;
+            ActorAnimation.AnimDirType animType = (ActorAnimation.AnimDirType)propAnimType.enumValueIndex;
+            ActorAnimation.AnimAction animAction = (ActorAnimation.AnimAction)propActionType.enumValueIndex;
 
             EditorGUILayout.LabelField("Selected frame: " + string.Format("{0:00}", frameList.index + 1));
 
@@ -220,7 +225,7 @@ namespace EightDirectionalSpriteSystem
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
                 if (arrowsIcon != null)
                     EditorGUI.DrawTextureTransparent(r, arrowsIcon);
-                    //EditorGUI.DrawPreviewTexture(r, m_ArrowsIcon);
+                //EditorGUI.DrawPreviewTexture(r, m_ArrowsIcon);
                 else
                     EditorGUI.DrawRect(r, Color.white);
                 r = EditorGUILayout.GetControlRect(GUILayout.Height(64.0f), GUILayout.Width(64.0f));
@@ -267,7 +272,7 @@ namespace EightDirectionalSpriteSystem
         {
             ActorAnimation animation = target as ActorAnimation;
             animation.FrameList.Add(new ActorFrame());
-            if (list.index < 0 )
+            if (list.index < 0)
             {
                 list.index = 0;
             }

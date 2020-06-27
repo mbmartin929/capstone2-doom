@@ -1,4 +1,4 @@
-﻿Shader "Unlit/Lit Sprite"
+﻿Shader "Unlit/NewUnlitShader"
 {
     Properties
     {

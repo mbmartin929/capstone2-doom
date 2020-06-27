@@ -2,55 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class Patrol : NPCbaseFSM
+
+namespace EightDirectionalSpriteSystem
 {
-    Transform[] wayPoints;
-    int currentWp;
-
-    private float nextActionTime = 0.0f;
-    private float period = 3.5f;
-
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public class Patrol : NPCbaseFSM
     {
-        base.OnStateEnter(animator, stateInfo, layerIndex);
-        agent.isStopped = false;
+        Transform[] wayPoints;
+        int currentWp;
 
-        wayPoints = AISFM.waypoints;
-        currentWp = 0;
+        private float nextActionTime = 0.0f;
+        private float period = 3.5f;
 
-        Debug.Log("Patrol State");
-        //Debug.Log(NPC.name);
-
-        // isChasing = false;
-        // isPatrolling = true;
-        // isAttacking = false;
-        // isDead = false;
-
-        AISFM.EnableEightDirection();
-    }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        //Debug.Log("Patrol State On State Update");
-
-        if (!enemyController.IsDead())
+        // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (Time.time > nextActionTime)
-            {
-                nextActionTime += period;
-                Debug.Log("Stop Wait Time");
-                AISFM.GoToDestination();
-            }
+            base.OnStateEnter(animator, stateInfo, layerIndex);
+            agent.isStopped = false;
 
-            AISFM.EnemyRaycast();
+            Debug.Log("Patrol State");
+
+            enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
         }
-    }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
+        // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+        override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            //Debug.Log("Patrol State On State Update");
 
+            if (!enemyController.IsDead())
+            {
+                if (Time.time > nextActionTime)
+                {
+                    nextActionTime += period;
+                    //Debug.Log("Stop Wait Time");
+                    //AISFM.GoToDestination();
+
+                    Vector3 newPos = EnemyAI.RandomNavSphere(NPC.transform.position, 5.0f, 0);
+                    //Debug.Log(newPos);
+
+                    //Vector3 newPos = Random.insideUnitSphere * 1.0f;
+                    agent.SetDestination(newPos);
+                }
+
+                enemyAI.EnemyRaycast();
+                //AISFM.EnemyRaycast();
+
+                // if (!agent.pathPending)
+                // {
+                //     if (agent.remainingDistance <= agent.stoppingDistance)
+                //     {
+                //         if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                //         {
+                //             Debug.Log("Reached Destination");
+                //             enemyAI.actor.SetCurrentState(DemoActor.State.IDLE);
+                //         }
+                //         else
+                //         {
+                //             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+                //         }
+                //     }
+                // }
+
+                float dist = agent.remainingDistance;
+                if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
+                {
+                    // Debug.Log("Reached Destination");
+                    enemyAI.actor.SetCurrentState(DemoActor.State.IDLE);
+                    //Arrived.
+                }
+                else enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+            }
+        }
+
+        // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+
+        }
     }
 }

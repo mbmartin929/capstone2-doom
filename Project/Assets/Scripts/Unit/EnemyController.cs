@@ -2,113 +2,118 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : UnitController
+namespace EightDirectionalSpriteSystem
 {
-    public GameObject bloodFlow;
-    public GameObject[] bloodSplashGos;
-    public GameObject[] bloodSplatGos;
-
-    public int CurrentHealth;
-    public bool isDead;
-
-    private EnemyAI enemyAI;
-    private Animator animator;
-    private Vector3 trajectory;
-    public float velocity;
-
-    void Awake()
+    public class EnemyController : UnitController
     {
-        enemyAI = GetComponent<EnemyAI>();
-        animator = GetComponent<Animator>();
-    }
+        public GameObject bloodFlow;
+        public GameObject[] bloodSplashGos;
+        public GameObject[] bloodSplatGos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        CurHealth = maxHealth;
-        trajectory = UnityEngine.Random.insideUnitCircle * velocity;
-        // Debug.Log(CurHealth);
-    }
+        public int CurrentHealth;
+        public bool isDead;
 
-    // Update is called once per frame
-    void Update()
-    {
-        //CurrentHealth = CurHealth;
-        //isDead = IsDead();
-        //if (IsDead()) Die();
-    }
+        public float projectileSpeed;
 
-    public void TakeDamage(int amount)
-    {
-        if (IsDead())
+        public EnemyAI enemyAI;
+        public Animator animator;
+        private Vector3 trajectory;
+
+        public float velocity;
+
+        void Awake()
         {
-            // This if statement is not being called
-            Debug.Log("Take Damage Die");
-            //Die();
+            //enemyAI = GetComponent<EnemyAI>();
         }
-        else if (!IsDead())
+
+        // Start is called before the first frame update
+        void Start()
         {
-            GetComponent<AudioSource>().Play();
-            if (CurArmor <= 0)
+            CurHealth = maxHealth;
+            trajectory = UnityEngine.Random.insideUnitCircle * velocity;
+            // Debug.Log(CurHealth);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            //CurrentHealth = CurHealth;
+            //isDead = IsDead();
+            //if (IsDead()) Die();
+        }
+
+        public void TakeDamage(int amount)
+        {
+            if (IsDead())
             {
-                // DECREASES HEALTH
-                CurHealth -= amount;
-
-                for (int i = 0; i <= 1; i++)
-                {
-                    GameObject bloodSplat = Instantiate(bloodSplatGos[Random.Range(0, bloodSplatGos.Length)], transform.position, Quaternion.identity);
-                    //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(150, 200f), transform.position, 500f, 0.0f, ForceMode.Force);
-                    bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-20f, 20f), Random.Range(-10f, 10f));
-                }
-
-                if (IsDead())
-                {
-                    GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
-                    bloodFlowGo.transform.parent = transform;
-
-                    Die();
-                }
-                else StartCoroutine(GetHit());
+                // This if statement is not being called
+                Debug.Log("Take Damage Die");
+                //Die();
             }
-            else
+            else if (!IsDead())
             {
-                // DECREASES ARMOR
-                CurArmor -= amount;
-                StartCoroutine(GetHit());
+                GetComponent<AudioSource>().Play();
+                if (CurArmor <= 0)
+                {
+                    // DECREASES HEALTH
+                    CurHealth -= amount;
+
+                    for (int i = 0; i <= 1; i++)
+                    {
+                        GameObject bloodSplat = Instantiate(bloodSplatGos[Random.Range(0, bloodSplatGos.Length)], transform.position, Quaternion.identity);
+                        //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(150, 200f), transform.position, 500f, 0.0f, ForceMode.Force);
+                        bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-20f, 20f), Random.Range(-10f, 10f));
+                    }
+
+                    if (IsDead())
+                    {
+                        GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
+                        bloodFlowGo.transform.parent = transform;
+
+                        Die();
+                    }
+                    else StartCoroutine(GetHit());
+                }
+                else
+                {
+                    // DECREASES ARMOR
+                    CurArmor -= amount;
+                    StartCoroutine(GetHit());
+                }
             }
         }
-    }
 
-    public void Die()
-    {
-        //Debug.Log("Die");
-        animator.SetTrigger("Dead");
-    }
-
-    private IEnumerator GetHit()
-    {
-        if (IsDead())
+        public void Die()
         {
-            Debug.Log("IENumerator Die");
-            //Die();
-        }
-        else
-        {
-            animator.SetTrigger("Get Hit");
-        }
-
-        yield return new WaitForSeconds(0.45f);
-
-        if (!IsDead())
-        {
-            Debug.Log("After IENumerator IS NOT DEAD");
-            animator.SetTrigger("Attack");
-        }
-        else
-        {
-            Debug.Log("After IENumerator IS DEAD");
+            //Debug.Log("Die");
             animator.SetTrigger("Dead");
         }
 
+        private IEnumerator GetHit()
+        {
+            if (IsDead())
+            {
+                Debug.Log("IENumerator Die");
+                //Die();
+            }
+            else
+            {
+                animator.SetTrigger("Get Hit");
+            }
+
+            yield return new WaitForSeconds(0.45f);
+
+            if (!IsDead())
+            {
+                Debug.Log("After IENumerator IS NOT DEAD");
+                animator.SetTrigger("Attack");
+            }
+            else
+            {
+                Debug.Log("After IENumerator IS DEAD");
+                animator.SetTrigger("Dead");
+            }
+
+        }
     }
 }

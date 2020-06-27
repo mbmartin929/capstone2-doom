@@ -17,6 +17,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
+        public enum Enemy { Worm };
 
         public delegate void BeforeRenderBillboardEvent();
 
@@ -42,11 +43,14 @@ namespace EightDirectionalSpriteSystem
         private Vector3 actorForwardVector = Vector3.forward;
 
         private ActorAnimation currentAnimation = null;
-        private int currentFrameIndex = 0;
+        public int currentFrameIndex = 0;
         private float frameChangeDelay = 1.0f;
         private bool isPlaying = false;
         private bool isPaused = false;
         private int playDirection = 1;
+
+        public Enemy enemy = Enemy.Worm;
+        public Material[] materials;
 
         public void SetActorForwardVector(Vector3 actorForward)
         {
@@ -99,6 +103,12 @@ namespace EightDirectionalSpriteSystem
         {
             myTransform = GetComponent<Transform>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+
+            spriteRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            spriteRenderer.receiveShadows = true;
+
+            //Debug.Log(spriteRenderer.sharedMaterial.shader);
+            //spriteRenderer.materials = materials;
         }
 
         private void Update()
@@ -132,7 +142,22 @@ namespace EightDirectionalSpriteSystem
                     }
                     else
                     {
+                        // Put end of action here
+
                         currentFrameIndex -= currentAnimation.FrameCount;
+                    }
+                }
+
+                //Debug.Log("Current Frame Index: " + currentFrameIndex);
+                //Debug.Log(currentAnimation.Action);
+                //Debug.Log(enemy);
+                if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    //Debug.Log("Enemy Worm");
+                    if (currentFrameIndex == 2)
+                    {
+                        Debug.Log("Fire");
+                        transform.GetComponentInParent<EnemyAI>().Fire();
                     }
                 }
             }

@@ -7,7 +7,7 @@ namespace EightDirectionalSpriteSystem
     [ExecuteInEditMode]
     public class DemoActor : MonoBehaviour
     {
-        public enum State { NONE, IDLE, WALKING, SHOOT, PAIN, DIE};
+        public enum State { NONE, IDLE, WALKING, SHOOT, PAIN, DIE };
 
         public ActorBillboard actorBillboard;
 
@@ -29,7 +29,7 @@ namespace EightDirectionalSpriteSystem
 
         void Start()
         {
-            SetCurrentState(State.IDLE);
+            SetCurrentState(State.WALKING);
         }
 
         private void OnEnable()
@@ -50,76 +50,77 @@ namespace EightDirectionalSpriteSystem
                 actorBillboard.SetActorForwardVector(myTransform.forward);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            //walkAnim.FrameCount 
+
+            // State nextState = currentState;
+            // switch (currentState)
+            // {
+            //     case State.NONE:
+            //         nextState = State.IDLE;
+            //         break;
+
+            //     case State.IDLE:
+            //         nextState = State.WALKING;
+            //         break;
+
+            //     case State.WALKING:
+            //         nextState = State.SHOOT;
+            //         break;
+
+            //     case State.SHOOT:
+            //         nextState = State.PAIN;
+            //         break;
+
+            //     case State.PAIN:
+            //         nextState = State.DIE;
+            //         break;
+
+            //     case State.DIE:
+            //         nextState = State.IDLE;
+            //         break;
+
+            //     default:
+            //         nextState = State.IDLE;
+            //         break;
+            // }
+        }
+
+        public void SetCurrentState(State newState)
+        {
+            if (currentState != newState)
             {
-                State nextState = currentState;
+                currentState = newState;
                 switch (currentState)
                 {
-                    case State.NONE:
-                        nextState = State.IDLE;
-                        break;
-
-                    case State.IDLE:
-                        nextState = State.WALKING;
-                        break;
-
                     case State.WALKING:
-                        nextState = State.SHOOT;
+                        //Debug.Log("Walk");
+                        currentAnimation = walkAnim;
                         break;
 
                     case State.SHOOT:
-                        nextState = State.PAIN;
+                        currentAnimation = shootAnim;
                         break;
 
                     case State.PAIN:
-                        nextState = State.DIE;
+                        currentAnimation = painAnim;
                         break;
 
                     case State.DIE:
-                        nextState = State.IDLE;
+                        currentAnimation = dieAnim;
                         break;
 
                     default:
-                        nextState = State.IDLE;
+                        //Debug.Log("Idle");
+                        currentAnimation = idleAnim;
                         break;
                 }
 
-                SetCurrentState(nextState);
+                if (actorBillboard != null)
+                {
+                    actorBillboard.PlayAnimation(currentAnimation);
+                }
             }
-           
-        }
-
-        private void SetCurrentState(State newState)
-        {
-            currentState = newState;
-            switch (currentState)
-            {
-
-                case State.WALKING:
-                    currentAnimation = walkAnim;
-                    break;
-
-                case State.SHOOT:
-                    currentAnimation = shootAnim;
-                    break;
-
-                case State.PAIN:
-                    currentAnimation = painAnim;
-                    break;
-
-                case State.DIE:
-                    currentAnimation = dieAnim;
-                    break;
-
-                default:
-                    currentAnimation = idleAnim;
-                    break;
-            }
-
-            if (actorBillboard != null)
-            {
-                actorBillboard.PlayAnimation(currentAnimation);
-            }
+            //else Debug.Log("Repeat State");
         }
 
     }

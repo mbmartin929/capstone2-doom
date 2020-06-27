@@ -1,217 +1,219 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Pistol : MonoBehaviour
+namespace EightDirectionalSpriteSystem
 {
-    public Camera fpsCam;
-    public float range = 100f;
-
-    private GameObject cameraGo;
-
-    public List<GameObject> actors = new List<GameObject>();
-
-    public float muzzleLightResetTime = 0.1f;
-
-    public ParticleSystem pistolMuzzle;
-    public GameObject muzzleLight;
-
-    public GameObject hitEffect;
-    public GameObject crosshair;
-
-    private bool canAttack;
-    private Animator anim;
-
-    public Vector3 camRotation;
-    public float FOV;
-
-    //private GameManager gameManager;
-
-    void Awake()
+    public class Pistol : MonoBehaviour
     {
-        //gameManager = GameManager.Instance;
-        anim = GetComponent<Animator>();
-    }
+        public Camera fpsCam;
+        public float range = 100f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        canAttack = true;
+        private GameObject cameraGo;
 
-        cameraGo = GameObject.FindGameObjectWithTag("Player");
-        FindObjectwithTag("MainCamera");
+        public List<GameObject> actors = new List<GameObject>();
 
-        FOV = fpsCam.fieldOfView;
-    }
+        public float muzzleLightResetTime = 0.1f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        fpsCam.transform.eulerAngles += camRotation;
-        fpsCam.fieldOfView = FOV;
+        public ParticleSystem pistolMuzzle;
+        public GameObject muzzleLight;
 
-        //Debug.Log(fpsCam.transform.eulerAngles);
+        public GameObject hitEffect;
+        public GameObject crosshair;
 
-        //if (fpsCam.fieldOfView)
+        private bool canAttack;
+        private Animator anim;
 
-        if (Input.GetMouseButtonDown(0))
+        public Vector3 camRotation;
+        public float FOV;
+
+        //private GameManager gameManager;
+
+        void Awake()
         {
-            Shoot();
+            //gameManager = GameManager.Instance;
+            anim = GetComponent<Animator>();
         }
-    }
 
-    void FixedUpdate()
-    {
-
-    }
-
-    private void Shoot()
-    {
-        fpsCam.transform.eulerAngles += camRotation;
-
-
-        RaycastHit hit;
-        if (canAttack)
+        // Start is called before the first frame update
+        void Start()
         {
-            GetComponent<AudioSource>().Play();
-            //fpsCam.gameObject.transform.Rotate()
+            canAttack = true;
 
-            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+            cameraGo = GameObject.FindGameObjectWithTag("Player");
+            FindObjectwithTag("MainCamera");
+
+            FOV = fpsCam.fieldOfView;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            fpsCam.transform.eulerAngles += camRotation;
+            fpsCam.fieldOfView = FOV;
+
+            //Debug.Log(fpsCam.transform.eulerAngles);
+
+            //if (fpsCam.fieldOfView)
+
+            if (Input.GetMouseButtonDown(0))
             {
+                Shoot();
+            }
+        }
 
-                if (hit.transform.tag == "Level")
+        void FixedUpdate()
+        {
+
+        }
+
+        private void Shoot()
+        {
+            fpsCam.transform.eulerAngles += camRotation;
+
+
+            RaycastHit hit;
+            if (canAttack)
+            {
+                GetComponent<AudioSource>().Play();
+                //fpsCam.gameObject.transform.Rotate()
+
+                if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
                 {
-                    MeshCollider collider = hit.collider as MeshCollider;
-                    // Remember to handle case where collider is null because you hit a non-mesh primitive...
 
-                    Mesh mesh = collider.sharedMesh;
-
-                    // There are 3 indices stored per triangle
-                    int limit = hit.triangleIndex * 3;
-                    int submesh;
-                    for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                    if (hit.transform.tag == "Level")
                     {
-                        int numIndices = mesh.GetTriangles(submesh).Length;
-                        if (numIndices > limit)
-                            break;
+                        MeshCollider collider = hit.collider as MeshCollider;
+                        // Remember to handle case where collider is null because you hit a non-mesh primitive...
 
-                        limit -= numIndices;
-                    }
+                        Mesh mesh = collider.sharedMesh;
 
-                    Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
-
-                    Debug.Log(material.name);
-
-                    Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                }
-                else if (hit.transform.tag == "Enemy")
-                {
-                    EnemyController enemy = hit.transform.GetComponent<EnemyController>();
-
-                    if (!enemy.IsDead()) crosshair.GetComponent<Animator>().SetTrigger("Crosshair");
-
-                    foreach (GameObject item in enemy.bloodSplashGos)
-                    {
-                        //if (!hit.transform.GetComponent<EnemyController>().IsDead())
-                        //{
-                        if (item.tag == "Hit Normal")
+                        // There are 3 indices stored per triangle
+                        int limit = hit.triangleIndex * 3;
+                        int submesh;
+                        for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
                         {
-                            GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
-                            bloodGo.transform.parent = hit.transform;
-                        }
-                        else
-                        {
-                            GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
-                                                             item.transform.rotation);
-                            bloodGo.transform.parent = hit.transform;
-                        }
-                        //}
+                            int numIndices = mesh.GetTriangles(submesh).Length;
+                            if (numIndices > limit)
+                                break;
 
+                            limit -= numIndices;
+                        }
+
+                        Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
+
+                        Debug.Log(material.name);
+
+                        Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                     }
-
-                    if (hit.transform.gameObject != null)
+                    else if (hit.transform.tag == "Enemy")
                     {
+                        EnemyController enemy = hit.transform.GetComponent<EnemyController>();
 
+                        //if (!enemy.IsDead()) crosshair.GetComponent<Animator>().SetTrigger("Crosshair");
+
+                        foreach (GameObject item in enemy.bloodSplashGos)
+                        {
+                            //if (!hit.transform.GetComponent<EnemyController>().IsDead())
+                            //{
+                            if (item.tag == "Hit Normal")
+                            {
+                                GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+                                bloodGo.transform.parent = hit.transform;
+                            }
+                            else
+                            {
+                                GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
+                                                                 item.transform.rotation);
+                                bloodGo.transform.parent = hit.transform;
+                            }
+                            //}
+
+                        }
+
+                        if (hit.transform.gameObject != null)
+                        {
+
+                        }
+
+                        enemy.TakeDamage(10);
                     }
 
-                    enemy.TakeDamage(10);
+                    pistolMuzzle.Play();
+
+
+
+                    anim.SetTrigger("Shoot");
+                    StartCoroutine("MuzzleLight");
+                    canAttack = false;
                 }
-
-                pistolMuzzle.Play();
-
-
-
-                anim.SetTrigger("Shoot");
-                StartCoroutine("MuzzleLight");
-                canAttack = false;
             }
         }
-    }
 
-    private IEnumerator MuzzleLight()
-    {
-        muzzleLight.gameObject.SetActive(true);
-
-        yield return new WaitForSeconds(muzzleLightResetTime);
-
-        muzzleLight.gameObject.SetActive(false);
-    }
-
-    private void FinishShooting()
-    {
-        canAttack = true;
-        anim.SetTrigger("Idle");
-    }
-
-    public void FindObjectwithTag(string _tag)
-    {
-        // Debug.Log(cameraGo.name);
-
-        actors.Clear();
-        Transform parent = cameraGo.transform;
-        GetChildObject(parent, _tag);
-    }
-
-    public void GetChildObject(Transform parent, string _tag)
-    {
-        for (int i = 0; i < parent.childCount; i++)
+        private IEnumerator MuzzleLight()
         {
-            Transform child = parent.GetChild(i);
-            if (child.tag == _tag)
-            {
-                actors.Add(child.gameObject);
-                cameraGo = child.gameObject;
-                fpsCam = cameraGo.GetComponent<Camera>();
-                // camTransform = cameraGo.transform;
-            }
-            if (child.childCount > 0)
-            {
-                GetChildObject(child, _tag);
-            }
+            muzzleLight.gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(muzzleLightResetTime);
+
+            muzzleLight.gameObject.SetActive(false);
         }
-    }
 
-    static Mesh GetMesh(GameObject go)
-    {
-        if (go)
+        private void FinishShooting()
         {
-            MeshFilter mf = go.GetComponent<MeshFilter>();
-            if (mf)
+            canAttack = true;
+            anim.SetTrigger("Idle");
+        }
+
+        public void FindObjectwithTag(string _tag)
+        {
+            // Debug.Log(cameraGo.name);
+
+            actors.Clear();
+            Transform parent = cameraGo.transform;
+            GetChildObject(parent, _tag);
+        }
+
+        public void GetChildObject(Transform parent, string _tag)
+        {
+            for (int i = 0; i < parent.childCount; i++)
             {
-                Mesh m = mf.sharedMesh;
-                if (!m) { m = mf.mesh; }
-                if (m)
+                Transform child = parent.GetChild(i);
+                if (child.tag == _tag)
                 {
-                    return m;
+                    actors.Add(child.gameObject);
+                    cameraGo = child.gameObject;
+                    fpsCam = cameraGo.GetComponent<Camera>();
+                    // camTransform = cameraGo.transform;
+                }
+                if (child.childCount > 0)
+                {
+                    GetChildObject(child, _tag);
                 }
             }
         }
-        return (Mesh)null;
-    }
 
-    public void CameraX(float value)
-    {
-        fpsCam.transform.eulerAngles += new Vector3(value, 0, 0);
-    }
+        static Mesh GetMesh(GameObject go)
+        {
+            if (go)
+            {
+                MeshFilter mf = go.GetComponent<MeshFilter>();
+                if (mf)
+                {
+                    Mesh m = mf.sharedMesh;
+                    if (!m) { m = mf.mesh; }
+                    if (m)
+                    {
+                        return m;
+                    }
+                }
+            }
+            return (Mesh)null;
+        }
 
+        public void CameraX(float value)
+        {
+            fpsCam.transform.eulerAngles += new Vector3(value, 0, 0);
+        }
+
+    }
 }
