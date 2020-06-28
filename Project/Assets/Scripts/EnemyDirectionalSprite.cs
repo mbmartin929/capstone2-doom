@@ -8,14 +8,14 @@ public class EnemyDirectionalSprite : MonoBehaviour
 
     private int directionID = 0;
 
-    private AISFM AIFSM;
+    //private AISFM AIFSM;
 
     public bool isOn = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        AIFSM = GetComponent<AISFM>();
+        //AIFSM = GetComponent<AISFM>();
         //Debug.Log(tempNavMesh.gameObject.name);
     }
 
@@ -24,12 +24,12 @@ public class EnemyDirectionalSprite : MonoBehaviour
     {
         if (isOn)
         {
-            if (!AIFSM.tempPatrol)
+            //if (!AIFSM.tempPatrol)
             {
                 //Debug.Log("8D: " + directionID);
-                directionID = AIFSM.waypointID;
+                //directionID = AIFSM.waypointID;
             }
-            else directionID = AIFSM.tempID;
+            //else directionID = AIFSM.tempID;
 
             for (int i = 0; i < faces.Length; i++)
             {

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0cf37e99fcb584dbdf7be0944f8cbf, type: 3}
+  m_Name: Worm_Walk
+  m_EditorClassIdentifier: 
+  animName: Worm Walk
+  animType: 1
+  animAction: 1
+  animMode: 1
+  speed: 4
+  frameList:
+  - sprites:
+    - {fileID: 718005862480482712, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -9040866580554652836, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 5717229279689468523, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 4513391758143368872, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -3130643916472440248, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -6753416578319033117, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 2004731196994597692, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 1065904029742435345, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+  - sprites:
+    - {fileID: 8731239067575242878, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 4688712649257764039, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -9145559356338716137, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 170986298553910840, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 4223479697576462649, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -3799784666905490296, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -7283653980071191249, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -2729301895772019424, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+  - sprites:
+    - {fileID: 2025685419892974077, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -2975531848033152304, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 5757360105755907110, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -2460003142893346568, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: -5317357237039551548, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 5709853817641127250, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 3009434564272031980, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
+    - {fileID: 6999991388197878474, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
