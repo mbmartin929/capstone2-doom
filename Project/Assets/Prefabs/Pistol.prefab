@@ -97,13 +97,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCam: {fileID: 0}
   range: 100
-  startingPos: {x: 0, y: 0, z: 0}
   actors: []
   muzzleLightResetTime: 0.1
   pistolMuzzle: {fileID: 0}
   muzzleLight: {fileID: 0}
   hitEffect: {fileID: 3291211880898960590, guid: db1db929cfd7cfa459968e10ecc71399,
     type: 3}
+  crosshair: {fileID: 0}
   camRotation: {x: 0, y: 0, z: 0}
   FOV: 0
 --- !u!95 &1645848431
