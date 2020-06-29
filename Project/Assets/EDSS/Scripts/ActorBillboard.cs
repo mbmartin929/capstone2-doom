@@ -149,17 +149,15 @@ namespace EightDirectionalSpriteSystem
                 }
 
                 //Debug.Log("Current Frame Index: " + currentFrameIndex);
-
+                //Debug.Log(currentAnimation.Action);
+                //Debug.Log(enemy);
                 if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
-
+                    //Debug.Log("Enemy Worm");
                     if (currentFrameIndex == 2)
                     {
-                        //Debug.Log("Fire");
+                        Debug.Log("Fire");
                         transform.GetComponentInParent<EnemyAI>().Fire();
-
-                        // Get new Dir after Attack
-                        transform.GetComponentInParent<EnemyAI>().GetNewDir();
                     }
                 }
             }

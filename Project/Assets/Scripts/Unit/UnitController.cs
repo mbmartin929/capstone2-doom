@@ -7,6 +7,8 @@ public class UnitController : MonoBehaviour
     // References Singleton
     protected GameManager gameManager;
 
+
+
     #region Variables
     [Header("Game Objects")]
     public GameObject projectileGo;
@@ -36,7 +38,7 @@ public class UnitController : MonoBehaviour
         set
         {
             curHealth = value;
-            //if (curHealth < 0) curHealth = 0;
+            if (curHealth < 0) curHealth = 0;
             if (curHealth > maxHealth) curHealth = maxHealth;
         }
     }

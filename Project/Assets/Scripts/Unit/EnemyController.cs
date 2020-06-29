@@ -6,9 +6,6 @@ namespace EightDirectionalSpriteSystem
 {
     public class EnemyController : UnitController
     {
-        public Vector3 deadColliderCenter;
-        public Vector3 deadColliderSize;
-
         public GameObject bloodFlow;
         public GameObject[] bloodSplashGos;
         public GameObject[] bloodSplatGos;
@@ -90,12 +87,6 @@ namespace EightDirectionalSpriteSystem
         {
             //Debug.Log("Die");
             animator.SetTrigger("Dead");
-
-            Vector3 size = GetComponent<BoxCollider>().size;
-            Vector3 center = GetComponent<BoxCollider>().center;
-
-            GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
-            GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
         }
 
         private IEnumerator GetHit()

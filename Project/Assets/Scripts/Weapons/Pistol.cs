@@ -214,5 +214,6 @@ namespace EightDirectionalSpriteSystem
         {
             fpsCam.transform.eulerAngles += new Vector3(value, 0, 0);
         }
+
     }
 }

@@ -43,7 +43,7 @@ public class IgnoreCollision : MonoBehaviour
 
 
             GetComponent<Collider>().enabled = false;
-            //Debug.Log("Hi");
+            Debug.Log("Hi");
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().useGravity = false;
 

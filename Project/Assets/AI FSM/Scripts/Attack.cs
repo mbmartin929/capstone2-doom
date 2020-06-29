@@ -17,6 +17,8 @@ namespace EightDirectionalSpriteSystem
 
             Debug.Log("Attack State");
             enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
+
+            agent.isStopped = true;
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -30,10 +32,13 @@ namespace EightDirectionalSpriteSystem
 
                 //agent.transform.LookAt(targetRotation);
 
-                if (Vector3.Distance(agent.transform.position, targetRotation) > 13.1f)
+                if (Vector3.Distance(agent.transform.position, targetRotation) > 7.0f)
                 {
                     enemyAI.anim.SetTrigger("Chase");
                 }
+
+                //enemyAI.actor.shootAnim.FrameCount
+
             }
             else
             {

@@ -46,6 +46,10 @@ namespace EightDirectionalSpriteSystem
 
             //         AISFM.tempPatrol = !AISFM.tempPatrol;
             //     }
+            //     else
+            //     {
+            //         AISFM.EnableEightDirection();
+            //     }
 
             if (!enemyController.IsDead())
             {
@@ -55,7 +59,7 @@ namespace EightDirectionalSpriteSystem
                                                      agent.transform.position.y,
                                                      playerGo.transform.position.z);
 
-                if (Vector3.Distance(agent.transform.position, targetPosition) <= 13.0f)
+                if (Vector3.Distance(agent.transform.position, targetPosition) <= 5.0f)
                 {
                     enemyAI.anim.SetTrigger("Attack");
                 }
