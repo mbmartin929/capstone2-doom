@@ -13,7 +13,8 @@ namespace EightDirectionalSpriteSystem
             Debug.Log("Dead State");
 
             base.OnStateEnter(animator, stateInfo, layerIndex);
-            agent.isStopped = true;
+            Debug.Log(agent.name);
+            //agent.isStopped = true;
 
             agent.enabled = false;
             enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
