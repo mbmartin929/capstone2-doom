@@ -105,13 +105,13 @@ namespace EightDirectionalSpriteSystem
 
         public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
         {
-            Debug.Log("Random Nav Sphere");
+            //Debug.Log("Random Nav Sphere");
 
             NavMeshHit navHit;
             Vector3 result;
 
             Vector3 randomPoint = origin + Random.insideUnitSphere * dist;
-            if (NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, 8))
             {
                 result = navHit.position;
                 //Debug.Log("IF: " + result);
@@ -123,6 +123,30 @@ namespace EightDirectionalSpriteSystem
                 //Debug.Log("ELSE: " + result);
                 return result;
             }
+        }
+
+        public void GetNewDir()
+        {
+            try
+            {
+                actor.SetCurrentState(DemoActor.State.WALKING);
+                Vector3 newPos = EnemyAI.RandomNavSphere(transform.position, 2.5f, 0);
+                GetComponent<NavMeshAgent>().SetDestination(newPos);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log(e.ToString());
+                GetComponent<NavMeshAgent>().SetDestination(transform.position);
+            }
+
+
+            StartCoroutine(ActorAttack());
+        }
+
+        private IEnumerator ActorAttack()
+        {
+            yield return new WaitForSeconds(1.0f);
+            actor.SetCurrentState(DemoActor.State.SHOOT);
         }
     }
 }
