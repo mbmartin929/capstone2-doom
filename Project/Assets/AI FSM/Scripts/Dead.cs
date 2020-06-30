@@ -16,8 +16,9 @@ namespace EightDirectionalSpriteSystem
             Debug.Log(agent.name);
             //agent.isStopped = true;
 
-            agent.enabled = false;
             enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
+            agent.enabled = false;
+
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
