@@ -27,9 +27,11 @@ namespace EightDirectionalSpriteSystem
         #region Other Variables
         public List<GameObject> actors = new List<GameObject>();
         public float muzzleLightResetTime = 0.1f;
-        public ParticleSystem muzzleParticle;
-        public GameObject muzzleLight;
-        public GameObject hitEffect;
+        public GameObject bulletTracerGo;
+        public GameObject bulletCasingParticleGo;
+        public ParticleSystem bulletTracerParticle;
+        public GameObject muzzleLightGo;
+        public GameObject hitEffectGo;
         public Vector3 camRotation;
         #endregion
 
@@ -108,7 +110,7 @@ namespace EightDirectionalSpriteSystem
 
                 #region Gun Effects
                 anim.SetTrigger("Shoot");
-                muzzleParticle.Play();
+                //muzzleParticleGo.Play();
                 StartCoroutine("MuzzleLight");
                 PlayGunshotSound();
                 #endregion
@@ -144,7 +146,7 @@ namespace EightDirectionalSpriteSystem
 
                         //Debug.Log(material.name);
 
-                        Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                        Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                     }
                     // Raycast hits Enemy
                     else if (hit.transform.tag == "Enemy")
@@ -198,12 +200,26 @@ namespace EightDirectionalSpriteSystem
                 Debug.Log("You have full ammo");
                 return;
             }
+            else if (maxAmmo <= 0)
+            {
+                Debug.Log("You have no ammo");
+                return;
+            }
+            else if ((clipAmmo - curAmmo) >= maxAmmo)
+            {
+                curAmmo += maxAmmo;
+                maxAmmo = 0;
+
+                anim.SetTrigger("Reload");
+                Debug.Log("Decreased Reload");
+            }
             else
             {
-                Debug.Log("Reload");
-                anim.SetTrigger("Reload");
+                maxAmmo -= (clipAmmo - curAmmo);
                 curAmmo = clipAmmo;
-                maxAmmo -= clipAmmo;
+
+                Debug.Log("Normal Reload");
+                anim.SetTrigger("Reload");
             }
         }
 
@@ -221,11 +237,11 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator MuzzleLight()
         {
-            muzzleLight.gameObject.SetActive(true);
+            muzzleLightGo.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(muzzleLightResetTime);
 
-            muzzleLight.gameObject.SetActive(false);
+            muzzleLightGo.gameObject.SetActive(false);
         }
 
         // Used as animation event
@@ -276,7 +292,7 @@ namespace EightDirectionalSpriteSystem
 
                 //Debug.Log(material.name);
 
-                Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
 

@@ -6,6 +6,15 @@ namespace EightDirectionalSpriteSystem
 {
     public class PistolController : WeaponController
     {
+        public Transform bulletCasingLoc;
+        public Transform bulletTracerLoc;
+
+        public float maxBulletSpread = 1.0f;
+        public float fireTime = 0.5f;
+        public float timeToMaxSpread = 2.0f;
+        public float fireDelay = 1.0f;
+        public bool readyToFire = true;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -57,7 +66,6 @@ namespace EightDirectionalSpriteSystem
             if ((Input.GetMouseButtonDown(0)) && (canAttack))
             {
                 Shoot();
-                Test();
             }
             else if (Input.GetKeyDown(KeyCode.R))
             {
@@ -65,10 +73,6 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
-        void Test()
-        {
-            Debug.Log("Test");
-        }
         void Shoot()
         {
             RaycastHit hit;
@@ -79,11 +83,23 @@ namespace EightDirectionalSpriteSystem
                 return;
             }
 
-            StartCoroutine(Wait(0.1f));
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+            {
+                return;
+                //Debug.Log("Playing Shoot");
+            }
 
+            Vector3 rotationVector = transform.rotation.eulerAngles;
+            GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
+            //GameObject tracerGo = Instantiate(bulletTracerGo, (bulletTracerLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 0.0f, 0)));
+            //GameObject tracerGo = Instantiate(bulletTracerGo, transform.position, Quaternion.Euler(new Vector3(rotationVector.x, rotationVector.y + 20.0f, rotationVector.z)));
+            //bulletCasingGo.transform.parent = this.transform;
+            bulletTracerParticle.Play();
+
+            StartCoroutine(Wait(0.2f));
             #region Gun Effects
             anim.SetTrigger("Shoot");
-            muzzleParticle.Play();
+
             StartCoroutine("MuzzleLight");
             PlayGunshotSound();
             #endregion
@@ -94,7 +110,13 @@ namespace EightDirectionalSpriteSystem
             shootDirection.x += Random.Range(-spreadFactor, spreadFactor);
             shootDirection.y += Random.Range(-spreadFactor, spreadFactor);
 
-            if (Physics.Raycast(fpsCam.transform.position, shootDirection, out hit, range))
+            Vector3 fireDirection = fpsCam.transform.forward;
+            Quaternion fireRotation = Quaternion.LookRotation(fireDirection);
+            Quaternion randomRotation = Random.rotation;
+            float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, fireTime / timeToMaxSpread);//Bullets first shot is perfect = 0.0f. Every shoot is less accurate
+            fireRotation = Quaternion.RotateTowards(fireRotation, randomRotation, Random.Range(0.0f, currentSpread)); //Random rotation of bullet every shoot
+
+            if (Physics.Raycast(fpsCam.transform.position, fireRotation * Vector3.forward, out hit, range))
             {
                 HitLevel(hit);
 
@@ -121,6 +143,14 @@ namespace EightDirectionalSpriteSystem
                 }
             }
             canAttack = false;
+
+            readyToFire = false;
+            Invoke("setReadyToFire", fireDelay);
+        }
+
+        void setReadyToFire()
+        {
+            readyToFire = true;
         }
 
         private IEnumerator Wait(float seconds)

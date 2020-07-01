@@ -20,8 +20,8 @@ public class Sway : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //UpdateSway();
-        TransformSway();
+        UpdateSway();
+        //TransformSway();
     }
 
     private void UpdateSway()

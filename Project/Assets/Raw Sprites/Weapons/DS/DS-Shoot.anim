@@ -38,15 +38,6 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 80
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -60,8 +51,6 @@ AnimationClip:
       value: {fileID: 2100000, guid: d66b2938a1642104d8e33e64503bd60e, type: 2}
     - time: 0.083333336
       value: {fileID: 2100000, guid: d2d1ef0e96e346846b69c515847bcf40, type: 2}
-    - time: 0.16666667
-      value: {fileID: 2100000, guid: 94a8dd3243833fa45b71523863fd4703, type: 2}
     attribute: m_Materials.Array.data[0]
     path: 
     classID: 212
@@ -90,13 +79,12 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 2100000, guid: d66b2938a1642104d8e33e64503bd60e, type: 2}
     - {fileID: 2100000, guid: d2d1ef0e96e346846b69c515847bcf40, type: 2}
-    - {fileID: 2100000, guid: 94a8dd3243833fa45b71523863fd4703, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -133,15 +121,6 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.16666667
-        value: 80
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -153,7 +132,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.16666667
+  - time: 0.083333336
     functionName: FinishReload
     data: 
     objectReferenceParameter: {fileID: 0}

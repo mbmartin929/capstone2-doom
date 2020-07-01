@@ -34,12 +34,16 @@ public class Motion : MonoBehaviour
             HeadBob(idleCounter, 0.025f, 0.025f);
             idleCounter += Time.deltaTime;
             weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 4f);
+
+            //Camera.main.transform.localPosition = Vector3.Lerp(Camera.main.transform.localPosition, targetWeaponBobPosition, Time.deltaTime * 4f);
         }
         else
         {
-            HeadBob(movementCounter, 35.50f, 10.55f);
-            movementCounter += Time.deltaTime * 4f;
+            HeadBob(movementCounter, 55.0f, 20.0f);
+            movementCounter += Time.deltaTime * 7f;
             weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 8f);
+
+            //Camera.main.transform.localPosition = Vector3.Lerp(Camera.main.transform.localPosition, targetWeaponBobPosition, Time.deltaTime * 8f);
         }
 
 

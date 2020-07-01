@@ -13,12 +13,12 @@ namespace EightDirectionalSpriteSystem
             Debug.Log("Dead State");
 
             base.OnStateEnter(animator, stateInfo, layerIndex);
-            Debug.Log(agent.name);
+            enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
+            //Debug.Log(agent.name);
             //agent.isStopped = true;
 
-            enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
-            agent.enabled = false;
 
+            agent.enabled = false;
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

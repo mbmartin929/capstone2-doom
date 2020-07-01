@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
 
     #endregion 
 
+    #region  Options
+    [Header("Options")]
+    public bool enableHeadBob = false;
+
+    #endregion
+
     private void Awake()
     {
         // Sets Singleton

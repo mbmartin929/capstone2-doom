@@ -152,14 +152,19 @@ namespace EightDirectionalSpriteSystem
 
                 if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
-
                     if (currentFrameIndex == 2)
                     {
                         //Debug.Log("Fire");
                         transform.GetComponentInParent<EnemyAI>().Fire();
 
                         // Get new Dir after Attack
-                        transform.GetComponentInParent<EnemyAI>().GetNewDir();
+
+                        if (!GetComponent<EnemyController>().IsDead())
+                        {
+                            Debug.Log(currentAnimation.Action);
+                            transform.GetComponentInParent<EnemyAI>().GetNewDir();
+                        }
+                        else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);
                     }
                 }
             }
