@@ -545,7 +545,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18910
+  m_Name: pb_Mesh17796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1085,12 +1085,12 @@ GameObject:
   - component: {fileID: 521587864}
   - component: {fileID: 521587863}
   m_Layer: 5
-  m_Name: Image
+  m_Name: FaceStatsBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &521587862
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1123,7 +1123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 642758103}
-  asdsad: {fileID: 0}
   muchPain: 0
   HP80100FW: {fileID: 960783223240869194, guid: ad05a5b22189df0428bff375bc7f7941,
     type: 3}
@@ -7305,7 +7304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1894385276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7338,29 +7337,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 642758103}
-  asdsad: {fileID: 0}
   muchPain: 0
-  HP80100FW: {fileID: 0}
-  HP80100L: {fileID: 0}
-  HP80100R: {fileID: 0}
-  HP60100FW: {fileID: 0}
-  HP60100L: {fileID: 0}
-  HP60100R: {fileID: 0}
-  HP40100FW: {fileID: 0}
-  HP40100L: {fileID: 0}
-  HP40100R: {fileID: 0}
-  HP20100FW: {fileID: 0}
-  HP20100L: {fileID: 0}
-  HP20100R: {fileID: 0}
-  HP1100FW: {fileID: 0}
-  HP1100L: {fileID: 0}
-  HP1100R: {fileID: 0}
-  HP80100FWeaponPick: {fileID: 0}
-  HP60100FWeaponPick: {fileID: 0}
-  HP40100FWeaponPick: {fileID: 0}
-  HP20100FWeaponPick: {fileID: 0}
-  HP1100FWeaponPick: {fileID: 0}
-  HPDead: {fileID: 0}
+  HP80100FW: {fileID: 2800000, guid: 7ac86abbb14d1ec4a80ab2e6562ff0ed, type: 3}
+  HP80100L: {fileID: 2800000, guid: 9e64f2a1675425e44a7578856cf295ae, type: 3}
+  HP80100R: {fileID: 2800000, guid: 337b4e09c9c033949be5a510e31088fb, type: 3}
+  HP60100FW: {fileID: 2800000, guid: 8a333a7fc998d0145beb21a950d7bf4b, type: 3}
+  HP60100L: {fileID: 2800000, guid: 8bf04afaeee229842b9a616c3ef7c057, type: 3}
+  HP60100R: {fileID: 2800000, guid: 1ce931639e936a14d9137d47f2b06ca9, type: 3}
+  HP40100FW: {fileID: 2800000, guid: 9bb26ffbb06299043b1ebf881d9da93d, type: 3}
+  HP40100L: {fileID: 2800000, guid: 932c32ce15bf27a48b472f308c21f90f, type: 3}
+  HP40100R: {fileID: 2800000, guid: f8bd8fc7f92f6ed439666d8ac88706e8, type: 3}
+  HP20100FW: {fileID: 2800000, guid: 4f9dab35270a86e439dbd460e6608f33, type: 3}
+  HP20100L: {fileID: 2800000, guid: e0baa40fbbf32d24c92738e355fbedda, type: 3}
+  HP20100R: {fileID: 2800000, guid: 0229e7d875bf76543bc785b33696a045, type: 3}
+  HP1100FW: {fileID: 2800000, guid: 8982058c535d3634b98c465053bda703, type: 3}
+  HP1100L: {fileID: 2800000, guid: b392d45f481a378498c7658083969985, type: 3}
+  HP1100R: {fileID: 2800000, guid: cf6fbde0c6268e3408cf954deb008e97, type: 3}
+  HP80100FWeaponPick: {fileID: 2800000, guid: ab3ae6ad92ac8084e81b4f3d66a31ca7, type: 3}
+  HP60100FWeaponPick: {fileID: 2800000, guid: 9fb5cea12ca4ed0499806718b4f26aa8, type: 3}
+  HP40100FWeaponPick: {fileID: 2800000, guid: 9fb5cea12ca4ed0499806718b4f26aa8, type: 3}
+  HP20100FWeaponPick: {fileID: 2800000, guid: 33910d0179b5e3f4f81e77eab9854786, type: 3}
+  HP1100FWeaponPick: {fileID: 2800000, guid: 60a3d8b9dc158f54d9bfe93d2689e787, type: 3}
+  HPDead: {fileID: 2800000, guid: 5f2e34baa2f1d444793a6a7969be8eea, type: 3}
 --- !u!222 &1894385278
 CanvasRenderer:
   m_ObjectHideFlags: 0

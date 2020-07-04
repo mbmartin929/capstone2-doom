@@ -6,7 +6,7 @@ public class FaceStatusBar : MonoBehaviour
 {
     public GameObject player;
     protected UnitController unit;
-    Sprite[] faces;
+    Texture2D[] faces;
     Image randomImage;
     bool doEvilGrin;
     int pick;
@@ -17,38 +17,38 @@ public class FaceStatusBar : MonoBehaviour
     public float muchPain;
     float previousHealth;
     [Header("HP 100 - 80")]
-    public Sprite HP80100FW;
-    public Sprite HP80100L;
-    public Sprite HP80100R;
+    public Texture2D HP80100FW;
+    public Texture2D HP80100L;
+    public Texture2D HP80100R;
     [Header("HP 79 - 60")]
-    public Sprite HP60100FW;
-    public Sprite HP60100L;
-    public Sprite HP60100R;
+    public Texture2D HP60100FW;
+    public Texture2D HP60100L;
+    public Texture2D HP60100R;
     [Header("HP 59 - 40")]
-    public Sprite HP40100FW;
-    public Sprite HP40100L;
-    public Sprite HP40100R;
+    public Texture2D HP40100FW;
+    public Texture2D HP40100L;
+    public Texture2D HP40100R;
     [Header("HP 39 - 20")]
-    public Sprite HP20100FW;
-    public Sprite HP20100L;
-    public Sprite HP20100R;
+    public Texture2D HP20100FW;
+    public Texture2D HP20100L;
+    public Texture2D HP20100R;
     [Header("HP 19 - 1")]
-    public Sprite HP1100FW;
-    public Sprite HP1100L;
-    public Sprite HP1100R;
+    public Texture2D HP1100FW;
+    public Texture2D HP1100L;
+    public Texture2D HP1100R;
     [Header("Picked up Weapon")]
-    public Sprite HP80100FWeaponPick;
-    public Sprite HP60100FWeaponPick;
-    public Sprite HP40100FWeaponPick;
-    public Sprite HP20100FWeaponPick;
-    public Sprite HP1100FWeaponPick;
-
-
-    [Header("HP <= 0")]
-    public Sprite HPDead;
-
+    public Texture2D HP80100FWeaponPick;
+    public Texture2D HP60100FWeaponPick;
+    public Texture2D HP40100FWeaponPick;
+    public Texture2D HP20100FWeaponPick;
+    public Texture2D HP1100FWeaponPick;
 
    
+    [Header("HP <= 0")]
+    public Texture2D HPDead;
+ 
+
+
     //Randomize face 
     //Face follow Enemy when hit (indicator where the enemy is)
     //if 20% hp is deducted ouchFace
@@ -59,7 +59,7 @@ public class FaceStatusBar : MonoBehaviour
 
  
         unit = player.GetComponent<UnitController>();
-        faces = new Sprite[16];
+        faces = new Texture2D[16];
 
         faces[0] = HP80100FW;
         faces[1] = HP80100L;
@@ -89,8 +89,10 @@ public class FaceStatusBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Image>().sprite = faces[pick];
+       
+  
         ChangeFace();
+    
     }
     void Faces()
     {
@@ -102,26 +104,23 @@ public class FaceStatusBar : MonoBehaviour
     void ChangeFace()
     {
 
-        timer -= Time.deltaTime;
-        timer = 1f;
-        pick = 0;
-        Debug.Log(timer + "ADS");
-        if(timer < 0)
-        {
-            timer = 1.5f;
-            i = pick;
-            while(i == pick)
-            {
-                pick = Random.Range(0, 2);
-                randomImage.sprite = faces[pick];
-            }
-      
-        }
-        
-
+        timer -= Time.deltaTime;    
         if (unit.CurHealth >= 80 && unit.CurHealth <= 100)
         {
-       
+            timer = 1f;
+            pick = 0;
+            Debug.Log(timer + "ADS");
+            if (timer < 0)
+            {
+                timer = 1.5f;
+                i = pick;
+                while (i == pick)
+                {
+                    pick = Random.Range(0, 2);
+                
+                }
+
+            }
         }
         if(unit.CurHealth >= 60 && unit.CurHealth <= 79)
         {
@@ -144,6 +143,18 @@ public class FaceStatusBar : MonoBehaviour
             ;
         }
     }
+
+    //private void GUIDrawSprite(Rect rect, Sprite faces)
+    //{
+
+    //    Rect spriteRect = faces.rect;
+    //    Texture2D tex = faces.texture;
+      
+    //    GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
+        
+    //}
+
+
     void muchPainCalc()
     {
       if(previousHealth - unit.CurHealth > muchPain)
