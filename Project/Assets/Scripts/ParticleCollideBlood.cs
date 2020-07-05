@@ -36,6 +36,7 @@ public class ParticleCollideBlood : MonoBehaviour
     //     if (Random.value > 0.2) //%80 percent chance (1 - 0.2 is 0.8)
     //     {
     //         Debug.Log("80% Chance");
+
     //     }
 
     //     if (Random.value > 0.99) //%30 percent chance (1 - 0.7 is 0.3)
@@ -49,6 +50,5 @@ public class ParticleCollideBlood : MonoBehaviour
     //             i++;
     //         }
     //     }
-
     // }
 }

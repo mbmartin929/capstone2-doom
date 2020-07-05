@@ -55,7 +55,7 @@ namespace EightDirectionalSpriteSystem
                                                      agent.transform.position.y,
                                                      playerGo.transform.position.z);
 
-                if (Vector3.Distance(agent.transform.position, targetPosition) <= 13.0f)
+                if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 1.0f)
                 {
                     enemyAI.anim.SetTrigger("Attack");
                 }

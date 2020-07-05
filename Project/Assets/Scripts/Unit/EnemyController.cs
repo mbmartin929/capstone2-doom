@@ -63,9 +63,10 @@ namespace EightDirectionalSpriteSystem
 
                     for (int i = 0; i <= 1; i++)
                     {
-                        GameObject bloodSplat = Instantiate(bloodSplatGos[Random.Range(0, bloodSplatGos.Length)], transform.position, Quaternion.identity);
-                        //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(150, 200f), transform.position, 500f, 0.0f, ForceMode.Force);
-                        bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-20f, 20f), Random.Range(-10f, 10f));
+                        int id = Random.Range(0, bloodSplatGos.Length);
+                        GameObject bloodSplat = Instantiate(bloodSplatGos[id], transform.position, bloodSplatGos[id].transform.rotation);
+                        //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(500, 700f), transform.position, 900f, 0.0f, ForceMode.Force);
+                        bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-5, 5), Random.Range(5f, 15f), Random.Range(-5, 5));
                     }
 
                     if (IsDead())

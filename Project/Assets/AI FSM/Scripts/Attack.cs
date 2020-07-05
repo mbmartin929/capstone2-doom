@@ -30,7 +30,7 @@ namespace EightDirectionalSpriteSystem
 
                 //agent.transform.LookAt(targetRotation);
 
-                if (Vector3.Distance(agent.transform.position, targetRotation) > 13.1f)
+                if (Vector3.Distance(agent.transform.position, targetRotation) > enemyAI.distanceToAttack)
                 {
                     enemyAI.anim.SetTrigger("Chase");
                 }

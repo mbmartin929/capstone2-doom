@@ -24,6 +24,7 @@ namespace EightDirectionalSpriteSystem
 
         [Header("AI Detection")]
         private Camera viewCamera;
+        public float distanceToAttack = 16.0f;
 
         public float viewRadius;
         [Range(0, 360)]
@@ -57,10 +58,80 @@ namespace EightDirectionalSpriteSystem
             //Debug.Log("Frame Count: " + actor.walkAnim.FrameCount);
         }
 
-        public void Fire()
+        private Vector3 PredictedPosition(Vector3 targetPosition, Vector3 shooterPosition, Vector3 targetVelocity, float projectileSpeed)
         {
-            GameObject a = Instantiate(enemyController.projectileGo, attackLoc.position, attackLoc.rotation);
-            a.GetComponent<Rigidbody>().AddForce(attackLoc.transform.forward * (Time.deltaTime * enemyController.projectileSpeed));
+            Vector3 displacement = targetPosition - shooterPosition;
+            float targetMoveAngle = Vector3.Angle(-displacement, targetVelocity) * Mathf.Deg2Rad;
+
+            //if the target is stopping or if it is impossible for the projectile to catch up with the target (Sine Formula)
+            if (targetVelocity.magnitude == 0 || targetVelocity.magnitude > projectileSpeed && Mathf.Sin(targetMoveAngle) / projectileSpeed > Mathf.Cos(targetMoveAngle) / targetVelocity.magnitude)
+            {
+                Debug.Log("Position prediction is not feasible.");
+                return targetPosition;
+            }
+            //also Sine Formula
+            float shootAngle = Mathf.Asin(Mathf.Sin(targetMoveAngle) * targetVelocity.magnitude / projectileSpeed);
+            return targetPosition + targetVelocity * displacement.magnitude / Mathf.Sin(Mathf.PI - targetMoveAngle - shootAngle) * Mathf.Sin(shootAngle) / targetVelocity.magnitude;
+        }
+
+        public void WormAttack()
+        {
+            // float distance = Vector3.Distance(transform.position, playerGo.transform.position);
+            // distance /= 5.5f;
+            // Debug.Log("Distance: " + distance);
+
+            // GameObject a = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);      
+            // a.GetComponent<Rigidbody>().AddForce((transform.forward) * enemyController.projectileSpeed * distance);
+            // a.GetComponent<Rigidbody>().AddForce(transform.up * 69);
+
+            // GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a1.GetComponent<Rigidbody>().AddForce((transform.forward + (-transform.right / 2)) * enemyController.projectileSpeed * distance);
+            // a1.GetComponent<Rigidbody>().AddForce(transform.up * 69);
+
+            // GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a2.GetComponent<Rigidbody>().AddForce((transform.forward + (transform.right / 2)) * enemyController.projectileSpeed * distance);
+            // a2.GetComponent<Rigidbody>().AddForce(transform.up * 69);
+
+            GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            a1.GetComponent<Projectile>().enemyAI = this;
+            a1.GetComponent<Projectile>().LaunchProjectile1();
+
+            GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            a2.GetComponent<Projectile>().enemyAI = this;
+            a2.GetComponent<Projectile>().LaunchProjectile2();
+
+            GameObject a3 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            a3.GetComponent<Projectile>().enemyAI = this;
+            a3.GetComponent<Projectile>().LaunchProjectile3();
+
+            float distance;
+            distance = Vector3.Distance(transform.position, playerGo.transform.position);
+            //Debug.Log("Before Distance: " + distance);
+
+            if (distance <= 5.5f)
+            {
+                Debug.Log("Short Distance");
+                distance *= -30.0f;
+            }
+            else
+            {
+                Debug.Log("Long Distance");
+                distance *= 35.0f;
+            }
+            //Debug.Log("After Distance: " + distance);
+            Debug.Log("Distance: " + distance);
+
+            // GameObject a = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a.GetComponent<Rigidbody>().AddForce((transform.forward) * enemyController.projectileSpeed);
+            // a.GetComponent<Rigidbody>().AddForce(transform.up * (69 + distance));
+
+            // GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a1.GetComponent<Rigidbody>().AddForce((transform.forward + (-transform.right / 2)) * enemyController.projectileSpeed);
+            // a1.GetComponent<Rigidbody>().AddForce(transform.up * (69 + distance));
+
+            // GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a2.GetComponent<Rigidbody>().AddForce((transform.forward + (transform.right / 2)) * enemyController.projectileSpeed);
+            // a2.GetComponent<Rigidbody>().AddForce(transform.up * (69 + distance));
         }
 
         public void EnemyRaycast()
@@ -195,7 +266,7 @@ namespace EightDirectionalSpriteSystem
             try
             {
                 actor.SetCurrentState(DemoActor.State.WALKING);
-                Vector3 newPos = EnemyAI.RandomNavSphere(transform.position, 2.5f, 0);
+                Vector3 newPos = EnemyAI.RandomNavSphere(transform.position, 4.0f, 0);
                 GetComponent<NavMeshAgent>().SetDestination(newPos);
             }
             catch (System.Exception e)
@@ -211,7 +282,11 @@ namespace EightDirectionalSpriteSystem
         private IEnumerator ActorAttack()
         {
             yield return new WaitForSeconds(1.0f);
-            actor.SetCurrentState(DemoActor.State.SHOOT);
+            if (enemyController.IsDead())
+            {
+
+            }
+            else actor.SetCurrentState(DemoActor.State.SHOOT);
         }
     }
 }

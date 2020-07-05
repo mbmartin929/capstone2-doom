@@ -269,31 +269,7 @@ namespace EightDirectionalSpriteSystem
         protected void HitLevel(RaycastHit hit)
         {
             // Raycast hits Level
-            if (hit.transform.tag == "Level")
-            {
-                MeshCollider collider = hit.collider as MeshCollider;
-                // Remember to handle case where collider is null because you hit a non-mesh primitive...
 
-                Mesh mesh = collider.sharedMesh;
-
-                // There are 3 indices stored per triangle
-                int limit = hit.triangleIndex * 3;
-                int submesh;
-                for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
-                {
-                    int numIndices = mesh.GetTriangles(submesh).Length;
-                    if (numIndices > limit)
-                        break;
-
-                    limit -= numIndices;
-                }
-
-                Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
-
-                //Debug.Log(material.name);
-
-                Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-            }
         }
 
         public void GetChildObject(Transform parent, string _tag)
