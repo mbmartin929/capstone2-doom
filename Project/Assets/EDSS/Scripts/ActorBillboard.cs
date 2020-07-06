@@ -167,7 +167,7 @@ namespace EightDirectionalSpriteSystem
                     {
                         if (!GetComponent<EnemyController>().IsDead())
                         {
-                            Debug.Log(currentAnimation.Action);
+                            //Debug.Log(currentAnimation.Action);
                             transform.GetComponentInParent<EnemyAI>().GetNewDir();
                         }
                         else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);

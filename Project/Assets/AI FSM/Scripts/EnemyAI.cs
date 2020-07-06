@@ -36,19 +36,18 @@ namespace EightDirectionalSpriteSystem
         void Awake()
         {
             //enemyController = GetComponent<EnemyController>();
+
+            //playerGo = GameObject.FindGameObjectWithTag("Player");
+
+            anim = GetComponent<Animator>();
+            actor = GetComponent<DemoActor>();
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            playerGo = GameManager.Instance.playerGo;
-            anim = GetComponent<Animator>();
 
-            actor = GetComponent<DemoActor>();
-
-            viewCamera = Camera.main;
-
-            StartCoroutine("FindTargetsWithDelay", .2f);
+            //StartCoroutine("FindTargetsWithDelay", .2f);
         }
 
         // Update is called once per frame
@@ -58,40 +57,8 @@ namespace EightDirectionalSpriteSystem
             //Debug.Log("Frame Count: " + actor.walkAnim.FrameCount);
         }
 
-        private Vector3 PredictedPosition(Vector3 targetPosition, Vector3 shooterPosition, Vector3 targetVelocity, float projectileSpeed)
-        {
-            Vector3 displacement = targetPosition - shooterPosition;
-            float targetMoveAngle = Vector3.Angle(-displacement, targetVelocity) * Mathf.Deg2Rad;
-
-            //if the target is stopping or if it is impossible for the projectile to catch up with the target (Sine Formula)
-            if (targetVelocity.magnitude == 0 || targetVelocity.magnitude > projectileSpeed && Mathf.Sin(targetMoveAngle) / projectileSpeed > Mathf.Cos(targetMoveAngle) / targetVelocity.magnitude)
-            {
-                Debug.Log("Position prediction is not feasible.");
-                return targetPosition;
-            }
-            //also Sine Formula
-            float shootAngle = Mathf.Asin(Mathf.Sin(targetMoveAngle) * targetVelocity.magnitude / projectileSpeed);
-            return targetPosition + targetVelocity * displacement.magnitude / Mathf.Sin(Mathf.PI - targetMoveAngle - shootAngle) * Mathf.Sin(shootAngle) / targetVelocity.magnitude;
-        }
-
         public void WormAttack()
         {
-            // float distance = Vector3.Distance(transform.position, playerGo.transform.position);
-            // distance /= 5.5f;
-            // Debug.Log("Distance: " + distance);
-
-            // GameObject a = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);      
-            // a.GetComponent<Rigidbody>().AddForce((transform.forward) * enemyController.projectileSpeed * distance);
-            // a.GetComponent<Rigidbody>().AddForce(transform.up * 69);
-
-            // GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            // a1.GetComponent<Rigidbody>().AddForce((transform.forward + (-transform.right / 2)) * enemyController.projectileSpeed * distance);
-            // a1.GetComponent<Rigidbody>().AddForce(transform.up * 69);
-
-            // GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            // a2.GetComponent<Rigidbody>().AddForce((transform.forward + (transform.right / 2)) * enemyController.projectileSpeed * distance);
-            // a2.GetComponent<Rigidbody>().AddForce(transform.up * 69);
-
             GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
             a1.GetComponent<Projectile>().enemyAI = this;
             a1.GetComponent<Projectile>().LaunchProjectile1();
@@ -105,80 +72,29 @@ namespace EightDirectionalSpriteSystem
             a3.GetComponent<Projectile>().LaunchProjectile3();
 
             float distance;
-            distance = Vector3.Distance(transform.position, playerGo.transform.position);
+            distance = Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position);
             //Debug.Log("Before Distance: " + distance);
 
             if (distance <= 5.5f)
             {
-                Debug.Log("Short Distance");
+                //Debug.Log("Short Distance");
                 distance *= -30.0f;
             }
             else
             {
-                Debug.Log("Long Distance");
+                //Debug.Log("Long Distance");
                 distance *= 35.0f;
             }
             //Debug.Log("After Distance: " + distance);
-            Debug.Log("Distance: " + distance);
-
-            // GameObject a = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            // a.GetComponent<Rigidbody>().AddForce((transform.forward) * enemyController.projectileSpeed);
-            // a.GetComponent<Rigidbody>().AddForce(transform.up * (69 + distance));
-
-            // GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            // a1.GetComponent<Rigidbody>().AddForce((transform.forward + (-transform.right / 2)) * enemyController.projectileSpeed);
-            // a1.GetComponent<Rigidbody>().AddForce(transform.up * (69 + distance));
-
-            // GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            // a2.GetComponent<Rigidbody>().AddForce((transform.forward + (transform.right / 2)) * enemyController.projectileSpeed);
-            // a2.GetComponent<Rigidbody>().AddForce(transform.up * (69 + distance));
+            //Debug.Log("Distance: " + distance);
         }
 
         public void EnemyRaycast()
         {
-            //Debug.Log("Enemy Raycast");
-
-            // #region  Raycast info
-            // RaycastHit hitInfoForward;
-            // RaycastHit hitInfoLeft;
-            // RaycastHit hitInfoRight;
-
-            // Ray forwardRay = new Ray(transform.position, transform.forward * rayCastdistance);
-            // Ray rightRay = new Ray(transform.position, (transform.forward * 2 - transform.right) * rayCastdistance);
-            // Ray leftRay = new Ray(transform.position, (transform.forward * 2 - (-transform.right)) * rayCastdistance);
-            // /// <summary>
-            // // Draws Green Line for raycast visual aide
-            // // new vector 3 serves as offset for raycast
-            // /// </summary>
-
-            // Debug.DrawRay(transform.position, transform.forward * rayCastdistance, Color.green);
-            // Debug.DrawRay(transform.position, (transform.forward * 2 - transform.right) * rayCastdistance, Color.green);
-            // Debug.DrawRay(transform.position, (transform.forward * 2 - (-transform.right)) * rayCastdistance, Color.green);
-            // #endregion
-
-            // #region Detects Player
-            // if (Physics.Raycast(forwardRay, out hitInfoForward, rayCastdistance))
-            // {
-            //     Debug.DrawRay(transform.position, transform.forward * 2 * rayCastdistance, Color.red);
-            //     PlayerDetection(hitInfoForward);
-            // }
-            // else if (Physics.Raycast(rightRay, out hitInfoLeft, rayCastdistance))
-            // {
-            //     Debug.DrawRay(transform.position, (transform.forward * 2 - transform.right) * rayCastdistance, Color.red);
-            //     PlayerDetection(hitInfoLeft);
-            // }
-            // else if (Physics.Raycast(leftRay, out hitInfoRight, rayCastdistance))
-            // {
-            //     Debug.DrawRay(transform.position, (transform.forward * 2 - (-transform.right)) * rayCastdistance, Color.red);
-            //     PlayerDetection(hitInfoRight);
-            // }
-            // #endregion
-
             if (visibleTargets.Count != 0)
             {
                 anim.SetTrigger("Chase");
             }
-
         }
 
         IEnumerator FindTargetsWithDelay(float delay)
@@ -230,6 +146,15 @@ namespace EightDirectionalSpriteSystem
                     anim.SetTrigger("Chase");
                 }
             }
+        }
+
+        public void ChasePlayer()
+        {
+            // anim = GetComponent<Animator>();
+            // anim.SetTrigger("Chase");
+
+
+            visibleTargets.Add(GameManager.Instance.playerGo.transform);
         }
 
         public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

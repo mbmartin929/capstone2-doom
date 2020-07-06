@@ -24,11 +24,11 @@ public class GameManager : MonoBehaviour
         // Sets Singleton
         Instance = this;
 
-        // Sets Framerate
-        Application.targetFrameRate = frameRate;
-
         // Gets player gameobject
         playerGo = GameObject.FindGameObjectWithTag("Player");
+
+        // Sets Framerate
+        Application.targetFrameRate = frameRate;
     }
 
     // Start is called before the first frame update
