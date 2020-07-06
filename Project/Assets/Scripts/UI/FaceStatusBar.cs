@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class FaceStatusBar : MonoBehaviour
 {
     public GameObject player;
-    protected UnitController unit;
+    public PlayerController unit;
     Texture2D[] faces;
     Image randomImage;
     bool doEvilGrin;
     int pick;
-    float timer;
+    float timer = 1.0f;
     int i;
 
 
@@ -58,14 +58,14 @@ public class FaceStatusBar : MonoBehaviour
     {
 
  
-        unit = player.GetComponent<UnitController>();
+        unit = player.GetComponent<PlayerController>();
         faces = new Texture2D[16];
 
         faces[0] = HP80100FW;
         faces[1] = HP80100L;
         faces[2] = HP80100R;
-        
-        faces[3] = HP60100FW; 
+
+        faces[3] = HP60100FW;
         faces[4] = HP60100L;
         faces[5] = HP60100R;
 
@@ -89,38 +89,44 @@ public class FaceStatusBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-  
         ChangeFace();
-    
-    }
-    void Faces()
-    {
-        //Random faces when no enemy
     }
 
     
 
     void ChangeFace()
     {
+        timer -= Time.deltaTime;
 
-        timer -= Time.deltaTime;    
+        
         if (unit.CurHealth >= 80 && unit.CurHealth <= 100)
         {
-            timer = 1f;
-            pick = 0;
-            Debug.Log(timer + "ADS");
+
             if (timer < 0)
             {
-                timer = 1.5f;
+                timer = 1.0f;
                 i = pick;
                 while (i == pick)
                 {
-                    pick = Random.Range(0, 2);
-                
+                    pick = Random.Range(0, 3);
+
                 }
 
             }
+            //timer = 1f;
+            //pick = 0;
+            //Debug.Log(timer + "ADS");
+            //if (timer < 0)
+            //{
+            //    timer = 5.0f;
+            //    i = pick;
+            //    while (i == pick)
+            //    {
+            //        pick = Random.Range(0, 2);
+
+            //    }
+
+            //}
         }
         if(unit.CurHealth >= 60 && unit.CurHealth <= 79)
         {
@@ -144,30 +150,12 @@ public class FaceStatusBar : MonoBehaviour
         }
     }
 
-    //private void GUIDrawSprite(Rect rect, Sprite faces)
-    //{
-
-    //    Rect spriteRect = faces.rect;
-    //    Texture2D tex = faces.texture;
-      
-    //    GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
-        
-    //}
-
-
-    void muchPainCalc()
+    private void OnGUI()
     {
-      if(previousHealth - unit.CurHealth > muchPain)
-        {
-            //shock face;
-        }
+        GUI.DrawTexture(new Rect(Screen.width / 2, Screen.height / 2, 100, 100), faces[pick]);
     }
 
-    void calcPainOffset()
-    {
-        int health = unit.CurHealth;
 
-        
-    }
+
 
 }

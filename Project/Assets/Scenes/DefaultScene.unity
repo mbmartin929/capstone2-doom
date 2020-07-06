@@ -1123,13 +1123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 642758103}
+  unit: {fileID: 0}
   muchPain: 0
-  HP80100FW: {fileID: 960783223240869194, guid: ad05a5b22189df0428bff375bc7f7941,
-    type: 3}
-  HP80100L: {fileID: -6674868978544099146, guid: ad05a5b22189df0428bff375bc7f7941,
-    type: 3}
-  HP80100R: {fileID: -939914929146671659, guid: ad05a5b22189df0428bff375bc7f7941,
-    type: 3}
+  HP80100FW: {fileID: 2800000, guid: a84429d7291fa8246a25107e86af2504, type: 3}
+  HP80100L: {fileID: 2800000, guid: 9e64f2a1675425e44a7578856cf295ae, type: 3}
+  HP80100R: {fileID: 2800000, guid: 8bf04afaeee229842b9a616c3ef7c057, type: 3}
   HP60100FW: {fileID: -2937440154884480595, guid: ad05a5b22189df0428bff375bc7f7941,
     type: 3}
   HP60100L: {fileID: 735799086578560747, guid: ad05a5b22189df0428bff375bc7f7941, type: 3}
@@ -1374,6 +1372,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4141079534947107865}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &642758104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 350307756444580196, guid: 775949be51c4a0e4a957891815e6bc1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4141079534947107865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642758103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc28ede9ba8f7440b6598c5c5236293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &684506960
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,6 +7306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894385276}
+  - component: {fileID: 1894385279}
   - component: {fileID: 1894385277}
   - component: {fileID: 1894385278}
   m_Layer: 5
@@ -7337,8 +7348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 642758103}
+  unit: {fileID: 642758104}
   muchPain: 0
-  HP80100FW: {fileID: 2800000, guid: 7ac86abbb14d1ec4a80ab2e6562ff0ed, type: 3}
+  HP80100FW: {fileID: 2800000, guid: a84429d7291fa8246a25107e86af2504, type: 3}
   HP80100L: {fileID: 2800000, guid: 9e64f2a1675425e44a7578856cf295ae, type: 3}
   HP80100R: {fileID: 2800000, guid: 337b4e09c9c033949be5a510e31088fb, type: 3}
   HP60100FW: {fileID: 2800000, guid: 8a333a7fc998d0145beb21a950d7bf4b, type: 3}
@@ -7367,6 +7379,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894385275}
   m_CullTransparentMesh: 0
+--- !u!223 &1894385279
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894385275}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1933405157
 GameObject:
   m_ObjectHideFlags: 0
