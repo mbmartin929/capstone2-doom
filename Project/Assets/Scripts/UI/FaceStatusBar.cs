@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class FaceStatusBar : MonoBehaviour
 {
+    public Transform enemy;
     public GameObject player;
     public PlayerController unit;
     Texture2D[] faces;
     Image randomImage;
     bool doEvilGrin;
     int pick;
-    float timer = 1.0f;
+    float timer;
     int i;
 
 
@@ -97,14 +98,25 @@ public class FaceStatusBar : MonoBehaviour
     void ChangeFace()
     {
         timer -= Time.deltaTime;
-
-        
         if (unit.CurHealth >= 80 && unit.CurHealth <= 100)
         {
+            Debug.Log("TEST");
 
-            if (timer < 0)
+            if (Input.GetMouseButton(0)) //straight face
             {
-                timer = 1.0f;
+                timer = 1f;
+                pick = 0;
+            }
+            if (unit.isDamaged == true)
+            {
+                timer = 0.5f;
+         
+                //pick = damaged face;
+                //Calculate where the enemy is
+            }
+            if (timer < 0 & !Input.GetMouseButton(0))
+            {               
+                timer = 1f;
                 i = pick;
                 while (i == pick)
                 {
@@ -113,40 +125,124 @@ public class FaceStatusBar : MonoBehaviour
                 }
 
             }
-            //timer = 1f;
-            //pick = 0;
-            //Debug.Log(timer + "ADS");
-            //if (timer < 0)
-            //{
-            //    timer = 5.0f;
-            //    i = pick;
-            //    while (i == pick)
-            //    {
-            //        pick = Random.Range(0, 2);
-
-            //    }
-
-            //}
         }
         if(unit.CurHealth >= 60 && unit.CurHealth <= 79)
         {
-            ;
+            if (Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                pick = 3;
+            }
+            if (unit.isDamaged == true)
+            {
+                timer = 0.5f;
+                //pick = damaged face;
+            }
+            if (timer < 0 & !Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                i = pick;
+                while (i == pick)
+                {
+                    pick = Random.Range(3, 6);
+
+                }
+
+            }
         }
         if(unit.CurHealth >= 40 && unit.CurHealth <= 59)
         {
-            ;
+            if (Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                pick = 6;
+            }
+            if (unit.isDamaged == true)
+            {
+                timer = 0.5f;
+                //pick = damaged face;
+            }
+            if (timer < 0 & !Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                i = pick;
+                while (i == pick)
+                {
+                    pick = Random.Range(6, 9);
+
+                }
+
+            }
         }
         if(unit.CurHealth >= 20 && unit.CurHealth <= 39)
         {
-            ;
+            if (Input.GetMouseButton(0))
+            {
+                timer = 9f;
+                pick = 0;
+            }
+            if (unit.isDamaged == true)
+            {
+                timer = 0.5f;
+                //pick = damaged face;
+            }
+            if (timer < 0 & !Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                i = pick;
+                while (i == pick)
+                {
+                    pick = Random.Range(9, 12);
+
+                }
+
+            }
         }
         if(unit.CurHealth >= 1 && unit.CurHealth <= 19)
         {
-            ;
+            if (Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                pick = 12;
+            }
+            if (unit.isDamaged == true)
+            {
+                timer = 0.5f;
+                //pick = damaged face;
+            }
+            if (timer < 0 & !Input.GetMouseButton(0))
+            {
+                timer = 1f;
+                i = pick;
+                while (i == pick)
+                {
+                    pick = Random.Range(12, 5);
+
+                }
+
+            }
         }
         if(unit.CurHealth <= 0)
         {
-            ;
+            pick = 15;
+        }
+    }
+
+    void calcWhereEnemy(Texture2D charFace)
+    {
+        Vector3 targetDir = enemy.position - transform.position;
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        
+        //float angle = Vector3.Angle(targetDir, forward);
+        if (Vector3.Dot(forward, targetDir) > 0)
+        {
+            charFace = faces[pick];
+            //turn right face
+        }
+        else if(Vector3.Dot(forward,targetDir ) < 0)
+        {
+            charFace = faces[pick];
+            //turn left face
         }
     }
 
