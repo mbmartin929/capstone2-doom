@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace EightDirectionalSpriteSystem
 {
-
-
     public class Projectile : MonoBehaviour
     {
         public GameObject cursor;
         public LayerMask layer;
         public Transform shootPoint;
+        public float duration = 1.29f;
 
         public EnemyAI enemyAI;
 
@@ -38,7 +37,7 @@ namespace EightDirectionalSpriteSystem
             //if (Physics.Raycast())
 
             Vector3 playerPos = GameManager.Instance.playerGo.transform.position;
-            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, 0.75f);
+            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
 
             transform.rotation = Quaternion.LookRotation(Vo);
 
@@ -48,7 +47,7 @@ namespace EightDirectionalSpriteSystem
         public void LaunchProjectile2()
         {
             Vector3 playerPos = GameManager.Instance.playerGo.transform.position + GameManager.Instance.playerGo.transform.right * 6.9f;
-            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, 0.75f);
+            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
 
             transform.rotation = Quaternion.LookRotation(Vo);
 
@@ -58,7 +57,7 @@ namespace EightDirectionalSpriteSystem
         public void LaunchProjectile3()
         {
             Vector3 playerPos = GameManager.Instance.playerGo.transform.position - GameManager.Instance.playerGo.transform.right * 6.9f;
-            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, 0.75f);
+            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
 
             transform.rotation = Quaternion.LookRotation(Vo);
 
@@ -82,6 +81,24 @@ namespace EightDirectionalSpriteSystem
             result.y = Vy;
 
             return result;
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Level"))
+            {
+                if (transform.childCount <= 0)
+                {
+
+                }
+                else if (transform.GetChild(0) != null)
+                {
+                    Debug.Log(transform.GetChild(0).name);
+                    transform.GetChild(0).transform.parent = null;
+                }
+
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace EightDirectionalSpriteSystem
 {
-
-
-
     public class SmokeBomb : MonoBehaviour
     {
         public GameObject enemyGo;
@@ -66,7 +63,9 @@ namespace EightDirectionalSpriteSystem
 
         private void ResetScale()
         {
-            StartCoroutine(ChangeScale(targetSize, startingSize, duration - 0.4f));
+            float resetDuration = duration - 0.4f;
+            StartCoroutine(ChangeScale(targetSize, startingSize, resetDuration));
+            Destroy(gameObject, resetDuration);
         }
 
         private void SpawnEnemy()

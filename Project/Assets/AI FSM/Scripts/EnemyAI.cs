@@ -153,7 +153,7 @@ namespace EightDirectionalSpriteSystem
             // anim = GetComponent<Animator>();
             // anim.SetTrigger("Chase");
 
-
+            Debug.Log("ChasePlayer");
             visibleTargets.Add(GameManager.Instance.playerGo.transform);
         }
 
@@ -206,7 +206,7 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator ActorAttack()
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.15f);
             if (enemyController.IsDead())
             {
 
