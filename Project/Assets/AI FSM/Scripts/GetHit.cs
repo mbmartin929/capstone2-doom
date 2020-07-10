@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace EightDirectionalSpriteSystem
 {
-
-
     public class GetHit : NPCbaseFSM
     {
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -14,12 +12,7 @@ namespace EightDirectionalSpriteSystem
             Debug.Log("Get Hit State");
 
             base.OnStateEnter(animator, stateInfo, layerIndex);
-
-            agent.isStopped = true;
-            isChasing = false;
-            isPatrolling = false;
-            isAttacking = false;
-            isDead = false;
+            if (!enemyController.IsDead()) agent.isStopped = true;
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -31,7 +24,7 @@ namespace EightDirectionalSpriteSystem
         //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            agent.isStopped = false;
+            //agent.isStopped = false;
         }
 
         // OnStateMove is called right after Animator.OnAnimatorMove()

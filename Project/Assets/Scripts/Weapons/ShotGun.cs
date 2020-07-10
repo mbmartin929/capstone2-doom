@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShotGun : MonoBehaviour
 {
-
     public Camera fpsCam;
     public float range = 50f;
 
@@ -38,9 +37,9 @@ public class ShotGun : MonoBehaviour
         direction.z = z;// circle is at Z units 
         direction = transform.TransformDirection(direction.normalized); //converting the Vector3.forward to transform.forward
         RaycastHit hit;
-        Ray ray = new Ray(fpsCam.transform.position,direction);
+        Ray ray = new Ray(fpsCam.transform.position, direction);
 
-        if (Physics.Raycast( ray, out hit, range))
+        if (Physics.Raycast(ray, out hit, range))
         {
             Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
             Debug.Log(hit.transform.name);

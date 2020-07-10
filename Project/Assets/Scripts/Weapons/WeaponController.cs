@@ -27,7 +27,6 @@ namespace EightDirectionalSpriteSystem
         #region Other Variables
         public List<GameObject> actors = new List<GameObject>();
         public float muzzleLightResetTime = 0.1f;
-        public GameObject bulletTracerGo;
         public GameObject bulletCasingParticleGo;
         public ParticleSystem bulletTracerParticle;
         public GameObject muzzleLightGo;
@@ -56,6 +55,12 @@ namespace EightDirectionalSpriteSystem
         protected void PlayGunshotSound()
         {
             GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
+        }
+
+        // Used as animation event
+        protected void PlayShotgunShootSound(int index)
+        {
+            GetComponent<AudioSource>().PlayOneShot(gunshotSounds[index]);
         }
 
         public void PlayReloadSound(int id)
@@ -237,6 +242,7 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator MuzzleLight()
         {
+            Debug.Log(muzzleLightGo.gameObject.name);
             muzzleLightGo.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(muzzleLightResetTime);
