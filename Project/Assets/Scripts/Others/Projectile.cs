@@ -93,7 +93,7 @@ namespace EightDirectionalSpriteSystem
                 }
                 else if (transform.GetChild(0) != null)
                 {
-                    Debug.Log(transform.GetChild(0).name);
+                    // Debug.Log(transform.GetChild(0).name);
                     transform.GetChild(0).transform.parent = null;
                 }
 

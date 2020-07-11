@@ -25,6 +25,9 @@ namespace EightDirectionalSpriteSystem
         #endregion
 
         #region Other Variables
+        public Vector3 startWeaponSwitchVector;
+        public Vector3 startWeaponSwitchRot;
+
         public List<GameObject> actors = new List<GameObject>();
         public float muzzleLightResetTime = 0.1f;
         public GameObject bulletCasingParticleGo;
@@ -32,12 +35,13 @@ namespace EightDirectionalSpriteSystem
         public GameObject muzzleLightGo;
         public GameObject hitEffectGo;
         public Vector3 camRotation;
+
         #endregion
 
         #region Private Variables
         protected GameObject cameraGo;
         [SerializeField] protected bool canAttack;
-        protected Animator anim;
+        [HideInInspector] public Animator anim;
 
         #endregion
 
@@ -181,16 +185,64 @@ namespace EightDirectionalSpriteSystem
             //else if (!canAttack) return;
         }
 
-        // private void CheckAmmo()
-        // {
-        //     Debug.Log(curAmmo);
-        //     if (curAmmo <= 0)
-        //     {
+        private void StartWeaponSwitch()
+        {
+            //transform.localPosition = startWeaponSwitchVector;
+            //transform.localRotation = Quaternion.Euler(startWeaponSwitchRot.x, startWeaponSwitchRot.y, startWeaponSwitchRot.z);
+            //Debug.Log("Start: " + transform.localPosition);
+        }
 
-        //         Reload();
-        //     }
-        //     //else curAmmo--;
-        // }
+        private void EndWeaponSwitch()
+        {
+
+        }
+
+        public void SwitchWeapon(Transform _weapon)
+        {
+            WeaponController weapon = _weapon.GetComponent<WeaponController>();
+
+            weapon.anim.SetTrigger("");
+        }
+
+        public void SwitchTo()
+        {
+            anim.SetTrigger("Switch To");
+            transform.localPosition = startWeaponSwitchVector;
+            transform.localRotation = Quaternion.Euler(startWeaponSwitchRot.x, startWeaponSwitchRot.y, startWeaponSwitchRot.z);
+            //StartCoroutine(SwitchToNumerator());
+            Debug.Log("SwitchTo");
+        }
+
+        public void SwitchAway()
+        {
+            // if (weapon.gameObject.activeSelf)
+            // {
+            //     StartCoroutine(SwitchAwayNumerator());
+            //     Debug.Log("SwitchAway");
+            // }
+
+            anim.SetTrigger("Switch Away");
+            //Debug.Log("SwitchAway");
+        }
+
+        private IEnumerator SwitchToNumerator()
+        {
+            anim.SetTrigger("Switch To");
+            yield return new WaitForSeconds(0.30f);
+            //SwitchAway();
+        }
+
+        private IEnumerator SwitchAwayNumerator()
+        {
+            anim.SetTrigger("Switch Away");
+            yield return new WaitForSeconds(0.30f);
+            SwitchTo();
+        }
+
+        private void SetIdle()
+        {
+            anim.SetTrigger("Idle");
+        }
 
         private IEnumerator Wait(float seconds)
         {

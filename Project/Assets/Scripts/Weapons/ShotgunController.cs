@@ -18,11 +18,15 @@ namespace EightDirectionalSpriteSystem
 
         private Vector3 startTransform;
 
+        void Awake()
+        {
+            //Debug.Log("Hi");
+            anim = GetComponent<Animator>();
+        }
+
         // Start is called before the first frame update
         void Start()
         {
-            anim = GetComponent<Animator>();
-
             cameraGo = GameObject.FindGameObjectWithTag("Player");
             FindObjectwithTag("MainCamera");
 
@@ -30,10 +34,10 @@ namespace EightDirectionalSpriteSystem
 
 
             CurAmmo = clipAmmo;
-            //Debug.Log("CurAmmo: " + CurAmmo + " || " + "ClipAmmo: " + clipAmmo);
 
             canAttack = true;
-            //Debug.Log("PistolController: " + canAttack);
+
+            //SwitchTo();
         }
 
         // Update is called once per frame
@@ -41,6 +45,8 @@ namespace EightDirectionalSpriteSystem
         {
             fpsCam.transform.eulerAngles += camRotation;
             fpsCam.fieldOfView = FOV;
+
+            //Debug.Log(transform.localPosition);
         }
 
         void LateUpdate()
