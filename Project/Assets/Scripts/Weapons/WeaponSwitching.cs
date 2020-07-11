@@ -74,18 +74,17 @@ namespace EightDirectionalSpriteSystem
 
                     if (!currentWeapon.gameObject.activeSelf)
                     {
-                        Debug.Log(previousSelectedWeapon);
+                        //Debug.Log(previousSelectedWeapon);
+
+                        // INSERT CODE HERE TO CHECK IF THERE IS AN ACTION PLAYING
 
                         Transform previousWeapon = transform.GetChild(previousSelectedWeapon);
                         previousWeapon.GetComponent<WeaponController>().SwitchAway();
 
-                        StartCoroutine(SwitchIENumerator(0.30f, currentWeapon, true, true));
-                        StartCoroutine(SwitchIENumerator(0.30f, previousWeapon, false, false));
+                        StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
+                        StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
                         return;
                     }
-
-
-
                     //weapon.gameObject.GetComponent<WeaponController>().SwitchTo();
                 }
                 else

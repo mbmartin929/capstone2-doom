@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
-
-
     // Start is called before the first frame update
     void Start()
     {

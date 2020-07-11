@@ -15,16 +15,18 @@ namespace EightDirectionalSpriteSystem
         public float fireDelay = 1.0f;
         public bool readyToFire = true;
 
+        void Awake()
+        {
+            anim = GetComponent<Animator>();
+        }
+
         // Start is called before the first frame update
         void Start()
         {
-            anim = GetComponent<Animator>();
-
             cameraGo = GameObject.FindGameObjectWithTag("Player");
             FindObjectwithTag("MainCamera");
 
             FOV = fpsCam.fieldOfView;
-
 
             CurAmmo = clipAmmo;
             //Debug.Log("CurAmmo: " + CurAmmo + " || " + "ClipAmmo: " + clipAmmo);
@@ -116,7 +118,7 @@ namespace EightDirectionalSpriteSystem
             float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, fireTime / timeToMaxSpread);//Bullets first shot is perfect = 0.0f. Every shoot is less accurate
             fireRotation = Quaternion.RotateTowards(fireRotation, randomRotation, Random.Range(0.0f, currentSpread)); //Random rotation of bullet every shoot
 
-            if (Physics.Raycast(fpsCam.transform.position, fireRotation * Vector3.forward, out hit, range))
+            if (Physics.Raycast(fpsCam.transform.position, fireRotation * (Vector3.forward * 100f), out hit, range))
             {
                 HitLevel(hit);
                 if (hit.transform.tag == "Level")

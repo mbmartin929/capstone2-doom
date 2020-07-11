@@ -36,8 +36,6 @@ namespace EightDirectionalSpriteSystem
             CurAmmo = clipAmmo;
 
             canAttack = true;
-
-            //SwitchTo();
         }
 
         // Update is called once per frame
