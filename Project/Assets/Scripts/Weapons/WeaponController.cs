@@ -294,7 +294,7 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator MuzzleLight()
         {
-            Debug.Log(muzzleLightGo.gameObject.name);
+            // Debug.Log(muzzleLightGo.gameObject.name);
             muzzleLightGo.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(muzzleLightResetTime);
