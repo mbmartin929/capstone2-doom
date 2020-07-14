@@ -66,10 +66,10 @@ namespace EightDirectionalSpriteSystem
                     {
                         shotgun.SetActive(false);
                     }
-                    else
-                    {
-                        currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
-                    }
+                }
+                else
+                {
+                    currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
                 }
             }
         }
