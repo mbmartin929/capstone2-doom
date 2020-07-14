@@ -112,7 +112,6 @@ namespace EightDirectionalSpriteSystem
 
                         }
                     }
-                    //weapon.gameObject.GetComponent<WeaponController>().SwitchTo();
                 }
                 else
                 {

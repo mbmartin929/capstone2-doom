@@ -8,6 +8,8 @@ public class PlayerController : UnitController
     protected UnitController unit;
     public bool isDamaged;
 
+    public Transform weapons;
+
     public int rayCastLength;
 
     [Header("Door function")]
@@ -43,7 +45,7 @@ public class PlayerController : UnitController
                 guiShow = true;
                 if (Input.GetKeyDown("e") && isOpen == false)
                 {
-                    hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState();                
+                    hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState();
                 }
             }
         }
@@ -59,7 +61,7 @@ public class PlayerController : UnitController
         //DOOR
         if (guiShow == true && isOpen == false)
         {
-            GUI.Box(new Rect(Screen.width / 3, Screen.height / 3, 150, 50), "PRESS " + "E"+ " Open Door");
+            GUI.Box(new Rect(Screen.width / 3, Screen.height / 3, 150, 50), "PRESS " + "E" + " Open Door");
         }
     }
 }

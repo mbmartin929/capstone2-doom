@@ -13,7 +13,7 @@ public class HealthPotion : PickUpController
     {
         PickUpController Potion = new PickUpController();
         Potion.itemName = "Heart";
-        Potion.healAmount = HealAmountHp;
+        Potion.recoverAmount = HealAmountHp;
         unit = player.GetComponent<UnitController>();
     }
 
@@ -24,9 +24,9 @@ public class HealthPotion : PickUpController
         if (other.gameObject.tag == "Player")
         {
 
-            overlayImage.enabled = true;
-            unit.CurHealth += healAmount;
-            Debug.Log("HP PICKED!" + healAmount);
+            overlayImage.SetEnabled(true);
+            unit.CurHealth += recoverAmount;
+            Debug.Log("HP PICKED!" + recoverAmount);
             StartCoroutine("blinkImage");
             Destroy(this.gameObject);
         }
@@ -36,9 +36,9 @@ public class HealthPotion : PickUpController
 
     IEnumerator blinkImage()
     {
-   
+
         yield return new WaitForSeconds(time);
-        overlayImage.enabled = false;
+        overlayImage.SetEnabled(false);
 
     }
 

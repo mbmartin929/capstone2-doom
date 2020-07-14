@@ -8,11 +8,11 @@ public class ArmorPotion : PickUpController
     private int HealAmountArmor;
 
 
-     void Start()
+    void Start()
     {
         PickUpController Armor = new PickUpController();
         Armor.itemName = "Armor";
-        Armor.healAmount = HealAmountArmor;
+        Armor.recoverAmount = HealAmountArmor;
         unit = player.GetComponent<UnitController>();
     }
 
@@ -21,8 +21,8 @@ public class ArmorPotion : PickUpController
     {
         if (other.gameObject.tag == "Player")
         {
-            unit.maxArmor += healAmount;
-            Debug.Log("Armor PICKED!" + healAmount);
+            unit.maxArmor += recoverAmount;
+            Debug.Log("Armor PICKED!" + recoverAmount);
             Destroy(this.gameObject);
         }
     }
