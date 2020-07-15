@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 public class FaceStatusBar : MonoBehaviour
 {
     public Transform enemy;
@@ -44,10 +44,10 @@ public class FaceStatusBar : MonoBehaviour
     public Texture2D HP20100FWeaponPick;
     public Texture2D HP1100FWeaponPick;
 
-   
+
     [Header("HP <= 0")]
     public Texture2D HPDead;
- 
+
 
 
     //Randomize face 
@@ -57,8 +57,6 @@ public class FaceStatusBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
- 
         unit = player.GetComponent<PlayerController>();
         faces = new Texture2D[16];
 
@@ -83,8 +81,6 @@ public class FaceStatusBar : MonoBehaviour
         faces[14] = HP1100R;
 
         faces[15] = HPDead;
-
-
     }
 
     // Update is called once per frame
@@ -93,40 +89,38 @@ public class FaceStatusBar : MonoBehaviour
         ChangeFace();
     }
 
-    
-
     void ChangeFace()
     {
         timer -= Time.deltaTime;
         if (unit.CurHealth >= 80 && unit.CurHealth <= 100)
         {
-            Debug.Log("TEST");
-
             if (Input.GetMouseButton(0)) //straight face
             {
+                Debug.Log("FWD Face 100");
+
                 timer = 1f;
                 pick = 0;
             }
             if (unit.isDamaged == true)
             {
                 timer = 0.5f;
-         
+
                 //pick = damaged face;
                 //Calculate where the enemy is
             }
             if (timer < 0 & !Input.GetMouseButton(0))
-            {               
+            {
+                Debug.Log("Left Click");
+
                 timer = 1f;
                 i = pick;
                 while (i == pick)
                 {
                     pick = Random.Range(0, 3);
-
                 }
-
             }
         }
-        if(unit.CurHealth >= 60 && unit.CurHealth <= 79)
+        if (unit.CurHealth >= 60 && unit.CurHealth <= 79)
         {
             if (Input.GetMouseButton(0))
             {
@@ -150,7 +144,7 @@ public class FaceStatusBar : MonoBehaviour
 
             }
         }
-        if(unit.CurHealth >= 40 && unit.CurHealth <= 59)
+        if (unit.CurHealth >= 40 && unit.CurHealth <= 59)
         {
             if (Input.GetMouseButton(0))
             {
@@ -174,7 +168,7 @@ public class FaceStatusBar : MonoBehaviour
 
             }
         }
-        if(unit.CurHealth >= 20 && unit.CurHealth <= 39)
+        if (unit.CurHealth >= 20 && unit.CurHealth <= 39)
         {
             if (Input.GetMouseButton(0))
             {
@@ -198,7 +192,7 @@ public class FaceStatusBar : MonoBehaviour
 
             }
         }
-        if(unit.CurHealth >= 1 && unit.CurHealth <= 19)
+        if (unit.CurHealth >= 1 && unit.CurHealth <= 19)
         {
             if (Input.GetMouseButton(0))
             {
@@ -222,7 +216,7 @@ public class FaceStatusBar : MonoBehaviour
 
             }
         }
-        if(unit.CurHealth <= 0)
+        if (unit.CurHealth <= 0)
         {
             pick = 15;
         }
@@ -232,14 +226,14 @@ public class FaceStatusBar : MonoBehaviour
     {
         Vector3 targetDir = enemy.position - transform.position;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-        
+
         //float angle = Vector3.Angle(targetDir, forward);
         if (Vector3.Dot(forward, targetDir) > 0)
         {
             charFace = faces[pick];
             //turn right face
         }
-        else if(Vector3.Dot(forward,targetDir ) < 0)
+        else if (Vector3.Dot(forward, targetDir) < 0)
         {
             charFace = faces[pick];
             //turn left face
@@ -248,10 +242,6 @@ public class FaceStatusBar : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.DrawTexture(new Rect(Screen.width / 2, Screen.height / 2, 100, 100), faces[pick]);
+        //GUI.DrawTexture(new Rect(Screen.width / 2, Screen.height / 2, 100, 100), faces[pick]);
     }
-
-
-
-
 }

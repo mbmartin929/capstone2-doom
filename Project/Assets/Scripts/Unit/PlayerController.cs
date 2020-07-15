@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerController : UnitController
 {
-    public GameObject player;
-    protected UnitController unit;
     public bool isDamaged;
+    public bool damaged;
 
     public Transform weapons;
 
@@ -15,22 +14,18 @@ public class PlayerController : UnitController
     [Header("Door function")]
     bool guiShow = false;
     bool isOpen = false;
-    //public float speedOfDoor;
-    //public GameObject door;
 
     // Start is called before the first frame update
     void Start()
     {
-        unit = player.GetComponent<UnitController>();
-        unit.CurHealth = 100;
+        CurHealth = maxHealth;
+        CurArmor = maxArmor;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         playerRayCast();
-
     }
 
     void playerRayCast()
@@ -53,7 +48,21 @@ public class PlayerController : UnitController
         {
             guiShow = false;
         }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy Attack"))
+        {
+            GetDamaged();
+        }
+    }
+
+    private IEnumerator GetDamaged()
+    {
+        damaged = true;
+        yield return new WaitForSeconds(0.25f);
+        damaged = false;
     }
 
     void OnGUI()
