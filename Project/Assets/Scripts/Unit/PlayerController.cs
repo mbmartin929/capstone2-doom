@@ -7,6 +7,9 @@ public class PlayerController : UnitController
     public bool isDamaged;
     public bool damaged;
 
+    public int currentHealth;
+    public int currentArmor;
+
     public Transform weapons;
 
     public int rayCastLength;
@@ -25,6 +28,9 @@ public class PlayerController : UnitController
     // Update is called once per frame
     void Update()
     {
+        currentHealth = CurHealth;
+        currentArmor = CurArmor;
+
         playerRayCast();
     }
 
@@ -58,10 +64,26 @@ public class PlayerController : UnitController
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        if (CurArmor > 0)
+        {
+            Debug.Log("Armor Damage");
+            CurArmor -= amount;
+        }
+        else
+        {
+            Debug.Log("Health Damage");
+            CurHealth -= amount;
+        }
+
+        StartCoroutine(GetDamaged());
+    }
+
     private IEnumerator GetDamaged()
     {
         damaged = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.15f);
         damaged = false;
     }
 

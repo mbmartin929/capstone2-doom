@@ -6,6 +6,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class Projectile : MonoBehaviour
     {
+        [HideInInspector] public int damage;
+
         public GameObject cursor;
         public LayerMask layer;
         public Transform shootPoint;
@@ -96,6 +98,12 @@ namespace EightDirectionalSpriteSystem
                     // Debug.Log(transform.GetChild(0).name);
                     transform.GetChild(0).transform.parent = null;
                 }
+
+                Destroy(gameObject);
+            }
+            else if (other.CompareTag("Player"))
+            {
+                other.GetComponent<PlayerController>().TakeDamage(damage);
 
                 Destroy(gameObject);
             }

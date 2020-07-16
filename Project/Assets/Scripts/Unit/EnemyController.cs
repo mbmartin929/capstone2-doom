@@ -6,6 +6,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class EnemyController : UnitController
     {
+        public int damage = 15;
+
         public Vector3 deadColliderCenter;
         public Vector3 deadColliderSize;
 
@@ -115,12 +117,12 @@ namespace EightDirectionalSpriteSystem
 
             if (!IsDead())
             {
-                Debug.Log("After IENumerator IS NOT DEAD");
+                //Debug.Log("After IENumerator IS NOT DEAD");
                 animator.SetTrigger("Attack");
             }
             else
             {
-                Debug.Log("After IENumerator IS DEAD");
+                //Debug.Log("After IENumerator IS DEAD");
                 animator.SetTrigger("Dead");
             }
 
