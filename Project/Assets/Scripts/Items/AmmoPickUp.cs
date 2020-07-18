@@ -72,6 +72,8 @@ namespace EightDirectionalSpriteSystem
                     currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
                 }
             }
+
+            TextManager.Instance.UpdateAmmoText();
         }
 
         private void PickUpAmmo(Transform playerWeapons)
@@ -87,6 +89,8 @@ namespace EightDirectionalSpriteSystem
                 Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
                 currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
             }
+
+            TextManager.Instance.UpdateAmmoText();
         }
 
         private Transform SearchWeapons(Transform playerWeapons, string weaponName)

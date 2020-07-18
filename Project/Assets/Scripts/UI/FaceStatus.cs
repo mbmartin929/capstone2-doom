@@ -62,7 +62,7 @@ public class FaceStatus : MonoBehaviour
         //rawImage = GetComponent<RawImage>();
         //image = GetComponent<Image>();
 
-        Debug.Log(rawImage.name);
+        //Debug.Log(rawImage.name);
 
         // have every image in an array for easy access
         imgs = new Texture2D[26];

@@ -104,6 +104,8 @@ namespace EightDirectionalSpriteSystem
 
                             StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
                             StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
+
+                            
                             return;
                         }
                         else
@@ -112,6 +114,7 @@ namespace EightDirectionalSpriteSystem
 
                         }
                     }
+                    TextManager.Instance.UpdateAmmoText();
                 }
                 else
                 {
@@ -129,6 +132,7 @@ namespace EightDirectionalSpriteSystem
             if (switchTo)
             {
                 weapon.GetComponent<WeaponController>().SwitchTo();
+                TextManager.Instance.UpdateAmmoText();
             }
         }
 

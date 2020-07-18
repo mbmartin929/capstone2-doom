@@ -33,6 +33,8 @@ namespace EightDirectionalSpriteSystem
 
             canAttack = true;
             //Debug.Log("PistolController: " + canAttack);
+
+            TextManager.Instance.UpdateAmmoText();
         }
 
         // Update is called once per frame
@@ -120,6 +122,7 @@ namespace EightDirectionalSpriteSystem
 
             if (Physics.Raycast(fpsCam.transform.position, fireRotation * (Vector3.forward * 100f), out hit, range))
             {
+                TextManager.Instance.UpdateAmmoText();
                 HitLevel(hit);
                 if (hit.transform.tag == "Level")
                 {
