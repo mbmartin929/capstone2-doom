@@ -22,28 +22,28 @@ namespace EightDirectionalSpriteSystem
         {
             previousSelectedWeapon = selectedWeapon;
 
-            // if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-            // {
-            //     if (selectedWeapon >= transform.childCount - 1)
-            //     {
-            //         selectedWeapon = 0;
-            //     }
-            //     else
-            //     {
-            //         selectedWeapon++;
-            //     }
-            // }
-            // if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            // {
-            //     if (selectedWeapon <= 0)
-            //     {
-            //         selectedWeapon = transform.childCount - 1;
-            //     }
-            //     else
-            //     {
-            //         selectedWeapon--;
-            //     }
-            // }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                if (selectedWeapon >= transform.childCount - 1)
+                {
+                    selectedWeapon = 0;
+                }
+                else
+                {
+                    selectedWeapon++;
+                }
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                if (selectedWeapon <= 0)
+                {
+                    selectedWeapon = transform.childCount - 1;
+                }
+                else
+                {
+                    selectedWeapon--;
+                }
+            }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -65,32 +65,60 @@ namespace EightDirectionalSpriteSystem
             int i = 0;
             foreach (Transform currentWeapon in transform)
             {
+                Transform previousWeapon = transform.GetChild(previousSelectedWeapon);
+
+                // if (i != selectedWeapon)
+                // {
+                //     for (int x = 0; x <= transform.childCount - 1; x++)
+                //     {
+                //         if (transform.GetChild(x).gameObject.activeSelf)
+                //         {
+                //             //Debug.Log("X: " + x);
+
+                //             i = (x);
+                //         }
+                //     }
+                // }
+                // Debug.Log("SelectedWeapon: " + selectedWeapon);
+
+                if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+                {
+                    selectedWeapon = previousSelectedWeapon;
+                }
+
                 if (i == selectedWeapon)
                 {
-                    //weapon.gameObject.GetComponent<WeaponController>().SwitchTo();
-                    //weapon.gameObject.SetActive(true);
-
-                    //StartCoroutine(SwitchIENumerator(0.30f, weapon, true));
-
                     if (!currentWeapon.gameObject.activeSelf)
                     {
-                        //Debug.Log(previousSelectedWeapon);
+                        Debug.Log("PreviousSelectedWeapon: " + previousSelectedWeapon);
+                        //if (previousSelectedWeapon <= -1) previousSelectedWeapon = 0;
+
+
 
                         // INSERT CODE HERE TO CHECK IF THERE IS AN ACTION PLAYING
+                        if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                        {
+                            Debug.Log("SelectedWeapon: " + selectedWeapon);
 
-                        Transform previousWeapon = transform.GetChild(previousSelectedWeapon);
-                        previousWeapon.GetComponent<WeaponController>().SwitchAway();
+                            previousWeapon.GetComponent<WeaponController>().SwitchAway();
 
-                        StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
-                        StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
-                        return;
+                            StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
+                            StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
+
+                            
+                            return;
+                        }
+                        else
+                        {
+                            // RESET SELECTED WEAPON VARIABLE
+
+                        }
                     }
-                    //weapon.gameObject.GetComponent<WeaponController>().SwitchTo();
+                    TextManager.Instance.UpdateAmmoText();
                 }
                 else
                 {
-                    //StartCoroutine(SwitchIENumerator(0.30f, weapon, false));
-                    //weapon.gameObject.GetComponent<WeaponController>().SwitchAway();
+
                 }
                 i++;
             }
@@ -104,7 +132,17 @@ namespace EightDirectionalSpriteSystem
             if (switchTo)
             {
                 weapon.GetComponent<WeaponController>().SwitchTo();
+                TextManager.Instance.UpdateAmmoText();
             }
+        }
+
+        bool isPlaying(Animator anim, string stateName)
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -183,18 +183,8 @@ namespace EightDirectionalSpriteSystem
                 //CheckAmmo();
             }
             //else if (!canAttack) return;
-        }
 
-        private void StartWeaponSwitch()
-        {
-            //transform.localPosition = startWeaponSwitchVector;
-            //transform.localRotation = Quaternion.Euler(startWeaponSwitchRot.x, startWeaponSwitchRot.y, startWeaponSwitchRot.z);
-            //Debug.Log("Start: " + transform.localPosition);
-        }
-
-        private void EndWeaponSwitch()
-        {
-
+            TextManager.Instance.UpdateAmmoText();
         }
 
         public void SwitchWeapon(Transform _weapon)
@@ -211,6 +201,7 @@ namespace EightDirectionalSpriteSystem
             transform.localRotation = Quaternion.Euler(startWeaponSwitchRot.x, startWeaponSwitchRot.y, startWeaponSwitchRot.z);
             //StartCoroutine(SwitchToNumerator());
             Debug.Log("SwitchTo");
+            TextManager.Instance.UpdateAmmoText();
         }
 
         public void SwitchAway()
@@ -242,6 +233,7 @@ namespace EightDirectionalSpriteSystem
         private void SetIdle()
         {
             anim.SetTrigger("Idle");
+            TextManager.Instance.UpdateAmmoText();
         }
 
         private IEnumerator Wait(float seconds)
@@ -278,23 +270,27 @@ namespace EightDirectionalSpriteSystem
                 Debug.Log("Normal Reload");
                 anim.SetTrigger("Reload");
             }
+
+            //TextManager.Instance.UpdateAmmoText();
         }
 
         // Used as Animation
         private void FinishReload()
         {
             anim.SetTrigger("Idle");
+            TextManager.Instance.UpdateAmmoText();
         }
 
         private void PickUpAmmo(int amount)
         {
             maxAmmo += amount;
             if (maxAmmo >= maxCapacity) maxAmmo = maxCapacity;
+            TextManager.Instance.UpdateAmmoText();
         }
 
         private IEnumerator MuzzleLight()
         {
-            Debug.Log(muzzleLightGo.gameObject.name);
+            // Debug.Log(muzzleLightGo.gameObject.name);
             muzzleLightGo.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(muzzleLightResetTime);

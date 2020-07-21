@@ -21,7 +21,7 @@ namespace EightDirectionalSpriteSystem
 
             Debug.Log("Patrol State");
 
-            Debug.Log(enemyAI.actor.name);
+            //Debug.Log(enemyAI.actor.name);
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
         }
 

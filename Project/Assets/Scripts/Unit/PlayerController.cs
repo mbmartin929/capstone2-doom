@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class PlayerController : UnitController
 {
-    public GameObject player;
-    protected UnitController unit;
     public bool isDamaged;
+    public bool damaged;
+
+    public int currentHealth;
+    public int currentArmor;
+
+    public Transform weapons;
 
     public int rayCastLength;
 
     [Header("Door function")]
     bool guiShow = false;
     bool isOpen = false;
-    //public float speedOfDoor;
-    //public GameObject door;
 
     // Start is called before the first frame update
     void Start()
     {
-        unit = player.GetComponent<UnitController>();
-        unit.CurHealth = 100;
+        CurHealth = maxHealth;
+        CurArmor = maxArmor;
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentHealth = CurHealth;
+        currentArmor = CurArmor;
 
         playerRayCast();
-
     }
 
     void playerRayCast()
@@ -43,7 +46,7 @@ public class PlayerController : UnitController
                 guiShow = true;
                 if (Input.GetKeyDown("e") && isOpen == false)
                 {
-                    hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState();                
+                    hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState();
                 }
             }
         }
@@ -51,7 +54,37 @@ public class PlayerController : UnitController
         {
             guiShow = false;
         }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy Attack"))
+        {
+            GetDamaged();
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if (CurArmor > 0)
+        {
+            Debug.Log("Armor Damage");
+            CurArmor -= amount;
+        }
+        else
+        {
+            Debug.Log("Health Damage");
+            CurHealth -= amount;
+        }
+
+        StartCoroutine(GetDamaged());
+    }
+
+    private IEnumerator GetDamaged()
+    {
+        damaged = true;
+        yield return new WaitForSeconds(0.15f);
+        damaged = false;
     }
 
     void OnGUI()
@@ -59,7 +92,7 @@ public class PlayerController : UnitController
         //DOOR
         if (guiShow == true && isOpen == false)
         {
-            GUI.Box(new Rect(Screen.width / 3, Screen.height / 3, 150, 50), "PRESS " + "E"+ " Open Door");
+            GUI.Box(new Rect(Screen.width / 3, Screen.height / 3, 150, 50), "PRESS " + "E" + " Open Door");
         }
     }
 }
