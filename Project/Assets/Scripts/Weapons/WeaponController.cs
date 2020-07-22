@@ -9,10 +9,12 @@ namespace EightDirectionalSpriteSystem
 
         #region  Main Variables
         [Header("Stats")]
+        public int damage = 20;
         public int maxAmmo;
         public int maxCapacity;
         [SerializeField] private int curAmmo;
         public int clipAmmo = 9;
+        public float soundRadius = 10.0f;
 
         public float range = 100f;
         public float spreadFactor = 0.1f;
@@ -75,6 +77,27 @@ namespace EightDirectionalSpriteSystem
         {
             return anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
         }
+        void ExplosionDamage(Vector3 center, float radius)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+            foreach (var hitCollider in hitColliders)
+            {
+                hitCollider.SendMessage("AddDamage");
+            }
+        }
+        protected void ShootDetection(Vector3 center, float radius)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.GetComponent<EnemyAI>() != null)
+                {
+                    Debug.Log(hitCollider.gameObject.name + "is chasing");
+                    hitCollider.GetComponent<EnemyAI>().ChasePlayer();
+                }
+            }
+        }
+
         protected void SingleShoot()
         {
             //fpsCam.transform.eulerAngles += camRotation;

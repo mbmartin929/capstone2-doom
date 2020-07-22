@@ -108,6 +108,8 @@ namespace EightDirectionalSpriteSystem
             PlayGunshotSound();
             #endregion
 
+            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+
             CurAmmo--;
 
             Vector3 shootDirection = fpsCam.transform.forward;
@@ -169,7 +171,7 @@ namespace EightDirectionalSpriteSystem
                             bloodGo.transform.parent = hit.transform;
                         }
                     }
-                    enemy.TakeDamage(10);
+                    enemy.TakeDamage(damage);
                 }
                 else
                 {

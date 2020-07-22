@@ -95,6 +95,8 @@ namespace EightDirectionalSpriteSystem
 
             TextManager.Instance.UpdateAmmoText();
 
+            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+
             for (int i = 0; i < pelletCount; ++i)
             {
 

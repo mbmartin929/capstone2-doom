@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    public GameObject DeadEnemies;
+
     private void Awake()
     {
         // Sets Singleton
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
 
         // Sets Framerate
         Application.targetFrameRate = frameRate;
+
+        if (Instance == this) Debug.Log("GameManager Singleton Initialized");
     }
 
     // Start is called before the first frame update

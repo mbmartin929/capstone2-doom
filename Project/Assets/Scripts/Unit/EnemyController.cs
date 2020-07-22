@@ -34,6 +34,9 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
+            // Debug options
+            //maxHealth -= 20;
+
             CurHealth = maxHealth;
             trajectory = UnityEngine.Random.insideUnitCircle * velocity;
             // Debug.Log(CurHealth);
@@ -99,6 +102,10 @@ namespace EightDirectionalSpriteSystem
 
             GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
             GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
+
+            //Debug.Log(transform.parent);
+            //Debug.Log(GameManager.Instance.DeadEnemies.transform);
+            transform.parent.parent = GameManager.Instance.DeadEnemies.transform;
         }
 
         private IEnumerator GetHit()

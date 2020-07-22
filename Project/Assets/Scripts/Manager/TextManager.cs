@@ -29,7 +29,7 @@ namespace EightDirectionalSpriteSystem
             // Sets Singleton
             Instance = this;
 
-
+            if (Instance == this) Debug.Log("TextManager Singleton Initialized");
 
             UpdateAmmoText();
             UpdateHealthArmorText();

@@ -156,7 +156,7 @@ namespace EightDirectionalSpriteSystem
             // anim = GetComponent<Animator>();
             // anim.SetTrigger("Chase");
 
-            Debug.Log("ChasePlayer");
+            //Debug.Log("ChasePlayer");
             visibleTargets.Add(GameManager.Instance.playerGo.transform);
         }
 
