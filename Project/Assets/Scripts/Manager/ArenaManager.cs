@@ -10,6 +10,9 @@ namespace EightDirectionalSpriteSystem
 
         public int activeWaveID = 0;
 
+        public float exitOpenTime = 1.5f;
+        public GameObject exitGo;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -47,8 +50,16 @@ namespace EightDirectionalSpriteSystem
             if (activeWaveID >= waves.Length)
             {
                 Debug.Log("Finished all waves");
+                StartCoroutine(OpenExit(1.5f));
             }
             else waves[activeWaveID].SetActive(true);
+        }
+
+        public IEnumerator OpenExit(float time)
+        {
+            yield return new WaitForSeconds(time);
+            exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
+
         }
     }
 }

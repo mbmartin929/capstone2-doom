@@ -46,7 +46,7 @@ public class PlayerController : UnitController
                 guiShow = true;
                 if (Input.GetKeyDown("e") && isOpen == false)
                 {
-                    hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState();
+                    hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState(true);
                 }
             }
         }
