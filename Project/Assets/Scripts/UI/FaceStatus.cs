@@ -10,6 +10,8 @@ public class FaceStatus : MonoBehaviour
     // FW = Forward, L = Left, R = Right
     // Numbers are the HP ranges for the different faces
 
+    public float lookFaceTimer = 0.2f;
+
     public Texture2D HP80100FW;
     public Texture2D HP80100L;
     public Texture2D HP80100R;
@@ -105,27 +107,23 @@ public class FaceStatus : MonoBehaviour
     void Update()
     {
         Faces();
-
-        //spriteRenderer.sprite = imgs[pick];
-        //texture = imgs[pick];
-
-        //Debug.Log(pick);
-        //Debug.Log(imgs[pick].name);
-
-        //if (rawImage.texture == null)
-        //{
-        //    Debug.Log("RawImage Texture is null");
-        //}
-        //if (rawImage == null)
-        //{
-        //    Debug.Log("RawImage is null");
-        //}
-        //if (imgs[pick] == null)
-        //{
-        //    Debug.Log("imgs[pick] is null");
-        //}
-
         rawImage.texture = imgs[pick];
+    }
+
+    public void LookFace(float faceTimer, int frontFace, int leftFace, int rightFace)
+    {
+        timer = faceTimer;
+        if (Input.GetAxis("Mouse X") < 0)
+        {
+            //Code for action on mouse moving left
+            pick = leftFace;
+        }
+        else if (Input.GetAxis("Mouse X") > 0)
+        {
+            //Code for action on mouse moving right
+            pick = rightFace;
+        }
+        else pick = frontFace;
     }
 
     public void Faces()
@@ -147,30 +145,7 @@ public class FaceStatus : MonoBehaviour
                 pick = 21;
             }
 
-            if (timer < 0 & !Input.GetMouseButton(0))
-            {
-                //timer = 1.5f;
-
-                // get a random number not equal to current
-                //i = pick;
-                //while (i == pick)
-                //{
-                //    pick = Random.Range(0, 3);
-                //}
-
-                timer = 0.25f;
-                if (Input.GetAxis("Mouse X") < 0)
-                {
-                    //Code for action on mouse moving left
-                    pick = 1;
-                }
-                else if (Input.GetAxis("Mouse X") > 0)
-                {
-                    //Code for action on mouse moving right
-                    pick = 2;
-                }
-                else pick = 0;
-            }
+            if (timer < 0 & !Input.GetMouseButton(0)) LookFace(lookFaceTimer, 0, 1, 2);
         }
         if (playerController.CurHealth >= 60 & playerController.CurHealth <= 79)
         {
@@ -186,17 +161,8 @@ public class FaceStatus : MonoBehaviour
                 pick = 22;
             }
 
-            if (timer < 0 & !Input.GetMouseButton(0))
-            {
-                timer = 1.5f;
+            if (timer < 0 & !Input.GetMouseButton(0)) LookFace(lookFaceTimer, 3, 4, 5);
 
-                // get a random number not equal to current
-                i = pick;
-                while (i == pick)
-                {
-                    pick = Random.Range(3, 6);
-                }
-            }
         }
         if (playerController.CurHealth >= 40 & playerController.CurHealth <= 59)
         {
@@ -212,17 +178,8 @@ public class FaceStatus : MonoBehaviour
                 pick = 23;
             }
 
-            if (timer < 0 & !Input.GetMouseButton(0))
-            {
-                timer = 1.5f;
+            if (timer < 0 & !Input.GetMouseButton(0)) LookFace(lookFaceTimer, 6, 7, 8);
 
-                // get a random number not equal to current
-                i = pick;
-                while (i == pick)
-                {
-                    pick = Random.Range(6, 9);
-                }
-            }
         }
         if (playerController.CurHealth >= 20 & playerController.CurHealth <= 39)
         {
@@ -238,17 +195,8 @@ public class FaceStatus : MonoBehaviour
                 pick = 24;
             }
 
-            if (timer < 0 & !Input.GetMouseButton(0))
-            {
-                timer = 1.5f;
+            if (timer < 0 & !Input.GetMouseButton(0)) LookFace(lookFaceTimer, 9, 10, 11);
 
-                // get a random number not equal to current
-                i = pick;
-                while (i == pick)
-                {
-                    pick = Random.Range(9, 12);
-                }
-            }
         }
         if (playerController.CurHealth >= 1 & playerController.CurHealth <= 19)
         {
@@ -264,17 +212,8 @@ public class FaceStatus : MonoBehaviour
                 pick = 25;
             }
 
-            if (timer < 0 & !Input.GetMouseButton(0))
-            {
-                timer = 1.5f;
+            if (timer < 0 & !Input.GetMouseButton(0)) LookFace(lookFaceTimer, 12, 13, 14);
 
-                // get a random number not equal to current
-                i = pick;
-                while (i == pick)
-                {
-                    pick = Random.Range(12, 15);
-                }
-            }
         }
         if (playerController.CurHealth <= 0)
         {

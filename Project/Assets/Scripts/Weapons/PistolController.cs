@@ -161,13 +161,20 @@ namespace EightDirectionalSpriteSystem
                     {
                         if (item.tag == "Hit Normal")
                         {
-                            GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+                            //GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+
+                            GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+
                             bloodGo.transform.parent = hit.transform;
                         }
                         else
                         {
-                            GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
-                                                             item.transform.rotation);
+                            // GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
+                            //                                  item.transform.rotation);
+
+                            GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
+                                item.transform.rotation);
+
                             bloodGo.transform.parent = hit.transform;
                         }
                     }
@@ -175,7 +182,7 @@ namespace EightDirectionalSpriteSystem
                 }
                 else
                 {
-                    Debug.Log(hit.transform.gameObject.name);
+                    Debug.Log("Hit: " + hit.transform.gameObject.name);
                     //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
