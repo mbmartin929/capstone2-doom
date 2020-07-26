@@ -27,6 +27,8 @@ namespace EightDirectionalSpriteSystem
         #endregion
 
         #region Other Variables
+        public short minimumBloodParticles = 5;
+        public short maximumBloodParticles = 15;
         public Vector3 startWeaponSwitchVector;
         public Vector3 startWeaponSwitchRot;
 

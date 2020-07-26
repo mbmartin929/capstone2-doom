@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Motion : MonoBehaviour
 {
+    public float divisible = 8f;
+
     #region  Variables
 
     public Transform weaponParent;
@@ -11,16 +13,23 @@ public class Motion : MonoBehaviour
     private Vector3 weaponParentOrigin;
 
     private Vector3 targetWeaponBobPosition;
-    private float movementCounter;
+    [SerializeField] private float movementCounter;
     private float idleCounter;
     private float baseFOV;
 
     #endregion
 
+    public AudioClip[] footsteps;
+    private AudioSource audioSource;
+
+    private int f = 0;
+    private int lastf = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         weaponParentOrigin = weaponParent.localPosition;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,8 +48,26 @@ public class Motion : MonoBehaviour
         }
         else
         {
-            HeadBob(movementCounter, 55.0f, 20.0f);
-            movementCounter += Time.deltaTime * 7f;
+            HeadBob(movementCounter, 69.0f, 20.0f);
+            movementCounter += Time.deltaTime * 9f;
+
+            //Debug.Log("Else");
+
+            // Debug.Log((int)f);
+            // if ((int)f % 2 == 0)
+            // {
+            //     audioSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
+
+            // }
+
+            f = (int)(movementCounter / divisible);
+
+            if (lastf != f)
+            {
+                audioSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
+                lastf = f;
+            }
+
             weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 8f);
 
             //Camera.main.transform.localPosition = Vector3.Lerp(Camera.main.transform.localPosition, targetWeaponBobPosition, Time.deltaTime * 8f);

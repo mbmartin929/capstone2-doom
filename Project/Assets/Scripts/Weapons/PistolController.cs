@@ -95,9 +95,6 @@ namespace EightDirectionalSpriteSystem
 
             Vector3 rotationVector = transform.rotation.eulerAngles;
             GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
-            //GameObject tracerGo = Instantiate(bulletTracerGo, (bulletTracerLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 0.0f, 0)));
-            //GameObject tracerGo = Instantiate(bulletTracerGo, transform.position, Quaternion.Euler(new Vector3(rotationVector.x, rotationVector.y + 20.0f, rotationVector.z)));
-            //bulletCasingGo.transform.parent = this.transform;
             bulletTracerParticle.Play();
 
             StartCoroutine(Wait(0.2f));
@@ -163,8 +160,26 @@ namespace EightDirectionalSpriteSystem
                         {
                             //GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
 
-                            GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                            ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+                            // ParticleSystem.EmissionModule emissionModule = particleSys.emission;
 
+                            // ParticleSystem.Burst burst = emissionModule.GetBurst(0);
+                            // burst.minCount = minimumBloodParticles;
+                            // burst.maxCount = maximumBloodParticles;
+                            //emissionModule.SetBurst(0, burst);
+                            // emissionModule.burstCount = maximumBloodParticles;
+
+                            // emissionModule.enabled = true;
+
+
+
+                            // item.GetComponent<ParticleSystem>().emission.enabled = true;
+                            // item.GetComponent<ParticleSystem>().emission.type = ParticleSystemEmissionType.Time;
+                            // item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
+
+                            //particleSys.main.startSpeedMultiplier = maximumBloodParticles;
+
+                            GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
                             bloodGo.transform.parent = hit.transform;
                         }
                         else
@@ -172,9 +187,10 @@ namespace EightDirectionalSpriteSystem
                             // GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
                             //                                  item.transform.rotation);
 
-                            GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
-                                item.transform.rotation);
+                            //item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
 
+                            GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
+    item.transform.rotation);
                             bloodGo.transform.parent = hit.transform;
                         }
                     }
@@ -182,9 +198,11 @@ namespace EightDirectionalSpriteSystem
                 }
                 else
                 {
-                    Debug.Log("Hit: " + hit.transform.gameObject.name);
+
                     //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                 }
+                Debug.Log("Hit Name: " + hit.transform.gameObject.name);
+                Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
             }
             canAttack = false;
 

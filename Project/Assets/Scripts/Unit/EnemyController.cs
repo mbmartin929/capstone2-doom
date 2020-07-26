@@ -55,7 +55,7 @@ namespace EightDirectionalSpriteSystem
             if (IsDead())
             {
                 // This if statement is not being called
-                Debug.Log("Take Damage Die");
+                //Debug.Log("Take Damage Die");
                 //Die();
             }
             else if (!IsDead())
