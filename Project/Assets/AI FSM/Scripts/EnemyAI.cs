@@ -80,16 +80,12 @@ namespace EightDirectionalSpriteSystem
 
             if (distance <= 5.5f)
             {
-                //Debug.Log("Short Distance");
                 distance *= -30.0f;
             }
             else
             {
-                //Debug.Log("Long Distance");
                 distance *= 35.0f;
             }
-            //Debug.Log("After Distance: " + distance);
-            //Debug.Log("Distance: " + distance);
         }
 
         public void EnemyRaycast()

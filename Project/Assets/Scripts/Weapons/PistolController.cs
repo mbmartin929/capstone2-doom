@@ -42,27 +42,6 @@ namespace EightDirectionalSpriteSystem
         {
             fpsCam.transform.eulerAngles += camRotation;
             fpsCam.fieldOfView = FOV;
-
-            // int w = anim.GetCurrentAnimatorClipInfo(0).Length;
-            // string[] clipName = new string[w];
-            // for (int i = 0; i < w; i += 1)
-            // {
-            //     clipName[i] = anim.GetCurrentAnimatorClipInfo(0)[i].clip.name;
-            //     Debug.Log(clipName[i]);
-            // }
-
-            if (Input.GetKeyDown(KeyCode.Keypad0))
-            {
-                anim.SetTrigger("Idle");
-            }
-            if (Input.GetKeyDown(KeyCode.Keypad1))
-            {
-                anim.SetTrigger("Shoot");
-            }
-            if (Input.GetKeyDown(KeyCode.Keypad2))
-            {
-                anim.SetTrigger("Reload");
-            }
         }
 
         void LateUpdate()
@@ -195,6 +174,16 @@ namespace EightDirectionalSpriteSystem
                         }
                     }
                     enemy.TakeDamage(damage);
+                }
+                else if (hit.transform.tag == "Destructible")
+                {
+                    DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+
+                    door.health -= damage;
+                    if (door.health <= 0)
+                    {
+                        Destroy(door.gameObject);
+                    }
                 }
                 else
                 {

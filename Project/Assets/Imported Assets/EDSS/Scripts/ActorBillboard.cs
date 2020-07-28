@@ -152,6 +152,14 @@ namespace EightDirectionalSpriteSystem
 
                 if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
+                    if (currentFrameIndex == 3)
+                    {
+                        GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                }
+
+                if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
                     if (currentFrameIndex == 1)
                     {
                         //Debug.Log("Fire");

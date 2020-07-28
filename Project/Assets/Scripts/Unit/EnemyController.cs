@@ -66,6 +66,9 @@ namespace EightDirectionalSpriteSystem
                     // DECREASES HEALTH
                     CurHealth -= amount;
 
+                    // Checks Hurt Chance
+                    enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+
                     for (int i = 0; i <= 1; i++)
                     {
                         int id = Random.Range(0, bloodSplatGos.Length);
@@ -117,6 +120,7 @@ namespace EightDirectionalSpriteSystem
             }
             else
             {
+                Debug.Log("Get Hit");
                 animator.SetTrigger("Get Hit");
             }
 

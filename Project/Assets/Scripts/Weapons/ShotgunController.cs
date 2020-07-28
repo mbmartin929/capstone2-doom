@@ -159,6 +159,16 @@ namespace EightDirectionalSpriteSystem
                         }
                         enemy.TakeDamage(10);
                     }
+                    else if (hit.transform.tag == "Destructible")
+                    {
+                        DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+
+                        door.health -= damage;
+                        if (door.health <= 0)
+                        {
+                            Destroy(door.gameObject);
+                        }
+                    }
                     else
                     {
                         Debug.Log(hit.transform.gameObject.name);
