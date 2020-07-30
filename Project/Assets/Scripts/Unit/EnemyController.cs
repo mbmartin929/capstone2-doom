@@ -7,6 +7,7 @@ namespace EightDirectionalSpriteSystem
     public class EnemyController : UnitController
     {
         public int damage = 15;
+        public float painChance = 0.5f;
 
         public Vector3 deadColliderCenter;
         public Vector3 deadColliderSize;
@@ -67,7 +68,8 @@ namespace EightDirectionalSpriteSystem
                     CurHealth -= amount;
 
                     // Checks Hurt Chance
-                    enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                    float randValue = Random.value;
+                    if (randValue < painChance) enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
 
                     for (int i = 0; i <= 1; i++)
                     {

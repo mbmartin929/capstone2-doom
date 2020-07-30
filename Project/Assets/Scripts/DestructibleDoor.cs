@@ -6,7 +6,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class DestructibleDoor : MonoBehaviour
     {
-        public int health;
+        public int health = 30;
+        private MeshDestroy meshDestroy;
 
         // Start is called before the first frame update
         void Start()
@@ -18,6 +19,11 @@ namespace EightDirectionalSpriteSystem
         void Update()
         {
 
+        }
+
+        public void DestroyMesh()
+        {
+            meshDestroy.DestroyMesh();
         }
     }
 }

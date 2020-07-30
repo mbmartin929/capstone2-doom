@@ -166,7 +166,7 @@ namespace EightDirectionalSpriteSystem
                         door.health -= damage;
                         if (door.health <= 0)
                         {
-                            Destroy(door.gameObject);
+                            door.DestroyMesh();
                         }
                     }
                     else
