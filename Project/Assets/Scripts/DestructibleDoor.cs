@@ -12,7 +12,7 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-
+            meshDestroy = GetComponent<MeshDestroy>();
         }
 
         // Update is called once per frame
