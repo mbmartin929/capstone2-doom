@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PickUpController : MonoBehaviour
+namespace EightDirectionalSpriteSystem
 {
-    public Image overlayImage;
-    public GameObject player;
-    protected UnitController unit;
-    public enum AmmoType
+    public class PickUpController : MonoBehaviour
     {
-        Pistol, Shotgun
-    }
-    public AmmoType ammoType;
+        public Image overlayImage;
+        public GameObject player;
+        protected UnitController unit;
+        public enum AmmoType
+        {
+            Pistol, Shotgun
+        }
+        public AmmoType ammoType;
 
-    public string itemName;
-    public int recoverAmount;
-    public GameObject weapon;
+        public string itemName;
+        public int recoverAmount;
+        public GameObject weapon;
 
-    private void Start()
-    {
-        unit = player.GetComponent<PlayerController>();
-        overlayImage.SetEnabled(false);
+        private void Start()
+        {
+            unit = player.GetComponent<PlayerController>();
+            overlayImage.SetEnabled(false);
+        }
     }
 }

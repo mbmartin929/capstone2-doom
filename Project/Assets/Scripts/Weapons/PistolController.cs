@@ -15,6 +15,26 @@ namespace EightDirectionalSpriteSystem
         public float fireDelay = 1.0f;
         public bool readyToFire = true;
 
+        public int CurAmmo
+        {
+            get { return curAmmo; }
+            set
+            {
+                curAmmo = value;
+                if (curAmmo < 0)
+                {
+                    Debug.Log("curAmmo: " + curAmmo);
+                    curAmmo = 0;
+                }
+                if (curAmmo > AmmoInventory.Instance.curPistolAmmo)
+                {
+                    Debug.Log("AmmoInventory: " + curAmmo);
+
+                    //curAmmo = AmmoInventory.Instance.curPistolAmmo;
+                }
+            }
+        }
+
         void Awake()
         {
             anim = GetComponent<Animator>();
@@ -29,6 +49,9 @@ namespace EightDirectionalSpriteSystem
             FOV = fpsCam.fieldOfView;
 
             CurAmmo = clipAmmo;
+            //CurAmmo = AmmoInventory.Instance.curPistolAmmo;
+            //Reload();
+
             //Debug.Log("CurAmmo: " + CurAmmo + " || " + "ClipAmmo: " + clipAmmo);
 
             canAttack = true;
@@ -54,6 +77,38 @@ namespace EightDirectionalSpriteSystem
             {
                 Reload();
             }
+        }
+
+        private void Reload()
+        {
+            if (curAmmo >= clipAmmo)
+            {
+                Debug.Log("You have full ammo");
+                return;
+            }
+            else if (AmmoInventory.Instance.curPistolAmmo <= 0)
+            {
+                Debug.Log("You have no ammo");
+                return;
+            }
+            else if ((clipAmmo - curAmmo) >= AmmoInventory.Instance.curPistolAmmo)
+            {
+                curAmmo += AmmoInventory.Instance.curPistolAmmo;
+                AmmoInventory.Instance.curPistolAmmo = 0;
+
+                anim.SetTrigger("Reload");
+                Debug.Log("Decreased Reload");
+            }
+            else
+            {
+                AmmoInventory.Instance.curPistolAmmo -= (clipAmmo - curAmmo);
+                curAmmo = clipAmmo;
+
+                Debug.Log("Normal Reload");
+                anim.SetTrigger("Reload");
+            }
+
+            //TextManager.Instance.UpdateAmmoText();
         }
 
         void Shoot()
@@ -86,7 +141,11 @@ namespace EightDirectionalSpriteSystem
 
             ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
+            //Debug.Log("Shoot");
+            Debug.Log("Shoot: " + CurAmmo);
             CurAmmo--;
+
+
 
             Vector3 shootDirection = fpsCam.transform.forward;
             shootDirection.x += Random.Range(-spreadFactor, spreadFactor);
@@ -190,8 +249,8 @@ namespace EightDirectionalSpriteSystem
 
                     //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                 }
-                Debug.Log("Hit Name: " + hit.transform.gameObject.name);
-                Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
+                //Debug.Log("Hit Name: " + hit.transform.gameObject.name);
+                //Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
             }
             canAttack = false;
 

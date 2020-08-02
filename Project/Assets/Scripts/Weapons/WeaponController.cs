@@ -10,9 +10,8 @@ namespace EightDirectionalSpriteSystem
         #region  Main Variables
         [Header("Stats")]
         public int damage = 20;
-        public int maxAmmo;
         public int maxCapacity;
-        [SerializeField] private int curAmmo;
+        [SerializeField] protected int curAmmo;
         public int clipAmmo = 9;
         public float soundRadius = 10.0f;
 
@@ -49,20 +48,10 @@ namespace EightDirectionalSpriteSystem
 
         #endregion
 
-        public int CurAmmo
-        {
-            get { return curAmmo; }
-            set
-            {
-                curAmmo = value;
-                if (curAmmo < 0) curAmmo = 0;
-                if (curAmmo > maxCapacity) curAmmo = maxCapacity;
-            }
-        }
 
         protected void PlayGunshotSound()
         {
-            GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
+            //GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
         }
 
         // Used as animation event
@@ -155,37 +144,7 @@ namespace EightDirectionalSpriteSystem
             canAttack = true;
         }
 
-        protected void Reload()
-        {
-            if (curAmmo >= clipAmmo)
-            {
-                Debug.Log("You have full ammo");
-                return;
-            }
-            else if (maxAmmo <= 0)
-            {
-                Debug.Log("You have no ammo");
-                return;
-            }
-            else if ((clipAmmo - curAmmo) >= maxAmmo)
-            {
-                curAmmo += maxAmmo;
-                maxAmmo = 0;
 
-                anim.SetTrigger("Reload");
-                Debug.Log("Decreased Reload");
-            }
-            else
-            {
-                maxAmmo -= (clipAmmo - curAmmo);
-                curAmmo = clipAmmo;
-
-                Debug.Log("Normal Reload");
-                anim.SetTrigger("Reload");
-            }
-
-            //TextManager.Instance.UpdateAmmoText();
-        }
 
         // Used as Animation
         private void FinishReload()
@@ -194,12 +153,12 @@ namespace EightDirectionalSpriteSystem
             TextManager.Instance.UpdateAmmoText();
         }
 
-        private void PickUpAmmo(int amount)
-        {
-            maxAmmo += amount;
-            if (maxAmmo >= maxCapacity) maxAmmo = maxCapacity;
-            TextManager.Instance.UpdateAmmoText();
-        }
+        // public void PickUpAmmo(int amount)
+        // {
+        //     maxAmmo += amount;
+        //     if (maxAmmo >= maxCapacity) maxAmmo = maxCapacity;
+        //     TextManager.Instance.UpdateAmmoText();
+        // }
 
         private IEnumerator MuzzleLight()
         {

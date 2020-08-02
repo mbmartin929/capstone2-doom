@@ -3,47 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthPotion : PickUpController
+namespace EightDirectionalSpriteSystem
 {
-
-    private int HealAmountHp;
-    public float time;
-
-    void Start()
+    public class HealthPotion : PickUpController
     {
-        PickUpController Potion = new PickUpController();
-        Potion.itemName = "Heart";
-        Potion.recoverAmount = HealAmountHp;
-        unit = player.GetComponent<UnitController>();
-    }
 
+        private int HealAmountHp;
+        public float time;
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        void Start()
         {
-
-            overlayImage.SetEnabled(true);
-            unit.CurHealth += recoverAmount;
-            Debug.Log("HP PICKED!" + recoverAmount);
-            StartCoroutine("blinkImage");
-            Destroy(this.gameObject);
+            PickUpController Potion = new PickUpController();
+            Potion.itemName = "Heart";
+            Potion.recoverAmount = HealAmountHp;
+            unit = player.GetComponent<UnitController>();
         }
 
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+
+                overlayImage.SetEnabled(true);
+                unit.CurHealth += recoverAmount;
+                Debug.Log("HP PICKED!" + recoverAmount);
+
+                TextManager.Instance.UpdateHealthArmorText();
+
+                StartCoroutine("blinkImage");
+                Destroy(this.gameObject);
+            }
+
+        }
+
+        IEnumerator blinkImage()
+        {
+
+            yield return new WaitForSeconds(time);
+            overlayImage.SetEnabled(false);
+
+        }
     }
-
-
-    IEnumerator blinkImage()
-    {
-
-        yield return new WaitForSeconds(time);
-        overlayImage.SetEnabled(false);
-
-    }
-
 }
-
 
 
 

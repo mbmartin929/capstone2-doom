@@ -2,28 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmorPotion : PickUpController
+namespace EightDirectionalSpriteSystem
 {
-
-    private int HealAmountArmor;
-
-
-    void Start()
+    public class ArmorPotion : PickUpController
     {
-        PickUpController Armor = new PickUpController();
-        Armor.itemName = "Armor";
-        Armor.recoverAmount = HealAmountArmor;
-        unit = player.GetComponent<UnitController>();
-    }
+        private int HealAmountArmor;
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        void Start()
         {
-            unit.maxArmor += recoverAmount;
-            Debug.Log("Armor PICKED!" + recoverAmount);
-            Destroy(this.gameObject);
+            PickUpController Armor = new PickUpController();
+            Armor.itemName = "Armor";
+            Armor.recoverAmount = HealAmountArmor;
+            unit = player.GetComponent<UnitController>();
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                unit.maxArmor += recoverAmount;
+                Debug.Log("Armor PICKED!" + recoverAmount);
+
+                TextManager.Instance.UpdateHealthArmorText();
+
+                Destroy(this.gameObject);
+            }
         }
     }
 }

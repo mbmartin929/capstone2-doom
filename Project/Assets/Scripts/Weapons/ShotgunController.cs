@@ -18,6 +18,20 @@ namespace EightDirectionalSpriteSystem
 
         private Vector3 startTransform;
 
+        public int CurAmmo
+        {
+            get { return curAmmo; }
+            set
+            {
+                curAmmo = value;
+                if (curAmmo < 0) curAmmo = 0;
+                if (curAmmo > AmmoInventory.Instance.curPistolAmmo)
+                {
+                    //curAmmo = AmmoInventory.Instance.curPistolAmmo;
+                }
+            }
+        }
+
         void Awake()
         {
             //Debug.Log("Hi");
@@ -32,8 +46,9 @@ namespace EightDirectionalSpriteSystem
 
             FOV = fpsCam.fieldOfView;
 
-
             CurAmmo = clipAmmo;
+            //CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
+            //Reload();
 
             canAttack = true;
             TextManager.Instance.UpdateAmmoText();
@@ -58,6 +73,38 @@ namespace EightDirectionalSpriteSystem
             {
                 Reload();
             }
+        }
+
+        private void Reload()
+        {
+            if (curAmmo >= clipAmmo)
+            {
+                Debug.Log("You have full ammo");
+                return;
+            }
+            else if (AmmoInventory.Instance.curShotgunAmmo <= 0)
+            {
+                Debug.Log("You have no ammo");
+                return;
+            }
+            else if ((clipAmmo - curAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
+            {
+                curAmmo += AmmoInventory.Instance.curShotgunAmmo;
+                AmmoInventory.Instance.curShotgunAmmo = 0;
+
+                anim.SetTrigger("Reload");
+                Debug.Log("Decreased Reload");
+            }
+            else
+            {
+                AmmoInventory.Instance.curShotgunAmmo -= (clipAmmo - curAmmo);
+                curAmmo = clipAmmo;
+
+                Debug.Log("Normal Reload");
+                anim.SetTrigger("Reload");
+            }
+
+            //TextManager.Instance.UpdateAmmoText();
         }
 
         public void ResetTransform()

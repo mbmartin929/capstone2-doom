@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,8 +8,9 @@ namespace EightDirectionalSpriteSystem
 {
     public class EnemyAI : MonoBehaviour
     {
-        public DemoActor actor;
-        public Animator anim;
+        [HideInInspector] public DemoActor actor;
+        [HideInInspector] public Animator anim;
+        [HideInInspector] public ActorBillboard billboard;
 
         public float rayCastdistance;
 
@@ -19,7 +21,6 @@ namespace EightDirectionalSpriteSystem
 
         public Transform[] waypoints;
 
-        private GameObject playerGo;
         public EnemyController enemyController;
 
         [Header("AI Detection")]
@@ -32,29 +33,41 @@ namespace EightDirectionalSpriteSystem
         public LayerMask targetMask;
         public LayerMask obstacleMask;
         public List<Transform> visibleTargets = new List<Transform>();
+        private NavMeshAgent agent;
 
         void Awake()
         {
-            //enemyController = GetComponent<EnemyController>();
-
-            //playerGo = GameObject.FindGameObjectWithTag("Player");
-
             anim = GetComponent<Animator>();
             actor = GetComponent<DemoActor>();
+            billboard = transform.GetChild(0).GetComponent<ActorBillboard>();
+            agent = GetComponent<NavMeshAgent>();
         }
 
         // Start is called before the first frame update
         void Start()
         {
-
             //StartCoroutine("FindTargetsWithDelay", .2f);
         }
 
         // Update is called once per frame
         void Update()
         {
-            //actor.SetCurrentState(DemoActor.State.WALKING);
-            //Debug.Log("Frame Count: " + actor.walkAnim.FrameCount);
+
+        }
+
+        public void AgentSetDestination()
+        {
+            agent.SetDestination(GameManager.Instance.playerGo.transform.position);
+        }
+
+        public void AgentStop(bool state)
+        {
+            try { agent.isStopped = state; }
+            catch (Exception e)
+            {
+                //Debug.LogException(e, this);
+                //Debug.Log("Lol");
+            }
         }
 
         public void WormAttack()
@@ -85,6 +98,20 @@ namespace EightDirectionalSpriteSystem
             else
             {
                 distance *= 35.0f;
+            }
+        }
+
+        public void SlimeAttack(float radius)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.gameObject.tag == "Player")
+                {
+                    Debug.Log("Hit Player!");
+
+                    hitCollider.GetComponent<PlayerController>().TakeDamage(enemyController.damage);
+                }
             }
         }
 
@@ -163,23 +190,14 @@ namespace EightDirectionalSpriteSystem
             NavMeshHit navHit;
             Vector3 result;
 
-            Vector3 randomPoint = origin + Random.insideUnitSphere * dist;
+            Vector3 randomPoint = origin + UnityEngine.Random.insideUnitSphere * dist;
             if (NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, 8))
             {
                 result = navHit.position;
-                //Debug.Log("IF: " + result);
                 return result;
             }
             else
             {
-                // while (NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, 8))
-                // {
-                //     result = randomPoint;
-                //     //Debug.Log("ELSE: " + result);
-                //     return result;
-                // }
-
-                //result = origin;
                 result = randomPoint;
                 return result;
             }
