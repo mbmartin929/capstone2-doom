@@ -19,6 +19,8 @@ namespace EightDirectionalSpriteSystem
         public float startingSize = 0f;
         public float targetSize = 1f;
 
+        public bool isArena = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -71,7 +73,14 @@ namespace EightDirectionalSpriteSystem
         private void SpawnEnemy()
         {
             GameObject _enemyGo = Instantiate(enemyGo, transform.position, transform.rotation);
-            _enemyGo.transform.parent = null;
+
+            if (!isArena) _enemyGo.transform.parent = null;
+            else if (isArena)
+            {
+                _enemyGo.transform.parent = transform.parent;
+                //Debug.Log(_enemyGo.GetComponent<EnemyAI>().enemyController.maxHealth);
+                //transform.parent.GetComponent<WaveManger>().totalHealth += _enemyGo.GetComponent<EnemyAI>().enemyController.maxHealth;
+            }
 
             if (chasePlayerOnSpawn)
             {

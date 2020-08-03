@@ -13,11 +13,6 @@ namespace EightDirectionalSpriteSystem
         public float accuracy = 2.0f;
         public NavMeshAgent agent;
 
-        protected bool isAttacking;
-        protected bool isPatrolling;
-        protected bool isChasing;
-        protected bool isDead;
-
         protected EnemyController enemyController;
 
         protected AISFM AISFM;

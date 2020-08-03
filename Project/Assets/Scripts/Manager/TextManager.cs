@@ -23,14 +23,17 @@ namespace EightDirectionalSpriteSystem
         #endregion
         private Transform currentWeapon;
 
-        // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             // Sets Singleton
             Instance = this;
 
+            if (Instance == this) Debug.Log("TextManager Singleton Initialized");
+        }
 
-
+        // Start is called before the first frame update
+        void Start()
+        {
             UpdateAmmoText();
             UpdateHealthArmorText();
         }
@@ -46,10 +49,21 @@ namespace EightDirectionalSpriteSystem
             FindActiveWeapon();
             if (currentWeapon != null)
             {
-                curAmmoText.text = currentWeapon.GetComponent<WeaponController>().CurAmmo.ToString();
-                maxAmmoText.text = currentWeapon.GetComponent<WeaponController>().maxAmmo.ToString();
+                //curAmmoText.text = currentWeapon.GetComponent<WeaponController>().CurAmmo.ToString();
+                //maxAmmoText.text = currentWeapon.GetComponent<WeaponController>().maxAmmo.ToString();
 
-                Debug.Log("Update Ammo Text");
+                if (currentWeapon.name == "Pistol")
+                {
+                    curAmmoText.text = currentWeapon.GetComponent<PistolController>().CurAmmo.ToString();
+                    maxAmmoText.text = AmmoInventory.Instance.curPistolAmmo.ToString();
+                }
+                else if (currentWeapon.name == "Shotgun")
+                {
+                    curAmmoText.text = currentWeapon.GetComponent<ShotgunController>().CurAmmo.ToString();
+                    maxAmmoText.text = AmmoInventory.Instance.curShotgunAmmo.ToString();
+                }
+
+                //Debug.Log("Update Ammo Text");
             }
             else
             {

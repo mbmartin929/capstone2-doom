@@ -52,7 +52,8 @@ namespace EightDirectionalSpriteSystem
                 // Player has this weapon already. Will add ammo instead
                 else
                 {
-                    currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                    //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                    AmmoInventory.Instance.PickUpPistolAmmo(recoverAmount, currentWeapon);
                 }
             }
             else if (itemName == "Shotgun")
@@ -69,7 +70,8 @@ namespace EightDirectionalSpriteSystem
                 }
                 else
                 {
-                    currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                    //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                    AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
                 }
             }
 
@@ -82,12 +84,20 @@ namespace EightDirectionalSpriteSystem
             if (ammoType == AmmoType.Pistol)
             {
                 Transform currentWeapon = SearchWeapons(playerWeapons, "Pistol");
-                currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+
+                //currentWeapon.GetComponent<WeaponController>().PickUpAmmo(recoverAmount);
+
+                AmmoInventory.Instance.PickUpPistolAmmo(recoverAmount, currentWeapon);
             }
             else if (ammoType == AmmoType.Shotgun)
             {
                 Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
-                currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+
+                //currentWeapon.GetComponent<WeaponController>().PickUpAmmo(recoverAmount);
+
+                AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
             }
 
             TextManager.Instance.UpdateAmmoText();

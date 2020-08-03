@@ -6,6 +6,7 @@
 //  orientated to face current camera.
 //=============================================================================
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
-        public enum Enemy { Worm };
+        public enum Enemy { Worm, Slime };
 
         public delegate void BeforeRenderBillboardEvent();
 
@@ -149,12 +150,41 @@ namespace EightDirectionalSpriteSystem
                 }
 
                 //Debug.Log("Current Frame Index: " + currentFrameIndex);
+                if ((enemy == Enemy.Slime) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    if (currentFrameIndex == 1)
+                    {
+                        transform.GetComponentInParent<EnemyAI>().AgentStop(false);
+                        transform.GetComponentInParent<EnemyAI>().AgentSetDestination();
+                    }
+                    else if (currentFrameIndex == 3)
+                    {
+                        try { transform.GetComponentInParent<EnemyAI>().AgentStop(true); }
+                        catch (Exception e) { Debug.LogException(e, this); }
+
+                    }
+                    else if (currentFrameIndex == 4)
+                    {
+                        //Debug.Log("Slime Attack");
+                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(3.5f);
+                        //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                }
+
+
+                #region Worm Behaviour
+                if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    if (currentFrameIndex == 3)
+                    {
+                        GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                }
 
                 if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
                     if (currentFrameIndex == 1)
                     {
-                        //Debug.Log("Fire");
                         transform.parent.LookAt(GameManager.Instance.playerGo.transform.position);
                         transform.GetComponentInParent<EnemyAI>().WormAttack();
 
@@ -173,6 +203,7 @@ namespace EightDirectionalSpriteSystem
                         else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);
                     }
                 }
+                #endregion
             }
             else if (playDirection < 0)
             {

@@ -9,10 +9,11 @@ namespace EightDirectionalSpriteSystem
 
         #region  Main Variables
         [Header("Stats")]
-        public int maxAmmo;
+        public int damage = 20;
         public int maxCapacity;
-        [SerializeField] private int curAmmo;
+        [SerializeField] protected int curAmmo;
         public int clipAmmo = 9;
+        public float soundRadius = 10.0f;
 
         public float range = 100f;
         public float spreadFactor = 0.1f;
@@ -25,6 +26,8 @@ namespace EightDirectionalSpriteSystem
         #endregion
 
         #region Other Variables
+        public short minimumBloodParticles = 5;
+        public short maximumBloodParticles = 15;
         public Vector3 startWeaponSwitchVector;
         public Vector3 startWeaponSwitchRot;
 
@@ -45,20 +48,10 @@ namespace EightDirectionalSpriteSystem
 
         #endregion
 
-        public int CurAmmo
-        {
-            get { return curAmmo; }
-            set
-            {
-                curAmmo = value;
-                if (curAmmo < 0) curAmmo = 0;
-                if (curAmmo > maxCapacity) curAmmo = maxCapacity;
-            }
-        }
 
         protected void PlayGunshotSound()
         {
-            GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
+            //GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
         }
 
         // Used as animation event
@@ -75,116 +68,25 @@ namespace EightDirectionalSpriteSystem
         {
             return anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
         }
-        protected void SingleShoot()
+        void ExplosionDamage(Vector3 center, float radius)
         {
-            //fpsCam.transform.eulerAngles += camRotation;
-
-            //Debug.Log("SingleShoot");
-            if (curAmmo <= 0)
+            Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+            foreach (var hitCollider in hitColliders)
             {
-                //Debug.Log(curAmmo);
-                GetComponent<AudioSource>().PlayOneShot(gunshotSounds[1]);
+                hitCollider.SendMessage("AddDamage");
             }
-
-            RaycastHit hit;
-            // if ((canAttack) && (curAmmo >= 1))
-            if (curAmmo >= 1)
+        }
+        protected void ShootDetection(Vector3 center, float radius)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+            foreach (var hitCollider in hitColliders)
             {
-
-                canAttack = false;
-                StartCoroutine(Wait(0.1f));
-
-                #region  Comments
-                // Debug.Log("Before: " + canAttack);
-                // if (!canAttack) return;
-
-                // canAttack = false;
-                // Debug.Log("After: " + canAttack);
-
-                // Debug.Log("Before: " + canAttack);
-                // if (!canAttack) return;
-                // Debug.Log("After: " + canAttack);
-
-                // if (AnimatorIsPlaying("DS-Shoot"))
-                // {
-                //     return;
-                //     //Debug.Log("Hi");
-                // }
-                //else
-
-                // Debug.Log("Before: " + canAttack);
-                // canAttack = false;
-                // Debug.Log("After: " + canAttack);
-                #endregion
-
-                #region Gun Effects
-                anim.SetTrigger("Shoot");
-                //muzzleParticleGo.Play();
-                StartCoroutine("MuzzleLight");
-                PlayGunshotSound();
-                #endregion
-
-                Vector3 shootDirection = fpsCam.transform.forward;
-                shootDirection.x += Random.Range(-spreadFactor, spreadFactor);
-                shootDirection.y += Random.Range(-spreadFactor, spreadFactor);
-
-                if (Physics.Raycast(fpsCam.transform.position, shootDirection, out hit, range))
+                if (hitCollider.GetComponent<EnemyAI>() != null)
                 {
-                    curAmmo--;
-                    // Raycast hits Level
-                    if (hit.transform.tag == "Level")
-                    {
-                        MeshCollider collider = hit.collider as MeshCollider;
-                        // Remember to handle case where collider is null because you hit a non-mesh primitive...
-
-                        Mesh mesh = collider.sharedMesh;
-
-                        // There are 3 indices stored per triangle
-                        int limit = hit.triangleIndex * 3;
-                        int submesh;
-                        for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
-                        {
-                            int numIndices = mesh.GetTriangles(submesh).Length;
-                            if (numIndices > limit)
-                                break;
-
-                            limit -= numIndices;
-                        }
-
-                        Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
-
-                        //Debug.Log(material.name);
-
-                        Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                    }
-                    // Raycast hits Enemy
-                    else if (hit.transform.tag == "Enemy")
-                    {
-                        EnemyController enemy = hit.transform.GetComponent<EnemyController>();
-
-                        foreach (GameObject item in enemy.bloodSplashGos)
-                        {
-                            if (item.tag == "Hit Normal")
-                            {
-                                GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
-                                bloodGo.transform.parent = hit.transform;
-                            }
-                            else
-                            {
-                                GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
-                                                                 item.transform.rotation);
-                                bloodGo.transform.parent = hit.transform;
-                            }
-                        }
-                        enemy.TakeDamage(10);
-                    }
+                    Debug.Log(hitCollider.gameObject.name + "is chasing");
+                    hitCollider.GetComponent<EnemyAI>().ChasePlayer();
                 }
-                canAttack = false;
-                //CheckAmmo();
             }
-            //else if (!canAttack) return;
-
-            TextManager.Instance.UpdateAmmoText();
         }
 
         public void SwitchWeapon(Transform _weapon)
@@ -242,37 +144,7 @@ namespace EightDirectionalSpriteSystem
             canAttack = true;
         }
 
-        protected void Reload()
-        {
-            if (curAmmo >= clipAmmo)
-            {
-                Debug.Log("You have full ammo");
-                return;
-            }
-            else if (maxAmmo <= 0)
-            {
-                Debug.Log("You have no ammo");
-                return;
-            }
-            else if ((clipAmmo - curAmmo) >= maxAmmo)
-            {
-                curAmmo += maxAmmo;
-                maxAmmo = 0;
 
-                anim.SetTrigger("Reload");
-                Debug.Log("Decreased Reload");
-            }
-            else
-            {
-                maxAmmo -= (clipAmmo - curAmmo);
-                curAmmo = clipAmmo;
-
-                Debug.Log("Normal Reload");
-                anim.SetTrigger("Reload");
-            }
-
-            //TextManager.Instance.UpdateAmmoText();
-        }
 
         // Used as Animation
         private void FinishReload()
@@ -281,12 +153,12 @@ namespace EightDirectionalSpriteSystem
             TextManager.Instance.UpdateAmmoText();
         }
 
-        private void PickUpAmmo(int amount)
-        {
-            maxAmmo += amount;
-            if (maxAmmo >= maxCapacity) maxAmmo = maxCapacity;
-            TextManager.Instance.UpdateAmmoText();
-        }
+        // public void PickUpAmmo(int amount)
+        // {
+        //     maxAmmo += amount;
+        //     if (maxAmmo >= maxCapacity) maxAmmo = maxCapacity;
+        //     TextManager.Instance.UpdateAmmoText();
+        // }
 
         private IEnumerator MuzzleLight()
         {

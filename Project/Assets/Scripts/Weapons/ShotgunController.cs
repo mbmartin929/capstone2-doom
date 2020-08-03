@@ -18,6 +18,20 @@ namespace EightDirectionalSpriteSystem
 
         private Vector3 startTransform;
 
+        public int CurAmmo
+        {
+            get { return curAmmo; }
+            set
+            {
+                curAmmo = value;
+                if (curAmmo < 0) curAmmo = 0;
+                if (curAmmo > AmmoInventory.Instance.curPistolAmmo)
+                {
+                    //curAmmo = AmmoInventory.Instance.curPistolAmmo;
+                }
+            }
+        }
+
         void Awake()
         {
             //Debug.Log("Hi");
@@ -32,8 +46,9 @@ namespace EightDirectionalSpriteSystem
 
             FOV = fpsCam.fieldOfView;
 
-
             CurAmmo = clipAmmo;
+            //CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
+            //Reload();
 
             canAttack = true;
             TextManager.Instance.UpdateAmmoText();
@@ -58,6 +73,38 @@ namespace EightDirectionalSpriteSystem
             {
                 Reload();
             }
+        }
+
+        private void Reload()
+        {
+            if (curAmmo >= clipAmmo)
+            {
+                Debug.Log("You have full ammo");
+                return;
+            }
+            else if (AmmoInventory.Instance.curShotgunAmmo <= 0)
+            {
+                Debug.Log("You have no ammo");
+                return;
+            }
+            else if ((clipAmmo - curAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
+            {
+                curAmmo += AmmoInventory.Instance.curShotgunAmmo;
+                AmmoInventory.Instance.curShotgunAmmo = 0;
+
+                anim.SetTrigger("Reload");
+                Debug.Log("Decreased Reload");
+            }
+            else
+            {
+                AmmoInventory.Instance.curShotgunAmmo -= (clipAmmo - curAmmo);
+                curAmmo = clipAmmo;
+
+                Debug.Log("Normal Reload");
+                anim.SetTrigger("Reload");
+            }
+
+            //TextManager.Instance.UpdateAmmoText();
         }
 
         public void ResetTransform()
@@ -94,6 +141,8 @@ namespace EightDirectionalSpriteSystem
             GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
 
             TextManager.Instance.UpdateAmmoText();
+
+            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
             for (int i = 0; i < pelletCount; ++i)
             {
@@ -156,6 +205,16 @@ namespace EightDirectionalSpriteSystem
                             }
                         }
                         enemy.TakeDamage(10);
+                    }
+                    else if (hit.transform.tag == "Destructible")
+                    {
+                        DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+
+                        door.health -= damage;
+                        if (door.health <= 0)
+                        {
+                            door.DestroyMesh();
+                        }
                     }
                     else
                     {

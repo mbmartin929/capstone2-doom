@@ -7,6 +7,7 @@ namespace EightDirectionalSpriteSystem
     public class EnemyController : UnitController
     {
         public int damage = 15;
+        public float painChance = 0.5f;
 
         public Vector3 deadColliderCenter;
         public Vector3 deadColliderSize;
@@ -34,6 +35,9 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
+            // Debug options
+            //maxHealth -= 20;
+
             CurHealth = maxHealth;
             trajectory = UnityEngine.Random.insideUnitCircle * velocity;
             // Debug.Log(CurHealth);
@@ -52,7 +56,7 @@ namespace EightDirectionalSpriteSystem
             if (IsDead())
             {
                 // This if statement is not being called
-                Debug.Log("Take Damage Die");
+                //Debug.Log("Take Damage Die");
                 //Die();
             }
             else if (!IsDead())
@@ -62,6 +66,10 @@ namespace EightDirectionalSpriteSystem
                 {
                     // DECREASES HEALTH
                     CurHealth -= amount;
+
+                    // Checks Hurt Chance
+                    float randValue = Random.value;
+                    if (randValue < painChance) enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
 
                     for (int i = 0; i <= 1; i++)
                     {
@@ -99,6 +107,10 @@ namespace EightDirectionalSpriteSystem
 
             GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
             GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
+
+            //Debug.Log(transform.parent);
+            //Debug.Log(GameManager.Instance.DeadEnemies.transform);
+            transform.parent.parent = GameManager.Instance.DeadEnemies.transform;
         }
 
         private IEnumerator GetHit()
@@ -110,6 +122,7 @@ namespace EightDirectionalSpriteSystem
             }
             else
             {
+                Debug.Log("Get Hit");
                 animator.SetTrigger("Get Hit");
             }
 

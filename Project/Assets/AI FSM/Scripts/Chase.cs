@@ -22,6 +22,9 @@ namespace EightDirectionalSpriteSystem
 
             //AISFM.DisableEightDirection();
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+
+
+
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -49,16 +52,24 @@ namespace EightDirectionalSpriteSystem
 
             if (!enemyController.IsDead())
             {
-                agent.SetDestination(playerGo.transform.position);
-
-                Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
-                                                     agent.transform.position.y,
-                                                     playerGo.transform.position.z);
-
-                if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 1.0f)
+                if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Worm)
                 {
-                    enemyAI.anim.SetTrigger("Attack");
+                    agent.SetDestination(playerGo.transform.position);
+
+                    Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
+                                                         agent.transform.position.y,
+                                                         playerGo.transform.position.z);
+
+                    if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 1.0f)
+                    {
+                        enemyAI.anim.SetTrigger("Attack");
+                    }
                 }
+                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Slime)
+                {
+
+                }
+
             }
         }
 

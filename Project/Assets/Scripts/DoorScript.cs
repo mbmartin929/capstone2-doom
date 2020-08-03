@@ -17,9 +17,9 @@ public class DoorScript : MonoBehaviour
 
     }
 
-    public void ChangeDoorState()
+    public void ChangeDoorState(bool state)
     {
-        isOpen = true;
+        isOpen = state;
     }
     // Update is called once per frame
     void Update()
