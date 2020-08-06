@@ -7,8 +7,12 @@ public class Grenade : MonoBehaviour
 
     float radius = 3f;
     float timer = 2f;
-    float force = 500;
+    float grenadeForceExplosion = 500;
     float countdown;
+
+
+
+
 
     bool hasExplode;
     GameObject explotionParticle;
@@ -16,6 +20,7 @@ public class Grenade : MonoBehaviour
     void Start()
     {
         countdown = timer;
+ 
     }
 
     // Update is called once per frame
@@ -42,7 +47,7 @@ public class Grenade : MonoBehaviour
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if(rb != null)
             {
-                rb.AddExplosionForce(force, transform.position, radius);
+                rb.AddExplosionForce(grenadeForceExplosion, transform.position, radius);
             }
             
             //damage enemy
