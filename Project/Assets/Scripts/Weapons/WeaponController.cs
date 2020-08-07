@@ -48,10 +48,9 @@ namespace EightDirectionalSpriteSystem
 
         #endregion
 
-
         protected void PlayGunshotSound()
         {
-            //GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
+            GetComponent<AudioSource>().PlayOneShot(gunshotSounds[0]);
         }
 
         // Used as animation event
