@@ -6,6 +6,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class PunchController : WeaponController
     {
+        public AudioClip[] wooshSounds;
+
         public float fireTime = 1.5f;
         public float fireDelay = 1.5f;
         public bool readyToFire = true;
@@ -59,7 +61,19 @@ namespace EightDirectionalSpriteSystem
             else if (punchID == 3) anim.SetTrigger("Right Punch 1");
         }
 
+        // Used as animation event
+        public void PlayRandomPunchSound()
+        {
+            int index = Random.Range(0, gunshotSounds.Length);
+            GetComponent<AudioSource>().PlayOneShot(gunshotSounds[index]);
+        }
 
+        // Used as animation event
+        public void PlayRandomWooshSound()
+        {
+            int index = Random.Range(0, wooshSounds.Length);
+            GetComponent<AudioSource>().PlayOneShot(wooshSounds[index]);
+        }
 
         void Shoot()
         {
@@ -107,6 +121,7 @@ namespace EightDirectionalSpriteSystem
                     Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                    PlayRandomPunchSound();
                 }
 
                 // Raycast hits Enemy
@@ -128,6 +143,7 @@ namespace EightDirectionalSpriteSystem
                         }
                     }
                     enemy.TakeDamage(damage);
+                    PlayRandomPunchSound();
                 }
                 else if (hit.transform.tag == "Destructible")
                 {
@@ -135,6 +151,7 @@ namespace EightDirectionalSpriteSystem
 
                     door.health -= damage;
                     if (door.health <= 0) door.DestroyMesh();
+                    PlayRandomPunchSound();
                 }
                 else { }
                 Debug.Log(hit.transform.name);
