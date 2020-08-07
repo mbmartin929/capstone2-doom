@@ -254,8 +254,8 @@ namespace EightDirectionalSpriteSystem
             }
             canAttack = false;
 
-            readyToFire = false;
-            Invoke("setReadyToFire", fireDelay);
+            //readyToFire = false;
+            //Invoke("setReadyToFire", fireDelay);
         }
 
         void setReadyToFire()

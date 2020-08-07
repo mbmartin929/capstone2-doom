@@ -50,11 +50,13 @@ namespace EightDirectionalSpriteSystem
 
         private void RandomPunch()
         {
-            int punchID = Random.Range(1, 2);
+            int punchID = Random.Range(0, 4);
+            //int punchID = Random.Range(3, 4);
 
             if (punchID == 0) anim.SetTrigger("Left Punch 0");
             else if (punchID == 1) anim.SetTrigger("Right Punch 0");
-
+            else if (punchID == 2) anim.SetTrigger("Left Punch 1");
+            else if (punchID == 3) anim.SetTrigger("Right Punch 1");
         }
 
 
