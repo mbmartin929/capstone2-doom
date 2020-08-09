@@ -108,7 +108,7 @@ namespace EightDirectionalSpriteSystem
                 anim.SetTrigger("Reload");
             }
 
-            //TextManager.Instance.UpdateAmmoText();
+            TextManager.Instance.UpdateAmmoText();
         }
 
         void Shoot()

@@ -18,6 +18,8 @@ namespace EightDirectionalSpriteSystem
 
         private Vector3 startTransform;
 
+        private bool cancelReload = false;
+
         public int CurAmmo
         {
             get { return curAmmo; }
@@ -73,6 +75,18 @@ namespace EightDirectionalSpriteSystem
             {
                 Reload();
             }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(WillCancelReload());
+            }
+        }
+
+        private IEnumerator WillCancelReload()
+        {
+            cancelReload = true;
+            yield return new WaitForSeconds(0.5f);
+            cancelReload = false;
         }
 
         private void Reload()
@@ -89,22 +103,68 @@ namespace EightDirectionalSpriteSystem
             }
             else if ((clipAmmo - curAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
             {
-                curAmmo += AmmoInventory.Instance.curShotgunAmmo;
-                AmmoInventory.Instance.curShotgunAmmo = 0;
+                // curAmmo += 1;
+                // AmmoInventory.Instance.curShotgunAmmo -= 1;
 
-                anim.SetTrigger("Reload");
-                Debug.Log("Decreased Reload");
+                // anim.SetTrigger("Reload");
+                // Debug.Log("Decreased Reload");
             }
             else
             {
-                AmmoInventory.Instance.curShotgunAmmo -= (clipAmmo - curAmmo);
-                curAmmo = clipAmmo;
+                // AmmoInventory.Instance.curShotgunAmmo -= 1;
+                // curAmmo += 1;
 
                 Debug.Log("Normal Reload");
                 anim.SetTrigger("Reload");
+
+                canAttack = false;
             }
 
-            //TextManager.Instance.UpdateAmmoText();
+
+            TextManager.Instance.UpdateAmmoText();
+        }
+
+        private void AddBullet()
+        {
+            if (curAmmo >= clipAmmo)
+            {
+                Debug.Log("You have full ammo");
+                return;
+            }
+            else if (AmmoInventory.Instance.curShotgunAmmo <= 0)
+            {
+                Debug.Log("You have no ammo");
+                return;
+            }
+            else
+            {
+                AmmoInventory.Instance.curShotgunAmmo -= 1;
+                curAmmo += 1;
+            }
+
+            TextManager.Instance.UpdateAmmoText();
+        }
+
+        public void CheckReload()
+        {
+            Debug.Log("Check Reload");
+            if (curAmmo != clipAmmo)
+            {
+                Debug.Log("IF Check Reload");
+
+                if (!cancelReload) anim.Play("Reload", 0, 0.0f);
+
+            }
+        }
+
+        public void CanAttackState()
+        {
+            canAttack = true;
+        }
+
+        public void CannotAttackState()
+        {
+            canAttack = false;
         }
 
         public void ResetTransform()
@@ -128,8 +188,8 @@ namespace EightDirectionalSpriteSystem
 
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
             {
+                Debug.Log("Playing Shoot");
                 return;
-                //Debug.Log("Playing Shoot");
             }
 
             CurAmmo--;
@@ -146,9 +206,6 @@ namespace EightDirectionalSpriteSystem
 
             for (int i = 0; i < pelletCount; ++i)
             {
-
-
-
                 bulletTracerParticle.Play();
 
                 Vector3 direction = Random.insideUnitCircle * scaleLimit; //Random XY point inside a circle
@@ -218,7 +275,7 @@ namespace EightDirectionalSpriteSystem
                     }
                     else
                     {
-                        Debug.Log(hit.transform.gameObject.name);
+                        //Debug.Log(hit.transform.gameObject.name);
                         //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                     }
                 }
@@ -226,13 +283,13 @@ namespace EightDirectionalSpriteSystem
             canAttack = false;
 
             readyToFire = false;
-            Invoke("setReadyToFire", fireDelay);
+            //Invoke("setReadyToFire", fireDelay);
         }
 
-        void setReadyToFire()
-        {
-            readyToFire = true;
-        }
+        // void setReadyToFire()
+        // {
+        //     readyToFire = true;
+        // }
 
         private IEnumerator Wait(float seconds)
         {
