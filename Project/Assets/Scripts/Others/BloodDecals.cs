@@ -32,8 +32,7 @@ public class BloodDecals : MonoBehaviour
         {
             var hitRotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
             Instantiate(decalPrefab, hit.point + 0.01f * hit.normal, hitRotation);
-            //Instantiate(effectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
-            //Instantiate(decalPrefab, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));
+
         }
 
     }
