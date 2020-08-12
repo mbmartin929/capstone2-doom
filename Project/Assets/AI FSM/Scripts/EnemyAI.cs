@@ -55,7 +55,14 @@ namespace EightDirectionalSpriteSystem
 
         }
 
-        public void AgentSetDestination()
+        public void AgentSetDestinationPatrol()
+        {
+            Vector3 newPos = EnemyAI.RandomNavSphere(transform.position, 5.0f, 0);
+            Debug.Log(gameObject.name + ": " + transform.position + "," + newPos);
+            agent.SetDestination(newPos);
+        }
+
+        public void AgentSetDestinationPlayer()
         {
             agent.SetDestination(GameManager.Instance.playerGo.transform.position);
         }
@@ -108,7 +115,7 @@ namespace EightDirectionalSpriteSystem
             {
                 if (hitCollider.gameObject.tag == "Player")
                 {
-                    Debug.Log("Hit Player!");
+                    //Debug.Log("Hit Player!");
 
                     hitCollider.GetComponent<PlayerController>().TakeDamage(enemyController.damage);
                 }
@@ -119,6 +126,7 @@ namespace EightDirectionalSpriteSystem
         {
             if (visibleTargets.Count != 0)
             {
+                Debug.Log("Found Player!");
                 anim.SetTrigger("Chase");
             }
         }

@@ -147,10 +147,10 @@ namespace EightDirectionalSpriteSystem
 
         public void CheckReload()
         {
-            Debug.Log("Check Reload");
+            //Debug.Log("Check Reload");
             if (curAmmo != clipAmmo)
             {
-                Debug.Log("IF Check Reload");
+                //Debug.Log("IF Check Reload");
 
                 if (!cancelReload) anim.Play("Reload", 0, 0.0f);
 

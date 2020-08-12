@@ -72,12 +72,12 @@ namespace EightDirectionalSpriteSystem
         {
             if (CurArmor > 0)
             {
-                Debug.Log("Armor Damage");
+                //Debug.Log("Armor Damage");
                 CurArmor -= amount;
             }
             else
             {
-                Debug.Log("Health Damage");
+                //Debug.Log("Health Damage");
                 CurHealth -= amount;
             }
 
