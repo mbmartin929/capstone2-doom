@@ -23,6 +23,7 @@ namespace EightDirectionalSpriteSystem
 
         public void DestroyMesh()
         {
+            gameObject.isStatic = false;
             meshDestroy.DestroyMesh();
         }
     }

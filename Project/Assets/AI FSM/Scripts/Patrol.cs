@@ -19,7 +19,7 @@ namespace EightDirectionalSpriteSystem
             base.OnStateEnter(animator, stateInfo, layerIndex);
             agent.isStopped = false;
 
-            Debug.Log("Patrol State");
+            //Debug.Log("Patrol State");
 
             //Debug.Log(enemyAI.actor.name);
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
