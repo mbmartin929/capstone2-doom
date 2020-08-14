@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace EightDirectionalSpriteSystem
 {
@@ -8,6 +9,9 @@ namespace EightDirectionalSpriteSystem
     {
         public int damage = 15;
         public float painChance = 0.5f;
+        public float painDuration = 0.2f;
+        public float painStrength = 2.0f;
+        public float painResistance = 1.0f;
 
         public Vector3 deadColliderCenter;
         public Vector3 deadColliderSize;
@@ -26,6 +30,9 @@ namespace EightDirectionalSpriteSystem
         private Vector3 trajectory;
 
         public float velocity;
+
+        private bool getHit = false;
+        private Coroutine currentCoroutine = null;
 
         void Awake()
         {
@@ -49,6 +56,14 @@ namespace EightDirectionalSpriteSystem
             //CurrentHealth = CurHealth;
             //isDead = IsDead();
             //if (IsDead()) Die();
+
+            if (getHit)
+            {
+                if (painStrength <= 0) painStrength = 0;
+                Debug.Log("Pain Strength: " + painStrength);
+                //Debug.Log("Pain: " + (transform.forward * (painStrength - painResistance)));
+                transform.parent.position += (transform.forward * (painStrength - painResistance)) * Time.deltaTime;
+            }
         }
 
         public void TakeDamage(int amount)
@@ -72,7 +87,14 @@ namespace EightDirectionalSpriteSystem
                     if (randValue < painChance)
                     {
                         Debug.Log("Pain");
-                        enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                        //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+
+                        if (currentCoroutine != null)
+                        {
+                            StopCoroutine(currentCoroutine);
+                        }
+
+                        currentCoroutine = StartCoroutine(GetHit());
                     }
 
                     for (int i = 0; i <= 1; i++)
@@ -90,13 +112,22 @@ namespace EightDirectionalSpriteSystem
 
                         Die();
                     }
-                    else StartCoroutine(GetHit());
+                    //else StartCoroutine(GetHit());
                 }
                 else
                 {
                     // DECREASES ARMOR
                     CurArmor -= amount;
-                    StartCoroutine(GetHit());
+                    //StartCoroutine(GetHit());
+
+                    // float randValue = Random.value;
+                    // if (randValue < painChance)
+                    // {
+                    //     Debug.Log("Pain");
+                    //     enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                    //     StartCoroutine(GetHit());
+                    // }
+
                 }
             }
         }
@@ -126,11 +157,25 @@ namespace EightDirectionalSpriteSystem
             }
             else
             {
-                Debug.Log("Get Hit");
+                //Debug.Log("Get Hit");
+
                 animator.SetTrigger("Get Hit");
+
+                enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+
+                // transform.parent.GetComponent<NavMeshAgent>().isStopped = true;
+                transform.parent.GetComponent<NavMeshAgent>().enabled = false;
+
+                // getHit = true;
+
+                //transform.parent.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
             }
 
-            yield return new WaitForSeconds(0.69f);
+            yield return new WaitForSeconds(painDuration);
+
+            transform.parent.GetComponent<NavMeshAgent>().enabled = true;
+            //transform.parent.GetComponent<NavMeshAgent>().isStopped = false;
+            // getHit = false;
 
             if (!IsDead())
             {

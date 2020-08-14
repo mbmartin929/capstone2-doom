@@ -16,7 +16,9 @@ namespace EightDirectionalSpriteSystem
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             base.OnStateEnter(animator, stateInfo, layerIndex);
-            agent.isStopped = false;
+
+            if (!agent.enabled) return;
+            else agent.isStopped = false;
 
             Debug.Log("Chase State");
 

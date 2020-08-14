@@ -35,6 +35,7 @@ namespace EightDirectionalSpriteSystem
         public List<Transform> visibleTargets = new List<Transform>();
         private NavMeshAgent agent;
 
+
         void Awake()
         {
             anim = GetComponent<Animator>();
@@ -64,12 +65,17 @@ namespace EightDirectionalSpriteSystem
 
         public void AgentSetDestinationPlayer()
         {
-            agent.SetDestination(GameManager.Instance.playerGo.transform.position);
+            if (!agent.enabled) return;
+            else agent.SetDestination(GameManager.Instance.playerGo.transform.position);
         }
 
         public void AgentStop(bool state)
         {
-            try { agent.isStopped = state; }
+            try
+            {
+                if (!agent.enabled) return;
+                else agent.isStopped = state;
+            }
             catch (Exception e)
             {
                 //Debug.LogException(e, this);

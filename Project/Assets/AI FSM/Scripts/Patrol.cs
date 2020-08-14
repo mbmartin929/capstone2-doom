@@ -56,7 +56,7 @@ namespace EightDirectionalSpriteSystem
 
                 if (Vector3.Distance(NPC.transform.position, GameManager.Instance.playerGo.transform.position) < 5)
                 {
-                    Debug.Log("Hi");
+                    //Debug.Log("Hi");
                     animator.SetTrigger("Get Hit");
                     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 }
