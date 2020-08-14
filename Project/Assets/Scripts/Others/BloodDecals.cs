@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BloodDecals : MonoBehaviour
 {
+    public GameObject effectPrefab;
     public GameObject decalPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +30,8 @@ public class BloodDecals : MonoBehaviour
 
         if(Physics.Raycast(ray,out hit, 100f))
         {
-       
-             var hitRotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
-            var decPrefab = Instantiate(decalPrefab, hit.point + 0.01f * hit.normal, hitRotation);
-
-            if (gameObject.tag != "Enemy")
-            {
-             
-                decPrefab.transform.parent = hit.transform.parent;
-                //decPrefab.transform.SetParent(hit.transform.parent);
-                Debug.Log(hit.transform.gameObject.name + "HERE");
-            }
+            var hitRotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
+            Instantiate(decalPrefab, hit.point + 0.01f * hit.normal, hitRotation);
 
         }
 
