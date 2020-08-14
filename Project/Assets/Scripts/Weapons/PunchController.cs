@@ -159,7 +159,7 @@ namespace EightDirectionalSpriteSystem
             canAttack = false;
 
             readyToFire = false;
-            Invoke("setReadyToFire", fireDelay);
+            //Invoke("setReadyToFire", fireDelay);
         }
 
         private IEnumerator Wait(float seconds)

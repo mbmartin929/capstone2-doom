@@ -69,7 +69,11 @@ namespace EightDirectionalSpriteSystem
 
                     // Checks Hurt Chance
                     float randValue = Random.value;
-                    if (randValue < painChance) enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                    if (randValue < painChance)
+                    {
+                        Debug.Log("Pain");
+                        enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                    }
 
                     for (int i = 0; i <= 1; i++)
                     {

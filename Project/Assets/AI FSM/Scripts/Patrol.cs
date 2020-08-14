@@ -19,7 +19,7 @@ namespace EightDirectionalSpriteSystem
             base.OnStateEnter(animator, stateInfo, layerIndex);
             agent.isStopped = false;
 
-            Debug.Log("Patrol State");
+            //Debug.Log("Patrol State");
 
             //Debug.Log(enemyAI.actor.name);
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
@@ -39,10 +39,26 @@ namespace EightDirectionalSpriteSystem
                     //AISFM.GoToDestination();
 
                     Vector3 newPos = EnemyAI.RandomNavSphere(NPC.transform.position, 5.0f, 0);
-                    //Debug.Log(newPos);
+                    //Debug.Log(NPC.gameObject.name + ": " + NPC.transform.position + "," + newPos);
 
                     //Vector3 newPos = Random.insideUnitSphere * 1.0f;
                     agent.SetDestination(newPos);
+                }
+
+                float dist = agent.remainingDistance;
+                if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
+                {
+                    //Debug.Log("Reached Destination");
+                    enemyAI.actor.SetCurrentState(DemoActor.State.IDLE);
+                    //Arrived.
+                }
+                else enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+
+                if (Vector3.Distance(NPC.transform.position, GameManager.Instance.playerGo.transform.position) < 5)
+                {
+                    Debug.Log("Hi");
+                    animator.SetTrigger("Get Hit");
+                    enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 }
 
                 enemyAI.EnemyRaycast();
@@ -64,14 +80,7 @@ namespace EightDirectionalSpriteSystem
                 //     }
                 // }
 
-                float dist = agent.remainingDistance;
-                if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
-                {
-                    // Debug.Log("Reached Destination");
-                    enemyAI.actor.SetCurrentState(DemoActor.State.IDLE);
-                    //Arrived.
-                }
-                else enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+
             }
         }
 

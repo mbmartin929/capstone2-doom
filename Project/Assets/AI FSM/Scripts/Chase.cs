@@ -22,9 +22,6 @@ namespace EightDirectionalSpriteSystem
 
             //AISFM.DisableEightDirection();
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
-
-
-
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -67,9 +64,9 @@ namespace EightDirectionalSpriteSystem
                 }
                 else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Slime)
                 {
-
+                    //enemyAI.anim.SetTrigger("Attack");
+                    enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 }
-
             }
         }
 

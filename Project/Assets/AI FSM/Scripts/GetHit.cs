@@ -11,6 +11,7 @@ namespace EightDirectionalSpriteSystem
         {
             Debug.Log("Get Hit State");
 
+
             base.OnStateEnter(animator, stateInfo, layerIndex);
             if (!enemyController.IsDead()) agent.isStopped = true;
         }
