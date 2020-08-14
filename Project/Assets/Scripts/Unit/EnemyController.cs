@@ -130,7 +130,7 @@ namespace EightDirectionalSpriteSystem
                 animator.SetTrigger("Get Hit");
             }
 
-            yield return new WaitForSeconds(0.45f);
+            yield return new WaitForSeconds(0.69f);
 
             if (!IsDead())
             {
