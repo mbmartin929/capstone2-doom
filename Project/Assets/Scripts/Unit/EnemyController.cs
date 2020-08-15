@@ -100,10 +100,29 @@ namespace EightDirectionalSpriteSystem
                     for (int i = 0; i <= 1; i++)
                     {
                         int id = Random.Range(0, bloodSplatGos.Length);
-                        GameObject bloodSplat = Instantiate(bloodSplatGos[id], transform.position, bloodSplatGos[id].transform.rotation);
+                        //GameObject bloodSplat = Instantiate(bloodSplatGos[id], transform.position, bloodSplatGos[id].transform.rotation);
+
                         //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(500, 700f), transform.position, 900f, 0.0f, ForceMode.Force);
-                        bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-5, 5), Random.Range(5f, 15f), Random.Range(-5, 5));
+                        //bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-5, 5), Random.Range(5f, 15f), Random.Range(-5, 5));
+
+
                     }
+
+                    RaycastHit hit;
+                    int layerMask = LayerMask.GetMask("Ground");
+                    if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
+                    {
+                        //if (hit.collider.CompareTag("Level")) StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
+                        //StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
+
+                        int randomBloodNumber = Random.Range(1, 5);
+                        float randomBloodTimer = Random.Range(0.1f, 0.35f);
+
+                        StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
+                        //Debug.Log("Blood");
+                    }
+
+
 
                     if (IsDead())
                     {

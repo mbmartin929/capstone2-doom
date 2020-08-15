@@ -10,7 +10,7 @@ namespace EightDirectionalSpriteSystem
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Debug.Log("Dead State");
+            //Debug.Log("Dead State");
 
             base.OnStateEnter(animator, stateInfo, layerIndex);
             enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
