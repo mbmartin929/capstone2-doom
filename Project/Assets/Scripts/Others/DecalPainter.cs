@@ -83,7 +83,7 @@ public class DecalPainter : MonoBehaviour
         // Check for a click
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click!");
+            // Debug.Log("Click!");
             // Raycast
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -172,7 +172,7 @@ public class DecalPainter : MonoBehaviour
             }
 
             // Random scale
-            var scaler = Random.Range(MinScale, MaxScale) * scaleBonus;
+            var scaler = Random.Range(paintSplatter.GetComponent<RandomOpacity>().minimumScale, paintSplatter.GetComponent<RandomOpacity>().maximumScale) * scaleBonus;
 
             paintSplatter.transform.localScale = new Vector3(
                 paintSplatter.transform.localScale.x * scaler,
