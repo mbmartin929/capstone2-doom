@@ -37,6 +37,7 @@ public class UnitController : MonoBehaviour
         {
             curHealth = value;
             if (curHealth > maxHealth) curHealth = maxHealth;
+
         }
     }
 

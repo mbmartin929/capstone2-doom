@@ -21,7 +21,9 @@ namespace EightDirectionalSpriteSystem
         public GameObject[] bloodSplatGos;
 
         public int CurrentHealth;
-        public bool isDead;
+
+        public GameObject gibGo;
+        public int gibsAmount = 12;
 
         public float projectileSpeed;
 
@@ -116,13 +118,24 @@ namespace EightDirectionalSpriteSystem
                         //StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
 
                         int randomBloodNumber = Random.Range(1, 5);
-                        float randomBloodTimer = Random.Range(0.1f, 0.35f);
+                        float randomBloodTimer = Random.Range(0.1f, 0.25f);
 
                         StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
                         //Debug.Log("Blood");
                     }
 
+                    if (CurHealth <= -5)
+                    {
+                        //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
+                        gameObject.SetActive(false);
 
+                        for (int i = 0; i < gibsAmount; i++)
+                        {
+                            GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                        }
+
+                        Debug.Log("Gib!");
+                    }
 
                     if (IsDead())
                     {

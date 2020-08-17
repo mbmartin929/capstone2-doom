@@ -68,8 +68,8 @@ public class DecalPainter : MonoBehaviour
     {
         materials = new List<Material>();
 
-        if (Instance != null) Debug.LogError("More than one Painter has been instanciated in this scene!");
-        Instance = this;
+        //if (Instance != null) Debug.LogError("More than one Painter has been instanciated in this scene!");
+        //Instance = this;
 
         if (PaintDecalPrefabs.Count == 0) Debug.LogError("Missing Paint decals prefabs!");
 
@@ -136,8 +136,6 @@ public class DecalPainter : MonoBehaviour
 
     public void PaintDecal(RaycastHit hit, float scaleBonus)
     {
-
-
         // Create a splash if we found a surface
         int randomIndex = Random.Range(0, PaintDecalPrefabs.Count);
         GameObject paintDecal = PaintDecalPrefabs[randomIndex];

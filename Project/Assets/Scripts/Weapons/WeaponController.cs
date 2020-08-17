@@ -99,8 +99,8 @@ namespace EightDirectionalSpriteSystem
             anim.SetTrigger("Switch To");
             transform.localPosition = startWeaponSwitchVector;
             transform.localRotation = Quaternion.Euler(startWeaponSwitchRot.x, startWeaponSwitchRot.y, startWeaponSwitchRot.z);
-            //StartCoroutine(SwitchToNumerator());
-            Debug.Log("SwitchTo");
+            // StartCoroutine(SwitchToNumerator());
+            // Debug.Log("SwitchTo");
             TextManager.Instance.UpdateAmmoText();
         }
 
