@@ -23,6 +23,7 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log(enemyAI.actor.name);
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -43,6 +44,8 @@ namespace EightDirectionalSpriteSystem
 
                     //Vector3 newPos = Random.insideUnitSphere * 1.0f;
                     agent.SetDestination(newPos);
+
+                    enemyAI.CallRandomPatrolSound();
                 }
 
                 float dist = agent.remainingDistance;

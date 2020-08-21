@@ -11,6 +11,8 @@ namespace EightDirectionalSpriteSystem
         [HideInInspector] public DemoActor actor;
         [HideInInspector] public Animator anim;
         [HideInInspector] public ActorBillboard billboard;
+        [HideInInspector] public AudioSource audioSource;
+        [HideInInspector] public EnemySounds enemySounds;
 
         public float rayCastdistance;
 
@@ -42,6 +44,8 @@ namespace EightDirectionalSpriteSystem
             actor = GetComponent<DemoActor>();
             billboard = transform.GetChild(0).GetComponent<ActorBillboard>();
             agent = GetComponent<NavMeshAgent>();
+            enemySounds = transform.GetChild(0).GetComponent<EnemySounds>();
+            audioSource = transform.GetChild(0).GetComponent<AudioSource>();
         }
 
         // Start is called before the first frame update
@@ -243,6 +247,24 @@ namespace EightDirectionalSpriteSystem
 
             }
             else actor.SetCurrentState(DemoActor.State.SHOOT);
+        }
+
+        private IEnumerator RandomPatrolSound()
+        {
+            int rand = UnityEngine.Random.Range(0, enemySounds.idle.Length);
+            float time = UnityEngine.Random.Range(enemySounds.minPatrolSoundTime, enemySounds.maxPatrolSoundTime);
+
+            yield return new WaitForSeconds(time);
+
+            AudioClip patrolSound = enemySounds.idle[rand];
+            audioSource.PlayOneShot(patrolSound, 1f);
+
+            Debug.Log("Random Patrol Sound");
+        }
+
+        public void CallRandomPatrolSound()
+        {
+            StartCoroutine(RandomPatrolSound());
         }
     }
 }
