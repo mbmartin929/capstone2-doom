@@ -15,6 +15,13 @@ namespace EightDirectionalSpriteSystem
         public AudioClip[] pain;
         public AudioClip[] death;
 
+        private AudioSource audioSource;
+
+        void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         // Start is called before the first frame update
         void Start()
         {
@@ -25,6 +32,17 @@ namespace EightDirectionalSpriteSystem
         void Update()
         {
 
+        }
+
+        public void SlimeChaseSound()
+        {
+            audioSource.clip = chase[0];
+            audioSource.Play();
+        }
+
+        public void SlimeChaseSoudOneShot()
+        {
+            audioSource.PlayOneShot(chase[0]);
         }
     }
 }

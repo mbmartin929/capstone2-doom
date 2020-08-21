@@ -257,7 +257,11 @@ namespace EightDirectionalSpriteSystem
             yield return new WaitForSeconds(time);
 
             AudioClip patrolSound = enemySounds.idle[rand];
-            audioSource.PlayOneShot(patrolSound, 1f);
+
+            audioSource.clip = patrolSound;
+            audioSource.Play();
+
+            //audioSource.PlayOneShot(patrolSound, 1f);
 
             Debug.Log("Random Patrol Sound");
         }

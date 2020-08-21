@@ -150,13 +150,15 @@ namespace EightDirectionalSpriteSystem
                 }
 
                 //Debug.Log("Current Frame Index: " + currentFrameIndex);
+                #region Slime Behaviour
                 if ((enemy == Enemy.Slime) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
                     EnemyController enemyController = GetComponent<EnemyController>();
 
-
                     if (currentFrameIndex == 1)
                     {
+                        transform.GetComponent<EnemySounds>().SlimeChaseSoudOneShot();
+
                         transform.GetComponentInParent<EnemyAI>().AgentStop(false);
                         transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
                     }
@@ -173,7 +175,7 @@ namespace EightDirectionalSpriteSystem
                         //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }
-
+                #endregion
 
                 #region Worm Behaviour
                 if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
