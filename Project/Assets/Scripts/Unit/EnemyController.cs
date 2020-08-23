@@ -35,10 +35,13 @@ namespace EightDirectionalSpriteSystem
 
         private bool getHit = false;
         private Coroutine currentCoroutine = null;
+        private EnemySounds enemySounds;
 
         void Awake()
         {
             //enemyAI = GetComponent<EnemyAI>();
+
+            enemySounds = GetComponent<EnemySounds>();
         }
 
         // Start is called before the first frame update
@@ -78,7 +81,10 @@ namespace EightDirectionalSpriteSystem
             }
             else if (!IsDead())
             {
-                GetComponent<AudioSource>().Play();
+                //GetComponent<AudioSource>().Play();
+                enemySounds.PainSound();
+                enemySounds.BloodSplatterSound();
+
                 if (CurArmor <= 0)
                 {
                     // DECREASES HEALTH

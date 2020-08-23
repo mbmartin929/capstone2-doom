@@ -14,8 +14,10 @@ namespace EightDirectionalSpriteSystem
         public AudioClip[] fire;
         public AudioClip[] pain;
         public AudioClip[] death;
+        public AudioClip[] splatter;
 
         private AudioSource audioSource;
+        private GameObject emptyObject;
 
         void Awake()
         {
@@ -43,6 +45,31 @@ namespace EightDirectionalSpriteSystem
         public void SlimeChaseSoudOneShot()
         {
             audioSource.PlayOneShot(chase[0]);
+        }
+
+        public void PainSound()
+        {
+            int random = Random.Range(0, pain.Length);
+            audioSource.clip = pain[random];
+            audioSource.Play();
+
+            Debug.Log("Play Pain Sound");
+        }
+
+        public void BloodSplatterSound()
+        {
+            int random = Random.Range(0, splatter.Length);
+            emptyObject = new GameObject();
+
+            GameObject BloodSplatterSFX = Instantiate(emptyObject, transform.position, transform.rotation);
+            BloodSplatterSFX.AddComponent<AudioSource>();
+            BloodSplatterSFX.GetComponent<AudioSource>().clip = splatter[random];
+            BloodSplatterSFX.GetComponent<AudioSource>().Play();
+
+            // audioSource.clip = splatter[random];
+            // audioSource.Play();
+
+            Debug.Log("Play Blood Splatter Sound");
         }
     }
 }
