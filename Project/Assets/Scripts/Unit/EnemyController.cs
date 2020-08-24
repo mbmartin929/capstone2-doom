@@ -24,6 +24,8 @@ namespace EightDirectionalSpriteSystem
 
         public GameObject gibGo;
         public int gibsAmount = 12;
+        public int gibAlive = 15;
+        public int gibDeath = 30;
 
         public float projectileSpeed;
 
@@ -75,14 +77,33 @@ namespace EightDirectionalSpriteSystem
         {
             if (IsDead())
             {
-                // This if statement is not being called
-                //Debug.Log("Take Damage Die");
+                Debug.Log("Take Damage Die");
+
+                // DECREASES HEALTH
+                CurHealth -= amount;
+
+                Debug.Log(CurHealth);
+
+                if (CurHealth <= -gibDeath)
+                {
+                    //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+
+                    for (int i = 0; i < gibsAmount; i++)
+                    {
+                        GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                    }
+
+                    Destroy(gameObject, 5.0f);
+
+                    Debug.Log("Dead Gib!");
+                }
                 //Die();
             }
             else if (!IsDead())
             {
                 //GetComponent<AudioSource>().Play();
-                enemySounds.PainSound();
+
                 enemySounds.BloodSplatterSound();
 
                 if (CurArmor <= 0)
@@ -94,8 +115,9 @@ namespace EightDirectionalSpriteSystem
                     float randValue = Random.value;
                     if (randValue < painChance)
                     {
-                        Debug.Log("Pain");
+                        //Debug.Log("Pain");
                         //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                        enemySounds.PainSound();
 
                         if (currentCoroutine != null)
                         {
@@ -130,7 +152,7 @@ namespace EightDirectionalSpriteSystem
                         //Debug.Log("Blood");
                     }
 
-                    if (CurHealth <= -5)
+                    if (CurHealth <= -gibAlive)
                     {
                         //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                         gameObject.SetActive(false);
@@ -140,6 +162,8 @@ namespace EightDirectionalSpriteSystem
                             GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
                         }
 
+                        Destroy(gameObject, 5.0f);
+
                         Debug.Log("Gib!");
                     }
 
@@ -147,6 +171,8 @@ namespace EightDirectionalSpriteSystem
                     {
                         GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
                         bloodFlowGo.transform.parent = transform;
+
+                        //Debug.Log("Dead?");
 
                         Die();
                     }

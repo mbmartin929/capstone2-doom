@@ -117,7 +117,7 @@ public class EnemyGibs : MonoBehaviour
             int layerMask = LayerMask.GetMask("Ground");
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
             {
-                Debug.Log("Gib Paint");
+                //Debug.Log("Gib Paint");
 
                 int randomBloodNumber = Random.Range(1, 5);
                 StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));

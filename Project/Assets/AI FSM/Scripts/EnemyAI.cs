@@ -263,7 +263,7 @@ namespace EightDirectionalSpriteSystem
 
             //audioSource.PlayOneShot(patrolSound, 1f);
 
-            Debug.Log("Random Patrol Sound");
+            //Debug.Log("Random Patrol Sound");
         }
 
         public void CallRandomPatrolSound()
