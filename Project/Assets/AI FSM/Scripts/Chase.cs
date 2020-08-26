@@ -29,26 +29,6 @@ namespace EightDirectionalSpriteSystem
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            // tempTime += Time.deltaTime;
-            // if (!enemyController.IsDead())
-            // {
-            //     // if (Time.time > nextActionTime)
-            //     // {
-            //     //     Debug.Log("Next Action Time");
-
-            //     //     AISFM.tempPatrol = !AISFM.tempPatrol;
-
-            //     //     nextActionTime += period;
-            //     // }
-            //     if (tempTime > 1.5f)
-            //     {
-            //         tempTime = 0;
-
-            //         Debug.Log("Next Action Time");
-
-            //         AISFM.tempPatrol = !AISFM.tempPatrol;
-            //     }
-
             if (!enemyController.IsDead())
             {
                 if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Worm)
@@ -68,6 +48,21 @@ namespace EightDirectionalSpriteSystem
                 {
                     //enemyAI.anim.SetTrigger("Attack");
                     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
+                }
+                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Spider)
+                {
+                    agent.SetDestination(playerGo.transform.position);
+
+                    Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
+                                                         agent.transform.position.y,
+                                                         playerGo.transform.position.z);
+
+                    if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 1.0f)
+                    {
+                        //enemyAI.anim.SetTrigger("Attack");
+                        Debug.Log("Spider Attack");
+                        enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
                 }
             }
         }

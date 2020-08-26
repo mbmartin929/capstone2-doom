@@ -18,7 +18,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
-        public enum Enemy { Worm, Slime };
+        public enum Enemy { Worm, Slime, Spider };
 
         public delegate void BeforeRenderBillboardEvent();
 
@@ -171,8 +171,47 @@ namespace EightDirectionalSpriteSystem
                     else if (currentFrameIndex == 4)
                     {
                         //Debug.Log("Slime Attack");
+                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(3f);
+                        //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                }
+                #endregion
+
+                #region Spider Behaviour
+                if ((enemy == Enemy.Spider) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    EnemyController enemyController = GetComponent<EnemyController>();
+
+                    if (currentFrameIndex == 1)
+                    {
+                        //transform.GetComponent<EnemySounds>().SlimeChaseSoudOneShot();
+
+                        transform.GetComponentInParent<EnemyAI>().AgentStop(true);
+                        transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
+                    }
+                    // else if (currentFrameIndex == 4)
+                    // {
+                    //     try { transform.GetComponentInParent<EnemyAI>().AgentStop(true); }
+                    //     catch (Exception e) { Debug.LogException(e, this); }
+
+                    // }
+                    else if (currentFrameIndex == 5)
+                    {
+                        //Debug.Log("Slime Attack");
                         transform.GetComponentInParent<EnemyAI>().SlimeAttack(3.5f);
                         //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                    else if (currentFrameIndex == 6)
+                    {
+                        Debug.Log("Frame: " + currentFrameIndex);
+                        transform.GetComponentInParent<EnemyAI>().AgentStop(false);
+
+                        if (!GetComponent<EnemyController>().IsDead())
+                        {
+                            //Debug.Log(currentAnimation.Action);
+                            transform.GetComponentInParent<EnemyAI>().GetNewDir();
+                        }
+                        else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);
                     }
                 }
                 #endregion

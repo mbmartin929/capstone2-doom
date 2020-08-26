@@ -31,7 +31,6 @@ namespace EightDirectionalSpriteSystem
 
         public EnemyAI enemyAI;
         public Animator animator;
-        private Vector3 trajectory;
 
         public float velocity;
 
@@ -53,16 +52,12 @@ namespace EightDirectionalSpriteSystem
             //maxHealth -= 20;
 
             CurHealth = maxHealth;
-            trajectory = UnityEngine.Random.insideUnitCircle * velocity;
-            // Debug.Log(CurHealth);
         }
 
         // Update is called once per frame
         void Update()
         {
-            //CurrentHealth = CurHealth;
-            //isDead = IsDead();
-            //if (IsDead()) Die();
+            //CurrentHealth = CurHealth;W
 
             if (getHit)
             {
@@ -82,7 +77,7 @@ namespace EightDirectionalSpriteSystem
                 // DECREASES HEALTH
                 CurHealth -= amount;
 
-                Debug.Log(CurHealth);
+                //Debug.Log(CurHealth);
 
                 if (CurHealth <= -gibDeath)
                 {

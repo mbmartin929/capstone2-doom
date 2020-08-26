@@ -21,7 +21,11 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log("Patrol State");
 
-            //Debug.Log(enemyAI.actor.name);
+
+            if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Spider)
+            {
+                Debug.Log(enemyAI.actor.name);
+            }
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
 
         }
@@ -66,24 +70,6 @@ namespace EightDirectionalSpriteSystem
 
                 enemyAI.EnemyRaycast();
                 //AISFM.EnemyRaycast();
-
-                // if (!agent.pathPending)
-                // {
-                //     if (agent.remainingDistance <= agent.stoppingDistance)
-                //     {
-                //         if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                //         {
-                //             Debug.Log("Reached Destination");
-                //             enemyAI.actor.SetCurrentState(DemoActor.State.IDLE);
-                //         }
-                //         else
-                //         {
-                //             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
-                //         }
-                //     }
-                // }
-
-
             }
         }
 

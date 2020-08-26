@@ -18,11 +18,6 @@ namespace EightDirectionalSpriteSystem
 
         public Transform attackLoc;
 
-        public GameObject bloodSplatter;
-        public float distanceToStop = 3.0f;
-
-        public Transform[] waypoints;
-
         public EnemyController enemyController;
 
         [Header("AI Detection")]
