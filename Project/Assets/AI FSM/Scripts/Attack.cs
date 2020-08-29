@@ -32,6 +32,7 @@ namespace EightDirectionalSpriteSystem
 
                 if (Vector3.Distance(agent.transform.position, targetRotation) > enemyAI.distanceToAttack)
                 {
+                    Debug.Log("Chase from Attack");
                     enemyAI.anim.SetTrigger("Chase");
                 }
             }

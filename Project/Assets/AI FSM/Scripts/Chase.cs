@@ -57,11 +57,11 @@ namespace EightDirectionalSpriteSystem
                                                          agent.transform.position.y,
                                                          playerGo.transform.position.z);
 
-                    if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 1.0f)
+                    if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 0.5f)
                     {
-                        //enemyAI.anim.SetTrigger("Attack");
-                        Debug.Log("Spider Attack");
-                        enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
+                        enemyAI.anim.SetTrigger("Attack");
+                        //Debug.Log("Spider Attack");
+                        //.actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }
             }

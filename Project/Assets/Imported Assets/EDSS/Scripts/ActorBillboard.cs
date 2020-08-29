@@ -185,9 +185,7 @@ namespace EightDirectionalSpriteSystem
                     if (currentFrameIndex == 1)
                     {
                         //transform.GetComponent<EnemySounds>().SlimeChaseSoudOneShot();
-
                         transform.GetComponentInParent<EnemyAI>().AgentStop(true);
-                        transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
                     }
                     // else if (currentFrameIndex == 4)
                     // {
@@ -195,21 +193,31 @@ namespace EightDirectionalSpriteSystem
                     //     catch (Exception e) { Debug.LogException(e, this); }
 
                     // }
-                    else if (currentFrameIndex == 5)
+                    else if (currentFrameIndex == 3)
                     {
                         //Debug.Log("Slime Attack");
                         transform.GetComponentInParent<EnemyAI>().SlimeAttack(3.5f);
                         //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
-                    else if (currentFrameIndex == 6)
+                    else if (currentFrameIndex == 4)
                     {
-                        Debug.Log("Frame: " + currentFrameIndex);
                         transform.GetComponentInParent<EnemyAI>().AgentStop(false);
 
                         if (!GetComponent<EnemyController>().IsDead())
                         {
-                            //Debug.Log(currentAnimation.Action);
-                            transform.GetComponentInParent<EnemyAI>().GetNewDir();
+                            Debug.Log("Frame: " + currentFrameIndex);
+                            //transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
+
+                            //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.WALKING);
+
+                            //transform.GetComponentInParent<EnemyAI>().GetNewDir();
+
+                            if (Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position) <= GetComponentInParent<EnemyAI>().distanceToAttack - 0.5f)
+                            {
+                                Debug.Log("Actor Attack");
+                                GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                            }
+
                         }
                         else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);
                     }
