@@ -123,6 +123,8 @@ public class DecalPainter : MonoBehaviour
             // Raycast around the position to splash everwhere we can
             if (Physics.Raycast(location, dir, out hit, SplashRange))
             {
+                Debug.Log("Decal Painter: " + hit.transform.gameObject.name);
+
                 PaintDecal(hit, scaleBonus);
 
 #if UNITY_EDITOR
@@ -149,6 +151,8 @@ public class DecalPainter : MonoBehaviour
                                                        // Prefab are currently oriented to z+ so we use the opposite
                                                        Quaternion.FromToRotation(Vector3.back, hit.normal)
                                                        ) as GameObject;
+
+            Debug.Log("Name: " + paintSplatter.name);
 
             // Find an existing material to enable batching
             var sharedMat = materials.Where(m => m.name.Equals(paintSplatter.GetComponent<MeshRenderer>().material.name)

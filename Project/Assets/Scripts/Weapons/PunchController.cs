@@ -138,12 +138,12 @@ namespace EightDirectionalSpriteSystem
                         if (item.tag == "Hit Normal")
                         {
                             GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                         else
                         {
                             GameObject bloodGo = Instantiate(item, hit.transform.position, item.transform.rotation);
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                     }
                     enemy.TakeDamage(damage);
