@@ -219,7 +219,7 @@ namespace EightDirectionalSpriteSystem
                             //particleSys.main.startSpeedMultiplier = maximumBloodParticles;
 
                             GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                         else
                         {
@@ -230,7 +230,7 @@ namespace EightDirectionalSpriteSystem
 
                             GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
                                                             item.transform.rotation);
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                     }
                     enemy.painStrength = painStrength;

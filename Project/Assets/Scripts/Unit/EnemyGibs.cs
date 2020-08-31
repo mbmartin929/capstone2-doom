@@ -68,11 +68,6 @@ public class EnemyGibs : MonoBehaviour
         }
     }
 
-    private void Transparency()
-    {
-
-    }
-
     private IEnumerator LateCollision()
     {
         GetComponent<BoxCollider>().isTrigger = true;
@@ -103,35 +98,36 @@ public class EnemyGibs : MonoBehaviour
 
         if (other.CompareTag("Level"))
         {
-            // gravity = 0;
-
-            // Debug.Log("Collide");
-            // rb.useGravity = false;
-            // rb.velocity = Vector3.zero;
-
-            // Debug.Log(gameObject.name + ": " + other.transform.position.y + " vs " + startingY);
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             GetComponent<BoxCollider>().enabled = false;
 
             RaycastHit hit;
             int layerMask = LayerMask.GetMask("Ground");
+
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
             {
                 //Debug.Log("Gib Paint");
 
                 int randomBloodNumber = Random.Range(1, 5);
+
+                //Debug.Log("Gib Blood Paint");
+                Debug.Log(hit.transform.gameObject.name);
+
                 StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
             }
-            // if (other.transform.position.y > startingY)
+
+            // var dir = transform.TransformDirection(Random.onUnitSphere * 5f);
+
+            // if (Physics.Raycast(transform.position, dir, out hit, 50f, layerMask))
             // {
-            //     Debug.Log(other.transform.position.y + " vs " + startingY);
-            //     return;
-            // }
-            // else
-            // {
-            //     Debug.Log(gameObject.name + ": " + other.transform.position.y + " vs " + startingY);
-            //     rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-            //     GetComponent<BoxCollider>().enabled = false;
+            //     //Debug.Log("Gib Paint");
+
+            //     int randomBloodNumber = Random.Range(1, 5);
+
+            //     //Debug.Log("Gib Blood Paint");
+            //     //Debug.Log(hit.transform.gameObject.name);
+
+            //     StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
             // }
         }
     }

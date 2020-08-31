@@ -253,12 +253,10 @@ namespace EightDirectionalSpriteSystem
 
             AudioClip patrolSound = enemySounds.idle[rand];
 
+            if (audioSource == null) Destroy(gameObject);
+
             audioSource.clip = patrolSound;
             audioSource.Play();
-
-            //audioSource.PlayOneShot(patrolSound, 1f);
-
-            //Debug.Log("Random Patrol Sound");
         }
 
         public void CallRandomPatrolSound()
