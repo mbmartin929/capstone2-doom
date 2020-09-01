@@ -123,7 +123,7 @@ public class DecalPainter : MonoBehaviour
             // Raycast around the position to splash everwhere we can
             if (Physics.Raycast(location, dir, out hit, SplashRange))
             {
-                Debug.Log("Decal Painter: " + hit.transform.gameObject.name);
+                //Debug.Log("Decal Painter: " + hit.transform.gameObject.name);
 
                 PaintDecal(hit, scaleBonus);
 
@@ -152,7 +152,7 @@ public class DecalPainter : MonoBehaviour
                                                        Quaternion.FromToRotation(Vector3.back, hit.normal)
                                                        ) as GameObject;
 
-            Debug.Log("Name: " + paintSplatter.name);
+            //Debug.Log("Name: " + paintSplatter.name);
 
             // Find an existing material to enable batching
             var sharedMat = materials.Where(m => m.name.Equals(paintSplatter.GetComponent<MeshRenderer>().material.name)
