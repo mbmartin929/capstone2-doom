@@ -21,8 +21,13 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log("Patrol State");
 
-            //Debug.Log(enemyAI.actor.name);
+
+            if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Spider)
+            {
+                Debug.Log(enemyAI.actor.name);
+            }
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
+
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -43,6 +48,8 @@ namespace EightDirectionalSpriteSystem
 
                     //Vector3 newPos = Random.insideUnitSphere * 1.0f;
                     agent.SetDestination(newPos);
+
+                    enemyAI.CallRandomPatrolSound();
                 }
 
                 float dist = agent.remainingDistance;
@@ -56,31 +63,13 @@ namespace EightDirectionalSpriteSystem
 
                 if (Vector3.Distance(NPC.transform.position, GameManager.Instance.playerGo.transform.position) < 5)
                 {
-                    Debug.Log("Hi");
+                    //Debug.Log("Hi");
                     animator.SetTrigger("Get Hit");
                     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 }
 
                 enemyAI.EnemyRaycast();
                 //AISFM.EnemyRaycast();
-
-                // if (!agent.pathPending)
-                // {
-                //     if (agent.remainingDistance <= agent.stoppingDistance)
-                //     {
-                //         if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                //         {
-                //             Debug.Log("Reached Destination");
-                //             enemyAI.actor.SetCurrentState(DemoActor.State.IDLE);
-                //         }
-                //         else
-                //         {
-                //             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
-                //         }
-                //     }
-                // }
-
-
             }
         }
 

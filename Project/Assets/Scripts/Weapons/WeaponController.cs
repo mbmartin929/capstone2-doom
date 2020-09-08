@@ -26,8 +26,7 @@ namespace EightDirectionalSpriteSystem
         #endregion
 
         #region Other Variables
-        public short minimumBloodParticles = 5;
-        public short maximumBloodParticles = 15;
+        public float painStrength = 1.0f;
         public Vector3 startWeaponSwitchVector;
         public Vector3 startWeaponSwitchRot;
 
@@ -100,8 +99,8 @@ namespace EightDirectionalSpriteSystem
             anim.SetTrigger("Switch To");
             transform.localPosition = startWeaponSwitchVector;
             transform.localRotation = Quaternion.Euler(startWeaponSwitchRot.x, startWeaponSwitchRot.y, startWeaponSwitchRot.z);
-            //StartCoroutine(SwitchToNumerator());
-            Debug.Log("SwitchTo");
+            // StartCoroutine(SwitchToNumerator());
+            // Debug.Log("SwitchTo");
             TextManager.Instance.UpdateAmmoText();
         }
 

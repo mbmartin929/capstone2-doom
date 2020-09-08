@@ -30,11 +30,8 @@ namespace EightDirectionalSpriteSystem
             NPC = animator.gameObject;
 
             //Debug.Log(animator.gameObject.name);
-            //Debug.Log("Hi");
 
             agent = NPC.GetComponent<NavMeshAgent>();
-
-            // Debug.Log(agent.gameObject.name);
 
             AISFM = NPC.GetComponent<AISFM>();
             enemyAI = NPC.GetComponent<EnemyAI>();
@@ -43,7 +40,6 @@ namespace EightDirectionalSpriteSystem
 
             //enemyController = enemyAI.enemyController;
             enemyController = NPC.transform.GetChild(0).GetComponent<EnemyController>();
-            //Debug.Log(enemyController.gameObject.name);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
-        public enum Enemy { Worm, Slime };
+        public enum Enemy { Worm, Slime, Spider };
 
         public delegate void BeforeRenderBillboardEvent();
 
@@ -150,13 +150,15 @@ namespace EightDirectionalSpriteSystem
                 }
 
                 //Debug.Log("Current Frame Index: " + currentFrameIndex);
+                #region Slime Behaviour
                 if ((enemy == Enemy.Slime) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
                     EnemyController enemyController = GetComponent<EnemyController>();
 
-
                     if (currentFrameIndex == 1)
                     {
+                        transform.GetComponent<EnemySounds>().SlimeChaseSoudOneShot();
+
                         transform.GetComponentInParent<EnemyAI>().AgentStop(false);
                         transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
                     }
@@ -169,11 +171,58 @@ namespace EightDirectionalSpriteSystem
                     else if (currentFrameIndex == 4)
                     {
                         //Debug.Log("Slime Attack");
-                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(3.5f);
+                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(3f);
                         //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }
+                #endregion
 
+                #region Spider Behaviour
+                if ((enemy == Enemy.Spider) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    EnemyController enemyController = GetComponent<EnemyController>();
+
+                    if (currentFrameIndex == 1)
+                    {
+                        //transform.GetComponent<EnemySounds>().SlimeChaseSoudOneShot();
+                        transform.GetComponentInParent<EnemyAI>().AgentStop(true);
+                    }
+                    // else if (currentFrameIndex == 4)
+                    // {
+                    //     try { transform.GetComponentInParent<EnemyAI>().AgentStop(true); }
+                    //     catch (Exception e) { Debug.LogException(e, this); }
+
+                    // }
+                    else if (currentFrameIndex == 3)
+                    {
+                        //Debug.Log("Slime Attack");
+                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(3.5f);
+                        //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                    else if (currentFrameIndex == 4)
+                    {
+                        transform.GetComponentInParent<EnemyAI>().AgentStop(false);
+
+                        if (!GetComponent<EnemyController>().IsDead())
+                        {
+                            Debug.Log("Frame: " + currentFrameIndex);
+                            //transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
+
+                            //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.WALKING);
+
+                            //transform.GetComponentInParent<EnemyAI>().GetNewDir();
+
+                            if (Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position) <= GetComponentInParent<EnemyAI>().distanceToAttack - 0.5f)
+                            {
+                                Debug.Log("Actor Attack");
+                                GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                            }
+
+                        }
+                        else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);
+                    }
+                }
+                #endregion
 
                 #region Worm Behaviour
                 if ((enemy == Enemy.Worm) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))

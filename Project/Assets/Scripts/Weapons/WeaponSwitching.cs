@@ -90,7 +90,7 @@ namespace EightDirectionalSpriteSystem
                 {
                     if (!currentWeapon.gameObject.activeSelf)
                     {
-                        Debug.Log("PreviousSelectedWeapon: " + previousSelectedWeapon);
+                        //Debug.Log("PreviousSelectedWeapon: " + previousSelectedWeapon);
                         //if (previousSelectedWeapon <= -1) previousSelectedWeapon = 0;
 
 
@@ -98,14 +98,14 @@ namespace EightDirectionalSpriteSystem
                         // INSERT CODE HERE TO CHECK IF THERE IS AN ACTION PLAYING
                         if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                         {
-                            Debug.Log("SelectedWeapon: " + selectedWeapon);
+                            //Debug.Log("SelectedWeapon: " + selectedWeapon);
 
                             previousWeapon.GetComponent<WeaponController>().SwitchAway();
 
                             StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
                             StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
 
-                            
+
                             return;
                         }
                         else

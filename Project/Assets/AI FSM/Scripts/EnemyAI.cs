@@ -11,15 +11,12 @@ namespace EightDirectionalSpriteSystem
         [HideInInspector] public DemoActor actor;
         [HideInInspector] public Animator anim;
         [HideInInspector] public ActorBillboard billboard;
+        [HideInInspector] public AudioSource audioSource;
+        [HideInInspector] public EnemySounds enemySounds;
 
         public float rayCastdistance;
 
         public Transform attackLoc;
-
-        public GameObject bloodSplatter;
-        public float distanceToStop = 3.0f;
-
-        public Transform[] waypoints;
 
         public EnemyController enemyController;
 
@@ -35,12 +32,15 @@ namespace EightDirectionalSpriteSystem
         public List<Transform> visibleTargets = new List<Transform>();
         private NavMeshAgent agent;
 
+
         void Awake()
         {
             anim = GetComponent<Animator>();
             actor = GetComponent<DemoActor>();
             billboard = transform.GetChild(0).GetComponent<ActorBillboard>();
             agent = GetComponent<NavMeshAgent>();
+            enemySounds = transform.GetChild(0).GetComponent<EnemySounds>();
+            audioSource = transform.GetChild(0).GetComponent<AudioSource>();
         }
 
         // Start is called before the first frame update
@@ -64,12 +64,17 @@ namespace EightDirectionalSpriteSystem
 
         public void AgentSetDestinationPlayer()
         {
-            agent.SetDestination(GameManager.Instance.playerGo.transform.position);
+            if (!agent.enabled) return;
+            else agent.SetDestination(GameManager.Instance.playerGo.transform.position);
         }
 
         public void AgentStop(bool state)
         {
-            try { agent.isStopped = state; }
+            try
+            {
+                if (!agent.enabled) return;
+                else agent.isStopped = state;
+            }
             catch (Exception e)
             {
                 //Debug.LogException(e, this);
@@ -237,6 +242,26 @@ namespace EightDirectionalSpriteSystem
 
             }
             else actor.SetCurrentState(DemoActor.State.SHOOT);
+        }
+
+        private IEnumerator RandomPatrolSound()
+        {
+            int rand = UnityEngine.Random.Range(0, enemySounds.idle.Length);
+            float time = UnityEngine.Random.Range(enemySounds.minPatrolSoundTime, enemySounds.maxPatrolSoundTime);
+
+            yield return new WaitForSeconds(time);
+
+            AudioClip patrolSound = enemySounds.idle[rand];
+
+            if (audioSource == null) Destroy(gameObject);
+
+            audioSource.clip = patrolSound;
+            audioSource.Play();
+        }
+
+        public void CallRandomPatrolSound()
+        {
+            StartCoroutine(RandomPatrolSound());
         }
     }
 }

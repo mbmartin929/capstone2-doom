@@ -9,17 +9,22 @@ namespace EightDirectionalSpriteSystem
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Debug.Log("Get Hit State");
+            //Debug.Log("Get Hit State");
 
 
             base.OnStateEnter(animator, stateInfo, layerIndex);
-            if (!enemyController.IsDead()) agent.isStopped = true;
+            if (!enemyController.IsDead())
+            {
+                if (!agent.enabled) return;
+                else agent.isStopped = true;
+            }
+            //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-
+            animator.SetTrigger("Attack");
         }
 
         //OnStateExit is called when a transition ends and the state machine finishes evaluating this state

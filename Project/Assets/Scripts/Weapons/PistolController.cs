@@ -142,7 +142,7 @@ namespace EightDirectionalSpriteSystem
             ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
             //Debug.Log("Shoot");
-            Debug.Log("Shoot: " + CurAmmo);
+            //Debug.Log("Shoot: " + CurAmmo);
             CurAmmo--;
 
 
@@ -191,6 +191,7 @@ namespace EightDirectionalSpriteSystem
                 else if (hit.transform.tag == "Enemy")
                 {
                     EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+                    if (enemy == null) enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
 
                     foreach (GameObject item in enemy.bloodSplashGos)
                     {
@@ -218,7 +219,7 @@ namespace EightDirectionalSpriteSystem
                             //particleSys.main.startSpeedMultiplier = maximumBloodParticles;
 
                             GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                         else
                         {
@@ -228,10 +229,11 @@ namespace EightDirectionalSpriteSystem
                             //item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
 
                             GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
-    item.transform.rotation);
-                            bloodGo.transform.parent = hit.transform;
+                                                            item.transform.rotation);
+                            //bloodGo.transform.parent = hit.transform;
                         }
                     }
+                    enemy.painStrength = painStrength;
                     enemy.TakeDamage(damage);
                 }
                 else if (hit.transform.tag == "Destructible")

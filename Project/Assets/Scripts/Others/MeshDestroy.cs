@@ -15,6 +15,8 @@ namespace EightDirectionalSpriteSystem
         public int CutCascades = 1;
         public float ExplodeForce = 0;
 
+        public bool shirnk;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -299,6 +301,8 @@ namespace EightDirectionalSpriteSystem
                 var meshDestroy = GameObject.AddComponent<MeshDestroy>();
                 meshDestroy.CutCascades = original.CutCascades;
                 meshDestroy.ExplodeForce = original.ExplodeForce;
+
+
 
                 var afterMesh = GameObject.AddComponent<AfterMeshDestroy>();
                 afterMesh.shrinkTime = 2.0f;

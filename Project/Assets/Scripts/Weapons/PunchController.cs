@@ -128,21 +128,26 @@ namespace EightDirectionalSpriteSystem
                 else if (hit.transform.tag == "Enemy")
                 {
                     EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+                    if (enemy == null) enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
+
+                    //Debug.Log(hit.transform.gameObject.name);
+                    //Debug.Log(enemy.gameObject.name);
 
                     foreach (GameObject item in enemy.bloodSplashGos)
                     {
                         if (item.tag == "Hit Normal")
                         {
                             GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                         else
                         {
                             GameObject bloodGo = Instantiate(item, hit.transform.position, item.transform.rotation);
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                     }
                     enemy.TakeDamage(damage);
+                    enemy.painStrength = painStrength;
                     PlayRandomPunchSound();
                 }
                 else if (hit.transform.tag == "Destructible")
@@ -154,7 +159,7 @@ namespace EightDirectionalSpriteSystem
                     PlayRandomPunchSound();
                 }
                 else { }
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
             }
             canAttack = false;
 
