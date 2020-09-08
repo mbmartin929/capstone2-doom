@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100.0f;
@@ -30,10 +30,12 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+  
+
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.enableHeadBob)
+        if (GameManager.Instance.enableHeadBob )
         {
             headbobStepCounter += Vector3.Distance(parentLastPos, transform.parent.position) * headbobSpeed;
 

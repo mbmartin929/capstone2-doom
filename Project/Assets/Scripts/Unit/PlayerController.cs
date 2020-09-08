@@ -20,12 +20,20 @@ namespace EightDirectionalSpriteSystem
         bool guiShow = false;
         bool isOpen = false;
 
+        public int currentGold;
+    
+
+        //[Header("Player Attributes")]
+        //public List<PlayerAttributes> Attributes = new List<PlayerAttributes>();
+
+        //[Header("Player Skills Enabled")]
+        //public List<Perk> playerSkills = new List<Perk>();
         // Start is called before the first frame update
         void Start()
         {
             CurHealth = maxHealth;
             CurArmor = maxArmor;
-
+            CurGold = currentGold;
             TextManager.Instance.UpdateHealthArmorText();
         }
 
@@ -34,7 +42,7 @@ namespace EightDirectionalSpriteSystem
         {
             currentHealth = CurHealth;
             currentArmor = CurArmor;
-
+            currentGold = CurGold;          
             playerRayCast();
         }
 
@@ -67,7 +75,10 @@ namespace EightDirectionalSpriteSystem
                 GetDamaged();
             }
         }
-
+        public void GetPerk(int amount)
+        {
+            CurGold -= amount;
+        }
         public void TakeDamage(int amount)
         {
             if (CurArmor > 0)

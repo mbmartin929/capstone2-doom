@@ -7,6 +7,9 @@ public class UnitController : MonoBehaviour
     // References Singleton
     protected GameManager gameManager;
 
+    [SerializeField]
+    private PerkTree perkTree;
+
     #region Variables
     [Header("Game Objects")]
     public GameObject projectileGo;
@@ -17,6 +20,11 @@ public class UnitController : MonoBehaviour
     public int maxArmor;
     private int curArmor;
 
+
+    [Header("TEST GOLD")]
+    private int curGold;
+
+
     #endregion
 
     void Awake()
@@ -26,6 +34,8 @@ public class UnitController : MonoBehaviour
 
     void Start()
     {
+
+    
         curHealth = maxHealth;
         curArmor = maxArmor;
     }
@@ -51,12 +61,30 @@ public class UnitController : MonoBehaviour
         }
     }
 
+    public int CurGold
+    {
+        get { return curGold; }
+        set
+        {
+            curGold = value;
+            if (curGold < 0) curGold = 0;
+            perkTree.UpdateGoldText();
+            
+        }
+    }
+
     public bool IsDead()
     {
         if (CurHealth <= 0) return true;
         else return false;
     }
 
+
+
+    public void getPerk(int amount)
+    {
+         curGold -= amount;      
+    }
     public void RestoreHealth(int amount)
     {
         curHealth += amount;
