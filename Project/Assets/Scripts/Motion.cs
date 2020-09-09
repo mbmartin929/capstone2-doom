@@ -64,7 +64,7 @@ public class Motion : MonoBehaviour
 
             if (lastf != f)
             {
-                audioSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
+                //audioSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
                 lastf = f;
             }
 
