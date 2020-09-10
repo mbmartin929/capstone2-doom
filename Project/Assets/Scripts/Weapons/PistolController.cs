@@ -43,8 +43,6 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-            pos = transform.position;
-
             cameraGo = GameObject.FindGameObjectWithTag("Player");
             FindObjectwithTag("MainCamera");
 
@@ -258,7 +256,6 @@ namespace EightDirectionalSpriteSystem
             }
             canAttack = false;
 
-            //Debug.Log("Before: " + transform.position);
             //readyToFire = false;
             //Invoke("setReadyToFire", fireDelay);
         }

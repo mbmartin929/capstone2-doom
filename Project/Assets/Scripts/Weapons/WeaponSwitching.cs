@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace EightDirectionalSpriteSystem
 {
+
+
     public class WeaponSwitching : MonoBehaviour
     {
         public int selectedWeapon = 0;
