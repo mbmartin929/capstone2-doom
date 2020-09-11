@@ -74,7 +74,11 @@ namespace EightDirectionalSpriteSystem
             {
                 Debug.Log("Take Damage Die");
 
-                if (transform.parent.GetChild(2).gameObject != null) Destroy(transform.parent.GetChild(2).gameObject);
+                if (transform.parent.GetChild(2).gameObject != null)
+                {
+                    Debug.Log(gameObject.name);
+                    Destroy(transform.parent.GetChild(2).gameObject);
+                }
 
                 // DECREASES HEALTH
                 CurHealth -= amount;
