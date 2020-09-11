@@ -26,6 +26,11 @@ namespace EightDirectionalSpriteSystem
         #endregion
 
         #region Other Variables
+
+        [Header("Others")]
+        public float sinSpeed = 3f;
+        public float sinFrequency = 15f;
+        public float sinMagnitude = 0.5f;
         public float painStrength = 1.0f;
         public Vector3 startWeaponSwitchVector;
         public Vector3 startWeaponSwitchRot;
@@ -37,6 +42,7 @@ namespace EightDirectionalSpriteSystem
         public GameObject muzzleLightGo;
         public GameObject hitEffectGo;
         public Vector3 camRotation;
+        public Vector3 startPos;
 
         #endregion
 
@@ -44,8 +50,15 @@ namespace EightDirectionalSpriteSystem
         protected GameObject cameraGo;
         [SerializeField] protected bool canAttack;
         [HideInInspector] public Animator anim;
+        protected Vector3 pos;
+
 
         #endregion
+
+        void Start()
+        {
+            //startPos = transform.position;
+        }
 
         protected void PlayGunshotSound()
         {
@@ -142,7 +155,21 @@ namespace EightDirectionalSpriteSystem
             canAttack = true;
         }
 
+        // Used as Animation
+        protected void SinMovement()
+        {
+            //pos += transform.up * Time.deltaTime * sinSpeed;
+            transform.position = pos + transform.up * Mathf.Sin(Time.time * sinFrequency) * sinMagnitude;
+        }
 
+        // Used as Animation
+        private void FixIdleAnimationPosition()
+        {
+            Debug.Log("StartPos: " + startPos);
+            Debug.Log("Before: " + transform.position);
+            transform.position = startPos;
+            Debug.Log("After: " + transform.position);
+        }
 
         // Used as Animation
         private void FinishReload()
