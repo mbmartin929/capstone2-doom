@@ -23,8 +23,6 @@ public class Perks : MonoBehaviour
     {
         PlayerMovement playerStats = GetComponent<PlayerMovement>();
         UnitController player = GetComponent<UnitController>();
-   
-
     }
 
     // Update is called once per frame
@@ -38,7 +36,6 @@ public class Perks : MonoBehaviour
             player.CurHealth -= 10;
 
         }
-
     }
 
     public void IncSpeed()
@@ -54,20 +51,20 @@ public class Perks : MonoBehaviour
         {
             Debug.Log("NOT ENOUGH GOLD");
         }
-    
-     
+
+
     }
 
     public void Heal()
     {
-        if(player.CurGold >= perkCost)
+        if (player.CurGold >= perkCost)
         {
             player.CurGold -= perkCost;
             StartCoroutine(HealOverTime(20, perkDuration));
 
             Debug.Log("HEALING!");
         }
-     
+
     }
 
     public IEnumerator HealOverTime(int healAmount, float duration)
@@ -81,7 +78,7 @@ public class Perks : MonoBehaviour
             Debug.Log(amountHealead + " amount HEALED");
             Debug.Log(player.CurHealth);
             yield return new WaitForSeconds(1f);
- 
+
         }
     }
 

@@ -34,8 +34,6 @@ public class UnitController : MonoBehaviour
 
     void Start()
     {
-
-    
         curHealth = maxHealth;
         curArmor = maxArmor;
     }
@@ -70,7 +68,6 @@ public class UnitController : MonoBehaviour
             curGold = value;
             if (curGold < 0) curGold = 0;
             perkTree.UpdateGoldText();
-            
         }
     }
 
@@ -84,7 +81,7 @@ public class UnitController : MonoBehaviour
 
     public void getPerk(int amount)
     {
-         curGold -= amount;      
+        curGold -= amount;
     }
     public void RestoreHealth(int amount)
     {
