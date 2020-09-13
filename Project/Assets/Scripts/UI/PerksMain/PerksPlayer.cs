@@ -6,20 +6,15 @@ public class PerksPlayer : MonoBehaviour
 {
     private Image image;
 
-
     [SerializeField] private Text counterText;
-
 
     [SerializeField] private int maxCount;
 
     private int currCount;
 
-
     [SerializeField] private Text countText;
 
-
     [SerializeField] private bool unlocked;
-
 
     [SerializeField] private PerksPlayer childPerk;
 
@@ -37,14 +32,14 @@ public class PerksPlayer : MonoBehaviour
 
     public virtual bool Click()
     {
-        if(MyCurrentCount < maxCount && unlocked)
+        if (MyCurrentCount < maxCount && unlocked)
         {
             MyCurrentCount++;
             countText.text = $"{MyCurrentCount}/{maxCount}";
 
-           if(MyCurrentCount == maxCount)
+            if (MyCurrentCount == maxCount)
             {
-                if(childPerk != null)
+                if (childPerk != null)
                 {
                     childPerk.unlockPerk();
                 }
@@ -67,7 +62,7 @@ public class PerksPlayer : MonoBehaviour
         counterText.color = Color.white;
 
         unlocked = true;
-  
+
     }
-        
+
 }

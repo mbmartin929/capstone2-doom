@@ -16,14 +16,15 @@ public class Perks : MonoBehaviour
     [SerializeField] private int perkCost;
     private float perkCoolDown = 1f;
 
-
+    void Awake()
+    {
+        PlayerMovement playerStats = GetComponent<PlayerMovement>();
+        UnitController player = GetComponent<UnitController>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMovement playerStats = GetComponent<PlayerMovement>();
-        UnitController player = GetComponent<UnitController>();
-   
 
     }
 
@@ -54,20 +55,20 @@ public class Perks : MonoBehaviour
         {
             Debug.Log("NOT ENOUGH GOLD");
         }
-    
-     
+
+
     }
 
     public void Heal()
     {
-        if(player.CurGold >= perkCost)
+        if (player.CurGold >= perkCost)
         {
             player.CurGold -= perkCost;
             StartCoroutine(HealOverTime(20, perkDuration));
 
             Debug.Log("HEALING!");
         }
-     
+
     }
 
     public IEnumerator HealOverTime(int healAmount, float duration)
@@ -81,7 +82,7 @@ public class Perks : MonoBehaviour
             Debug.Log(amountHealead + " amount HEALED");
             Debug.Log(player.CurHealth);
             yield return new WaitForSeconds(1f);
- 
+
         }
     }
 
@@ -92,8 +93,4 @@ public class Perks : MonoBehaviour
         coolDownOverlay.GetComponent<Image>().fillAmount = perkCoolDown;
         StartCoroutine(CoolDownDelay());
     }
-
-
-
-
 }

@@ -74,7 +74,7 @@ namespace EightDirectionalSpriteSystem
             {
                 Debug.Log("Take Damage Die");
 
-                Destroy(transform.parent.GetChild(2).gameObject);
+
 
                 // if (transform.parent.GetChild(2).gameObject != null)
                 // {
@@ -176,6 +176,8 @@ namespace EightDirectionalSpriteSystem
                         bloodFlowGo.transform.parent = transform;
 
                         //Debug.Log("Dead?");
+
+                        Destroy(transform.parent.GetChild(2).gameObject);
 
                         Die();
                     }
