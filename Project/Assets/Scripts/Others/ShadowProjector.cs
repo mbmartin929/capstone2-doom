@@ -2,28 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowProjector : MonoBehaviour
+namespace EightDirectionalSpriteSystem
 {
-    public float offset = 1f;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ShadowProjector : MonoBehaviour
     {
+        public bool isEnabled = false;
+        public float offset = 1f;
 
-    }
+        private EnemyController enemyController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        RaycastHit hit;
-        int layerMask = LayerMask.GetMask("Ground");
-
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 10f, layerMask))
+        // Start is called before the first frame update
+        void Start()
         {
-            Vector3 offsetPoint = Vector3.Lerp(hit.point, transform.position, offset);
-            transform.position = offsetPoint;
+            enemyController = transform.parent.GetChild(0).GetComponent<EnemyController>();
+        }
 
-            //StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
+        // Update is called once per frame
+        void Update()
+        {
+            if (enemyController.IsDead()) Destroy(gameObject);
+
+            if (isEnabled)
+            {
+                RaycastHit hit;
+                int layerMask = LayerMask.GetMask("Ground");
+
+                if (Physics.Raycast(transform.position, -Vector3.up, out hit, 10f, layerMask))
+                {
+                    Vector3 offsetPoint = Vector3.Lerp(hit.point, transform.position, offset);
+                    transform.position = offsetPoint;
+
+                    //StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
+                }
+            }
         }
     }
 }
