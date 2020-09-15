@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseSpeed : PerksPlayer
+namespace EightDirectionalSpriteSystem
 {
-
-    [SerializeField] private int addedSpeed;
-
-    [SerializeField] private UnitController player;
-
-    [SerializeField] private PlayerMovement playerMovement;
-
-    public void Start()
+    public class IncreaseSpeed : PerksPlayer
     {
-        
-    }
-    // Start is called before the first frame update
-    public override bool Click()
-    {
-        if(base.Click())
+        [SerializeField] private int addedSpeed;
+
+        [SerializeField] private UnitController player;
+
+        [SerializeField] private PlayerMovement playerMovement;
+
+        public void Start()
         {
-            playerMovement.movementSpeed += addedSpeed;
-            Debug.Log("INCREASE SPEED");
-            return true;
+
         }
-        return false;
+        // Start is called before the first frame update
+        public override bool Click()
+        {
+            if (base.Click())
+            {
+                playerMovement.movementSpeed += addedSpeed;
+                Debug.Log("INCREASE SPEED");
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     // Instantiates Singleton
     public static GameManager Instance { set; get; }
 
+    public GameObject LocalVolume;
+
     public int frameRate = 200;
     public GameObject playerGo;
 
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = frameRate;
 
         if (Instance == this) Debug.Log("GameManager Singleton Initialized");
+
+
     }
 
     // Start is called before the first frame update
