@@ -45,10 +45,12 @@ namespace EightDirectionalSpriteSystem
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
+                Debug.Log("Pressed 1 Switch Weapon");
                 selectedWeapon = 0;
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
+                Debug.Log("Pressed 2 Switch Weapon");
                 selectedWeapon = 1;
             }
 
@@ -79,10 +81,11 @@ namespace EightDirectionalSpriteSystem
                 // }
                 // Debug.Log("SelectedWeapon: " + selectedWeapon);
 
-                if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
-                {
-                    selectedWeapon = previousSelectedWeapon;
-                }
+                // TESTING
+                // if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+                // {
+                //     selectedWeapon = previousSelectedWeapon;
+                // }
 
                 if (i == selectedWeapon)
                 {
@@ -91,12 +94,13 @@ namespace EightDirectionalSpriteSystem
                         //Debug.Log("PreviousSelectedWeapon: " + previousSelectedWeapon);
                         //if (previousSelectedWeapon <= -1) previousSelectedWeapon = 0;
 
+                        //Debug.Log(previousWeapon);
 
 
                         // INSERT CODE HERE TO CHECK IF THERE IS AN ACTION PLAYING
                         if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                         {
-                            //Debug.Log("SelectedWeapon: " + selectedWeapon);
+                            Debug.Log("SelectedWeapon: " + selectedWeapon);
 
                             previousWeapon.GetComponent<WeaponController>().SwitchAway();
 
