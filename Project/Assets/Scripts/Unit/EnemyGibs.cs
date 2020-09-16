@@ -57,14 +57,15 @@ public class EnemyGibs : MonoBehaviour
             // tempcolor.a = Mathf.MoveTowards(1, 0, Time.deltaTime);
             // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
 
-            float progress = Time.time - lerpStart;
-            Color tempcolor = gameObject.GetComponent<MeshRenderer>().material.color;
+            //Debug.Log(gameObject.name);
 
-            //Debug.Log("Before: " + tempcolor.a);
-            tempcolor.a = Mathf.Lerp(1.0f, 0.0f, progress / 1.0f);
-            //Debug.Log("After: " + tempcolor.a);
+            #region Transparency
+            // float progress = Time.time - lerpStart;
+            // Color tempcolor = gameObject.GetComponent<MeshRenderer>().material.color;
+            // tempcolor.a = Mathf.Lerp(1.0f, 0.0f, progress / 1.0f);
+            // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
+            #endregion
 
-            GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
         }
     }
 
