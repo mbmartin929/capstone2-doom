@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = frameRate;
 
         if (Instance == this) Debug.Log("GameManager Singleton Initialized");
-
-
     }
 
     // Start is called before the first frame update

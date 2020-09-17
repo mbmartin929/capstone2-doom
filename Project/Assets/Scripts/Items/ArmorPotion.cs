@@ -12,6 +12,10 @@ namespace EightDirectionalSpriteSystem
         {
             PickUpController Armor = new PickUpController();
             playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+            audioSource = GetComponent<AudioSource>();
+
+            audioSource.clip = ambientSound;
+            audioSource.Play();
 
             Armor.itemName = "Armor";
             Armor.recoverAmount = HealAmountArmor;
@@ -20,15 +24,7 @@ namespace EightDirectionalSpriteSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
-            {
-                playerController.currentArmor += recoverAmount;
-                Debug.Log("Armor PICKED! " + recoverAmount);
-
-                TextManager.Instance.UpdateHealthArmorText();
-
-                Destroy(this.gameObject);
-            }
+            PickUp(other);
         }
 
         void OnCollisionEnter(Collision other)
@@ -36,6 +32,9 @@ namespace EightDirectionalSpriteSystem
             if (other.gameObject.tag == "Player")
             {
                 playerController.currentArmor += recoverAmount;
+
+                PickUpOverlayManager.Instance.ShieldOverlay();
+
                 Debug.Log("Armor PICKED! " + recoverAmount);
 
                 TextManager.Instance.UpdateHealthArmorText();

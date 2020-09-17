@@ -24,19 +24,7 @@ namespace EightDirectionalSpriteSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
-            {
-
-                overlayImage.SetEnabled(true);
-                playerController.CurHealth += recoverAmount;
-                Debug.Log("HP PICKED!" + recoverAmount);
-
-                TextManager.Instance.UpdateHealthArmorText();
-
-                StartCoroutine("blinkImage");
-                Destroy(this.gameObject);
-            }
-
+            PickUp(other);
         }
 
         IEnumerator blinkImage()
