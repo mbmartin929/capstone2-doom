@@ -8,8 +8,7 @@ namespace EightDirectionalSpriteSystem
     public class PickUpController : MonoBehaviour
     {
         public Image overlayImage;
-        public GameObject player;
-        protected UnitController unit;
+        protected PlayerController playerController;
         public enum AmmoType
         {
             Pistol, Shotgun
@@ -22,7 +21,7 @@ namespace EightDirectionalSpriteSystem
 
         private void Start()
         {
-            unit = player.GetComponent<PlayerController>();
+            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
             overlayImage.SetEnabled(false);
         }
     }

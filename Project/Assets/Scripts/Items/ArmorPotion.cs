@@ -11,9 +11,10 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             PickUpController Armor = new PickUpController();
+            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+
             Armor.itemName = "Armor";
             Armor.recoverAmount = HealAmountArmor;
-            unit = player.GetComponent<UnitController>();
         }
 
 
@@ -21,8 +22,21 @@ namespace EightDirectionalSpriteSystem
         {
             if (other.gameObject.tag == "Player")
             {
-                unit.maxArmor += recoverAmount;
-                Debug.Log("Armor PICKED!" + recoverAmount);
+                playerController.currentArmor += recoverAmount;
+                Debug.Log("Armor PICKED! " + recoverAmount);
+
+                TextManager.Instance.UpdateHealthArmorText();
+
+                Destroy(this.gameObject);
+            }
+        }
+
+        void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                playerController.currentArmor += recoverAmount;
+                Debug.Log("Armor PICKED! " + recoverAmount);
 
                 TextManager.Instance.UpdateHealthArmorText();
 

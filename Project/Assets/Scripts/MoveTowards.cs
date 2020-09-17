@@ -19,7 +19,7 @@ namespace EightDirectionalSpriteSystem
             {
                 transform.position += Vector3.down * Time.deltaTime;
 
-                Destroy(gameObject, 5.0f);
+                Destroy(gameObject, 0.0f);
             }
         }
     }

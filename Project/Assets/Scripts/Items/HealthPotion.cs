@@ -14,9 +14,10 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             PickUpController Potion = new PickUpController();
+            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+
             Potion.itemName = "Heart";
             Potion.recoverAmount = HealAmountHp;
-            unit = player.GetComponent<UnitController>();
         }
 
 
@@ -27,7 +28,7 @@ namespace EightDirectionalSpriteSystem
             {
 
                 overlayImage.SetEnabled(true);
-                unit.CurHealth += recoverAmount;
+                playerController.CurHealth += recoverAmount;
                 Debug.Log("HP PICKED!" + recoverAmount);
 
                 TextManager.Instance.UpdateHealthArmorText();
