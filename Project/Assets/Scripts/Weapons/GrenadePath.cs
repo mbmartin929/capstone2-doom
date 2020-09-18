@@ -59,7 +59,7 @@ public class GrenadePath : MonoBehaviour
 
                             obj.GetComponent<Rigidbody>().AddForce(transform.forward * 1200);
 
-                            Debug.Log("THROW GRENADE");
+        
                         }
                     }
                     else

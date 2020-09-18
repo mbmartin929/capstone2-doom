@@ -50,8 +50,8 @@ namespace EightDirectionalSpriteSystem
         {
             // Debug options
             //maxHealth -= 20;
-
-            CurHealth = maxHealth;
+        
+            CurrentHealth = maxHealth;
         }
 
         // Update is called once per frame
