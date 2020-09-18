@@ -32,7 +32,7 @@ public class PickUpOverlayManager : MonoBehaviour
 
     public void ShieldOverlay()
     {
-
+        shieldPickUpOvelay.GetComponent<Animator>().SetTrigger("Start Fade");
         //StartCoroutine(shieldPickUpOvelay.GetComponent<LerpRawImage>().FadeIn());
     }
 }
