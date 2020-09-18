@@ -167,6 +167,8 @@ namespace EightDirectionalSpriteSystem
                         GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
                         bloodFlowGo.transform.parent = transform;
 
+                        Destroy(transform.parent.GetChild(2).gameObject);
+
                         //Debug.Log("Dead?");
 
                         Die();

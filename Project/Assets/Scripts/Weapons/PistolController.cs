@@ -43,6 +43,8 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
+            pos = transform.position;
+
             cameraGo = GameObject.FindGameObjectWithTag("Player");
             FindObjectwithTag("MainCamera");
 
@@ -219,7 +221,7 @@ namespace EightDirectionalSpriteSystem
                             //particleSys.main.startSpeedMultiplier = maximumBloodParticles;
 
                             GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                         else
                         {
@@ -230,7 +232,7 @@ namespace EightDirectionalSpriteSystem
 
                             GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
                                                             item.transform.rotation);
-                            bloodGo.transform.parent = hit.transform;
+                            //bloodGo.transform.parent = hit.transform;
                         }
                     }
                     enemy.painStrength = painStrength;
@@ -256,6 +258,7 @@ namespace EightDirectionalSpriteSystem
             }
             canAttack = false;
 
+            //Debug.Log("Before: " + transform.position);
             //readyToFire = false;
             //Invoke("setReadyToFire", fireDelay);
         }
