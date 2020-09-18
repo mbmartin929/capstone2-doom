@@ -12,7 +12,7 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-            meshDestroy = GetComponent<MeshDestroy>();
+            meshDestroy = transform.GetChild(1).GetComponent<MeshDestroy>();
         }
 
         // Update is called once per frame
@@ -23,8 +23,11 @@ namespace EightDirectionalSpriteSystem
 
         public void DestroyMesh()
         {
-            gameObject.isStatic = false;
+            meshDestroy.gameObject.SetActive(true);
+            meshDestroy.transform.parent = null;
             meshDestroy.DestroyMesh();
+
+            Destroy(gameObject);
         }
     }
 }

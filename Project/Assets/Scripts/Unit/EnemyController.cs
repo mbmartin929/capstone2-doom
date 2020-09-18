@@ -74,14 +74,6 @@ namespace EightDirectionalSpriteSystem
             {
                 Debug.Log("Take Damage Die");
 
-                Destroy(transform.parent.GetChild(2).gameObject);
-
-                // if (transform.parent.GetChild(2).gameObject != null)
-                // {
-                //     Debug.Log(gameObject.name);
-
-                // }
-
                 // DECREASES HEALTH
                 CurHealth -= amount;
 
@@ -174,6 +166,8 @@ namespace EightDirectionalSpriteSystem
                     {
                         GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
                         bloodFlowGo.transform.parent = transform;
+
+                        Destroy(transform.parent.GetChild(2).gameObject);
 
                         //Debug.Log("Dead?");
 

@@ -3,66 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PerkTree : MonoBehaviour
+namespace EightDirectionalSpriteSystem
 {
-
-    [SerializeField]
-    private PerksPlayer[] perks;
-
-    [SerializeField]
-    private PerksPlayer[] unlockedByDefault;
-
-    [SerializeField]
-    private UnitController player;
-
-    [SerializeField]
-    private Text goldText;
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class PerkTree : MonoBehaviour
     {
-        UnitController player = GetComponent<UnitController>();
-        ResetPerks();
-    }
+        // Instantiates Singleton
+        public static PerkTree Instance { set; get; }
 
-    public void buyPerk(PerksPlayer playerPerk)
-    {
-        Debug.Log("WORKING");
-        if (player.CurGold > 0 && playerPerk.Click())
+        [SerializeField]
+        private PerksPlayer[] perks;
+
+        [SerializeField]
+        private PerksPlayer[] unlockedByDefault;
+
+        private PlayerController player;
+
+        [SerializeField]
+        private Text goldText;
+
+        void Awake()
         {
-            player.CurGold--;
+            // Sets Singleton
+            Instance = this;
+
+            if (Instance == this) Debug.Log("PerkTree Singleton Initialized");
         }
-        if (player.CurGold == 0)
+
+        // Start is called before the first frame update
+        void Start()
         {
-            foreach (PerksPlayer p in perks)
+            PlayerController player = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+            ResetPerks();
+        }
+
+        public void buyPerk(PerksPlayer playerPerk)
+        {
+            Debug.Log("WORKING");
+            if (player.CurGold > 0 && playerPerk.Click())
             {
-                if (p.MyCurrentCount == 0)
+                player.CurGold--;
+            }
+            if (player.CurGold == 0)
+            {
+                foreach (PerksPlayer p in perks)
                 {
-                    p.LockPerk();
+                    if (p.MyCurrentCount == 0)
+                    {
+                        p.LockPerk();
+                    }
                 }
             }
         }
-    }
-    private void ResetPerks()
-    {
-        UpdateGoldText();
-        foreach (PerksPlayer perk in perks)
+        private void ResetPerks()
         {
-            perk.LockPerk();
+            UpdateGoldText();
+            foreach (PerksPlayer perk in perks)
+            {
+                perk.LockPerk();
+            }
+
+            foreach (PerksPlayer perk in unlockedByDefault)
+            {
+                perk.unlockPerk();
+            }
         }
 
-        foreach (PerksPlayer perk in unlockedByDefault)
+        public void UpdateGoldText()
         {
-            perk.unlockPerk();
+            //Debug.Log(goldText.text);
+            //Debug.Log(player);
+
+            goldText.text = GameManager.Instance.playerGo.GetComponent<PlayerController>().CurGold.ToString();
         }
-    }
-
-    public void UpdateGoldText()
-    {
-
-        goldText.text = player.CurGold.ToString();
-
     }
 }

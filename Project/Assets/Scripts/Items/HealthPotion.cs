@@ -14,28 +14,17 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             PickUpController Potion = new PickUpController();
+            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+
             Potion.itemName = "Heart";
             Potion.recoverAmount = HealAmountHp;
-            unit = player.GetComponent<UnitController>();
         }
 
 
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
-            {
-
-                overlayImage.SetEnabled(true);
-                unit.CurHealth += recoverAmount;
-                Debug.Log("HP PICKED!" + recoverAmount);
-
-                TextManager.Instance.UpdateHealthArmorText();
-
-                StartCoroutine("blinkImage");
-                Destroy(this.gameObject);
-            }
-
+            PickUp(other);
         }
 
         IEnumerator blinkImage()
