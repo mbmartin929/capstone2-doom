@@ -5,11 +5,16 @@ using UnityEngine;
 public class ParticleCollideBlood : MonoBehaviour
 {
     public GameObject[] bloodSplatGo;
+    public AudioClip[] bloodSounds;
+
 
     private ParticleSystem part;
     private List<ParticleCollisionEvent> collisionEvents;
 
+
     public bool isEnabled = true;
+
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()

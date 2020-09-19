@@ -15,6 +15,7 @@ namespace EightDirectionalSpriteSystem
         public AudioClip[] pain;
         public AudioClip[] death;
         public AudioClip[] splatter;
+        public AudioClip[] gibExplosion;
 
         public float painSound = 29.0f;
 
@@ -94,8 +95,8 @@ namespace EightDirectionalSpriteSystem
 
             BloodSplatterSFX.AddComponent<AudioSource>();
             BloodSplatterSFX.GetComponent<AudioSource>().reverbZoneMix = 1.1f;
-            BloodSplatterSFX.GetComponent<AudioSource>().spatialBlend = Random.Range(0.95f, 1.0f);
-            BloodSplatterSFX.GetComponent<AudioSource>().volume = Random.Range(0.42f, 0.8f);
+            BloodSplatterSFX.GetComponent<AudioSource>().spatialBlend = Random.Range(0.9f, 0.96f);
+            BloodSplatterSFX.GetComponent<AudioSource>().volume = Random.Range(0.69f, 0.96f);
             BloodSplatterSFX.GetComponent<AudioSource>().clip = splatter[random];
             BloodSplatterSFX.GetComponent<AudioSource>().Play();
             Destroy(BloodSplatterSFX, 2.0f);
@@ -104,6 +105,28 @@ namespace EightDirectionalSpriteSystem
             // audioSource.Play();
 
             Debug.Log("Play Blood Splatter Sound");
+        }
+
+        public void GibExplosionSound()
+        {
+            int random = Random.Range(0, gibExplosion.Length);
+            emptyObject = new GameObject();
+
+            GameObject GibExplosionSFX = Instantiate(emptyObject, transform.position, transform.rotation);
+            Destroy(emptyObject, 0.0f);
+
+            GibExplosionSFX.AddComponent<AudioSource>();
+            GibExplosionSFX.GetComponent<AudioSource>().reverbZoneMix = 1.1f;
+            GibExplosionSFX.GetComponent<AudioSource>().spatialBlend = Random.Range(0.81f, 0.9f);
+            GibExplosionSFX.GetComponent<AudioSource>().volume = Random.Range(0.75f, 1.0f);
+            GibExplosionSFX.GetComponent<AudioSource>().clip = splatter[random];
+            GibExplosionSFX.GetComponent<AudioSource>().Play();
+            Destroy(GibExplosionSFX, 2.0f);
+
+            // audioSource.clip = splatter[random];
+            // audioSource.Play();
+
+            Debug.Log("Play Gib Explosion Sound");
         }
     }
 }

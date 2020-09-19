@@ -10,7 +10,10 @@ public class RandomOpacity : MonoBehaviour
     public float minimumScale = 0.75f;
     public float maximumScale = 3.0f;
 
+    public AudioClip[] bloodSounds;
+
     private MeshRenderer meshRenderer;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,7 @@ public class RandomOpacity : MonoBehaviour
         float randomFloat = Random.Range(minimumOpacity, maximumOpacity);
 
         meshRenderer = GetComponent<MeshRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         Color color = meshRenderer.material.color;
         color.a = randomFloat;
@@ -28,6 +32,8 @@ public class RandomOpacity : MonoBehaviour
 
         //meshRenderer.material.shader = Shader.Find("_BaseColor");
         meshRenderer.material.SetColor("_BaseColor", color);
+
+        //audioSource.PlayOneShot(bloodSounds[Random.Range(0, bloodSounds.Length)]);
     }
 
     // Update is called once per frame

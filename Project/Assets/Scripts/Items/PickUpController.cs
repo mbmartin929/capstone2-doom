@@ -42,6 +42,7 @@ namespace EightDirectionalSpriteSystem
                 else if (itemName == "Health")
                 {
                     playerController.currentHealth += recoverAmount;
+                    PickUpOverlayManager.Instance.HealthOverlay();
                     Debug.Log("Health PICKED! " + recoverAmount);
                 }
 

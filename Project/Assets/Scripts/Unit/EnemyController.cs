@@ -50,8 +50,8 @@ namespace EightDirectionalSpriteSystem
         {
             // Debug options
             //maxHealth -= 20;
-        
-            CurrentHealth = maxHealth;
+
+            CurHealth = maxHealth;
         }
 
         // Update is called once per frame
@@ -72,7 +72,10 @@ namespace EightDirectionalSpriteSystem
         {
             if (IsDead())
             {
+                Debug.Log("CurHealth: " + CurHealth);
                 Debug.Log("Take Damage Die");
+
+                enemySounds.BloodSplatterSound();
 
                 // DECREASES HEALTH
                 CurHealth -= amount;

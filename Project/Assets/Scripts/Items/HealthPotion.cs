@@ -7,32 +7,21 @@ namespace EightDirectionalSpriteSystem
 {
     public class HealthPotion : PickUpController
     {
-
-        private int HealAmountHp;
-        public float time;
-
         void Start()
         {
-            PickUpController Potion = new PickUpController();
+            PickUpController Health = new PickUpController();
             playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+            audioSource = GetComponent<AudioSource>();
 
-            Potion.itemName = "Heart";
-            Potion.recoverAmount = HealAmountHp;
+            audioSource.clip = ambientSound;
+            audioSource.Play();
+
+            Health.itemName = "Health";
         }
-
-
 
         private void OnTriggerEnter(Collider other)
         {
             PickUp(other);
-        }
-
-        IEnumerator blinkImage()
-        {
-
-            yield return new WaitForSeconds(time);
-            overlayImage.SetEnabled(false);
-
         }
     }
 }

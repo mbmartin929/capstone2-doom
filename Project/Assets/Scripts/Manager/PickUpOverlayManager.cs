@@ -35,4 +35,9 @@ public class PickUpOverlayManager : MonoBehaviour
         shieldPickUpOvelay.GetComponent<Animator>().SetTrigger("Start Fade");
         //StartCoroutine(shieldPickUpOvelay.GetComponent<LerpRawImage>().FadeIn());
     }
+
+    public void HealthOverlay()
+    {
+        healthPickUpOvelay.GetComponent<Animator>().SetTrigger("Start Fade");
+    }
 }
