@@ -84,6 +84,8 @@ namespace EightDirectionalSpriteSystem
 
                 if (CurHealth <= -gibDeath)
                 {
+                    enemySounds.GibExplosionSound();
+
                     //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                     gameObject.SetActive(false);
 
@@ -152,6 +154,8 @@ namespace EightDirectionalSpriteSystem
 
                     if (CurHealth <= -gibAlive)
                     {
+                        enemySounds.GibExplosionSound();
+
                         //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                         gameObject.SetActive(false);
 

@@ -44,7 +44,7 @@ public class EnemyGibs : MonoBehaviour
 
         //GetComponent<Rigidbody>().AddExplosionForce(explosionForece, transform.position, radius, upwardsModifier);
 
-        float time = Random.Range(minTime, maxTime);
+
         //Invoke("PlayGibSound", time);
 
         float x = Random.Range(minX, maxX);
@@ -100,8 +100,13 @@ public class EnemyGibs : MonoBehaviour
     private void PlayGibSound()
     {
         int random = Random.Range(0, gibSounds.Length);
+
+        audioSource.pitch = Random.Range(0.8f, 0.9f);
+
         audioSource.PlayOneShot(gibSounds[random]);
     }
+
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -117,7 +122,9 @@ public class EnemyGibs : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             GetComponent<BoxCollider>().enabled = false;
 
-            PlayGibSound();
+            //PlayGibSound();
+            float time = Random.Range(minTime, maxTime);
+            Invoke("PlayGibSound", time);
 
             RaycastHit hit;
             int layerMask = LayerMask.GetMask("Ground");

@@ -117,14 +117,12 @@ namespace EightDirectionalSpriteSystem
 
             GibExplosionSFX.AddComponent<AudioSource>();
             GibExplosionSFX.GetComponent<AudioSource>().reverbZoneMix = 1.1f;
-            GibExplosionSFX.GetComponent<AudioSource>().spatialBlend = Random.Range(0.81f, 0.9f);
+            GibExplosionSFX.GetComponent<AudioSource>().spatialBlend = Random.Range(0.9f, 1.0f);
+            GibExplosionSFX.GetComponent<AudioSource>().pitch = Random.Range(0.85f, 1.0f);
             GibExplosionSFX.GetComponent<AudioSource>().volume = Random.Range(0.75f, 1.0f);
-            GibExplosionSFX.GetComponent<AudioSource>().clip = splatter[random];
+            GibExplosionSFX.GetComponent<AudioSource>().clip = gibExplosion[random];
             GibExplosionSFX.GetComponent<AudioSource>().Play();
             Destroy(GibExplosionSFX, 2.0f);
-
-            // audioSource.clip = splatter[random];
-            // audioSource.Play();
 
             Debug.Log("Play Gib Explosion Sound");
         }
