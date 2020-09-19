@@ -18,6 +18,9 @@ public class EnemyGibs : MonoBehaviour
     public float gravity = 9.8f;
 
     public Material[] gibMats;
+    public AudioClip[] gibSounds;
+    public float minTime = 0.1f;
+    public float maxTime = 0.5f;
 
     private Vector3 velocity;
     private Rigidbody rb;
@@ -28,6 +31,8 @@ public class EnemyGibs : MonoBehaviour
 
     private float lerpStart;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +40,12 @@ public class EnemyGibs : MonoBehaviour
         startingY = transform.position.y;
 
         GetComponent<MeshRenderer>().material = gibMats[Random.Range(0, gibMats.Length)];
+        audioSource = GetComponent<AudioSource>();
 
         //GetComponent<Rigidbody>().AddExplosionForce(explosionForece, transform.position, radius, upwardsModifier);
+
+
+        //Invoke("PlayGibSound", time);
 
         float x = Random.Range(minX, maxX);
         float y = Random.Range(minY, maxY);
@@ -88,6 +97,17 @@ public class EnemyGibs : MonoBehaviour
         //InvokeRepeating("Transparency", 0.15f, 0.1f);
     }
 
+    private void PlayGibSound()
+    {
+        int random = Random.Range(0, gibSounds.Length);
+
+        audioSource.pitch = Random.Range(0.8f, 0.9f);
+
+        audioSource.PlayOneShot(gibSounds[random]);
+    }
+
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Level")
@@ -102,6 +122,10 @@ public class EnemyGibs : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             GetComponent<BoxCollider>().enabled = false;
 
+            //PlayGibSound();
+            float time = Random.Range(minTime, maxTime);
+            Invoke("PlayGibSound", time);
+
             RaycastHit hit;
             int layerMask = LayerMask.GetMask("Ground");
 
@@ -112,7 +136,7 @@ public class EnemyGibs : MonoBehaviour
                 int randomBloodNumber = Random.Range(1, 5);
 
                 //Debug.Log("Gib Blood Paint");
-                Debug.Log(hit.transform.gameObject.name);
+                //Debug.Log(hit.transform.gameObject.name);
 
                 StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
             }

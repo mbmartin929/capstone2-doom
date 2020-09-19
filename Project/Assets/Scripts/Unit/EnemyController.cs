@@ -50,8 +50,8 @@ namespace EightDirectionalSpriteSystem
         {
             // Debug options
             //maxHealth -= 20;
-        
-            CurrentHealth = maxHealth;
+
+            CurHealth = maxHealth;
         }
 
         // Update is called once per frame
@@ -72,7 +72,10 @@ namespace EightDirectionalSpriteSystem
         {
             if (IsDead())
             {
+                Debug.Log("CurHealth: " + CurHealth);
                 Debug.Log("Take Damage Die");
+
+                enemySounds.BloodSplatterSound();
 
                 // DECREASES HEALTH
                 CurHealth -= amount;
@@ -81,6 +84,8 @@ namespace EightDirectionalSpriteSystem
 
                 if (CurHealth <= -gibDeath)
                 {
+                    enemySounds.GibExplosionSound();
+
                     //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                     gameObject.SetActive(false);
 
@@ -149,6 +154,8 @@ namespace EightDirectionalSpriteSystem
 
                     if (CurHealth <= -gibAlive)
                     {
+                        enemySounds.GibExplosionSound();
+
                         //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                         gameObject.SetActive(false);
 
