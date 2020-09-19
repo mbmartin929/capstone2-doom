@@ -11,6 +11,7 @@ public class Grenade : MonoBehaviour
     float grenadeForceExplosion = 500;
     float countdown;
     int power = 10;
+    bool canFire;
 
     UnitController player;
 
@@ -32,6 +33,8 @@ public class Grenade : MonoBehaviour
         if (countdown <= 0 && !hasExplode)
         {
             Explode();
+            hasExplode = true;
+  
 
         }
     }
@@ -84,6 +87,9 @@ public class Grenade : MonoBehaviour
         //Destroy(gameObject);
 
     }
+
+
+
     //void explode()
     //{
     //    Debug.Log("KABOOM!");

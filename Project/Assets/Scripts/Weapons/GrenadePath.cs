@@ -17,12 +17,14 @@ public class GrenadePath : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
-
+    float throwDelay = 1f;
+    float throwCountdDown;
 
     // Use this for initialization
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        throwCountdDown = throwDelay;
       
     }
 
@@ -30,8 +32,6 @@ public class GrenadePath : MonoBehaviour
     void Update()
     {
         Vector3 velocityVector = transform.forward * initialVelocity;
-
-
         lineRenderer.SetVertexCount((int)(maxTime / timeResolution));
         int index = 0;
 
@@ -52,13 +52,13 @@ public class GrenadePath : MonoBehaviour
                     {
                         explosionDisplayInstance.SetActive(true);
                         explosionDisplayInstance.transform.position = hit.point;
-                        if (Input.GetMouseButtonDown(0))
+                        throwCountdDown -= Time.deltaTime;
+                        if (throwCountdDown <= 0 &&  Input.GetMouseButtonDown(0))////////////////////
                         {
                            
                             GameObject obj = Instantiate(grenade, projectilePos.transform.position, Quaternion.identity);
-
                             obj.GetComponent<Rigidbody>().AddForce(transform.forward * 1200);
-
+                            throwCountdDown = throwDelay;
         
                         }
                     }
