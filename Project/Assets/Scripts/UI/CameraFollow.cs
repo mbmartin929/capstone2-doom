@@ -26,8 +26,8 @@ public class CameraFollow : MonoBehaviour
     {
         //animator.SetFloat("MouseX", Input.GetAxis("Mouse X"));
 
-        if (Input.GetAxis("Mouse X") != 0) Debug.Log("X: " + Input.GetAxis("Mouse X"));
-        if (Input.GetAxis("Mouse Y") != 0) Debug.Log("Y: " + Input.GetAxis("Mouse Y"));
+        //if (Input.GetAxis("Mouse X") != 0) Debug.Log("X: " + Input.GetAxis("Mouse X"));
+        //if (Input.GetAxis("Mouse Y") != 0) Debug.Log("Y: " + Input.GetAxis("Mouse Y"));
 
         // Look Left
         if (Input.GetAxis("Mouse X") < 0)
