@@ -171,7 +171,7 @@ namespace EightDirectionalSpriteSystem
                     else if (currentFrameIndex == 4)
                     {
                         //Debug.Log("Slime Attack");
-                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(3f);
+                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(2.69f);
                         //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }
