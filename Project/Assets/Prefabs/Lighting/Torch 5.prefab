@@ -4004,9 +4004,17 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 1
+  - a: 2
+    b: 0
+  - a: 1
+    b: 3
+  - a: 3
+    b: 2
+  m_SelectedVertices: 00000000010000000200000003000000
 --- !u!64 &4076973889406940943
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4126,10 +4134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d5ca92e52e0184abef7c6af957c985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 0.13
-  maxIntensity: 0.18
-  minRange: 2.69
-  maxRange: 4.69
+  minIntensity: 0.09
+  maxIntensity: 0.11
+  minRange: 1.29
+  maxRange: 3.42
   changeTime: 0.25
 --- !u!1 &4076973889764279709
 GameObject:
@@ -4188,7 +4196,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 230
+  Priority: 245
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4290,13 +4298,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8821452645980156431}
-  m_LocalRotation: {x: 0.66413176, y: 0.26640034, z: -0.6293161, w: 0.30318487}
-  m_LocalPosition: {x: -0.27999878, y: 1.06, z: 0.13999939}
+  m_LocalRotation: {x: 0.6385694, y: 0.31448773, z: -0.6067169, w: 0.353866}
+  m_LocalPosition: {x: -0.262, y: 1.239, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4076973889764279706}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 132.43799, y: 87.954994, z: 2.3569946}
+  m_LocalEulerAnglesHint: {x: 123.535, y: 88.616, z: 2.8789978}
 --- !u!108 &8821452645980156433
 Light:
   m_ObjectHideFlags: 0
@@ -4310,7 +4318,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
   m_Intensity: 1
-  m_Range: 6
+  m_Range: 4.29
   m_SpotAngle: 114.54889
   m_InnerSpotAngle: 72.48323
   m_CookieSize: 10
@@ -4351,7 +4359,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 6
+  m_BounceIntensity: 8
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 7.240505e+22, y: 239490900, z: 4.5448167e+30, w: 0.0009017201}

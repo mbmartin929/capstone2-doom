@@ -72,7 +72,7 @@ namespace EightDirectionalSpriteSystem
         {
             if (IsDead())
             {
-                Debug.Log("CurHealth: " + CurHealth);
+                //Debug.Log("CurHealth: " + CurHealth);
                 Debug.Log("Take Damage Die");
 
                 enemySounds.BloodSplatterSound();

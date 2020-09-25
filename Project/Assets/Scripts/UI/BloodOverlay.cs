@@ -33,12 +33,7 @@ namespace EightDirectionalSpriteSystem
         // Update is called once per frame
         void Update()
         {
-            // if (Input.GetKeyDown("space"))
-            // {
-            //     health = GameManager.Instance.playerGo.GetComponent<PlayerController>().CurHealth;
-            //     Debug.Log("Health: " + GameManager.Instance.playerGo.GetComponent<PlayerController>().CurHealth);
-            //     Debug.Log("Health: " + health);
-            // }
+
         }
 
         public void ChangePassiveBloodOverlayOpacity()
@@ -168,7 +163,9 @@ namespace EightDirectionalSpriteSystem
         {
             Color curColor = image.color;
 
-            //Debug.Log("Opacity Levels: " + opacityLevels[index]);
+            Debug.Log("Index: " + index);
+            Debug.Log("Opacity Level: " + opacityLevels[index]);
+            Debug.Log("Health Level: " + healthLevels[index]);
 
             float alpha = opacityLevels[index];
 

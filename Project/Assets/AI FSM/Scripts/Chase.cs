@@ -20,7 +20,7 @@ namespace EightDirectionalSpriteSystem
             if (!agent.enabled) return;
             else agent.isStopped = false;
 
-            Debug.Log("Chase State");
+            //Debug.Log("Chase State");
 
             //AISFM.DisableEightDirection();
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);

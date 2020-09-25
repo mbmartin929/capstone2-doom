@@ -101,27 +101,32 @@ namespace EightDirectionalSpriteSystem
         }
         public void TakeDamage(int amount)
         {
-
-
-            bloodOverlay.ChangeActiveBloodOverlayOpacity();
-            passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
-
-            if (CurArmor > 0)
+            if (damaged)
             {
-                //Debug.Log("Armor Damage");
-                CurArmor -= amount;
-                if (CurArmor <= 0) CurArmor = 0;
+                Debug.Log("Recently taken damage. Negating Damage");
             }
             else
             {
-                //Debug.Log("Health Damage");
-                CurHealth -= amount;
-                if (CurHealth <= 0) CurHealth = 0;
+                bloodOverlay.ChangeActiveBloodOverlayOpacity();
+                passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
+
+                if (CurArmor > 0)
+                {
+                    //Debug.Log("Armor Damage");
+                    CurArmor -= amount;
+                    if (CurArmor <= 0) CurArmor = 0;
+                }
+                else
+                {
+                    //Debug.Log("Health Damage");
+                    CurHealth -= amount;
+                    if (CurHealth <= 0) CurHealth = 0;
+                }
+
+                TextManager.Instance.UpdateHealthArmorText();
+
+                StartCoroutine(GetDamaged());
             }
-
-            TextManager.Instance.UpdateHealthArmorText();
-
-            StartCoroutine(GetDamaged());
         }
 
         private IEnumerator GetDamaged()
