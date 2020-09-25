@@ -126,7 +126,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328639067869672197}
-  m_LocalRotation: {x: -0, y: 0.9999986, z: -0, w: 0.0016925186}
+  m_LocalRotation: {x: -0, y: 0.14083202, z: -0, w: 0.9900335}
   m_LocalPosition: {x: 0, y: -0.22500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -172,7 +172,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -67838698911901625, guid: b9d55e427f1d94f4bb049b729a161506, type: 3}
+  m_Sprite: {fileID: -8762420224174482401, guid: b9d55e427f1d94f4bb049b729a161506,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 7328639068343049390}
-  currentFrameIndex: 0
+  currentFrameIndex: 3
   enemy: 1
   materials: []
 --- !u!65 &7328639067869672193
@@ -225,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 0}
-  maxHealth: 25
+  maxHealth: 20
   maxArmor: 0
   damage: 5
   painChance: 0.25
@@ -243,8 +244,8 @@ MonoBehaviour:
   CurrentHealth: 0
   gibGo: {fileID: 1257690072450890127, guid: 5789bb7a2b7aba140933a767b4ff6676, type: 3}
   gibsAmount: 8
-  gibAlive: 15
-  gibDeath: 40
+  gibAlive: 11
+  gibDeath: 15
   projectileSpeed: 929
   enemyAI: {fileID: 7328639068343049388}
   animator: {fileID: 7328639068343049385}
@@ -267,7 +268,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 150
+  Priority: 129
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -305,7 +306,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0

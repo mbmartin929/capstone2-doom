@@ -126,7 +126,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423949438595970571}
-  m_LocalRotation: {x: -0, y: 0.15927692, z: -0, w: 0.987234}
+  m_LocalRotation: {x: -0, y: 0.11293363, z: -0, w: 0.9936026}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4223479697576462649, guid: 8a91293b6cd4e3846800940168b51bac,
+  m_Sprite: {fileID: -5317357237039551548, guid: 8a91293b6cd4e3846800940168b51bac,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 6423949439062104480}
-  currentFrameIndex: 0
+  currentFrameIndex: 2
   enemy: 0
   materials: []
 --- !u!65 &6423949438595970575
@@ -270,7 +270,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 129
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -308,7 +308,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -54,30 +54,6 @@ namespace EightDirectionalSpriteSystem
         {
             int random = Random.Range(0, pain.Length);
 
-            //float defaultVolume = audioSource.volume;
-            //audioSource.volume = 1.0f;
-
-            //audioSource.clip = pain[random];
-            //audioSource.Play();
-
-            //audioSource.PlayOneShot(pain[random], 1f);
-
-            //audioSource.volume = defaultVolume;
-
-            // emptyObject = new GameObject();
-
-            // GameObject PainSFX = Instantiate(emptyObject, transform.position, transform.rotation);
-            // Destroy(emptyObject, 0.0f);
-
-            // PainSFX.AddComponent<AudioSource>();
-            // PainSFX.GetComponent<AudioSource>().priority = 42;
-            // PainSFX.GetComponent<AudioSource>().reverbZoneMix = 0f;
-            // PainSFX.GetComponent<AudioSource>().spatialBlend = 0.0f;
-            // PainSFX.GetComponent<AudioSource>().volume = 1;
-            // PainSFX.GetComponent<AudioSource>().clip = pain[random];
-            // PainSFX.GetComponent<AudioSource>().Play();
-            // Destroy(PainSFX, 2.0f);
-
             AudioClip clip = pain[random];
 
             AudioSource.PlayClipAtPoint(clip, transform.position, painSound);
@@ -116,10 +92,11 @@ namespace EightDirectionalSpriteSystem
             Destroy(emptyObject, 0.0f);
 
             GibExplosionSFX.AddComponent<AudioSource>();
+            GibExplosionSFX.GetComponent<AudioSource>().priority = 9;
             GibExplosionSFX.GetComponent<AudioSource>().reverbZoneMix = 1.1f;
-            GibExplosionSFX.GetComponent<AudioSource>().spatialBlend = Random.Range(0.9f, 1.0f);
-            GibExplosionSFX.GetComponent<AudioSource>().pitch = Random.Range(0.85f, 1.0f);
-            GibExplosionSFX.GetComponent<AudioSource>().volume = Random.Range(0.75f, 1.0f);
+            GibExplosionSFX.GetComponent<AudioSource>().spatialBlend = 1.0f;
+            GibExplosionSFX.GetComponent<AudioSource>().pitch = Random.Range(0.8f, 1.0f);
+            GibExplosionSFX.GetComponent<AudioSource>().volume = Random.Range(0.69f, 0.9f);
             GibExplosionSFX.GetComponent<AudioSource>().clip = gibExplosion[random];
             GibExplosionSFX.GetComponent<AudioSource>().Play();
             Destroy(GibExplosionSFX, 2.0f);

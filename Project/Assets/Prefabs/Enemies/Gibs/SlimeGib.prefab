@@ -158,8 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionForece: 10
   radius: 5
-  minY: 420
-  maxY: 690
+  minY: 369
+  maxY: 729
   minX: -360
   maxX: 360
   minZ: -360
@@ -4939,14 +4939,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 11
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

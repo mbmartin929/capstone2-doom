@@ -51,6 +51,7 @@ namespace EightDirectionalSpriteSystem
         {
             currentHealth = CurHealth;
             currentArmor = CurArmor;
+
             currentGold = CurGold;
             playerRayCast();
         }
@@ -63,7 +64,10 @@ namespace EightDirectionalSpriteSystem
 
         public void RecoverArmor(int amount)
         {
+            //Debug.Log("Amount: " + amount);
+            //Debug.Log("Before: " + CurArmor);
             CurArmor += amount;
+            //Debug.Log("After: " + CurArmor);
         }
 
         private void playerRayCast()
@@ -114,13 +118,13 @@ namespace EightDirectionalSpriteSystem
                 {
                     //Debug.Log("Armor Damage");
                     CurArmor -= amount;
-                    if (CurArmor <= 0) CurArmor = 0;
+                    //if (CurArmor <= -1) CurArmor = 0;
                 }
                 else
                 {
                     //Debug.Log("Health Damage");
                     CurHealth -= amount;
-                    if (CurHealth <= 0) CurHealth = 0;
+                    //if (CurHealth <= 0) CurHealth = 0;
                 }
 
                 TextManager.Instance.UpdateHealthArmorText();

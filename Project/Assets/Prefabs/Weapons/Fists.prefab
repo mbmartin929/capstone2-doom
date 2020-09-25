@@ -53,15 +53,15 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 69
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -143,12 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb93b00a53ed0294395022cae5c23037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   maxCapacity: 0
   curAmmo: 0
   clipAmmo: 9
   soundRadius: 10
-  range: 3.29
+  range: 3.42
   spreadFactor: 0.1
   FOV: 80
   gunshotSounds:
@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6e012ffd7cfd3054eaae1094ee9ca274, type: 3}
   - {fileID: 8300000, guid: 4713db8b174b1b74999d3e51ebc75bb8, type: 3}
   reloadSounds: []
+  hitSFX: {fileID: 7717953421197668686, guid: ad33abb871d18114c85df8002271d039, type: 3}
   sinSpeed: 3
   sinFrequency: 15
   sinMagnitude: 0.5

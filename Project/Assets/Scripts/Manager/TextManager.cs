@@ -85,8 +85,8 @@ namespace EightDirectionalSpriteSystem
 
         public void UpdateHealthArmorText()
         {
-            healthText.text = playerController.CurHealth.ToString() + "%";
-            armorText.text = playerController.CurArmor.ToString() + "%";
+            // healthText.text = playerController.CurHealth.ToString() + "%";
+            // armorText.text = playerController.CurArmor.ToString() + "%";
 
             healthText.text = playerController.CurHealth.ToString();
             armorText.text = playerController.CurArmor.ToString();
