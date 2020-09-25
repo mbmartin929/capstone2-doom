@@ -68,7 +68,7 @@ namespace EightDirectionalSpriteSystem
         {
             Color curColor = image.color;
 
-            Debug.Log("Opacity Levels: " + opacityLevels[index]);
+            //Debug.Log("Opacity Levels: " + opacityLevels[index]);
 
             float alpha = opacityLevels[index];
 
@@ -88,12 +88,12 @@ namespace EightDirectionalSpriteSystem
             if (health <= healthLevels[healthLevels.Length - 1])
             {
 
-                Debug.Log("IF Health Level: " + healthLevels[healthLevels.Length - 1]);
+                //Debug.Log("IF Health Level: " + healthLevels[healthLevels.Length - 1]);
                 //yield return null;
             }
             else
             {
-                Debug.Log("ELSE Health Level: " + healthLevels[healthLevels.Length - 1]);
+                //Debug.Log("ELSE Health Level: " + healthLevels[healthLevels.Length - 1]);
 
                 Color curColor = image.color;
 

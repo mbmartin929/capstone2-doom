@@ -131,7 +131,7 @@ namespace EightDirectionalSpriteSystem
         {
             if (visibleTargets.Count != 0)
             {
-                Debug.Log("Found Player!");
+                Debug.Log(gameObject.name + " Found Player!");
                 anim.SetTrigger("Chase");
             }
         }
@@ -145,22 +145,24 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
-        void FindVisibleTargets()
+        public void FindVisibleTargets()
         {
             visibleTargets.Clear();
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
             for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
+                //Debug.Log(targetsInViewRadius[i].gameObject.name);
+
                 Transform target = targetsInViewRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle /* / 2 */)
                 {
                     float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                     if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                     {
-                        visibleTargets.Add(target);
+                        if (target.gameObject.tag == "Player") visibleTargets.Add(target);
                     }
                 }
             }

@@ -101,7 +101,7 @@ namespace EightDirectionalSpriteSystem
         }
         public void TakeDamage(int amount)
         {
-            TextManager.Instance.UpdateHealthArmorText();
+
 
             bloodOverlay.ChangeActiveBloodOverlayOpacity();
             passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
@@ -118,6 +118,8 @@ namespace EightDirectionalSpriteSystem
                 CurHealth -= amount;
                 if (CurHealth <= 0) CurHealth = 0;
             }
+
+            TextManager.Instance.UpdateHealthArmorText();
 
             StartCoroutine(GetDamaged());
         }
