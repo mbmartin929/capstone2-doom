@@ -65,14 +65,24 @@ namespace EightDirectionalSpriteSystem
         public void PlayRandomPunchSound()
         {
             int index = Random.Range(0, gunshotSounds.Length);
-            GetComponent<AudioSource>().PlayOneShot(gunshotSounds[index]);
+            //GetComponent<AudioSource>().PlayOneShot(gunshotSounds[index]);
+
+            AudioClip sfx = gunshotSounds[index];
+            GameObject punchSFX = Instantiate(hitSFX, transform.position, Quaternion.identity);
+            punchSFX.GetComponent<AudioSource>().clip = sfx;
+            punchSFX.GetComponent<AudioSource>().Play();
         }
 
         // Used as animation event
         public void PlayRandomWooshSound()
         {
             int index = Random.Range(0, wooshSounds.Length);
-            GetComponent<AudioSource>().PlayOneShot(wooshSounds[index]);
+            //GetComponent<AudioSource>().PlayOneShot(wooshSounds[index]);
+
+            AudioClip sfx = wooshSounds[index];
+            GameObject wooshSFX = Instantiate(hitSFX, transform.position, Quaternion.identity);
+            wooshSFX.GetComponent<AudioSource>().clip = sfx;
+            wooshSFX.GetComponent<AudioSource>().Play();
         }
 
         void Shoot()

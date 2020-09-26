@@ -15,10 +15,10 @@ namespace EightDirectionalSpriteSystem
         public PlayerController playerController;
         public WeaponSwitching weaponSwitching;
 
-        public TextMeshProUGUI healthText;
-        public TextMeshProUGUI armorText;
-        public TextMeshProUGUI curAmmoText;
-        public TextMeshProUGUI maxAmmoText;
+        public TextMeshPro healthText;
+        public TextMeshPro armorText;
+        public TextMeshPro curAmmoText;
+        public TextMeshPro maxAmmoText;
 
         #endregion
         private Transform currentWeapon;
@@ -52,6 +52,8 @@ namespace EightDirectionalSpriteSystem
                 //curAmmoText.text = currentWeapon.GetComponent<WeaponController>().CurAmmo.ToString();
                 //maxAmmoText.text = currentWeapon.GetComponent<WeaponController>().maxAmmo.ToString();
 
+                Debug.Log("Weapon Name: " + currentWeapon.name);
+
                 if (currentWeapon.name == "Pistol")
                 {
                     curAmmoText.text = currentWeapon.GetComponent<PistolController>().CurAmmo.ToString();
@@ -61,6 +63,11 @@ namespace EightDirectionalSpriteSystem
                 {
                     curAmmoText.text = currentWeapon.GetComponent<ShotgunController>().CurAmmo.ToString();
                     maxAmmoText.text = AmmoInventory.Instance.curShotgunAmmo.ToString();
+                }
+                else if (currentWeapon.name == "Fists")
+                {
+                    curAmmoText.text = "0";
+                    maxAmmoText.text = "0";
                 }
 
                 //Debug.Log("Update Ammo Text");
@@ -72,12 +79,17 @@ namespace EightDirectionalSpriteSystem
 
                 Debug.Log("No Active Weapons");
             }
+
+
         }
 
         public void UpdateHealthArmorText()
         {
-            healthText.text =  playerController.CurHealth.ToString()+"%";
-            armorText.text = playerController.CurArmor.ToString()+"%";
+            // healthText.text = playerController.CurHealth.ToString() + "%";
+            // armorText.text = playerController.CurArmor.ToString() + "%";
+
+            healthText.text = playerController.CurHealth.ToString();
+            armorText.text = playerController.CurArmor.ToString();
         }
 
         private void FindActiveWeapon()

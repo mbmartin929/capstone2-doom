@@ -30,9 +30,16 @@ namespace EightDirectionalSpriteSystem
         //public List<Perk> playerSkills = new List<Perk>();
         // Start is called before the first frame update
 
+        [SerializeField]
+        private BloodOverlay bloodOverlay;
+        [SerializeField]
+        private BloodOverlay passiveBloodOverlay;
+
         void Start()
         {
             CurHealth = maxHealth;
+            //Debug.Log(CurHealth);
+
             CurArmor = maxArmor;
             CurGold = currentGold;
 
@@ -44,11 +51,26 @@ namespace EightDirectionalSpriteSystem
         {
             currentHealth = CurHealth;
             currentArmor = CurArmor;
+
             currentGold = CurGold;
             playerRayCast();
         }
 
-        void playerRayCast()
+        public void RecoverHealth(int amount)
+        {
+            CurHealth += amount;
+            StartCoroutine(passiveBloodOverlay.PassiveFadeOut());
+        }
+
+        public void RecoverArmor(int amount)
+        {
+            //Debug.Log("Amount: " + amount);
+            //Debug.Log("Before: " + CurArmor);
+            CurArmor += amount;
+            //Debug.Log("After: " + CurArmor);
+        }
+
+        private void playerRayCast()
         {
             RaycastHit hit;
             Ray ray = new Ray(transform.position, transform.forward);
@@ -83,18 +105,32 @@ namespace EightDirectionalSpriteSystem
         }
         public void TakeDamage(int amount)
         {
-            if (CurArmor > 0)
+            if (damaged)
             {
-                //Debug.Log("Armor Damage");
-                CurArmor -= amount;
+                Debug.Log("Recently taken damage. Negating Damage");
             }
             else
             {
-                //Debug.Log("Health Damage");
-                CurHealth -= amount;
-            }
+                bloodOverlay.ChangeActiveBloodOverlayOpacity();
+                passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
 
-            StartCoroutine(GetDamaged());
+                if (CurArmor > 0)
+                {
+                    //Debug.Log("Armor Damage");
+                    CurArmor -= amount;
+                    //if (CurArmor <= -1) CurArmor = 0;
+                }
+                else
+                {
+                    //Debug.Log("Health Damage");
+                    CurHealth -= amount;
+                    //if (CurHealth <= 0) CurHealth = 0;
+                }
+
+                TextManager.Instance.UpdateHealthArmorText();
+
+                StartCoroutine(GetDamaged());
+            }
         }
 
         private IEnumerator GetDamaged()

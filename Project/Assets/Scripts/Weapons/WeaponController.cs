@@ -28,6 +28,7 @@ namespace EightDirectionalSpriteSystem
         #region Other Variables
 
         [Header("Others")]
+        public GameObject hitSFX;
         public float sinSpeed = 3f;
         public float sinFrequency = 15f;
         public float sinMagnitude = 0.5f;
