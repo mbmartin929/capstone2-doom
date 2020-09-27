@@ -163,9 +163,9 @@ namespace EightDirectionalSpriteSystem
         {
             Color curColor = image.color;
 
-            Debug.Log("Index: " + index);
-            Debug.Log("Opacity Level: " + opacityLevels[index]);
-            Debug.Log("Health Level: " + healthLevels[index]);
+            // Debug.Log("Index: " + index);
+            // Debug.Log("Opacity Level: " + opacityLevels[index]);
+            // Debug.Log("Health Level: " + healthLevels[index]);
 
             float alpha = opacityLevels[index];
 

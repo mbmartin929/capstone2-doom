@@ -72,8 +72,8 @@ namespace EightDirectionalSpriteSystem
         {
             if (IsDead())
             {
-                Debug.Log("Enemy CurHealth: " + CurHealth);
-                Debug.Log("Enemy GibDeath: " + -gibDeath);
+                // Debug.Log("Enemy CurHealth: " + CurHealth);
+                // Debug.Log("Enemy GibDeath: " + -gibDeath);
                 Debug.Log("Take Damage Die");
 
                 enemySounds.BloodSplatterSound();
@@ -83,6 +83,7 @@ namespace EightDirectionalSpriteSystem
 
                 //Debug.Log(CurHealth);
 
+                // Gibbed
                 if (CurHealth <= -gibDeath)
                 {
                     enemySounds.GibExplosionSound();
@@ -95,11 +96,12 @@ namespace EightDirectionalSpriteSystem
                         GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
                     }
 
+                    GetComponent<EnemyDrops>().Drop();
+
                     Destroy(gameObject, 5.0f);
 
                     Debug.Log("Dead Gib!");
                 }
-                //Die();
             }
             else if (!IsDead())
             {
@@ -131,12 +133,6 @@ namespace EightDirectionalSpriteSystem
                     for (int i = 0; i <= 1; i++)
                     {
                         int id = Random.Range(0, bloodSplatGos.Length);
-                        //GameObject bloodSplat = Instantiate(bloodSplatGos[id], transform.position, bloodSplatGos[id].transform.rotation);
-
-                        //bloodSplat.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(500, 700f), transform.position, 900f, 0.0f, ForceMode.Force);
-                        //bloodSplat.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-5, 5), Random.Range(5f, 15f), Random.Range(-5, 5));
-
-
                     }
 
                     RaycastHit hit;

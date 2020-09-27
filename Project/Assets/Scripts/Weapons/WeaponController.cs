@@ -10,7 +10,6 @@ namespace EightDirectionalSpriteSystem
         #region  Main Variables
         [Header("Stats")]
         public int damage = 20;
-        public int maxCapacity;
         [SerializeField] protected int curAmmo;
         public int clipAmmo = 9;
         public float soundRadius = 10.0f;

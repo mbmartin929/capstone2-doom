@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edde6666f9e28148acf83b30aa54774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldPickUpOvelay: {fileID: 0}
-  healthPickUpOvelay: {fileID: 0}
+  armorPickUpOverlay: {fileID: 0}
+  healthPickUpOverlay: {fileID: 0}
+  ammoPickUpOverlay: {fileID: 0}
 --- !u!1 &1077416785
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,15 +341,15 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d91dfaabca8b7da4fb71a88b49ab256e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 665ce837e4552194ca0fb13ed754ed78, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.19
-  m_Pitch: 0.55
+  m_Volume: 0.16
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 230
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -7,8 +7,9 @@ public class PickUpOverlayManager : MonoBehaviour
     // Instantiates Singleton
     public static PickUpOverlayManager Instance { set; get; }
 
-    public GameObject shieldPickUpOvelay;
-    public GameObject healthPickUpOvelay;
+    public GameObject armorPickUpOverlay;
+    public GameObject healthPickUpOverlay;
+    public GameObject ammoPickUpOverlay;
 
     void Awake()
     {
@@ -32,12 +33,16 @@ public class PickUpOverlayManager : MonoBehaviour
 
     public void ShieldOverlay()
     {
-        shieldPickUpOvelay.GetComponent<Animator>().SetTrigger("Start Fade");
-        //StartCoroutine(shieldPickUpOvelay.GetComponent<LerpRawImage>().FadeIn());
+        armorPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
     }
 
     public void HealthOverlay()
     {
-        healthPickUpOvelay.GetComponent<Animator>().SetTrigger("Start Fade");
+        healthPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
+    }
+
+    public void AmmoOverlay()
+    {
+        ammoPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
     }
 }
