@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyGibs : MonoBehaviour
 {
-    public float explosionForece = 10.0f;
-    public float radius = 5.0f;
     public float minY = 420f;
     public float maxY = 960;
 
@@ -15,8 +13,6 @@ public class EnemyGibs : MonoBehaviour
     public float minZ = 240;
     public float maxZ = 420;
 
-    public float gravity = 9.8f;
-
     public Material[] gibMats;
     public AudioClip[] gibSounds;
     public float minTime = 0.1f;
@@ -25,7 +21,6 @@ public class EnemyGibs : MonoBehaviour
     private Vector3 velocity;
     private Rigidbody rb;
 
-    private float startingY;
 
     private bool startTransparency = false;
 
@@ -37,15 +32,9 @@ public class EnemyGibs : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        startingY = transform.position.y;
 
         GetComponent<MeshRenderer>().material = gibMats[Random.Range(0, gibMats.Length)];
         audioSource = GetComponent<AudioSource>();
-
-        //GetComponent<Rigidbody>().AddExplosionForce(explosionForece, transform.position, radius, upwardsModifier);
-
-
-        //Invoke("PlayGibSound", time);
 
         float x = Random.Range(minX, maxX);
         float y = Random.Range(minY, maxY);

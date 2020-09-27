@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 4589526529951126750}
   - component: {fileID: 6486811251985863733}
   - component: {fileID: 5431138125307625960}
+  - component: {fileID: 8899968400254334987}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Enemy
@@ -126,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4589526529951126740}
-  m_LocalRotation: {x: -0, y: 0.44316587, z: -0, w: 0.8964397}
+  m_LocalRotation: {x: -0, y: 0.5021433, z: -0, w: 0.8647845}
   m_LocalPosition: {x: 0, y: -0.15999985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5057322064309411533, guid: 44dcc0d935ac03e41bdb3fcbbbf2b175,
+  m_Sprite: {fileID: 4734144162153754382, guid: 44dcc0d935ac03e41bdb3fcbbbf2b175,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 4589526530543008639}
-  currentFrameIndex: 0
+  currentFrameIndex: 3
   enemy: 2
   materials: []
 --- !u!65 &4589526529951126736
@@ -226,9 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 0}
-  maxHealth: 45
+  maxHealth: 10
   maxArmor: 0
-  damage: 5
+  damage: 3
   painChance: 0.69
   painDuration: 0.3
   painStrength: 1
@@ -246,7 +247,7 @@ MonoBehaviour:
   gibGo: {fileID: 1257690072450890127, guid: 4cf895537ac1ad74cbc6310d539e63e6, type: 3}
   gibsAmount: 4
   gibAlive: 10
-  gibDeath: 20
+  gibDeath: 10
   projectileSpeed: 929
   enemyAI: {fileID: 4589526530543008637}
   animator: {fileID: 4589526530543008632}
@@ -395,8 +396,50 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66c6bdc0b69825c41888bdde19cbffe5, type: 3}
   splatter:
   - {fileID: 8300000, guid: caeb579e4c30fee41a8f41f67e334d43, type: 3}
-  gibExplosion: []
+  gibExplosion:
+  - {fileID: 8300000, guid: 64eb27a65182bb541847f33b2c3c77a3, type: 3}
+  - {fileID: 8300000, guid: b3b41ba555549b3428765c5dd295bf17, type: 3}
+  - {fileID: 8300000, guid: aabe9040a9f7109438856c7c9a2ad16b, type: 3}
+  - {fileID: 8300000, guid: b7407b1556f54564db6f3a3074f2f1ef, type: 3}
+  - {fileID: 8300000, guid: 7f13fa09b188e014c856b885a6bcae09, type: 3}
   painSound: 42
+--- !u!114 &8899968400254334987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589526529951126740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fd26e2cb8e5e943bf83f05d2d25a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 6567769057077856301, guid: 3be69b77e438fa74ba9891aed5243735, type: 3}
+  - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
+  - {fileID: 3906452072551657722, guid: 603e176204862d146a9fc532e9764f9d, type: 3}
+  - {fileID: 3906452072551657722, guid: e5e0c5a0cfbc0d945b52b5958fbed538, type: 3}
+  healthDrops:
+  - {fileID: 3906452072551657722, guid: 603e176204862d146a9fc532e9764f9d, type: 3}
+  armorDrops:
+  - {fileID: 3906452072551657722, guid: e5e0c5a0cfbc0d945b52b5958fbed538, type: 3}
+  pistolAmmoDrops:
+  - {fileID: 6567769057077856301, guid: 3be69b77e438fa74ba9891aed5243735, type: 3}
+  shotgunAmmoDrops:
+  - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
+  minAmountOfDropsNormal: 0
+  maxAmountOfDropsNormal: 1
+  minAmountOfDropsLow: 3
+  maxAmountOfDropsLow: 6
+  minAmountOfPistolAmmoNormal: 3
+  maxAmountOfPistolAmmoNormal: 6
+  minAmountOfShotgunAmmoNormal: 2
+  maxAmountOfShotgunAmmoNormal: 4
+  lowHealth: 40
+  lowArmor: 10
+  lowPistolAmmo: 10
+  lowShotgunAmmo: 9
 --- !u!1 &4589526530543008625
 GameObject:
   m_ObjectHideFlags: 0
