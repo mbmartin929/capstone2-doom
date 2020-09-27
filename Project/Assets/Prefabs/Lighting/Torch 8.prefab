@@ -24,13 +24,21 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101721448221222970}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.61564523, y: 0.3644134, z: 0.52422345, w: -0.46192396}
+=======
+  m_LocalRotation: {x: 0.5516776, y: 0.4554865, z: 0.44623867, w: -0.5376383}
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_LocalPosition: {x: -0.33999634, y: 1.2200003, z: 0.09999943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4076973889764279706}
   m_RootOrder: 7
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 251.95801, y: -445.624, z: 366.601}
+=======
+  m_LocalEulerAnglesHint: {x: 268.638, y: -366.244, z: 287.009}
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
 --- !u!108 &6637034463975035127
 Light:
   m_ObjectHideFlags: 0
@@ -43,10 +51,17 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
+<<<<<<< HEAD
   m_Intensity: 0.25
   m_Range: 3.69
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
+=======
+  m_Intensity: 0.025
+  m_Range: 3
+  m_SpotAngle: 30.819778
+  m_InnerSpotAngle: 14.430634
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -85,10 +100,17 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
+<<<<<<< HEAD
   m_BounceIntensity: 1.1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 7.9e-43, y: 0.0000000015139152, z: 7.9e-43, w: 0}
+=======
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 8.91e-43, y: 0.0000000013462449, z: 8.91e-43, w: -2.9922546e+29}
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -402,6 +424,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &4076973888518938953
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +535,8 @@ MonoBehaviour:
   minRange: 2.69
   maxRange: 3.8
   changeTime: 0.25
+=======
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
 --- !u!1 &4076973888711258505
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,8 +567,12 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.68132895, z: -0, w: 0.7319774}
   m_LocalPosition: {x: -0.238, y: 1.147, z: 0.192}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children:
   - {fileID: 4076973888518938950}
+=======
+  m_Children: []
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_Father: {fileID: 4076973889764279706}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 86.563, z: 0}
@@ -4237,10 +4266,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d5ca92e52e0184abef7c6af957c985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   minIntensity: 0.15
   maxIntensity: 0.2
   minRange: 3.69
   maxRange: 5.69
+=======
+  minIntensity: 0.07
+  maxIntensity: 0.09
+  minRange: 0.69
+  maxRange: 2.29
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   changeTime: 0.25
 --- !u!1 &4076973889764279709
 GameObject:
@@ -4251,9 +4287,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4076973889764279706}
+<<<<<<< HEAD
   - component: {fileID: -7759059248598792685}
   m_Layer: 0
   m_Name: Torch 2
+=======
+  - component: {fileID: -3472627777048537903}
+  m_Layer: 0
+  m_Name: Torch 7
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4281,7 +4323,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+<<<<<<< HEAD
 --- !u!82 &-7759059248598792685
+=======
+--- !u!82 &-3472627777048537903
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4293,7 +4339,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 87b286c0242f2bd4ba418ebb816dbb66, type: 3}
   m_PlayOnAwake: 1
+<<<<<<< HEAD
   m_Volume: 0.07
+=======
+  m_Volume: 0.075
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_Pitch: 0.95
   Loop: 1
   Mute: 0
@@ -4401,13 +4451,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8821452645980156431}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.5983442, y: 0.3924593, z: -0.5569427, w: 0.42163357}
   m_LocalPosition: {x: -0.27999878, y: 1.06, z: 0.13999939}
+=======
+  m_LocalRotation: {x: 0.6385694, y: 0.31448773, z: -0.6067169, w: 0.353866}
+  m_LocalPosition: {x: -0.262, y: 1.239, z: 0.14}
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4076973889764279706}
   m_RootOrder: 4
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 109.65799, y: 85.895, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: 123.535, y: 88.616, z: 2.8789978}
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
 --- !u!108 &8821452645980156433
 Light:
   m_ObjectHideFlags: 0
@@ -4420,10 +4479,17 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
+<<<<<<< HEAD
   m_Intensity: 0.69
   m_Range: 4.2
   m_SpotAngle: 130.18207
   m_InnerSpotAngle: 68.87557
+=======
+  m_Intensity: 0.21
+  m_Range: 4.42
+  m_SpotAngle: 114.54889
+  m_InnerSpotAngle: 72.48323
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4462,10 +4528,17 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
+<<<<<<< HEAD
   m_BounceIntensity: 7.8
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 7.9e-43, y: 0.0000000049855835, z: 7.9e-43, w: 0}
+=======
+  m_BounceIntensity: 16
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 7.240505e+22, y: 239490900, z: 4.5448167e+30, w: 0.0009017201}
+>>>>>>> 6b00223976e23a39128e3b9ed0e0f5d4c58a36ea
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
