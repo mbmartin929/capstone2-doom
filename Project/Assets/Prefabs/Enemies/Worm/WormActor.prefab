@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6423949438595970561}
   - component: {fileID: 49569724635607010}
   - component: {fileID: 1156568390}
+  - component: {fileID: 203807905661765320}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Enemy
@@ -126,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423949438595970571}
-  m_LocalRotation: {x: -0, y: 0.11293363, z: -0, w: 0.9936026}
+  m_LocalRotation: {x: -0, y: 0.15473671, z: -0, w: 0.98795575}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5317357237039551548, guid: 8a91293b6cd4e3846800940168b51bac,
+  m_Sprite: {fileID: -3130643916472440248, guid: 8a91293b6cd4e3846800940168b51bac,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 6423949439062104480}
-  currentFrameIndex: 2
+  currentFrameIndex: 0
   enemy: 0
   materials: []
 --- !u!65 &6423949438595970575
@@ -404,6 +405,43 @@ MonoBehaviour:
   MaxScale: 2.9
   SplashRange: 5.3
   PoolSize: 300
+--- !u!114 &203807905661765320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423949438595970571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fd26e2cb8e5e943bf83f05d2d25a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 6567769057077856301, guid: 3be69b77e438fa74ba9891aed5243735, type: 3}
+  - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
+  - {fileID: 3906452072551657722, guid: 603e176204862d146a9fc532e9764f9d, type: 3}
+  - {fileID: 3906452072551657722, guid: e5e0c5a0cfbc0d945b52b5958fbed538, type: 3}
+  healthDrops:
+  - {fileID: 3906452072551657722, guid: 603e176204862d146a9fc532e9764f9d, type: 3}
+  armorDrops:
+  - {fileID: 3906452072551657722, guid: e5e0c5a0cfbc0d945b52b5958fbed538, type: 3}
+  pistolAmmoDrops:
+  - {fileID: 6567769057077856301, guid: 3be69b77e438fa74ba9891aed5243735, type: 3}
+  shotgunAmmoDrops:
+  - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
+  minAmountOfDropsNormal: 0
+  maxAmountOfDropsNormal: 1
+  minAmountOfDropsLow: 3
+  maxAmountOfDropsLow: 6
+  minAmountOfPistolAmmoNormal: 3
+  maxAmountOfPistolAmmoNormal: 6
+  minAmountOfShotgunAmmoNormal: 2
+  maxAmountOfShotgunAmmoNormal: 4
+  lowHealth: 40
+  lowArmor: 10
+  lowPistolAmmo: 10
+  lowShotgunAmmo: 9
 --- !u!1 &6423949438891449723
 GameObject:
   m_ObjectHideFlags: 0

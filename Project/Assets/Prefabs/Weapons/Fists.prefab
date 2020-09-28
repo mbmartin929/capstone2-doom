@@ -144,11 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  maxCapacity: 0
   curAmmo: 0
   clipAmmo: 9
   soundRadius: 10
-  range: 3.42
+  range: 3.5
   spreadFactor: 0.1
   FOV: 80
   gunshotSounds:

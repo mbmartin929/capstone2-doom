@@ -100,6 +100,18 @@ namespace EightDirectionalSpriteSystem
                 AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
             }
 
+            GameObject pickUpSFX = new GameObject();
+            GameObject _pickUpSFX = Instantiate(pickUpSFX, transform.position, Quaternion.identity);
+            _pickUpSFX.name = "PickUp SFX";
+
+            _pickUpSFX.AddComponent<AudioSource>();
+            _pickUpSFX.GetComponent<AudioSource>().volume = 0.5f;
+            _pickUpSFX.GetComponent<AudioSource>().PlayOneShot(pickUpSound);
+
+            Debug.Log("Pick up Ammo");
+
+            PickUpOverlayManager.Instance.AmmoOverlay();
+
             TextManager.Instance.UpdateAmmoText();
         }
 
