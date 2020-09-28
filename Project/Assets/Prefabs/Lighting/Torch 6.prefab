@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7794142013806833731}
   - component: {fileID: 6637034463975035127}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Area Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
   m_Intensity: 0.2
-  m_Range: 1.29
+  m_Range: 3.55
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
   m_CookieSize: 10
@@ -88,7 +88,7 @@ Light:
   m_BounceIntensity: 1.25
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.3e-44, z: 3.6664e-41, w: 5.9e-44}
+  m_BoundingSphereOverride: {x: 8.91e-43, y: 0.0000000013462449, z: 8.91e-43, w: -2.9922546e+29}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4076973888354258035}
   - component: {fileID: 4076973888354258034}
   - component: {fileID: 4076973888354258037}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 4076973888518938950}
   - component: {fileID: 4076973888518938948}
   - component: {fileID: 4076973888518938951}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,8 +446,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9316286, b: 0.759434, a: 1}
-  m_Intensity: 0.15
-  m_Range: 2.9
+  m_Intensity: 0.2
+  m_Range: 10.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -488,10 +488,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.5
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.1e-44, z: 2.8612e-41, w: 5.9e-44}
+  m_BoundingSphereOverride: {x: 8.91e-43, y: 0.0000000010936558, z: 8.91e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -525,12 +525,12 @@ GameObject:
   - component: {fileID: 4076973888711258503}
   - component: {fileID: 4076973888711258502}
   - component: {fileID: 4076973888711258498}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fire_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4076973888711258501
 Transform:
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 4076973889057608580}
   - component: {fileID: 4076973889057608583}
   - component: {fileID: 4076973889057608582}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 4076973889231189992}
   - component: {fileID: 4076973889231189995}
   - component: {fileID: 4076973889231189994}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1276,7 +1276,7 @@ GameObject:
   - component: {fileID: 4076973889406940941}
   - component: {fileID: 4076973889406940940}
   - component: {fileID: 4076973889406940943}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4143,12 +4143,12 @@ GameObject:
   - component: {fileID: 4076973889683177404}
   - component: {fileID: 4076973889683177402}
   - component: {fileID: 4076973889683177405}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Change Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4076973889683177404
 Transform:
@@ -4252,7 +4252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4076973889764279706}
   - component: {fileID: -3472627777048537903}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Torch 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4387,7 +4387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8821452645980156432}
   - component: {fileID: 8821452645980156433}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4420,10 +4420,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.29
+  m_Intensity: 0.42
   m_Range: 4.2
   m_SpotAngle: 130.18207
-  m_InnerSpotAngle: 89.31897
+  m_InnerSpotAngle: 68.87557
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4462,10 +4462,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 7.11
+  m_BounceIntensity: 7.5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -75.66789, z: -9.169999, w: -105.13069}
+  m_BoundingSphereOverride: {x: 7.240505e+22, y: 239490900, z: 4.5448167e+30, w: 0.0009017201}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
