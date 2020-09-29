@@ -9,6 +9,7 @@ public class ActorAvatarManager : MonoBehaviour
     public static ActorAvatarManager Instance { set; get; }
 
     public Material[] slimeAvatars;
+    public Material[] redSlimeAvatars;
     public Material[] wormAvatars;
     public Material[] spiderAvatars;
 

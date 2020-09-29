@@ -13,7 +13,7 @@ namespace EightDirectionalSpriteSystem
             GameObject avatar = transform.GetChild(0).gameObject;
             Material chosenMaterial;
 
-            if (avatar.GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.Slime)
+            if (avatar.GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.GreenSlime)
             {
                 for (int i = 0; i < ActorAvatarManager.Instance.slimeAvatars.Length; i++)
                 {
@@ -21,6 +21,20 @@ namespace EightDirectionalSpriteSystem
                     {
                         chosenMaterial = ActorAvatarManager.Instance.slimeAvatars[i];
                         ActorAvatarManager.Instance.slimeAvatars[i] = null;
+                        avatar.GetComponent<SpriteRenderer>().material = chosenMaterial;
+                        return;
+                    }
+                }
+            }
+
+            if (avatar.GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.RedSlime)
+            {
+                for (int i = 0; i < ActorAvatarManager.Instance.redSlimeAvatars.Length; i++)
+                {
+                    if (ActorAvatarManager.Instance.redSlimeAvatars[i] != null)
+                    {
+                        chosenMaterial = ActorAvatarManager.Instance.redSlimeAvatars[i];
+                        ActorAvatarManager.Instance.redSlimeAvatars[i] = null;
                         avatar.GetComponent<SpriteRenderer>().material = chosenMaterial;
                         return;
                     }

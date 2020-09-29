@@ -18,7 +18,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
-        public enum Enemy { Worm, Slime, Spider };
+        public enum Enemy { Worm, GreenSlime, RedSlime, Spider };
 
         public delegate void BeforeRenderBillboardEvent();
 
@@ -151,7 +151,31 @@ namespace EightDirectionalSpriteSystem
 
                 //Debug.Log("Current Frame Index: " + currentFrameIndex);
                 #region Slime Behaviour
-                if ((enemy == Enemy.Slime) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                if ((enemy == Enemy.GreenSlime) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    EnemyController enemyController = GetComponent<EnemyController>();
+
+                    if (currentFrameIndex == 1)
+                    {
+                        transform.GetComponent<EnemySounds>().SlimeChaseSoudOneShot();
+
+                        transform.GetComponentInParent<EnemyAI>().AgentStop(false);
+                        transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
+                    }
+                    else if (currentFrameIndex == 3)
+                    {
+                        try { transform.GetComponentInParent<EnemyAI>().AgentStop(true); }
+                        catch (Exception e) { Debug.LogException(e, this); }
+
+                    }
+                    else if (currentFrameIndex == 4)
+                    {
+                        //Debug.Log("Slime Attack");
+                        transform.GetComponentInParent<EnemyAI>().SlimeAttack(2.69f);
+                        //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                }
+                if ((enemy == Enemy.RedSlime) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
                 {
                     EnemyController enemyController = GetComponent<EnemyController>();
 

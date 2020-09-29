@@ -729,7 +729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curPistolAmmo: 50
+  maxPistolCapacity: 41
   curShotgunAmmo: 20
+  maxShotgunCapacity: 21
 --- !u!95 &175953127
 Animator:
   serializedVersion: 3
@@ -1122,8 +1124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 0}
-  maxHealth: 45
-  maxArmor: 0
+  maxHealth: 100
+  maxArmor: 50
   isDamaged: 0
   damaged: 0
   currentHealth: 0
