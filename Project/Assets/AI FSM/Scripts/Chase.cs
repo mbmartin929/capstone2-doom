@@ -44,9 +44,12 @@ namespace EightDirectionalSpriteSystem
                         enemyAI.anim.SetTrigger("Attack");
                     }
                 }
-                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Slime)
+                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.GreenSlime)
                 {
-                    //enemyAI.anim.SetTrigger("Attack");
+                    enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
+                }
+                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.RedSlime)
+                {
                     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 }
                 else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Spider)
