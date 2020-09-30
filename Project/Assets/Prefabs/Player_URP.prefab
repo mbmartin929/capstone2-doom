@@ -1122,8 +1122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 0}
-  maxHealth: 100
-  maxArmor: 50
+  maxHealth: 20
+  maxArmor: 20
   isDamaged: 0
   damaged: 0
   currentHealth: 0
@@ -1632,7 +1632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5570608048922225439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2186,6 +2186,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4198948014123327576, guid: 94cad0abee83f6f4ebac1672ad149878,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4198948014123327577, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Mesh
@@ -2229,7 +2234,7 @@ PrefabInstance:
     - target: {fileID: 1118070887166006039, guid: d0af97ebc04087d43b0d47b05878b816,
         type: 3}
       propertyPath: Priority
-      value: 69
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1118070887166006039, guid: d0af97ebc04087d43b0d47b05878b816,
         type: 3}
@@ -2583,6 +2588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HS Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324534927189559524, guid: 6ade596b226f27a42b7ccfe9838f8c06,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8324534927189559526, guid: 6ade596b226f27a42b7ccfe9838f8c06,
         type: 3}

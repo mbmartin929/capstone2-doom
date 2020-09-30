@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.50190294, y: 0.5528745, z: 0.020004276}
-  m_Center: {x: -0.02811388, y: -0.03944155, z: 0.017093197}
+  m_Size: {x: 0.35116524, y: 0.40115023, z: 0.020004287}
+  m_Center: {x: -0.04259834, y: -0.009788593, z: 0.017093103}
 --- !u!114 &442347564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,15 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b0d9a3dfd992b4d9d8a5109be57631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForece: 10
-  radius: 5
   minY: 369
-  maxY: 780
+  maxY: 842
   minX: -360
   maxX: 360
   minZ: -360
   maxZ: 360
-  gravity: 6.9
   gibMats:
   - {fileID: 2100000, guid: fcedaf994eac7834b952b58e7ad5787b, type: 2}
   - {fileID: 2100000, guid: e7e80d74a05551d4abc96055dab74727, type: 2}
@@ -4921,8 +4918,8 @@ MonoBehaviour:
   - {fileID: 2271519705940005313, guid: 0254de32357da5c4fa3d68d0ee961850, type: 3}
   DecalsParent: {fileID: 0}
   MinScale: 0.75
-  MaxScale: 3
-  SplashRange: 3
+  MaxScale: 2.29
+  SplashRange: 2.69
   PoolSize: 150
 --- !u!82 &-5413086449410138622
 AudioSource:

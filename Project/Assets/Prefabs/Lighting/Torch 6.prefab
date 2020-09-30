@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7794142013806833731}
   - component: {fileID: 6637034463975035127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.21
+  m_BounceIntensity: 1.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 53564684, y: 3124.0796, z: 1.1693409e-19, w: 1.3563156e-19}
+  m_BoundingSphereOverride: {x: 0, y: 0.000000020781258, z: 7.02e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4076973888354258035}
   - component: {fileID: 4076973888354258034}
   - component: {fileID: 4076973888354258037}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 4076973888518938950}
   - component: {fileID: 4076973888518938948}
   - component: {fileID: 4076973888518938951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.9316286, b: 0.759434, a: 1}
   m_Intensity: 0.2
-  m_Range: 10.5
+  m_Range: 6.9
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -488,11 +488,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
+  m_BounceIntensity: 1.11
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.1866197e+27, y: 4.1555918e+21, z: 1.5765531e-19,
-    w: 869568900}
+  m_BoundingSphereOverride: {x: 0, y: 3.6e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -526,7 +525,7 @@ GameObject:
   - component: {fileID: 4076973888711258503}
   - component: {fileID: 4076973888711258502}
   - component: {fileID: 4076973888711258498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +656,7 @@ GameObject:
   - component: {fileID: 4076973889057608580}
   - component: {fileID: 4076973889057608583}
   - component: {fileID: 4076973889057608582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +966,7 @@ GameObject:
   - component: {fileID: 4076973889231189992}
   - component: {fileID: 4076973889231189995}
   - component: {fileID: 4076973889231189994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,7 +1276,7 @@ GameObject:
   - component: {fileID: 4076973889406940941}
   - component: {fileID: 4076973889406940940}
   - component: {fileID: 4076973889406940943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4144,7 +4143,7 @@ GameObject:
   - component: {fileID: 4076973889683177404}
   - component: {fileID: 4076973889683177402}
   - component: {fileID: 4076973889683177405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Change Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4253,7 +4252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4076973889764279706}
   - component: {fileID: -3472627777048537903}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4388,7 +4387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8821452645980156432}
   - component: {fileID: 8821452645980156433}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4421,7 +4420,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.42
+  m_Intensity: 0.29
   m_Range: 4.2
   m_SpotAngle: 130.18207
   m_InnerSpotAngle: 68.87557
@@ -4463,11 +4462,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 7.29
+  m_BounceIntensity: 7.85
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.0699842e-19, y: 4.3584323e+27, z: 3.9414672e+12,
-    w: 3.0990291e+32}
+  m_BoundingSphereOverride: {x: 4.43e-41, y: 0, z: 0, w: 5.0492e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     // Instantiates Singleton
     public static GameManager Instance { set; get; }
 
-    public GameObject LocalVolume;
+    public GameObject psxVolume;
 
     public int frameRate = 200;
     public GameObject playerGo;

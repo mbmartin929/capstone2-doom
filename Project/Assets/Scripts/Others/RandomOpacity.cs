@@ -34,11 +34,18 @@ public class RandomOpacity : MonoBehaviour
         meshRenderer.material.SetColor("_BaseColor", color);
 
         //audioSource.PlayOneShot(bloodSounds[Random.Range(0, bloodSounds.Length)]);
+
+        Invoke("DisableCollider", 0.15f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void DisableCollider()
+    {
+        GetComponent<BoxCollider>().enabled = false;
     }
 }

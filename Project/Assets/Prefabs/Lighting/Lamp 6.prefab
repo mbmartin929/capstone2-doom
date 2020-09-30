@@ -44,9 +44,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
   m_Intensity: 1.29
-  m_Range: 5
-  m_SpotAngle: 136.19484
-  m_InnerSpotAngle: 86.913864
+  m_Range: 4.2
+  m_SpotAngle: 88.26982
+  m_InnerSpotAngle: 38.988834
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 3.11
+  m_BounceIntensity: 3.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.4814e-41, y: 1.01e-43, z: 1e-45, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 5.9132e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7456444148779213760
 Transform:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
   m_Intensity: 0.025
-  m_Range: 4.2
+  m_Range: 2.9
   m_SpotAngle: 52.46573
   m_InnerSpotAngle: 14.430634
   m_CookieSize: 10
@@ -180,7 +180,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.91e-43, y: 0.0000000013462449, z: 8.91e-43, w: -2.9922546e+29}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: -10.379999, w: 5.2201e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 7456444150592737827}
   - component: {fileID: -7157658914646614759}
   m_Layer: 0
-  m_Name: Lamp 5
+  m_Name: Lamp 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,7 +436,7 @@ Transform:
   m_GameObject: {fileID: 7456444150592737826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -48.4, y: -14.57, z: -91.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_Children:
   - {fileID: 7456444150455117438}
   - {fileID: 7456444150705464783}
