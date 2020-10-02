@@ -89,15 +89,38 @@ namespace EightDirectionalSpriteSystem
         }
         protected void ShootDetection(Vector3 center, float radius)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-            foreach (var hitCollider in hitColliders)
+            // Debug.Log("Shoot Detection");
+
+            // Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+            // foreach (var hitCollider in hitColliders)
+            // {
+            //     if (hitCollider.GetComponent<EnemyController>() != null)
+            //     {
+            //         Debug.Log(hitCollider.gameObject.transform.parent.name + " detected from shooting");
+            //         hitCollider.gameObject.transform.parent.gameObject.GetComponent<EnemyAI>().ChasePlayer();
+            //     }
+            // }
+
+
+            Collider[] targetsInViewRadius = Physics.OverlapSphere(GameManager.Instance.playerGo.transform.position, radius, LayerMask.NameToLayer("Default"));
+
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
-                if (hitCollider.GetComponent<EnemyAI>() != null)
+                Debug.Log("Shoot Detection: " + targetsInViewRadius[i].gameObject.name);
+
+                Transform target = targetsInViewRadius[i].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, dirToTarget) < 360 /* / 2 */)
                 {
-                    Debug.Log(hitCollider.gameObject.name + "is chasing");
-                    hitCollider.GetComponent<EnemyAI>().ChasePlayer();
+                    float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, LayerMask.NameToLayer("Ground")))
+                    {
+                        if (target.gameObject.tag == "Enemy") target.gameObject.transform.parent.gameObject.GetComponent<EnemyAI>().ChasePlayer();
+                    }
                 }
             }
+
         }
 
         public void SwitchWeapon(Transform _weapon)

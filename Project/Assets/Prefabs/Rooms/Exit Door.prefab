@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 1162328223948577874}
   - component: {fileID: 1162328223948577873}
   - component: {fileID: 1162328223948577872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328223948577964
 Transform:
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2264,12 +2264,12 @@ GameObject:
   - component: {fileID: 1162328223977150399}
   - component: {fileID: 1162328223977150398}
   - component: {fileID: 1162328223977150394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328223977150397
 Transform:
@@ -2278,7 +2278,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162328223977150396}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -39.300003, y: -6.0063066, z: -67.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2321,8 +2321,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7d8cf12c332c4c742857243aa3be2797, type: 2}
-  - {fileID: 2100000, guid: de4e49bec1416bb4599fc96edc8c4fca, type: 2}
-  - {fileID: 2100000, guid: 93ec265d1af8f5d439e50317e448ba1e, type: 2}
+  - {fileID: 2100000, guid: 0116938a06553854cbc3e4fb74e65c12, type: 2}
+  - {fileID: 2100000, guid: 2b6826f63f496d744be370ca5c83d5a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2335,7 +2335,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2996,12 +2996,12 @@ GameObject:
   - component: {fileID: 1162328223996850611}
   - component: {fileID: 1162328223996850610}
   - component: {fileID: 1162328223996850609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328223996850573
 Transform:
@@ -3043,7 +3043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5246,12 +5246,12 @@ GameObject:
   - component: {fileID: 1162328224662703122}
   - component: {fileID: 1162328224662703121}
   - component: {fileID: 1162328224662703120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328224662703212
 Transform:
@@ -5293,7 +5293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7496,12 +7496,12 @@ GameObject:
   - component: {fileID: 1162328224690188945}
   - component: {fileID: 1162328224690188944}
   - component: {fileID: 1162328224690188951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328224690188947
 Transform:
@@ -7543,7 +7543,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9746,12 +9746,12 @@ GameObject:
   - component: {fileID: 1162328224942617422}
   - component: {fileID: 1162328224942617421}
   - component: {fileID: 1162328224942617420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328224942617416
 Transform:
@@ -9793,7 +9793,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11996,12 +11996,12 @@ GameObject:
   - component: {fileID: 1162328225183793567}
   - component: {fileID: 1162328225183793566}
   - component: {fileID: 1162328225183793565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328225183793561
 Transform:
@@ -12043,7 +12043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14246,12 +14246,12 @@ GameObject:
   - component: {fileID: 1162328225527655654}
   - component: {fileID: 1162328225527655653}
   - component: {fileID: 1162328225527655652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328225527655648
 Transform:
@@ -14293,7 +14293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16496,12 +16496,12 @@ GameObject:
   - component: {fileID: 1162328225563335655}
   - component: {fileID: 1162328225563335654}
   - component: {fileID: 1162328225563335653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328225563335649
 Transform:
@@ -16543,7 +16543,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18746,12 +18746,12 @@ GameObject:
   - component: {fileID: 1162328225620369213}
   - component: {fileID: 1162328225620369212}
   - component: {fileID: 1162328225620369187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icosphere (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1162328225620369215
 Transform:
@@ -18793,7 +18793,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5a9bc1061b7b5c942bb49f76e5946bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1669957876}
   - component: {fileID: 1669957877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7819756784407724349}
   - component: {fileID: 4986886951155786506}
   - component: {fileID: 8642389519729801868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shotgun_URP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -297,20 +297,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6176b241d5f824ba360765e078e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  maxCapacity: 32
+  damage: 7
   curAmmo: 0
   clipAmmo: 6
-  soundRadius: 13
-  range: 69
-  spreadFactor: 0.1
-  FOV: 80
+  soundRadius: 16
+  range: 50
+  spreadFactor: 0.2
+  FOV: 85
   gunshotSounds:
   - {fileID: 8300000, guid: 0d85eeb825535a148b6bd9a2fd98ff66, type: 3}
   - {fileID: 8300000, guid: 4976b523fa863114ba78cb9cc71b8b65, type: 3}
   reloadSounds:
   - {fileID: 8300000, guid: f81741e1d22eee74d8ce7024baf37e05, type: 3}
   - {fileID: 8300000, guid: 39b47b39fd4800e4b91daf31868a722b, type: 3}
+  - {fileID: 8300000, guid: 86d206faf6871314d899945a7d647e8d, type: 3}
+  hitSFX: {fileID: 0}
   sinSpeed: 3
   sinFrequency: 15
   sinMagnitude: 0.5
@@ -331,8 +332,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   bulletCasingLoc: {fileID: 2993207196435992781}
   bulletTracerLoc: {fileID: 2223797159799757586}
-  pelletCount: 8
-  scaleLimit: 0.85
+  pelletCount: 16
+  scaleLimit: 1.85
   z: 10
   fireDelay: 1
   readyToFire: 1
@@ -345,7 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2993207196435992781}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletCasingLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2223797159799757586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletTracerLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7925780054676342814}
   - component: {fileID: 4637048271418702225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,6 +500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShotgunTracer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410139314076607052, guid: c85b062aa76c4a34081137453408f5c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6410139314076607055, guid: c85b062aa76c4a34081137453408f5c5,
         type: 3}

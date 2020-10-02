@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328639067869672197}
-  m_LocalRotation: {x: 0, y: 0.98314404, z: -0, w: -0.18283291}
+  m_LocalRotation: {x: -0, y: 0.25041497, z: -0, w: 0.96813864}
   m_LocalPosition: {x: 0, y: -0.22500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2150557058702363714, guid: b9d55e427f1d94f4bb049b729a161506,
+  m_Sprite: {fileID: -6017003217773665294, guid: b9d55e427f1d94f4bb049b729a161506,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 7328639068343049390}
-  currentFrameIndex: 2
+  currentFrameIndex: 0
   enemy: 2
   materials: []
 --- !u!65 &7328639067869672193
@@ -429,12 +429,12 @@ MonoBehaviour:
   - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
   minAmountOfDropsNormal: 0
   maxAmountOfDropsNormal: 2
-  minAmountOfDropsLow: 2
-  maxAmountOfDropsLow: 5
+  minAmountOfDropsLow: 1
+  maxAmountOfDropsLow: 3
   minAmountOfPistolAmmoNormal: 1
-  maxAmountOfPistolAmmoNormal: 4
-  minAmountOfShotgunAmmoNormal: 6
-  maxAmountOfShotgunAmmoNormal: 10
+  maxAmountOfPistolAmmoNormal: 2
+  minAmountOfShotgunAmmoNormal: 2
+  maxAmountOfShotgunAmmoNormal: 3
   lowHealth: 40
   lowArmor: 10
   lowPistolAmmo: 10
@@ -537,9 +537,10 @@ MonoBehaviour:
   rayCastdistance: 5
   attackLoc: {fileID: 7328639068715030644}
   enemyController: {fileID: 7328639067869672192}
+  canDetectShooting: 0
   distanceToAttack: 2
-  viewRadius: 11
-  viewAngle: 90
+  viewRadius: 16
+  viewAngle: 300
   targetMask:
     serializedVersion: 2
     m_Bits: 1

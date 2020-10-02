@@ -24,7 +24,7 @@ namespace EightDirectionalSpriteSystem
 
             if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Spider)
             {
-                Debug.Log(enemyAI.actor.name);
+                //Debug.Log(enemyAI.actor.name);
             }
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
 
@@ -33,8 +33,6 @@ namespace EightDirectionalSpriteSystem
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            //Debug.Log("Patrol State On State Update");
-
             if (!enemyController.IsDead())
             {
                 if (Time.time > nextActionTime)
@@ -61,12 +59,12 @@ namespace EightDirectionalSpriteSystem
                 }
                 else enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
 
-                if (Vector3.Distance(NPC.transform.position, GameManager.Instance.playerGo.transform.position) < 5)
-                {
-                    //Debug.Log("Hi");
-                    animator.SetTrigger("Get Hit");
-                    enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
-                }
+                // if (Vector3.Distance(NPC.transform.position, GameManager.Instance.playerGo.transform.position) < 5)
+                // {
+                //     //Debug.Log("Hi");
+                //     animator.SetTrigger("Get Hit");
+                //     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
+                // }
 
                 enemyAI.EnemyRaycast();
                 enemyAI.FindVisibleTargets();

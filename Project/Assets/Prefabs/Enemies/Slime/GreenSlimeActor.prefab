@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328639067869672197}
-  m_LocalRotation: {x: -0, y: -0.813656, z: -0, w: 0.58134675}
+  m_LocalRotation: {x: -0, y: 0.25041497, z: -0, w: 0.96813864}
   m_LocalPosition: {x: 0, y: -0.22500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,8 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6015442052703697710, guid: b9d55e427f1d94f4bb049b729a161506,
-    type: 3}
+  m_Sprite: {fileID: 641312452053770315, guid: b9d55e427f1d94f4bb049b729a161506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 7328639068343049390}
-  currentFrameIndex: 2
+  currentFrameIndex: 1
   enemy: 1
   materials: []
 --- !u!65 &7328639067869672193
@@ -429,12 +428,12 @@ MonoBehaviour:
   - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
   minAmountOfDropsNormal: 0
   maxAmountOfDropsNormal: 1
-  minAmountOfDropsLow: 3
-  maxAmountOfDropsLow: 6
-  minAmountOfPistolAmmoNormal: 3
-  maxAmountOfPistolAmmoNormal: 6
-  minAmountOfShotgunAmmoNormal: 2
-  maxAmountOfShotgunAmmoNormal: 4
+  minAmountOfDropsLow: 2
+  maxAmountOfDropsLow: 4
+  minAmountOfPistolAmmoNormal: 1
+  maxAmountOfPistolAmmoNormal: 3
+  minAmountOfShotgunAmmoNormal: 0
+  maxAmountOfShotgunAmmoNormal: 1
   lowHealth: 40
   lowArmor: 10
   lowPistolAmmo: 10
@@ -454,7 +453,7 @@ GameObject:
   - component: {fileID: 7328639068343049385}
   - component: {fileID: 4461737928191057312}
   m_Layer: 0
-  m_Name: SlimeActor
+  m_Name: GreenSlimeActor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,9 +536,10 @@ MonoBehaviour:
   rayCastdistance: 5
   attackLoc: {fileID: 7328639068715030644}
   enemyController: {fileID: 7328639067869672192}
+  canDetectShooting: 0
   distanceToAttack: 2
-  viewRadius: 11
-  viewAngle: 90
+  viewRadius: 14
+  viewAngle: 180
   targetMask:
     serializedVersion: 2
     m_Bits: 1

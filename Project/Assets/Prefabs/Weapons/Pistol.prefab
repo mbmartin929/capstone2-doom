@@ -277,7 +277,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 84
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -368,10 +368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 35
-  maxCapacity: 90
   curAmmo: 0
   clipAmmo: 9
-  soundRadius: 10
+  soundRadius: 14
   range: 100
   spreadFactor: 0.015
   FOV: 85
@@ -383,6 +382,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7ae0e5abadbba9c46bef293a23ad94b5, type: 3}
   - {fileID: 8300000, guid: d0d8f9d5c6d59c54798982d382dc3af0, type: 3}
   - {fileID: 8300000, guid: 36f78da31761abc40b6360663b23c9dd, type: 3}
+  hitSFX: {fileID: 0}
   sinSpeed: 3
   sinFrequency: 15
   sinMagnitude: 0.5

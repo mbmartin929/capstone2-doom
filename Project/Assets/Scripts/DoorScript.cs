@@ -11,6 +11,11 @@ public class DoorScript : MonoBehaviour
     //public Vector3 newYPos;
     public float ypos;
 
+    void Awake()
+    {
+        //gameObject.isStatic
+    }
+
     // Start is called before the first frame update
     void Start()
     {

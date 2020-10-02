@@ -188,7 +188,7 @@ namespace EightDirectionalSpriteSystem
 
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
             {
-                Debug.Log("Playing Shoot");
+                //Debug.Log("Playing Shoot");
                 return;
             }
 

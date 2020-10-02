@@ -70,18 +70,31 @@ namespace EightDirectionalSpriteSystem
 
         public void TakeDamage(int amount)
         {
+            for (int i = 0; i <= 1; i++)
+            {
+                int id = Random.Range(0, bloodSplatGos.Length);
+            }
+
+            RaycastHit hit;
+            int layerMask = LayerMask.GetMask("Ground");
+            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
+            {
+                //if (hit.collider.CompareTag("Level")) StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
+                //StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
+
+                int randomBloodNumber = Random.Range(1, 5);
+                float randomBloodTimer = Random.Range(0.1f, 0.25f);
+
+                StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
+                //Debug.Log("Blood");
+            }
+
             if (IsDead())
             {
-                // Debug.Log("Enemy CurHealth: " + CurHealth);
-                // Debug.Log("Enemy GibDeath: " + -gibDeath);
-                Debug.Log("Take Damage Die");
-
                 enemySounds.BloodSplatterSound();
 
                 // DECREASES HEALTH
                 CurHealth -= amount;
-
-                //Debug.Log(CurHealth);
 
                 // Gibbed
                 if (CurHealth <= -gibDeath)
@@ -130,25 +143,6 @@ namespace EightDirectionalSpriteSystem
                         currentCoroutine = StartCoroutine(GetHit());
                     }
 
-                    for (int i = 0; i <= 1; i++)
-                    {
-                        int id = Random.Range(0, bloodSplatGos.Length);
-                    }
-
-                    RaycastHit hit;
-                    int layerMask = LayerMask.GetMask("Ground");
-                    if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
-                    {
-                        //if (hit.collider.CompareTag("Level")) StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
-                        //StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
-
-                        int randomBloodNumber = Random.Range(1, 5);
-                        float randomBloodTimer = Random.Range(0.1f, 0.25f);
-
-                        StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
-                        //Debug.Log("Blood");
-                    }
-
                     if (CurHealth <= -gibAlive)
                     {
                         enemySounds.GibExplosionSound();
@@ -168,8 +162,8 @@ namespace EightDirectionalSpriteSystem
 
                     if (IsDead())
                     {
-                        GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
-                        bloodFlowGo.transform.parent = transform;
+                        // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
+                        // bloodFlowGo.transform.parent = transform;
 
                         Destroy(transform.parent.GetChild(2).gameObject);
 

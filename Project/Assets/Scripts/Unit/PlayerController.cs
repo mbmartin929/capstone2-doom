@@ -130,6 +130,12 @@ namespace EightDirectionalSpriteSystem
                 TextManager.Instance.UpdateHealthArmorText();
 
                 StartCoroutine(GetDamaged());
+
+                if (CurHealth <= 0)
+                {
+                    CurHealth = 0;
+                    Debug.Log("Player Dies");
+                }
             }
         }
 

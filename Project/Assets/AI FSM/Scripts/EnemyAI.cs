@@ -14,14 +14,13 @@ namespace EightDirectionalSpriteSystem
         [HideInInspector] public AudioSource audioSource;
         [HideInInspector] public EnemySounds enemySounds;
 
-        public float rayCastdistance;
-
         public Transform attackLoc;
 
         public EnemyController enemyController;
 
         [Header("AI Detection")]
-        private Camera viewCamera;
+        public bool attackPlayerOnStart = false;
+        public float attackPlayerOnStartDelayTime = 2.9f;
         public float distanceToAttack = 16.0f;
 
         public float viewRadius;
@@ -47,12 +46,22 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             //StartCoroutine("FindTargetsWithDelay", .2f);
+
+            if (attackPlayerOnStart)
+            {
+                Invoke("FindPlayer", attackPlayerOnStartDelayTime);
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
 
+        }
+
+        private void FindPlayer()
+        {
+            visibleTargets.Add(GameManager.Instance.playerGo.transform);
         }
 
         public void AgentSetDestinationPatrol()
@@ -131,7 +140,7 @@ namespace EightDirectionalSpriteSystem
         {
             if (visibleTargets.Count != 0)
             {
-                Debug.Log(gameObject.name + " Found Player!");
+                //Debug.Log(gameObject.name + " Found Player!");
                 anim.SetTrigger("Chase");
             }
         }
@@ -196,6 +205,7 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log("ChasePlayer");
             visibleTargets.Add(GameManager.Instance.playerGo.transform);
+            Debug.Log("Chase Player");
         }
 
         public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
@@ -255,7 +265,11 @@ namespace EightDirectionalSpriteSystem
 
             AudioClip patrolSound = enemySounds.idle[rand];
 
-            if (audioSource == null) Destroy(gameObject);
+            if (audioSource == null)
+            {
+                Destroy(gameObject);
+                yield return null;
+            }
 
             audioSource.clip = patrolSound;
             audioSource.Play();

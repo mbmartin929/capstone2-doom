@@ -229,7 +229,7 @@ namespace EightDirectionalSpriteSystem
 
                         if (!GetComponent<EnemyController>().IsDead())
                         {
-                            Debug.Log("Frame: " + currentFrameIndex);
+                            //Debug.Log("Frame: " + currentFrameIndex);
                             //transform.GetComponentInParent<EnemyAI>().AgentSetDestinationPlayer();
 
                             //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.WALKING);
@@ -238,7 +238,7 @@ namespace EightDirectionalSpriteSystem
 
                             if (Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position) <= GetComponentInParent<EnemyAI>().distanceToAttack - 0.5f)
                             {
-                                Debug.Log("Actor Attack");
+                                //Debug.Log("Actor Attack");
                                 GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
                             }
 
