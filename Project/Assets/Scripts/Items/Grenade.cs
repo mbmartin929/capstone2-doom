@@ -7,36 +7,47 @@ public class Grenade : MonoBehaviour
 {
 
     public float radius = 3f;
-    float timer = 2f;
+    public float timer = 2f;
     float grenadeForceExplosion = 500;
     float countdown;
-    int power = 10;
+    public int power = 50;
     bool canFire;
 
     UnitController player;
 
     bool hasExplode;
-    GameObject explotionParticle;
+    public GameObject explosionParticle;
+    public GameObject grenadeCrater;
     // Start is called before the first frame update
     void Start()
     {
         countdown = timer;
 
         UnitController player = GameManager.Instance.playerGo.GetComponent<PlayerController>();
-        //UnitController enemy = 
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+       
+
         countdown -= Time.deltaTime;
         if (countdown <= 0 && !hasExplode)
         {
+            instantiateCrater();
             Explode();
             hasExplode = true;
-  
+     
 
         }
+
+        //raycast this grenade
+
+
     }
 
     void Explode()
@@ -61,14 +72,14 @@ public class Grenade : MonoBehaviour
                         }
                         if (hit.collider.tag == "Enemy")
                         {
-                            EnemyController enemy = hit.transform.GetComponent<EnemyController>();                            
+                            EnemyController enemy = hit.transform.GetComponent<EnemyController>();
                             enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
 
                             Debug.Log(enemy.CurrentHealth);
                             hit.rigidbody.AddExplosionForce(0, transform.position, radius);
                             enemy.TakeDamage(power);
                             Debug.Log("HERE" + hit.transform.name);
-                           
+
                             Debug.Log(power);
                             Debug.Log(enemy.CurrentHealth);
 
@@ -80,8 +91,13 @@ public class Grenade : MonoBehaviour
                         }
                     }
                 }
+                GameObject grenadeVfx = Instantiate(explosionParticle, this.transform.position, Quaternion.identity);
+                //GameObject grenadeCrate = Instantiate(grenadeCrater, this.transform.position, Quaternion.identity);
+
+
+
                 Destroy(gameObject);
-           
+
             }
         }
         //Destroy(gameObject);
@@ -89,29 +105,43 @@ public class Grenade : MonoBehaviour
     }
 
 
-
-    //void explode()
-    //{
-    //    Debug.Log("KABOOM!");
-    //    hasExplode = true;
-
-    //    //instantiate explotion anim
-
-    //    Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-
-    //    foreach(Collider nearbyObject in colliders)
-    //    {
-    //        Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-    //        if(rb != null)
-    //        {
-    //            rb.AddExplosionForce(grenadeForceExplosion, transform.position, radius);
-    //        }
-
-    //        //damage enemy
-    //    }
-    //    Destroy(gameObject);
-
-    //}
-
-
+    public void instantiateCrater()
+    {
+        Vector3 currentPos = this.transform.position;
+        RaycastHit hit;
+ 
+        if (Physics.Raycast(currentPos,Vector3.down,out hit))
+        {
+            GameObject grenadeCrate = Instantiate(grenadeCrater,hit.point, Quaternion.identity);
+            grenadeCrate.transform.rotation = Quaternion.LookRotation(transform.up, hit.normal) * grenadeCrate.transform.rotation;         
+        }
+    }
 }
+
+
+
+
+//void explode()
+//{
+//    Debug.Log("KABOOM!");
+//    hasExplode = true;
+
+//    //instantiate explotion anim
+
+//    Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+//    foreach(Collider nearbyObject in colliders)
+//    {
+//        Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+//        if(rb != null)
+//        {
+//            rb.AddExplosionForce(grenadeForceExplosion, transform.position, radius);
+//        }
+
+//        //damage enemy
+//    }
+//    Destroy(gameObject);
+
+//}
+
+
