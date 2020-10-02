@@ -825,18 +825,13 @@ public class FirstPersonAIO : MonoBehaviour
         }
     }
 
-
-
     float SlopeCheck()
     {
-
         advanced.lastKnownSlopeAngle = Mathf.MoveTowards(advanced.lastKnownSlopeAngle, Vector3.Angle(advanced.curntGroundNormal, Vector3.up), 5f);
 
         return new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(advanced.maxSlopeAngle + 15, 0f), new Keyframe(advanced.maxWallShear, 0.0f), new Keyframe(advanced.maxWallShear + 0.1f, 1.0f), new Keyframe(90, 1.0f)) { preWrapMode = WrapMode.Clamp, postWrapMode = WrapMode.ClampForever }.Evaluate(advanced.lastKnownSlopeAngle);
 
     }
-
-
 
     private void OnCollisionEnter(Collision CollisionData)
     {

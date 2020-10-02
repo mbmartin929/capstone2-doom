@@ -19,10 +19,16 @@ public class DialogueAssistant : MonoBehaviour
     public AudioClip[] audioClips;
     private AudioSource audioSource;
 
+    [SerializeField] private int lowHealthTutorial;
+    [SerializeField] private int lowArmorTutorial;
+    [SerializeField] private int breakWallsTutorial;
+
     void Awake()
     {
         Instance = this;
         audioSource = GetComponent<AudioSource>();
+
+        if (Instance == this) Debug.Log("DialogueAssistant Singleton Initialized");
 
         //messageText = transform.Find("message").Find("messageText").GetComponent<TextMeshPro>();
     }
@@ -32,7 +38,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         dialogueAnim.gameObject.SetActive(false);
 
-        StartCoroutine(AnotherIntroDialogue());
+        //StartCoroutine(AnotherIntroDialogue());
     }
 
     public void PlaySound(int index)
@@ -113,7 +119,9 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(2.18f);
 
         textWriter.AddWriter("You found the KEY!", defaultTypeTime + 0.042f, true);
-        yield return new WaitForSeconds(3.69f);
+        yield return new WaitForSeconds(2.9f);
+        textWriter.AddWriter("Now get to the EXIT!", defaultTypeTime + 0.042f, true);
+        yield return new WaitForSeconds(2.9f);
 
         StartCoroutine(EndTransition());
     }
