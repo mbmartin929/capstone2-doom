@@ -1,158 +1,186 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EightDirectionalSpriteSystem;
 
-namespace EightDirectionalSpriteSystem
+public class PlayerController : UnitController
 {
-    public class PlayerController : UnitController
+    public bool isDamaged;
+    public bool damaged;
+
+    public int currentHealth;
+    public int currentArmor;
+
+    public Transform weapons;
+
+    public int rayCastLength;
+
+    public int keyAmount = 0;
+
+    [Header("Door function")]
+    bool guiShow = false;
+    bool isOpen = false;
+
+    public int currentGold;
+
+
+    //[Header("Player Attributes")]
+    //public List<PlayerAttributes> Attributes = new List<PlayerAttributes>();
+
+    //[Header("Player Skills Enabled")]
+    //public List<Perk> playerSkills = new List<Perk>();
+    // Start is called before the first frame update
+
+    [SerializeField]
+    private BloodOverlay bloodOverlay;
+    [SerializeField]
+    private BloodOverlay passiveBloodOverlay;
+
+    void Start()
     {
-        public bool isDamaged;
-        public bool damaged;
+        CurHealth = maxHealth;
+        //Debug.Log(CurHealth);
 
-        public int currentHealth;
-        public int currentArmor;
+        CurArmor = maxArmor;
+        CurGold = currentGold;
 
-        public Transform weapons;
+        TextManager.Instance.UpdateHealthArmorText();
+    }
 
-        public int rayCastLength;
+    // Update is called once per frame
+    void Update()
+    {
+        currentHealth = CurHealth;
+        currentArmor = CurArmor;
 
-        [Header("Door function")]
-        bool guiShow = false;
-        bool isOpen = false;
+        currentGold = CurGold;
+        playerRayCast();
+    }
 
-        public int currentGold;
+    public void RecoverHealth(int amount)
+    {
+        CurHealth += amount;
+        StartCoroutine(passiveBloodOverlay.PassiveFadeOut());
+    }
 
+    public void RecoverArmor(int amount)
+    {
+        //Debug.Log("Amount: " + amount);
+        //Debug.Log("Before: " + CurArmor);
+        CurArmor += amount;
+        //Debug.Log("After: " + CurArmor);
+    }
 
-        //[Header("Player Attributes")]
-        //public List<PlayerAttributes> Attributes = new List<PlayerAttributes>();
-
-        //[Header("Player Skills Enabled")]
-        //public List<Perk> playerSkills = new List<Perk>();
-        // Start is called before the first frame update
-
-        [SerializeField]
-        private BloodOverlay bloodOverlay;
-        [SerializeField]
-        private BloodOverlay passiveBloodOverlay;
-
-        void Start()
+    private void playerRayCast()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out hit, rayCastLength))
         {
-            CurHealth = maxHealth;
-            //Debug.Log(CurHealth);
-
-            CurArmor = maxArmor;
-            CurGold = currentGold;
-
-            TextManager.Instance.UpdateHealthArmorText();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            currentHealth = CurHealth;
-            currentArmor = CurArmor;
-
-            currentGold = CurGold;
-            playerRayCast();
-        }
-
-        public void RecoverHealth(int amount)
-        {
-            CurHealth += amount;
-            StartCoroutine(passiveBloodOverlay.PassiveFadeOut());
-        }
-
-        public void RecoverArmor(int amount)
-        {
-            //Debug.Log("Amount: " + amount);
-            //Debug.Log("Before: " + CurArmor);
-            CurArmor += amount;
-            //Debug.Log("After: " + CurArmor);
-        }
-
-        private void playerRayCast()
-        {
-            RaycastHit hit;
-            Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out hit, rayCastLength))
+            //Debug.Log(hit.transform.name);
+            if (hit.collider.gameObject.tag == "Door")
             {
-                Debug.Log(hit.transform.name);
-                if (hit.collider.gameObject.tag == "Door")
+                DoorScript door = hit.collider.GetComponent<DoorScript>();
+
+                //guiShow = true;
+                // if (Input.GetKeyDown("e") && isOpen == false)
+                // {
+                //     door.ChangeDoorState(true);
+                // }
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    guiShow = true;
-                    if (Input.GetKeyDown("e") && isOpen == false)
+                    if (door.doorType == DoorScript.DoorType.ExitDoor)
                     {
-                        hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState(true);
+                        if (door.keyRequirement <= keyAmount)
+                        {
+                            Debug.Log("Exit Door");
+
+                        }
+                        else
+                        {
+                            StartCoroutine(DialogueAssistant.Instance.NeedKey());
+                            Debug.Log("Need Exit Key");
+                        }
                     }
                 }
+                //else Debug.Log(door.doorType);
+            }
+            // else if (hit.collider.gameObject.tag == "Special Door")
+            // {
+            //     //guiShow = true;
+            //     if (Input.GetKeyDown("e") && isOpen == false)
+            //     {
+            //         hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState(true);
+            //     }
+            // }
+        }
+        else
+        {
+            guiShow = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy Attack"))
+        {
+            GetDamaged();
+        }
+    }
+    public void GetPerk(int amount)
+    {
+        CurGold -= amount;
+    }
+    public void TakeDamage(int amount)
+    {
+        if (damaged)
+        {
+            Debug.Log("Recently taken damage. Negating Damage");
+        }
+        else
+        {
+            bloodOverlay.ChangeActiveBloodOverlayOpacity();
+            passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
+
+            if (CurArmor > 0)
+            {
+                //Debug.Log("Armor Damage");
+                CurArmor -= amount;
+                //if (CurArmor <= -1) CurArmor = 0;
             }
             else
             {
-                guiShow = false;
+                //Debug.Log("Health Damage");
+                CurHealth -= amount;
+                //if (CurHealth <= 0) CurHealth = 0;
             }
-        }
 
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Enemy Attack"))
+            TextManager.Instance.UpdateHealthArmorText();
+
+            StartCoroutine(GetDamaged());
+
+            if (CurHealth <= 0)
             {
-                GetDamaged();
+                CurHealth = 0;
+                Debug.Log("Player Dies");
+                StartCoroutine(GameManager.Instance.RestartCurrentScene());
             }
         }
-        public void GetPerk(int amount)
+    }
+
+    private IEnumerator GetDamaged()
+    {
+        damaged = true;
+        yield return new WaitForSeconds(0.15f);
+        damaged = false;
+    }
+
+    void OnGUI()
+    {
+        //DOOR
+        if (guiShow == true && isOpen == false)
         {
-            CurGold -= amount;
-        }
-        public void TakeDamage(int amount)
-        {
-            if (damaged)
-            {
-                Debug.Log("Recently taken damage. Negating Damage");
-            }
-            else
-            {
-                bloodOverlay.ChangeActiveBloodOverlayOpacity();
-                passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
-
-                if (CurArmor > 0)
-                {
-                    //Debug.Log("Armor Damage");
-                    CurArmor -= amount;
-                    //if (CurArmor <= -1) CurArmor = 0;
-                }
-                else
-                {
-                    //Debug.Log("Health Damage");
-                    CurHealth -= amount;
-                    //if (CurHealth <= 0) CurHealth = 0;
-                }
-
-                TextManager.Instance.UpdateHealthArmorText();
-
-                StartCoroutine(GetDamaged());
-
-                if (CurHealth <= 0)
-                {
-                    CurHealth = 0;
-                    Debug.Log("Player Dies");
-                }
-            }
-        }
-
-        private IEnumerator GetDamaged()
-        {
-            damaged = true;
-            yield return new WaitForSeconds(0.15f);
-            damaged = false;
-        }
-
-        void OnGUI()
-        {
-            //DOOR
-            if (guiShow == true && isOpen == false)
-            {
-                GUI.Box(new Rect(Screen.width / 3, Screen.height / 3, 150, 50), "PRESS " + "E" + " Open Door");
-            }
+            GUI.Box(new Rect(Screen.width / 3, Screen.height / 3, 150, 50), "PRESS " + "E" + " Open Door");
         }
     }
 }

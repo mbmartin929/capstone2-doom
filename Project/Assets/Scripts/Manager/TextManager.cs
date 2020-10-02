@@ -49,9 +49,6 @@ namespace EightDirectionalSpriteSystem
             FindActiveWeapon();
             if (currentWeapon != null)
             {
-                //curAmmoText.text = currentWeapon.GetComponent<WeaponController>().CurAmmo.ToString();
-                //maxAmmoText.text = currentWeapon.GetComponent<WeaponController>().maxAmmo.ToString();
-
                 //Debug.Log("Weapon Name: " + currentWeapon.name);
 
                 if (currentWeapon.name == "Pistol")
@@ -69,8 +66,6 @@ namespace EightDirectionalSpriteSystem
                     curAmmoText.text = "0";
                     maxAmmoText.text = "0";
                 }
-
-                //Debug.Log("Update Ammo Text");
             }
             else
             {
@@ -79,15 +74,10 @@ namespace EightDirectionalSpriteSystem
 
                 Debug.Log("No Active Weapons");
             }
-
-
         }
 
         public void UpdateHealthArmorText()
         {
-            // healthText.text = playerController.CurHealth.ToString() + "%";
-            // armorText.text = playerController.CurArmor.ToString() + "%";
-
             healthText.text = playerController.CurHealth.ToString();
             armorText.text = playerController.CurArmor.ToString();
         }

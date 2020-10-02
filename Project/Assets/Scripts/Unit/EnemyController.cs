@@ -204,7 +204,7 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log(transform.parent);
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
-            transform.parent.parent = GameManager.Instance.DeadEnemies.transform;
+            transform.parent.parent = GameManager.Instance.deadEnemies.transform;
         }
 
         private IEnumerator GetHit()

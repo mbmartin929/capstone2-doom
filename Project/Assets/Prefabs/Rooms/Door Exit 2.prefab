@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 989130126567328078}
   - component: {fileID: 989130126567328073}
   - component: {fileID: 989130126567328072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door Exit 2
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &989130126567328076
 Transform:
@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989130126567328075}
-  m_LocalRotation: {x: 0.1659035, y: 0.1789882, z: 0.66836405, w: 0.70265836}
+  m_LocalRotation: {x: 0.16590743, y: 0.17899056, z: 0.6683623, w: 0.7026585}
   m_LocalPosition: {x: -109.37852, y: -12.179953, z: -90.70756}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9278834, y: 0.85046005, z: 0.91500974}
   m_Children:
   - {fileID: 989130128166950396}
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   - {fileID: 2100000, guid: 036273ba1b0c0de4ba947eeefc66ddbf, type: 2}
-  - {fileID: 2100000, guid: 42ae2204664ceee49ab8298858897ecb, type: 2}
+  - {fileID: 2100000, guid: 8e0384073c4ec11449ee647449ea902e, type: 2}
   - {fileID: 2100000, guid: 93ec265d1af8f5d439e50317e448ba1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1022,12 +1022,12 @@ GameObject:
   - component: {fileID: 989130128166950398}
   - component: {fileID: 989130128166950393}
   - component: {fileID: 989130128166950392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &989130128166950396
 Transform:

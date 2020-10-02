@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EightDirectionalSpriteSystem;
 
 public class DoorScript : MonoBehaviour
 {
+    public enum DoorType
+    {
+        NormalDoor, SpecialDoor, ExitDoor
+    }
+    public DoorType doorType = DoorType.NormalDoor;
 
     public float speedOfDoor = 0.2f;
+
+    public int keyRequirement = 0;
+
     private bool isOpen = false;
 
     //public Vector3 newYPos;
@@ -33,8 +42,24 @@ public class DoorScript : MonoBehaviour
         Vector3 newYPos = new Vector3(transform.position.x, ypos, transform.position.z);
         if (isOpen)
         {
-            transform.position = Vector3.MoveTowards(transform.position, newYPos, move);
+            if (doorType == DoorType.NormalDoor) transform.position = Vector3.MoveTowards(transform.position, newYPos, move);
+            // else if (doorType == DoorType.SpecialDoor)
+            // {
+
+            // }
+            // else if (doorType == DoorType.ExitDoor)
+            // {
+            //     if (GameManager.Instance.playerGo.GetComponent<PlayerController>().keyAmount >= keyRequirement)
+            //     {
+            //         Debug.Log("Exit Door");
+            //     }
+            //     else Debug.Log("Need key");
+            // }
         }
     }
 
+    public void OpenExitDoor()
+    {
+
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int frameRate = 200;
     public GameObject playerGo;
 
+    public int deadEnemiesNumber;
     #endregion 
 
     #region  Options
@@ -21,7 +23,11 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public GameObject DeadEnemies;
+    public GameObject deadEnemies;
+
+
+    public float restartSceneTime = 2.9f;
+    private Scene currentScene;
 
     private void Awake()
     {
@@ -35,17 +41,31 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = frameRate;
 
         if (Instance == this) Debug.Log("GameManager Singleton Initialized");
+
+        currentScene = SceneManager.GetActiveScene();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
 
+        }
     }
+
+    public IEnumerator RestartCurrentScene()
+    {
+        yield return new WaitForSeconds(restartSceneTime);
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    public void CountDeadEnemies()
+    {
+        foreach (Transform child in deadEnemies.transform)
+        {
+            deadEnemiesNumber++;
+        }
+    }
+
+
 }

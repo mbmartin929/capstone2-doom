@@ -10,6 +10,7 @@ public class PickUpOverlayManager : MonoBehaviour
     public GameObject armorPickUpOverlay;
     public GameObject healthPickUpOverlay;
     public GameObject ammoPickUpOverlay;
+    public GameObject keyickUpOverlay;
 
     void Awake()
     {
@@ -44,5 +45,10 @@ public class PickUpOverlayManager : MonoBehaviour
     public void AmmoOverlay()
     {
         ammoPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
+    }
+
+    public void KeyOverlay()
+    {
+        keyickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
     }
 }

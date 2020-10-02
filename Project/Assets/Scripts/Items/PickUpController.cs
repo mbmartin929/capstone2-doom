@@ -13,23 +13,16 @@ namespace EightDirectionalSpriteSystem
         protected PlayerController playerController;
         protected AudioSource audioSource;
 
-        public enum AmmoType
-        {
-            Pistol, Shotgun
-        }
-        public AmmoType ammoType;
-
         public string itemName;
         public int recoverAmount;
-        public GameObject weapon;
 
         private void Start()
         {
             playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
-            overlayImage.SetEnabled(false);
+            //overlayImage.SetEnabled(false);
         }
 
-        protected void PickUp(Collider other)
+        protected void HealthArmorPickUp(Collider other)
         {
             if (other.gameObject.tag == "Player")
             {

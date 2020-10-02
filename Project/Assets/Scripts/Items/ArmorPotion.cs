@@ -20,7 +20,7 @@ namespace EightDirectionalSpriteSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            PickUp(other);
+            HealthArmorPickUp(other);
         }
     }
 }
