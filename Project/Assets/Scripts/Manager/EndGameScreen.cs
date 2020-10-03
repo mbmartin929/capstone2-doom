@@ -11,6 +11,8 @@ public class EndGameScreen : MonoBehaviour
     {
         // Sets Singleton
         Instance = this;
+
+        if (Instance == this) Debug.Log("EndGameScreen Singleton Initialized");
     }
 
     public void StartEndGameScreen()

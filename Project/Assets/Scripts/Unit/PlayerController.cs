@@ -17,6 +17,8 @@ public class PlayerController : UnitController
 
     public int keyAmount = 0;
 
+    public GameObject gameOverScreen;
+
     [Header("Door function")]
     bool guiShow = false;
     bool isOpen = false;
@@ -163,7 +165,16 @@ public class PlayerController : UnitController
             {
                 CurHealth = 0;
                 Debug.Log("Player Dies");
-                StartCoroutine(GameManager.Instance.RestartCurrentScene());
+                gameOverScreen.SetActive(true);
+
+                gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+                GetComponent<FirstPersonAIO>().ControllerPause();
+                Time.timeScale = 0;
+
+
+                //StartCoroutine(GameManager.Instance.RestartCurrentScene());
             }
         }
     }
