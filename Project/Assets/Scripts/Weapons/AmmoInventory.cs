@@ -33,7 +33,7 @@ namespace EightDirectionalSpriteSystem
 
         public void PickUpShotgunAmmo(int amount, Transform currentWeapon)
         {
-            WeaponController weapon = currentWeapon.GetComponent<WeaponController>();
+            //WeaponController weapon = currentWeapon.GetComponent<WeaponController>();
             curShotgunAmmo += amount;
             if (curShotgunAmmo >= maxShotgunCapacity) curShotgunAmmo = maxShotgunCapacity;
 

@@ -114,6 +114,15 @@ namespace EightDirectionalSpriteSystem
                     Destroy(gameObject, 5.0f);
 
                     Debug.Log("Dead Gib!");
+
+                    for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
+                    {
+                        if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
+                        {
+                            ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
+                            return;
+                        }
+                    }
                 }
             }
             else if (!IsDead())
@@ -158,6 +167,15 @@ namespace EightDirectionalSpriteSystem
                         Destroy(gameObject, 5.0f);
 
                         Debug.Log("Gib!");
+
+                        for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
+                        {
+                            if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
+                            {
+                                ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
+                                return;
+                            }
+                        }
                     }
 
                     if (IsDead())

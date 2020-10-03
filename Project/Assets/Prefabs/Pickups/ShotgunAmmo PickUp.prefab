@@ -111,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0837038, y: 1.5586549, z: 0.05493717}
-  m_Center: {x: 0.019369263, y: 0.011513199, z: -0.0025348386}
+  m_Size: {x: 3.0773494, y: 1.967104, z: 0.54631996}
+  m_Center: {x: 0.052811444, y: -0.010574728, z: 0.018172333}
 --- !u!114 &443821335447720307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,9 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 8300000, guid: 75338d9d0ce415443a83cdc66a7d7b80, type: 3}
-  ammoType: 1
-  itemName: Shotgun
+  itemName: Ammo
   recoverAmount: 8
+  ammoType: 1
   weapon: {fileID: 7648730109480126502, guid: 0dd233844e4d1554ea6bd50ea9a840dc, type: 3}
 --- !u!95 &3069875427656575602
 Animator:

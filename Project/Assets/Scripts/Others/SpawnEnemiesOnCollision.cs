@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SpawnEnemiesOnCollision : MonoBehaviour
 {
-    public bool isEnabled = false;
-
     public GameObject[] enemies;
 
     // Start is called before the first frame update

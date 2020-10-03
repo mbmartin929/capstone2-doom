@@ -28,7 +28,7 @@ namespace EightDirectionalSpriteSystem
         public float viewAngle;
         public LayerMask targetMask;
         public LayerMask obstacleMask;
-        public List<Transform> visibleTargets = new List<Transform>();
+        public List<Transform> visibleTargets;
         private NavMeshAgent agent;
 
 
@@ -40,6 +40,8 @@ namespace EightDirectionalSpriteSystem
             agent = GetComponent<NavMeshAgent>();
             enemySounds = transform.GetChild(0).GetComponent<EnemySounds>();
             audioSource = transform.GetChild(0).GetComponent<AudioSource>();
+
+            visibleTargets.Clear();
         }
 
         // Start is called before the first frame update
@@ -145,14 +147,14 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
-        IEnumerator FindTargetsWithDelay(float delay)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(delay);
-                FindVisibleTargets();
-            }
-        }
+        // IEnumerator FindTargetsWithDelay(float delay)
+        // {
+        //     while (true)
+        //     {
+        //         yield return new WaitForSeconds(delay);
+        //         FindVisibleTargets();
+        //     }
+        // }
 
         public void FindVisibleTargets()
         {

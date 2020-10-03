@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423949438595970571}
-  m_LocalRotation: {x: -0, y: 0.23051894, z: -0, w: 0.9730679}
+  m_LocalRotation: {x: 0, y: 0.9217694, z: -0, w: -0.38773867}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4513391758143368872, guid: 8a91293b6cd4e3846800940168b51bac,
+  m_Sprite: {fileID: 1065904029742435345, guid: 8a91293b6cd4e3846800940168b51bac,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -432,16 +432,16 @@ MonoBehaviour:
   - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
   minAmountOfDropsNormal: 0
   maxAmountOfDropsNormal: 1
-  minAmountOfDropsLow: 3
-  maxAmountOfDropsLow: 6
-  minAmountOfPistolAmmoNormal: 3
-  maxAmountOfPistolAmmoNormal: 6
-  minAmountOfShotgunAmmoNormal: 2
-  maxAmountOfShotgunAmmoNormal: 4
-  lowHealth: 40
+  minAmountOfDropsLow: 1
+  maxAmountOfDropsLow: 2
+  minAmountOfPistolAmmoNormal: 0
+  maxAmountOfPistolAmmoNormal: 5
+  minAmountOfShotgunAmmoNormal: 0
+  maxAmountOfShotgunAmmoNormal: 3
+  lowHealth: 25
   lowArmor: 10
   lowPistolAmmo: 10
-  lowShotgunAmmo: 9
+  lowShotgunAmmo: 3
 --- !u!1 &6423949438891449723
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,15 +568,16 @@ MonoBehaviour:
   billboard: {fileID: 0}
   audioSource: {fileID: 0}
   enemySounds: {fileID: 0}
-  rayCastdistance: 10
   attackLoc: {fileID: 6423949438891449722}
   enemyController: {fileID: 6423949438595970574}
+  attackPlayerOnStart: 0
+  attackPlayerOnStartDelayTime: 2.9
   distanceToAttack: 16
   viewRadius: 21
   viewAngle: 300
   targetMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256

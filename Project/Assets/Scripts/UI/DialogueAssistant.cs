@@ -19,9 +19,11 @@ public class DialogueAssistant : MonoBehaviour
     public AudioClip[] audioClips;
     private AudioSource audioSource;
 
-    [SerializeField] private int lowHealthTutorial;
-    [SerializeField] private int lowArmorTutorial;
-    [SerializeField] private int breakWallsTutorial;
+    [SerializeField] private int lowHealthTutorial = 0;
+    [SerializeField] private int lowArmorTutorial = 0;
+    [SerializeField] private int breakWallsTutorial = 0;
+    [SerializeField] private int switchPistolTutorial = 0;
+    [SerializeField] private int switchShotgunTutorial = 0;
 
     void Awake()
     {
@@ -38,7 +40,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         dialogueAnim.gameObject.SetActive(false);
 
-        //StartCoroutine(AnotherIntroDialogue());
+        StartCoroutine(AnotherIntroDialogue());
     }
 
     public void PlaySound(int index)
@@ -55,16 +57,18 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator AnotherIntroDialogue()
     {
-        yield return new WaitForSeconds(1.29f);
+        yield return new WaitForSeconds(6.0f);
         StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("Soldier! You are deep in enemy territory.", defaultTypeTime + 0.01f, true);
-        yield return new WaitForSeconds(4.8f);
+        yield return new WaitForSeconds(4.75f);
         textWriter.AddWriter("You have one objective when you encounter monsters.", defaultTypeTime + 0.01f, true);
-        yield return new WaitForSeconds(4.7f);
-        textWriter.AddWriter("KILL", defaultTypeTime + 0.21f, true);
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(4.42f);
+        textWriter.AddWriter("KILL.", defaultTypeTime + 0.21f, true);
+        yield return new WaitForSeconds(3.42f);
+
+        BGM.Instance.StartBGM();
 
         StartCoroutine(EndTransition());
     }
@@ -73,7 +77,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         yield return new WaitForSeconds(2.9f);
         StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("Soldier! You are deep in enemy territory", defaultTypeTime, true);
         yield return new WaitForSeconds(4.9f);
@@ -87,23 +91,106 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator SwitchPistol()
     {
-        StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        if (switchPistolTutorial == 0)
+        {
+            StartTransition();
+            yield return new WaitForSeconds(2.0f);
 
-        textWriter.AddWriter("Soldier!", defaultTypeTime, true);
-        yield return new WaitForSeconds(1.42f);
-        textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
-        yield return new WaitForSeconds(3.69f);
-        textWriter.AddWriter("Switch to your PISTOL!", defaultTypeTime, true);
-        yield return new WaitForSeconds(4.0f);
+            textWriter.AddWriter("Soldier!", defaultTypeTime, true);
+            yield return new WaitForSeconds(1.42f);
+            textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
+            yield return new WaitForSeconds(3.69f);
+            textWriter.AddWriter("Switch to your PISTOL!", defaultTypeTime, true);
+            yield return new WaitForSeconds(4.0f);
+
+            switchPistolTutorial++;
+
+            StartCoroutine(EndTransition());
+
+            StartCoroutine(Surrounded1());
+        }
+    }
+
+    public IEnumerator SwitchShotgun()
+    {
+        if (switchShotgunTutorial == 0)
+        {
+            StartTransition();
+            yield return new WaitForSeconds(2.0f);
+
+            textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
+            yield return new WaitForSeconds(3.09f);
+            textWriter.AddWriter("Switch to your SHOTGUN!", defaultTypeTime, true);
+            yield return new WaitForSeconds(0.29f);
+            textWriter.AddWriter("", defaultTypeTime, true);
+            yield return new WaitForSeconds(0.69f);
+
+            textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
+            yield return new WaitForSeconds(2.29f);
+            textWriter.AddWriter("Make'em eat lead!", defaultTypeTime + 0.00f, true);
+
+            yield return new WaitForSeconds(3.29f);
+
+            switchShotgunTutorial++;
+
+            StartCoroutine(EndTransition());
+
+            //StartCoroutine(Surrounded2());
+        }
+    }
+
+    public IEnumerator Surrounded1()
+    {
+        yield return new WaitForSeconds(4.2f);
+
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("You are SURROUNDED", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("SHOOT!", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("KILL", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("MASSACRE", defaultTypeTime + 0.00f, true);
+
+        yield return new WaitForSeconds(2.9f);
 
         StartCoroutine(EndTransition());
     }
 
+    public IEnumerator Surrounded2()
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(2.42f);
+        textWriter.AddWriter("Make'em eat lead!", defaultTypeTime + 0.00f, true);
+
+        yield return new WaitForSeconds(2.9f);
+
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator FinishArena()
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("Good job Soldier!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter("You got them all!", defaultTypeTime + 0.069f, true);
+        yield return new WaitForSeconds(2.9f);
+
+        StartCoroutine(EndTransition());
+    }
+
+
     public IEnumerator NeedKey()
     {
         StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("You need a KEY before continuing", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.42f);
@@ -116,7 +203,7 @@ public class DialogueAssistant : MonoBehaviour
     public IEnumerator FoundKey()
     {
         StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("You found the KEY!", defaultTypeTime + 0.042f, true);
         yield return new WaitForSeconds(2.9f);
@@ -129,7 +216,7 @@ public class DialogueAssistant : MonoBehaviour
     public IEnumerator KillDialogue1()
     {
         StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("YEAH! That's it!", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.29f);
@@ -142,9 +229,49 @@ public class DialogueAssistant : MonoBehaviour
     public IEnumerator KillDialogue2()
     {
         StartTransition();
-        yield return new WaitForSeconds(2.18f);
+        yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("Shoot to KILL!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(4.2f);
+
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator Dialogue1(string sentence1, float additionalTime)
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
+
+        yield return new WaitForSeconds(4.2f);
+
+        StartCoroutine(EndTransition());
+    }
+    public IEnumerator Dialogue2(string sentence1, string sentence2, float additionalTime)
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
+
+        yield return new WaitForSeconds(4.2f);
+
+        StartCoroutine(EndTransition());
+    }
+    public IEnumerator Dialogue3(string sentence1, string sentence2, string sentence3, float additionalTime)
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
+
         yield return new WaitForSeconds(4.2f);
 
         StartCoroutine(EndTransition());
@@ -169,7 +296,7 @@ public class DialogueAssistant : MonoBehaviour
         dialogueAnim.SetTrigger("Exit");
         yield return new WaitForSeconds(0.8f);
         PlaySound(1);
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.8f);
         dialogueAnim.gameObject.SetActive(false);
     }
 }

@@ -60,6 +60,7 @@ namespace EightDirectionalSpriteSystem
             yield return new WaitForSeconds(time);
             exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
 
+            DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FinishArena());
         }
     }
 }

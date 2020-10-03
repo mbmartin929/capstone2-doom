@@ -5,6 +5,9 @@ using EightDirectionalSpriteSystem;
 
 public class PlayerController : UnitController
 {
+    public int startingHealth = 50;
+    public int startingArmor = 10;
+
     public bool isDamaged;
     public bool damaged;
 
@@ -40,10 +43,9 @@ public class PlayerController : UnitController
 
     void Start()
     {
-        CurHealth = maxHealth;
-        //Debug.Log(CurHealth);
+        CurHealth = startingHealth;
+        CurArmor = startingArmor;
 
-        CurArmor = maxArmor;
         CurGold = currentGold;
 
         TextManager.Instance.UpdateHealthArmorText();

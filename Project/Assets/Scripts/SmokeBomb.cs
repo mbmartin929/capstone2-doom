@@ -84,7 +84,7 @@ namespace EightDirectionalSpriteSystem
 
             if (chasePlayerOnSpawn)
             {
-                enemyGo.GetComponent<EnemyAI>().ChasePlayer();
+                _enemyGo.GetComponent<EnemyAI>().ChasePlayer();
             }
 
         }

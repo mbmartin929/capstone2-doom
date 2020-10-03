@@ -43,6 +43,8 @@ public class AmmoPickUp : PickUpController
                 {
                     pistol.SetActive(false);
                 }
+
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchPistol());
             }
             // Player has this weapon already. Will add ammo instead
             else
@@ -62,6 +64,8 @@ public class AmmoPickUp : PickUpController
                 {
                     shotgun.SetActive(false);
                 }
+
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
             }
             else
             {

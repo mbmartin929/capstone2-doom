@@ -53,7 +53,7 @@ namespace EightDirectionalSpriteSystem
                 Debug.Log("Pressed 2 Switch Weapon");
                 selectedWeapon = 1;
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 Debug.Log("Pressed 3 Switch Weapon");
                 selectedWeapon = 2;
