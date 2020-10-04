@@ -48,8 +48,13 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
+            Debug.Log("Parent: " + transform.parent);
+            //Debug.Log("Parent Parent: " + transform.parent.parent);
+
             // Debug options
             //maxHealth -= 20;
+
+            EndGameScreen.Instance.totalEnemies++;
 
             CurHealth = maxHealth;
         }
@@ -79,14 +84,10 @@ namespace EightDirectionalSpriteSystem
             int layerMask = LayerMask.GetMask("Ground");
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
             {
-                //if (hit.collider.CompareTag("Level")) StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
-                //StartCoroutine(GetComponent<DecalPainter>().PaintDecal(hit, 1f, 0.35f));
-
                 int randomBloodNumber = Random.Range(1, 5);
                 float randomBloodTimer = Random.Range(0.1f, 0.25f);
 
                 StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
-                //Debug.Log("Blood");
             }
 
             if (IsDead())
@@ -100,6 +101,7 @@ namespace EightDirectionalSpriteSystem
                 if (CurHealth <= -gibDeath)
                 {
                     enemySounds.GibExplosionSound();
+                    EndGameScreen.Instance.enemiesGibbed++;
 
                     //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                     gameObject.SetActive(false);
@@ -112,17 +114,19 @@ namespace EightDirectionalSpriteSystem
                     GetComponent<EnemyDrops>().Drop();
 
                     Destroy(gameObject, 5.0f);
+                    //transform.parent = GameManager.Instance.deadEnemies.transform;
+                    transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
                     Debug.Log("Dead Gib!");
 
-                    for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
-                    {
-                        if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
-                        {
-                            ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
-                            return;
-                        }
-                    }
+                    // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
+                    // {
+                    //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
+                    //     {
+                    //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    //         return;
+                    //     }
+                    // }
                 }
             }
             else if (!IsDead())
@@ -155,27 +159,31 @@ namespace EightDirectionalSpriteSystem
                     if (CurHealth <= -gibAlive)
                     {
                         enemySounds.GibExplosionSound();
+                        EndGameScreen.Instance.enemiesGibbed++;
 
                         //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
-                        gameObject.SetActive(false);
+                        //gameObject.SetActive(false);
+                        //transform.parent = GameManager.Instance.deadEnemies.transform;
+                        transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
                         for (int i = 0; i < gibsAmount; i++)
                         {
                             GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
                         }
 
-                        Destroy(gameObject, 5.0f);
+
+                        //Destroy(gameObject, 5.0f);
 
                         Debug.Log("Gib!");
 
-                        for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
-                        {
-                            if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
-                            {
-                                ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
-                                return;
-                            }
-                        }
+                        // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
+                        // {
+                        //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
+                        //     {
+                        //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
+                        //         return;
+                        //     }
+                        // }
                     }
 
                     if (IsDead())
@@ -184,9 +192,6 @@ namespace EightDirectionalSpriteSystem
                         // bloodFlowGo.transform.parent = transform;
 
                         Destroy(transform.parent.GetChild(2).gameObject);
-
-                        //Debug.Log("Dead?");
-
                         Die();
                     }
                     //else StartCoroutine(GetHit());
@@ -211,6 +216,8 @@ namespace EightDirectionalSpriteSystem
 
         public void Die()
         {
+            EndGameScreen.Instance.killedEnemies++;
+
             //Debug.Log("Die");
             animator.SetTrigger("Dead");
 
@@ -222,14 +229,16 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log(transform.parent);
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
-            transform.parent.parent = GameManager.Instance.deadEnemies.transform;
+            //transform.parent = GameManager.Instance.deadEnemies.transform;
+            transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+            Debug.Log("Set Parent");
         }
 
         private IEnumerator GetHit()
         {
             if (IsDead())
             {
-                Debug.Log("IENumerator Die");
+                //Debug.Log("IENumerator Die");
                 //Die();
             }
             else

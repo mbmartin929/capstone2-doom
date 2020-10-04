@@ -80,7 +80,7 @@ namespace EightDirectionalSpriteSystem
             // audioSource.clip = splatter[random];
             // audioSource.Play();
 
-            Debug.Log("Play Blood Splatter Sound");
+            //Debug.Log("Play Blood Splatter Sound");
         }
 
         public void GibExplosionSound()
@@ -101,7 +101,7 @@ namespace EightDirectionalSpriteSystem
             GibExplosionSFX.GetComponent<AudioSource>().Play();
             Destroy(GibExplosionSFX, 2.0f);
 
-            Debug.Log("Play Gib Explosion Sound");
+            //Debug.Log("Play Gib Explosion Sound");
         }
     }
 }

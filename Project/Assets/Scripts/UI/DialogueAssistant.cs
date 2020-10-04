@@ -69,6 +69,8 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(3.42f);
 
         BGM.Instance.StartBGM();
+        //FirstPersonAIO.Instance.playerCanMove = true;
+        FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
 
         StartCoroutine(EndTransition());
     }

@@ -81,24 +81,30 @@ public class PlayerController : UnitController
         Ray ray = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(ray, out hit, rayCastLength))
         {
+            DoorScript door = null;
             //Debug.Log(hit.transform.name);
             if (hit.collider.gameObject.tag == "Door")
             {
-                DoorScript door = hit.collider.GetComponent<DoorScript>();
+                door = hit.collider.GetComponent<DoorScript>();
 
                 //guiShow = true;
                 // if (Input.GetKeyDown("e") && isOpen == false)
                 // {
                 //     door.ChangeDoorState(true);
                 // }
+
+
+                // Instantiate "E"
+                //door.isNear = true;
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     if (door.doorType == DoorScript.DoorType.ExitDoor)
                     {
                         if (door.keyRequirement <= keyAmount)
                         {
-                            Debug.Log("Exit Door");
-
+                            //Debug.Log("Exit Door");
+                            EndGameScreen.Instance.StartEndLevelScreen();
                         }
                         else
                         {
@@ -108,6 +114,11 @@ public class PlayerController : UnitController
                     }
                 }
                 //else Debug.Log(door.doorType);
+            }
+            else
+            {
+                // if (door == null) { }
+                // else door.isNear = true;
             }
             // else if (hit.collider.gameObject.tag == "Special Door")
             // {

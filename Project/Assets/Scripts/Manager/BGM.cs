@@ -32,4 +32,9 @@ public class BGM : MonoBehaviour
     {
         audioSource.Play();
     }
+
+    public void StopBG()
+    {
+        audioSource.Stop();
+    }
 }

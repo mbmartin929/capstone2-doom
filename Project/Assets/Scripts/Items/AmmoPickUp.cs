@@ -12,6 +12,13 @@ public class AmmoPickUp : PickUpController
     public AmmoType ammoType;
     public GameObject weapon;
 
+    public int numberOfAmmo = 0;
+
+    void Start()
+    {
+        EndGameScreen.Instance.totalAmmo += numberOfAmmo;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -104,6 +111,8 @@ public class AmmoPickUp : PickUpController
         Debug.Log("Pick up Ammo");
 
         PickUpOverlayManager.Instance.AmmoOverlay();
+
+        if (numberOfAmmo >= 1) EndGameScreen.Instance.ammoFound++;
 
         TextManager.Instance.UpdateAmmoText();
     }

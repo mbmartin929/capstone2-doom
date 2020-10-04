@@ -6,6 +6,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class ArmorPotion : PickUpController
     {
+        public int numberOfArmor = 0;
+
         void Start()
         {
             PickUpController Armor = new PickUpController();
@@ -16,11 +18,15 @@ namespace EightDirectionalSpriteSystem
             audioSource.Play();
 
             Armor.itemName = "Armor";
+
+            EndGameScreen.Instance.totalArmor += numberOfArmor;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             HealthArmorPickUp(other);
+
+            if (CompareTag("Player") && numberOfArmor >= 1) EndGameScreen.Instance.armorFound++;
         }
     }
 }

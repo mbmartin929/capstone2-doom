@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameOverScreen : MonoBehaviour
 {
+
     void Awake()
     {
         //gameObject.SetActive(false);
@@ -24,6 +25,6 @@ public class GameOverScreen : MonoBehaviour
     public void Quit()
     {
         Debug.Log("Quit");
-        //Application.Quit();
+        Application.Quit();
     }
 }
