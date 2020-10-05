@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 1257690072450890127}
   m_LocalRotation: {x: 0, y: -0.9685701, z: 0, w: 0.2487407}
   m_LocalPosition: {x: -23.039999, y: -3.98, z: 31.76}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.69, y: 1.69, z: 1.69}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -156,15 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b0d9a3dfd992b4d9d8a5109be57631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForece: 10
-  radius: 5
   minY: 329
   maxY: 829
   minX: -360
   maxX: 360
   minZ: -360
   maxZ: 360
-  gravity: 6.9
   gibMats:
   - {fileID: 2100000, guid: 36439cc6bf004664f88728a5934e3e35, type: 2}
   - {fileID: 2100000, guid: 22a9ed6b2611f824f8fc2c021d78fa39, type: 2}
@@ -180,6 +177,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 870bc32fff229104c86dde7d8f298e81, type: 3}
   minTime: 0
   maxTime: 0.1
+  previousWallCeiling: 0
 --- !u!198 &8377069909655611045
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -190,7 +188,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -1008,7 +1006,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2

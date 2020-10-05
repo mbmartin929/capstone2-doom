@@ -48,7 +48,7 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log("Parent: " + transform.parent);
+            //Debug.Log("Parent: " + transform.parent);
             //Debug.Log("Parent Parent: " + transform.parent.parent);
 
             // Debug options
@@ -231,7 +231,7 @@ namespace EightDirectionalSpriteSystem
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
             //transform.parent = GameManager.Instance.deadEnemies.transform;
             transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-            Debug.Log("Set Parent");
+            //Debug.Log("Set Parent");
         }
 
         private IEnumerator GetHit()

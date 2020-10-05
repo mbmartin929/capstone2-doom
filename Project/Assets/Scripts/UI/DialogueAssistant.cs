@@ -70,7 +70,7 @@ public class DialogueAssistant : MonoBehaviour
 
         BGM.Instance.StartBGM();
         //FirstPersonAIO.Instance.playerCanMove = true;
-        FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
+        if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
 
         StartCoroutine(EndTransition());
     }

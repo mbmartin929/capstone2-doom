@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 namespace EightDirectionalSpriteSystem
 {
     public class WeaponSwitching : MonoBehaviour
     {
         public int selectedWeapon = 0;
+
+        [SerializeField] private RawImage rawImage;
+        [SerializeField] private Texture2D[] ammoIcons;
 
         int previousSelectedWeapon;
 
@@ -105,13 +110,26 @@ namespace EightDirectionalSpriteSystem
                         // INSERT CODE HERE TO CHECK IF THERE IS AN ACTION PLAYING
                         if (previousWeapon.GetComponent<WeaponController>().anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                         {
-                            Debug.Log("SelectedWeapon: " + selectedWeapon);
+                            //Debug.Log("SelectedWeapon: " + selectedWeapon);
+                            Debug.Log("Current Weapon: " + currentWeapon.gameObject.name);
 
                             previousWeapon.GetComponent<WeaponController>().SwitchAway();
 
                             StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
                             StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
 
+                            if (currentWeapon.gameObject.name == "Fists")
+                            {
+                                rawImage.texture = ammoIcons[0];
+                            }
+                            else if (currentWeapon.gameObject.name == "Pistol")
+                            {
+                                rawImage.texture = ammoIcons[1];
+                            }
+                            else if (currentWeapon.gameObject.name == "Shotgun")
+                            {
+                                rawImage.texture = ammoIcons[2];
+                            }
 
                             return;
                         }

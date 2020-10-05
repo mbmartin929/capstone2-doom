@@ -281,6 +281,8 @@ public class FirstPersonAIO : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.introEnabled) playerCanMove = false;
+
         #region Look Settings - Start
 
         if (autoCrosshair || drawStaminaMeter)

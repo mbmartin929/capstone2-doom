@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4620955818151352607}
   - component: {fileID: 4620955818151352604}
   - component: {fileID: 459272628287674046}
+  - component: {fileID: -6392890183445684070}
   m_Layer: 0
   m_Name: BloodSplash (3)
   m_TagString: Untagged
@@ -222,8 +223,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.33962262, g: 0, b: 0, a: 1}
-      maxColor: {r: 0.33962262, g: 0, b: 0, a: 1}
+      minColor: {r: 0.16470589, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.27058825, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4825,7 +4826,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f614e93886279314baf31bbaac1ac16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodSplatGo:
-  - {fileID: 1743632519053045293, guid: 7bb5b047eafb1ff40b981701a1b935d3, type: 3}
-  bloodSounds: []
-  isEnabled: 0
+  isEnabled: 1
+--- !u!114 &-6392890183445684070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620955818151352605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805547894f7ba52449bb4760f9f4e825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PaintDecalPrefabs:
+  - {fileID: 2271519705940005313, guid: 1399ff724dc86d3469573c91be7bac62, type: 3}
+  - {fileID: 2271519705940005313, guid: 58462fc94eed69e42bed7393cb1c7641, type: 3}
+  - {fileID: 2271519705940005313, guid: 17bf612923aded847be46f3f850fd26b, type: 3}
+  - {fileID: 2271519705940005313, guid: 0254de32357da5c4fa3d68d0ee961850, type: 3}
+  DecalsParent: {fileID: 0}
+  MinScale: 0.75
+  MaxScale: 3.29
+  SplashRange: 3
+  PoolSize: 150

@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class ParticleCollideBlood : MonoBehaviour
 {
-    public GameObject[] bloodSplatGo;
-    public AudioClip[] bloodSounds;
-
-
     private ParticleSystem part;
     private List<ParticleCollisionEvent> collisionEvents;
 
 
     public bool isEnabled = true;
-
-    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -33,48 +27,48 @@ public class ParticleCollideBlood : MonoBehaviour
     {
         if (isEnabled)
         {
-            Debug.Log("Start");
-
+            // Debug.Log("Collided GameObject: " + other.name);
+            // Debug.Log("Collided Layer: " + other.layer);
+            // Debug.Log("Target LayerMask: " + layerMask);
+            // if (other.gameObject.layer == layerMask)
+            // {
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
-
-            //Debug.Log("Particle Hit!");
-            // if (Random.value > 0.5) //%50 percent chance
-            // {
-            //     //Debug.Log("50% Chance");
-            // }
-
-            // if (Random.value > 0.2) //%80 percent chance (1 - 0.2 is 0.8)
-            // {
-            //     //Debug.Log("80% Chance");
-
-            // }
-
-            if (Random.value > 0.99) //%30 percent chance (1 - 0.7 is 0.3)
+            if (Random.value > 0.99)
             {
-                Debug.Log("1% Chance");
+                //Debug.Log("NumCollisionEvents:" + numCollisionEvents);
+
                 int i = 0;
                 while (i < numCollisionEvents)
                 {
                     Vector3 pos = collisionEvents[i].intersection;
-                    //Instantiate(bloodSplatGo[Random.Range(0, bloodSplatGo.Length)], pos, Quaternion.identity);
-
-                    RaycastHit hit;
                     int layerMask = LayerMask.GetMask("Ground");
+                    RaycastHit hit;
+
                     if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
                     {
-                        var paintSplatter = GameObject.Instantiate(bloodSplatGo[Random.Range(0, bloodSplatGo.Length)],
-                                                                               pos,
-                                                                              // Rotation from the original sprite to the normal
-                                                                              // Prefab are currently oriented to z+ so we use the opposite
-                                                                              Quaternion.FromToRotation(Vector3.back, hit.normal)
-                                                                              ) as GameObject;
-                    }
+                        //Debug.Log("Collision ID: " + i);
 
-                    //Instantiate(bloodSplatGo[Random.Range(0, bloodSplatGo.Length)], pos, Quaternion.LookRotation(other.GetComponent<Collision>().contacts[0].normal));
+                        // var paintSplatter = GameObject.Instantiate(bloodSplatGo[Random.Range(0, bloodSplatGo.Length)],
+                        //                                                        hit.point + 0.01f * hit.normal,
+                        //                                                       // Rotation from the original sprite to the normal
+                        //                                                       // Prefab are currently oriented to z+ so we use the opposite
+                        //                                                       Quaternion.LookRotation(hit.normal)
+                        //                                                       ) as GameObject;
+
+                        StartCoroutine(GetComponent<DecalPainter>().Paint(pos + 0.01f * hit.normal, 1, 1.0f, 0));
+                    }
                     i++;
+
+                    if (i >= 2)
+                    {
+                        //Debug.Log("i: " + i);
+                        Destroy(gameObject);
+                        return;
+                    }
                 }
             }
         }
     }
 }
+

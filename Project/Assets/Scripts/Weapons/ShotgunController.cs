@@ -27,9 +27,9 @@ namespace EightDirectionalSpriteSystem
             {
                 curAmmo = value;
                 if (curAmmo < 0) curAmmo = 0;
-                if (curAmmo > AmmoInventory.Instance.curPistolAmmo)
+                if (curAmmo > AmmoInventory.Instance.curShotgunAmmo)
                 {
-                    //curAmmo = AmmoInventory.Instance.curPistolAmmo;
+                    //curAmmo = AmmoInventory.Instance.curShotgunAmmo;
                 }
             }
         }
@@ -85,13 +85,13 @@ namespace EightDirectionalSpriteSystem
         private IEnumerator WillCancelReload()
         {
             cancelReload = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.42f);
             cancelReload = false;
         }
 
         private void Reload()
         {
-            if (curAmmo >= clipAmmo)
+            if (CurAmmo >= clipAmmo)
             {
                 Debug.Log("You have full ammo");
                 return;
@@ -101,13 +101,25 @@ namespace EightDirectionalSpriteSystem
                 Debug.Log("You have no ammo");
                 return;
             }
-            else if ((clipAmmo - curAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
+            else if ((clipAmmo - CurAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
             {
+                //Debug.Log("Hi");
                 // curAmmo += 1;
                 // AmmoInventory.Instance.curShotgunAmmo -= 1;
 
                 // anim.SetTrigger("Reload");
                 // Debug.Log("Decreased Reload");
+
+                if (AmmoInventory.Instance.curShotgunAmmo <= 0)
+                {
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Normal Reload");
+                    anim.SetTrigger("Reload");
+                    canAttack = false;
+                }
             }
             else
             {
@@ -126,7 +138,7 @@ namespace EightDirectionalSpriteSystem
 
         private void AddBullet()
         {
-            if (curAmmo >= clipAmmo)
+            if (CurAmmo >= clipAmmo)
             {
                 Debug.Log("You have full ammo");
                 return;
@@ -134,12 +146,13 @@ namespace EightDirectionalSpriteSystem
             else if (AmmoInventory.Instance.curShotgunAmmo <= 0)
             {
                 Debug.Log("You have no ammo");
+                cancelReload = true;
                 return;
             }
             else
             {
                 AmmoInventory.Instance.curShotgunAmmo -= 1;
-                curAmmo += 1;
+                CurAmmo += 1;
             }
 
             TextManager.Instance.UpdateAmmoText();
@@ -148,7 +161,7 @@ namespace EightDirectionalSpriteSystem
         public void CheckReload()
         {
             //Debug.Log("Check Reload");
-            if (curAmmo != clipAmmo)
+            if (CurAmmo != clipAmmo)
             {
                 //Debug.Log("IF Check Reload");
 
@@ -240,6 +253,7 @@ namespace EightDirectionalSpriteSystem
                         Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
 
                         Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                        Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
                     }
 
                     // Raycast hits Enemy

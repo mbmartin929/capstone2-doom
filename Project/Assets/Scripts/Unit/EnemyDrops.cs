@@ -128,7 +128,7 @@ namespace EightDirectionalSpriteSystem
                     Debug.Log("Will drop anything");
 
                     amount = Random.Range(minAmountOfDropsNormal, maxAmountOfDropsNormal);
-                    Debug.Log("Amount: " + amount);
+                    //Debug.Log("Amount: " + amount);
 
                     for (int i = 0; i <= amount; i++)
                     {

@@ -43,6 +43,7 @@ namespace EightDirectionalSpriteSystem
         public GameObject hitEffectGo;
         public Vector3 camRotation;
         public Vector3 startPos;
+        [SerializeField] protected GameObject bulletHole;
 
         #endregion
 
@@ -51,7 +52,6 @@ namespace EightDirectionalSpriteSystem
         [SerializeField] protected bool canAttack;
         [HideInInspector] public Animator anim;
         protected Vector3 pos;
-
 
         #endregion
 
@@ -100,7 +100,6 @@ namespace EightDirectionalSpriteSystem
             //         hitCollider.gameObject.transform.parent.gameObject.GetComponent<EnemyAI>().ChasePlayer();
             //     }
             // }
-
 
             Collider[] targetsInViewRadius = Physics.OverlapSphere(GameManager.Instance.playerGo.transform.position, radius, LayerMask.NameToLayer("Default"));
 

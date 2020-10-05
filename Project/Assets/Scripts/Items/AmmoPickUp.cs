@@ -14,9 +14,29 @@ public class AmmoPickUp : PickUpController
 
     public int numberOfAmmo = 0;
 
+    // int NumberSyllables(string word)
+    // {
+
+    // }
+
     void Start()
     {
         EndGameScreen.Instance.totalAmmo += numberOfAmmo;
+    }
+
+    void Update()
+    {
+        if (itemName == "Ammo")
+        {
+            if (CheckCloseToTag("Player", distanceToPickUp))
+            {
+                if (fraction < 1)
+                {
+                    fraction += lerpSpeed * Time.deltaTime;
+                    transform.position = Vector3.Lerp(transform.position, target, fraction);
+                }
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -129,4 +149,6 @@ public class AmmoPickUp : PickUpController
         }
         return null;
     }
+
+    private int Convert(int hour) { return hour *= 60; }
 }
