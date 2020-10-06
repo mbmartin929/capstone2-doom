@@ -7,13 +7,11 @@ using TMPro;
 public class TextWriter : MonoBehaviour
 {
     private TMP_Text uiText;
-    private string textToWrite;
+    [HideInInspector] public string textToWrite;
     private int characterIndex;
     private float timePerCharacter;
     private float timer;
     private bool invisibleCharacters;
-
-    private TextMesh textMesh;
 
     private AudioSource audioSource;
 
@@ -90,6 +88,9 @@ public class TextWriter : MonoBehaviour
             {
                 timer += timePerCharacter;
                 characterIndex++;
+
+                //Debug.Log("Text to Write: " + textToWrite);
+
                 string text = textToWrite.Substring(0, characterIndex);
 
                 if (invisibleCharacters)

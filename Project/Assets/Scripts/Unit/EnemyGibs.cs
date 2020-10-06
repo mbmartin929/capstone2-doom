@@ -118,7 +118,6 @@ public class EnemyGibs : MonoBehaviour
     }
 
 
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Level")

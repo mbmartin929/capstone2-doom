@@ -125,7 +125,7 @@ public class DialogueAssistant : MonoBehaviour
             textWriter.AddWriter("Switch to your SHOTGUN!", defaultTypeTime, true);
             yield return new WaitForSeconds(0.29f);
             textWriter.AddWriter("", defaultTypeTime, true);
-            yield return new WaitForSeconds(0.69f);
+            yield return new WaitForSeconds(0.29f);
 
             textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
             yield return new WaitForSeconds(2.29f);
