@@ -68,7 +68,8 @@ using System.Net;
 
 public class FirstPersonAIO : MonoBehaviour
 {
-
+    // Singleton
+    public static FirstPersonAIO Instance;
 
     #region Variables
 
@@ -253,8 +254,11 @@ public class FirstPersonAIO : MonoBehaviour
     {
         #region Look Settings - Awake
         originalRotation = transform.localRotation.eulerAngles;
+        Instance = this;
+        if (Instance == this) Debug.Log("FirstPersonAIO Initialized");
 
-        #endregion 
+
+        #endregion
 
         #region Movement Settings - Awake
         walkSpeedInternal = walkSpeed;
@@ -277,6 +281,8 @@ public class FirstPersonAIO : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.introEnabled) playerCanMove = false;
+
         #region Look Settings - Start
 
         if (autoCrosshair || drawStaminaMeter)
@@ -793,7 +799,12 @@ public class FirstPersonAIO : MonoBehaviour
         #endregion
     }
 
-
+    public IEnumerator CanMoveAfterSeconds(float time)
+    {
+        //playerCanMove = false;
+        yield return new WaitForSeconds(time);
+        playerCanMove = true;
+    }
 
     public IEnumerator CameraShake(float Duration, float Magnitude)
     {

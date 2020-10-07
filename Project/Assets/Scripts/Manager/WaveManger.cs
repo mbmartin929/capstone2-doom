@@ -10,8 +10,6 @@ namespace EightDirectionalSpriteSystem
         public bool lastWave = true;
         public int totalHealth;
 
-        public bool done = false;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -28,12 +26,14 @@ namespace EightDirectionalSpriteSystem
             //     totalHealth += health;
             // }
 
-            if (transform.childCount == 0 && !done)
+            if (transform.childCount == 0)
             {
-                arenaManager.activeWaveID++;
-                StartCoroutine(arenaManager.SpawnWaves(0.5f));
-                Destroy(gameObject, 1.0f);
-                done = true;
+                arenaManager.activeWaveID += 1;
+                //StartCoroutine(arenaManager.SpawnWaves(1.69f));
+                arenaManager.StartCoroutine(arenaManager.SpawnWaves(1.69f));
+                Debug.Log(gameObject.name + " is empty");
+                Debug.Log("Next wave is: " + arenaManager.activeWaveID);
+                Destroy(gameObject, 0.0f);
             }
         }
     }

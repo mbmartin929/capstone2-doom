@@ -68,6 +68,8 @@ namespace EightDirectionalSpriteSystem
 
                 enemyAI.EnemyRaycast();
                 enemyAI.FindVisibleTargets();
+
+
                 //AISFM.EnemyRaycast();
             }
         }

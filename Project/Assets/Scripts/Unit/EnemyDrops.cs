@@ -54,33 +54,43 @@ namespace EightDirectionalSpriteSystem
 
             if (GameManager.Instance.playerGo.GetComponent<PlayerController>().CurHealth <= lowHealth)
             {
-                Debug.Log("Low Health! Will drop lots of health");
-
-                amount = Random.Range(minAmountOfDropsLow, maxAmountOfDropsLow);
-                Debug.Log("Amount: " + amount);
-
-                for (int i = 0; i <= amount; i++)
+                if (Random.value > 0.5)
                 {
-                    index = Random.Range(0, healthDrops.Length - 1);
+                    Debug.Log("Low Health! Will drop lots of health");
 
-                    GameObject healthDrop = Instantiate(healthDrops[index], transform.position, Quaternion.identity);
-                    healthDrop.GetComponent<ItemExplosion>().isExplode = true;
+                    amount = Random.Range(minAmountOfDropsLow, maxAmountOfDropsLow);
+                    Debug.Log("Amount: " + amount);
+
+                    for (int i = 0; i <= amount; i++)
+                    {
+                        index = Random.Range(0, healthDrops.Length - 1);
+
+                        GameObject healthDrop = Instantiate(healthDrops[index], transform.position, Quaternion.identity);
+                        healthDrop.GetComponent<ItemExplosion>().isExplode = true;
+                    }
                 }
+                else Debug.Log("Low Health! Will drop nothing");
             }
             else if (AmmoInventory.Instance.curPistolAmmo <= lowPistolAmmo)
             {
-                Debug.Log("Low Pistol Ammo! Will drop lots of pistol ammo");
-
-                amount = Random.Range(minAmountOfPistolAmmoNormal, maxAmountOfPistolAmmoNormal);
-                Debug.Log("Amount: " + amount);
-
-                for (int i = 0; i <= amount; i++)
+                if (Random.value > 0.5)
                 {
-                    index = Random.Range(0, pistolAmmoDrops.Length - 1);
+                    Debug.Log("Low Pistol Ammo! Will drop lots of pistol ammo");
 
-                    GameObject pistolAmmoDrop = Instantiate(pistolAmmoDrops[index], transform.position, Quaternion.identity);
-                    pistolAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
+                    amount = Random.Range(minAmountOfPistolAmmoNormal, maxAmountOfPistolAmmoNormal);
+                    Debug.Log("Amount: " + amount);
+
+                    for (int i = 0; i <= amount; i++)
+                    {
+                        index = Random.Range(0, pistolAmmoDrops.Length - 1);
+
+                        GameObject pistolAmmoDrop = Instantiate(pistolAmmoDrops[index], transform.position, Quaternion.identity);
+                        pistolAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
+                    }
                 }
+                else Debug.Log("Low Pistol Ammo! Will drop nothing");
+
+
             }
             else if (AmmoInventory.Instance.curShotgunAmmo <= lowShotgunAmmo)
             {
@@ -118,7 +128,7 @@ namespace EightDirectionalSpriteSystem
                     Debug.Log("Will drop anything");
 
                     amount = Random.Range(minAmountOfDropsNormal, maxAmountOfDropsNormal);
-                    Debug.Log("Amount: " + amount);
+                    //Debug.Log("Amount: " + amount);
 
                     for (int i = 0; i <= amount; i++)
                     {

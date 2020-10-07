@@ -43,10 +43,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.18
-  m_Range: 5
-  m_SpotAngle: 130.18207
-  m_InnerSpotAngle: 76.21043
+  m_Intensity: 0.21
+  m_Range: 6.9
+  m_SpotAngle: 150.65479
+  m_InnerSpotAngle: 96.68315
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 11
+  m_BounceIntensity: 12
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -8.09066, z: 4.02e-43, w: 2.84e-43}
+  m_BoundingSphereOverride: {x: 4.7019774e-38, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4002,7 +4002,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.9316286, b: 0.759434, a: 1}
   m_Intensity: 0.15
-  m_Range: 2.9
+  m_Range: 4.2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4043,10 +4043,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.5
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -3.6105194}
+  m_BoundingSphereOverride: {x: 1.48972e-40, y: 5.9e-44, z: 7.83e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4465,7 +4465,7 @@ Light:
   m_BounceIntensity: 1.18
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -3.6024094}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

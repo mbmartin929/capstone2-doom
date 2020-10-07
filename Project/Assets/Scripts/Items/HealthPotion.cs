@@ -7,6 +7,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class HealthPotion : PickUpController
     {
+        public int numberOfHealth = 0;
+
         void Start()
         {
             PickUpController Health = new PickUpController();
@@ -17,11 +19,27 @@ namespace EightDirectionalSpriteSystem
             audioSource.Play();
 
             Health.itemName = "Health";
+
+            EndGameScreen.Instance.totalHealth += numberOfHealth;
+        }
+
+        void Update()
+        {
+            if (CheckCloseToTag("Player", distanceToPickUp))
+            {
+                if (fraction < 1)
+                {
+                    fraction += lerpSpeed * Time.deltaTime;
+                    transform.position = Vector3.Lerp(transform.position, target, fraction);
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other)
         {
             HealthArmorPickUp(other);
+
+            if (CompareTag("Player") && numberOfHealth >= 1) EndGameScreen.Instance.healthFound++;
         }
     }
 }

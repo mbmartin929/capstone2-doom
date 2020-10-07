@@ -12,6 +12,33 @@ public class AmmoPickUp : PickUpController
     public AmmoType ammoType;
     public GameObject weapon;
 
+    public int numberOfAmmo = 0;
+
+    // int NumberSyllables(string word)
+    // {
+
+    // }
+
+    void Start()
+    {
+        EndGameScreen.Instance.totalAmmo += numberOfAmmo;
+    }
+
+    void Update()
+    {
+        if (itemName == "Ammo")
+        {
+            if (CheckCloseToTag("Player", distanceToPickUp))
+            {
+                if (fraction < 1)
+                {
+                    fraction += lerpSpeed * Time.deltaTime;
+                    transform.position = Vector3.Lerp(transform.position, target, fraction);
+                }
+            }
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -43,6 +70,8 @@ public class AmmoPickUp : PickUpController
                 {
                     pistol.SetActive(false);
                 }
+
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchPistol());
             }
             // Player has this weapon already. Will add ammo instead
             else
@@ -62,6 +91,8 @@ public class AmmoPickUp : PickUpController
                 {
                     shotgun.SetActive(false);
                 }
+
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
             }
             else
             {
@@ -101,6 +132,8 @@ public class AmmoPickUp : PickUpController
 
         PickUpOverlayManager.Instance.AmmoOverlay();
 
+        if (numberOfAmmo >= 1) EndGameScreen.Instance.ammoFound++;
+
         TextManager.Instance.UpdateAmmoText();
     }
 
@@ -116,4 +149,6 @@ public class AmmoPickUp : PickUpController
         }
         return null;
     }
+
+    private int Convert(int hour) { return hour *= 60; }
 }

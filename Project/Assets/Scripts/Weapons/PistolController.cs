@@ -187,6 +187,7 @@ namespace EightDirectionalSpriteSystem
                     //Debug.Log(material.name);
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                    Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
                 }
 
                 // Raycast hits Enemy

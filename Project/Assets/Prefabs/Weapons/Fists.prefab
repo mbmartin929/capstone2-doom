@@ -147,7 +147,7 @@ MonoBehaviour:
   curAmmo: 0
   clipAmmo: 9
   soundRadius: 10
-  range: 3.5
+  range: 3.8
   spreadFactor: 0.1
   FOV: 80
   gunshotSounds:
@@ -171,6 +171,8 @@ MonoBehaviour:
     type: 3}
   camRotation: {x: 0, y: 0, z: 0}
   startPos: {x: 0, y: 0, z: 0}
+  bulletHole: {fileID: 561337922033046745, guid: 4452cf83e9a4e0c42b2d6bba2a19c44e,
+    type: 3}
   canAttack: 0
   anim: {fileID: 0}
   wooshSounds:

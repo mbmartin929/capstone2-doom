@@ -20,6 +20,10 @@ public class DoorScript : MonoBehaviour
     //public Vector3 newYPos;
     public float ypos;
 
+    public bool isNear = false;
+    public bool interactable = false;
+    //public GameObject pressE;
+
     void Awake()
     {
         //gameObject.isStatic
@@ -28,7 +32,7 @@ public class DoorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //if (pressE != null) pressE.SetActive(false);
     }
 
     public void ChangeDoorState(bool state)
@@ -56,6 +60,12 @@ public class DoorScript : MonoBehaviour
             //     else Debug.Log("Need key");
             // }
         }
+
+        // if (isNear && interactable)
+        // {
+        //     pressE.SetActive(true);
+        // }
+        // else if (!isNear && interactable) pressE.SetActive(false);
     }
 
     public void OpenExitDoor()

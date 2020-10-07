@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4661064292034742890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.087, y: 3.91, z: 29.463}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
   m_Children:
   - {fileID: 8546121463735784037}
   m_Father: {fileID: 0}
@@ -216,10 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambientSound: {fileID: 8300000, guid: 36ed971bf1cb82247b07904314432795, type: 3}
   pickUpSound: {fileID: 8300000, guid: 317269469f422d440a2444d198f1eae6, type: 3}
-  ammoType: 0
   itemName: Armor
   recoverAmount: 15
-  weapon: {fileID: 0}
+  numberOfArmor: 0
 --- !u!114 &2056282977881046064
 MonoBehaviour:
   m_ObjectHideFlags: 0

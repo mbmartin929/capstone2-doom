@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     #region Public Variables
     // Instantiates Singleton
     public static GameManager Instance { set; get; }
+    public bool introEnabled = false;
 
     public GameObject psxVolume;
 

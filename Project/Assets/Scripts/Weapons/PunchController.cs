@@ -131,6 +131,8 @@ namespace EightDirectionalSpriteSystem
                     Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                    Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+
                     PlayRandomPunchSound();
                 }
 

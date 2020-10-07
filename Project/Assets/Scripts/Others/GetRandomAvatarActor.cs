@@ -9,7 +9,6 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-
             GameObject avatar = transform.GetChild(0).gameObject;
             Material chosenMaterial;
 

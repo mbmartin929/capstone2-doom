@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 1257690072450890127}
   m_LocalRotation: {x: 0, y: -0.9685701, z: 0, w: 0.2487407}
   m_LocalPosition: {x: -23.039999, y: -3.98, z: 31.76}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.42, y: 1.42, z: 1.42}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 870bc32fff229104c86dde7d8f298e81, type: 3}
   minTime: 0
   maxTime: 0.1
+  previousWallCeiling: 0
 --- !u!198 &8377069909655611045
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -1009,7 +1010,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2

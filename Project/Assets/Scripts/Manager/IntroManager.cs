@@ -57,9 +57,9 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator GameTitle(float time)
         {
-            gameTitle.SetActive(true);
+            //gameTitle.SetActive(true);
             yield return new WaitForSeconds(time);
-            gameTitle.SetActive(false);
+            //gameTitle.SetActive(false);
 
             StartCoroutine(arenaManager.StartSpawn1(0.5f));
             StartCoroutine(arenaManager.SpawnWaves(0.5f));

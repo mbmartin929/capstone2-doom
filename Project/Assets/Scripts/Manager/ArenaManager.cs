@@ -52,7 +52,12 @@ namespace EightDirectionalSpriteSystem
                 Debug.Log("Finished all waves");
                 StartCoroutine(OpenExit(1.5f));
             }
-            else waves[activeWaveID].SetActive(true);
+            else
+            {
+                Debug.Log("Next Wave:" + activeWaveID);
+                waves[activeWaveID].SetActive(true);
+                Debug.Log("Activating Wave: " + waves[activeWaveID].name);
+            }
         }
 
         public IEnumerator OpenExit(float time)
@@ -60,6 +65,7 @@ namespace EightDirectionalSpriteSystem
             yield return new WaitForSeconds(time);
             exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
 
+            DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FinishArena());
         }
     }
 }

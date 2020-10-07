@@ -28,6 +28,8 @@ public class EnemyGibs : MonoBehaviour
 
     private AudioSource audioSource;
 
+    [SerializeField] private bool previousWallCeiling = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,28 +45,28 @@ public class EnemyGibs : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(x, y, z);
         StartCoroutine(LateCollision());
 
-        Destroy(gameObject, 5.0f);
+        //Destroy(gameObject, 5.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (startTransparency)
-        {
-            // Color tempcolor = gameObject.GetComponent<MeshRenderer>().material.color;
-            // tempcolor.a = Mathf.MoveTowards(1, 0, Time.deltaTime);
-            // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
+        // if (startTransparency)
+        // {
+        //     // Color tempcolor = gameObject.GetComponent<MeshRenderer>().material.color;
+        //     // tempcolor.a = Mathf.MoveTowards(1, 0, Time.deltaTime);
+        //     // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
 
-            //Debug.Log(gameObject.name);
+        //     //Debug.Log(gameObject.name);
 
-            #region Transparency
-            // float progress = Time.time - lerpStart;
-            // Color tempcolor = gameObject.GetComponent<MeshRenderer>().material.color;
-            // tempcolor.a = Mathf.Lerp(1.0f, 0.0f, progress / 1.0f);
-            // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
-            #endregion
+        //     #region Transparency
+        //     // float progress = Time.time - lerpStart;
+        //     // Color tempcolor = gameObject.GetComponent<MeshRenderer>().material.color;
+        //     // tempcolor.a = Mathf.Lerp(1.0f, 0.0f, progress / 1.0f);
+        //     // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", tempcolor);
+        //     #endregion
 
-        }
+        // }
     }
 
     private IEnumerator LateCollision()
@@ -81,9 +83,29 @@ public class EnemyGibs : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        lerpStart = Time.time;
-        startTransparency = true;
-        //InvokeRepeating("Transparency", 0.15f, 0.1f);
+        //Debug.Log("My Parent: " + transform.parent.gameObject.name);
+        if (transform.parent.gameObject.name.Contains("Wall"))
+        {
+            Debug.Log("Contains Wall");
+
+            rb.constraints = RigidbodyConstraints.None;
+            GetComponent<BoxCollider>().enabled = true;
+            previousWallCeiling = true;
+        }
+        else if (transform.parent.gameObject.name.Contains("Ceiling"))
+        {
+            Debug.Log("Contains Ceiling");
+
+            rb.constraints = RigidbodyConstraints.None;
+            GetComponent<BoxCollider>().enabled = true;
+            previousWallCeiling = true;
+        }
+        else Debug.Log("None");
+
+
+        yield return new WaitForSeconds(0.01f);
+
+        //rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     private void PlayGibSound()
@@ -94,7 +116,6 @@ public class EnemyGibs : MonoBehaviour
 
         audioSource.PlayOneShot(gibSounds[random]);
     }
-
 
 
     void OnTriggerEnter(Collider other)
@@ -108,8 +129,27 @@ public class EnemyGibs : MonoBehaviour
 
         if (other.CompareTag("Level"))
         {
+            if (previousWallCeiling)
+            {
+                Physics.IgnoreCollision(transform.parent.GetComponent<Collider>(), GetComponent<Collider>());
+
+                if (other.gameObject == transform.parent.gameObject)
+                {
+                    Debug.Log("Collided with SAME object");
+                }
+                else
+                {
+                    Debug.Log("Collided with NEW object");
+                    rb.constraints = RigidbodyConstraints.FreezeAll;
+                    GetComponent<BoxCollider>().enabled = true;
+                    return;
+                }
+            }
+
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             GetComponent<BoxCollider>().enabled = false;
+
+            transform.SetParent(other.gameObject.transform);
 
             //PlayGibSound();
             float time = Random.Range(minTime, maxTime);
@@ -129,20 +169,6 @@ public class EnemyGibs : MonoBehaviour
 
                 StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
             }
-
-            // var dir = transform.TransformDirection(Random.onUnitSphere * 5f);
-
-            // if (Physics.Raycast(transform.position, dir, out hit, 50f, layerMask))
-            // {
-            //     //Debug.Log("Gib Paint");
-
-            //     int randomBloodNumber = Random.Range(1, 5);
-
-            //     //Debug.Log("Gib Blood Paint");
-            //     //Debug.Log(hit.transform.gameObject.name);
-
-            //     StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
-            // }
         }
     }
 
