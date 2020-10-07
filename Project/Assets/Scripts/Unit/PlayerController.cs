@@ -16,7 +16,7 @@ public class PlayerController : UnitController
 
     public Transform weapons;
 
-    public int rayCastLength;
+    public float rayCastLength;
 
     public int keyAmount = 0;
 
@@ -160,13 +160,22 @@ public class PlayerController : UnitController
             if (CurArmor > 0)
             {
                 //Debug.Log("Armor Damage");
-                CurArmor -= amount;
-                //if (CurArmor <= -1) CurArmor = 0;
+
+                int armorDamage = amount / 2;
+                int healthDamage = amount - armorDamage;
+
+                CurArmor -= armorDamage;
+                CurHealth -= healthDamage;
+
+                Debug.Log("Armor Damage: " + armorDamage);
+                Debug.Log("Health Damage: " + healthDamage);
             }
             else
             {
                 //Debug.Log("Health Damage");
                 CurHealth -= amount;
+
+                Debug.Log("Health Damage: " + amount);
                 //if (CurHealth <= 0) CurHealth = 0;
             }
 
@@ -176,16 +185,22 @@ public class PlayerController : UnitController
 
             if (CurHealth <= 0)
             {
-                CurHealth = 0;
                 Debug.Log("Player Dies");
+                CurHealth = 0;
                 gameOverScreen.SetActive(true);
 
                 gameObject.GetComponent<CapsuleCollider>().enabled = false;
                 gameObject.GetComponent<Rigidbody>().useGravity = false;
+                gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
                 GetComponent<FirstPersonAIO>().ControllerPause();
-                Time.timeScale = 0;
+                GetComponent<FirstPersonAIO>().enabled = false;
+                //Time.timeScale = 0;
 
+                transform.GetChild(3).gameObject.SetActive(false);
+
+
+                Debug.Log("Paused");
 
                 //StartCoroutine(GameManager.Instance.RestartCurrentScene());
             }

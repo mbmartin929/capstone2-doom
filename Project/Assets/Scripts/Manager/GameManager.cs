@@ -50,13 +50,15 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-
+            Debug.Log("Press BackSpace");
+            StartCoroutine(RestartCurrentScene(-1.69f));
         }
     }
 
-    public IEnumerator RestartCurrentScene()
+    public IEnumerator RestartCurrentScene(float time)
     {
-        yield return new WaitForSeconds(restartSceneTime);
+        Debug.Log("Restarting Scene");
+        yield return new WaitForSeconds(restartSceneTime + time);
         SceneManager.LoadScene(currentScene.name);
     }
 

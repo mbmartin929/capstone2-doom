@@ -47,7 +47,7 @@ public class EndGameScreen : MonoBehaviour
     public void StartEndLevelScreen()
     {
         blackOverlay.SetActive(true);
-        BGM.Instance.StopBG();
+        MusicManager.Instance.StopBGM();
         GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
 
         Debug.Log("End Level");

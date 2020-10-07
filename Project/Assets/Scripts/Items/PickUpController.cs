@@ -75,7 +75,7 @@ namespace EightDirectionalSpriteSystem
 
                 //audioSource.PlayOneShot(pickUpSound);
 
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 0.01f);
             }
         }
     }

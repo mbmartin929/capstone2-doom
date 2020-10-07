@@ -220,6 +220,7 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log("Die");
             animator.SetTrigger("Dead");
+            enemySounds.DeathSound();
 
             Vector3 size = GetComponent<BoxCollider>().size;
             Vector3 center = GetComponent<BoxCollider>().center;

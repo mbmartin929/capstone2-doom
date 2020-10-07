@@ -346,8 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcbc0444d2cc53449e0595fc9cf469f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 0.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
-  pickUpSound: {fileID: 0}
+  pickUpSound: {fileID: 8300000, guid: 46ce770e448309246a638fbb8d57ddd6, type: 3}
   itemName: 
   recoverAmount: 0
   keyValue: 1

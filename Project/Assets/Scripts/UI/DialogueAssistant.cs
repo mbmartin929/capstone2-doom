@@ -25,6 +25,8 @@ public class DialogueAssistant : MonoBehaviour
     [SerializeField] private int switchPistolTutorial = 0;
     [SerializeField] private int switchShotgunTutorial = 0;
 
+    [SerializeField] private int level = 1;
+
     void Awake()
     {
         Instance = this;
@@ -40,7 +42,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         dialogueAnim.gameObject.SetActive(false);
 
-        StartCoroutine(AnotherIntroDialogue());
+        if (level == 1) StartCoroutine(AnotherIntroDialogue());
     }
 
     public void PlaySound(int index)
@@ -68,7 +70,7 @@ public class DialogueAssistant : MonoBehaviour
         textWriter.AddWriter("KILL.", defaultTypeTime + 0.21f, true);
         yield return new WaitForSeconds(3.42f);
 
-        BGM.Instance.StartBGM();
+        MusicManager.Instance.PlayBGM();
         //FirstPersonAIO.Instance.playerCanMove = true;
         if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
 

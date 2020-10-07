@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4661064292034742890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.087, y: 3.91, z: 29.463}
-  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
+  m_LocalScale: {x: 0.69, y: 0.69, z: 0.69}
   m_Children:
   - {fileID: 8546121463735784037}
   m_Father: {fileID: 0}
@@ -214,6 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61dfe134931bf24b952c372ba0faa8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 8300000, guid: 36ed971bf1cb82247b07904314432795, type: 3}
   pickUpSound: {fileID: 8300000, guid: 317269469f422d440a2444d198f1eae6, type: 3}
   itemName: Armor

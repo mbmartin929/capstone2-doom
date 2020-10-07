@@ -83,7 +83,7 @@ public class EnemyGibs : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        //Debug.Log("My Parent: " + transform.parent.gameObject.name);
+        Debug.Log("My Parent: " + transform.parent.gameObject.name);
         if (transform.parent.gameObject.name.Contains("Wall"))
         {
             Debug.Log("Contains Wall");
@@ -120,13 +120,6 @@ public class EnemyGibs : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Level")
-        {
-            // Debug.Log("Collide");
-        }
-
-        //Debug.Log(other.name);
-
         if (other.CompareTag("Level"))
         {
             if (previousWallCeiling)
@@ -136,6 +129,7 @@ public class EnemyGibs : MonoBehaviour
                 if (other.gameObject == transform.parent.gameObject)
                 {
                     Debug.Log("Collided with SAME object");
+                    Destroy(gameObject);
                 }
                 else
                 {
