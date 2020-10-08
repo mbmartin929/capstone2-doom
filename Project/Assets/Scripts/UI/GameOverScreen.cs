@@ -21,19 +21,16 @@ public class GameOverScreen : MonoBehaviour
 
     public void Pause()
     {
-        // allEnemies = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        MusicManager.Instance.FadeOutActiveMusicCaller();
+        MusicManager.Instance.FadeOutAmbientMusicCaller();
 
-        // foreach (var enemy in allEnemies)
-        // {
-        //     if (enemy.activeInHierarchy)
-        //     {
-        //         EnemyController _enemy = enemy.transform.GetChild(0).GetComponent<EnemyController>();
+        StartCoroutine(LateStartMusic());
+    }
 
-        //         Debug.Log("Name: " + _enemy.transform.parent.gameObject.name);
-
-        //         _enemy.enabled = false;
-        //     }
-        // }
+    private IEnumerator LateStartMusic()
+    {
+        yield return new WaitForSeconds(0.69f);
+        MusicManager.Instance.FadeInActiveMusicCaller(3, true, 2);
     }
 
     public void Restart()

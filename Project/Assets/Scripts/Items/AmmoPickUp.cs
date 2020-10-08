@@ -93,6 +93,7 @@ public class AmmoPickUp : PickUpController
                 }
 
                 DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
+
             }
             else
             {

@@ -25,17 +25,6 @@ namespace EightDirectionalSpriteSystem
 
         }
 
-        public IEnumerator StartSpawn1(float time)
-        {
-
-            yield return new WaitForSeconds(time);
-
-            // foreach (GameObject spawn in spawns1)
-            // {
-            //     spawn.SetActive(true);
-            // }
-        }
-
         public IEnumerator SpawnWaves(float time)
         {
 

@@ -70,7 +70,8 @@ public class DialogueAssistant : MonoBehaviour
         textWriter.AddWriter("KILL.", defaultTypeTime + 0.21f, true);
         yield return new WaitForSeconds(3.42f);
 
-        MusicManager.Instance.PlayBGM();
+        //MusicManager.Instance.FadeInActiveMusicCaller(0);
+        MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
         //FirstPersonAIO.Instance.playerCanMove = true;
         if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
 
@@ -119,6 +120,9 @@ public class DialogueAssistant : MonoBehaviour
     {
         if (switchShotgunTutorial == 0)
         {
+            MusicManager.Instance.FadeOutAmbientMusicCaller();
+            MusicManager.Instance.FadeInActiveMusicCaller(4, false, 0);
+
             StartTransition();
             yield return new WaitForSeconds(2.0f);
 

@@ -87,7 +87,7 @@ namespace EightDirectionalSpriteSystem
                         GameObject pistolAmmoDrop = Instantiate(pistolAmmoDrops[index], transform.position, Quaternion.identity);
                         pistolAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
 
-                        pistolAmmoDrop.GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 6);
+                        pistolAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 6);
                     }
                 }
                 else Debug.Log("Low Pistol Ammo! Will drop nothing");
@@ -108,7 +108,7 @@ namespace EightDirectionalSpriteSystem
                     GameObject shotgunAmmoDrop = Instantiate(shotgunAmmoDrops[index], transform.position, Quaternion.identity);
                     shotgunAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
 
-                    shotgunAmmoDrop.GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 3);
+                    shotgunAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 3);
                 }
             }
             else

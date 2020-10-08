@@ -57,11 +57,12 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator GameTitle(float time)
         {
+            MusicManager.Instance.FadeOutAmbientMusicCaller();
+            MusicManager.Instance.FadeInActiveMusicCaller(4, false, 2);
+
             //gameTitle.SetActive(true);
             yield return new WaitForSeconds(time);
             //gameTitle.SetActive(false);
-
-            StartCoroutine(arenaManager.StartSpawn1(0.5f));
             StartCoroutine(arenaManager.SpawnWaves(0.5f));
         }
     }

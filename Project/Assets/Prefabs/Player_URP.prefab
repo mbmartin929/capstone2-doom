@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 0.78039217}
+  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2037,7 +2037,7 @@ MonoBehaviour:
   selectedWeapon: 0
   rawImage: {fileID: 3486676624639808749}
   ammoIcons:
-  - {fileID: 2800000, guid: 43f0a5827121d9b4aa8e8e03f33ac72f, type: 3}
+  - {fileID: 2800000, guid: b2b822f87f99af0438cae7dabea5e1a0, type: 3}
   - {fileID: 2800000, guid: 43f0a5827121d9b4aa8e8e03f33ac72f, type: 3}
   - {fileID: 2800000, guid: 4addcf65c03254b41977f00c3790e460, type: 3}
 --- !u!114 &866899157727395278
@@ -2162,6 +2162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6527ec6f0e94bd4695fcf1995808774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allEnemies: []
 --- !u!95 &1499328602382058155
 Animator:
   serializedVersion: 3
@@ -2753,7 +2754,7 @@ MonoBehaviour:
   currentHealth: 0
   currentArmor: 0
   weapons: {fileID: 866899158216321588}
-  rayCastLength: 5
+  rayCastLength: 5.29
   keyAmount: 0
   gameOverScreen: {fileID: 1499328602382058153}
   currentGold: 0
@@ -4066,7 +4067,7 @@ PrefabInstance:
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.74185
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4111,17 +4112,17 @@ PrefabInstance:
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -203.7
+      value: 308.92487
       objectReference: {fileID: 0}
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 98.6
+      value: 93.887856
       objectReference: {fileID: 0}
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 159
       objectReference: {fileID: 0}
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4151,7 +4152,7 @@ PrefabInstance:
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 303711355090170331, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4176,7 +4177,12 @@ PrefabInstance:
     - target: {fileID: 303711355090170332, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263542010727006762, guid: 94cad0abee83f6f4ebac1672ad149878,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 843.69995
       objectReference: {fileID: 0}
     - target: {fileID: 1263542010727006763, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4198,20 +4204,30 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.8980392
       objectReference: {fileID: 0}
+    - target: {fileID: 1263542010727007188, guid: 94cad0abee83f6f4ebac1672ad149878,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058321625564229472, guid: 94cad0abee83f6f4ebac1672ad149878,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4058321625564229473, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 4058321625564229473, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 4058321625564229473, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 4058321625564229473, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4227,7 +4243,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 43f0a5827121d9b4aa8e8e03f33ac72f, type: 3}
+      objectReference: {fileID: 2800000, guid: b2b822f87f99af0438cae7dabea5e1a0, type: 3}
     - target: {fileID: 4058321625564229474, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -4236,7 +4252,7 @@ PrefabInstance:
     - target: {fileID: 4058321625564229474, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.797117
+      value: 0.501291
       objectReference: {fileID: 0}
     - target: {fileID: 4058321625564229474, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4258,10 +4274,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -316.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4058321625623826421, guid: 94cad0abee83f6f4ebac1672ad149878,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4058321625623826422, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058321625623826423, guid: 94cad0abee83f6f4ebac1672ad149878,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 855.2999
       objectReference: {fileID: 0}
     - target: {fileID: 4198948013438599268, guid: 94cad0abee83f6f4ebac1672ad149878,
         type: 3}
@@ -4853,6 +4879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324534927189559528, guid: 6ade596b226f27a42b7ccfe9838f8c06,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8324534927189559530, guid: 6ade596b226f27a42b7ccfe9838f8c06,
         type: 3}

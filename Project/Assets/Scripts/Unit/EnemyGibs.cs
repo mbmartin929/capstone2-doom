@@ -45,7 +45,7 @@ public class EnemyGibs : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(x, y, z);
         StartCoroutine(LateCollision());
 
-        //Destroy(gameObject, 5.0f);
+        Destroy(gameObject, 5.0f);
     }
 
     // Update is called once per frame
@@ -83,24 +83,24 @@ public class EnemyGibs : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        Debug.Log("My Parent: " + transform.parent.gameObject.name);
-        if (transform.parent.gameObject.name.Contains("Wall"))
-        {
-            Debug.Log("Contains Wall");
+        //Debug.Log("My Parent: " + transform.parent.gameObject.name);
+        // if (transform.parent.gameObject.name.Contains("Wall"))
+        // {
+        //     Debug.Log("Contains Wall");
 
-            rb.constraints = RigidbodyConstraints.None;
-            GetComponent<BoxCollider>().enabled = true;
-            previousWallCeiling = true;
-        }
-        else if (transform.parent.gameObject.name.Contains("Ceiling"))
-        {
-            Debug.Log("Contains Ceiling");
+        //     rb.constraints = RigidbodyConstraints.None;
+        //     GetComponent<BoxCollider>().enabled = true;
+        //     previousWallCeiling = true;
+        // }
+        // else if (transform.parent.gameObject.name.Contains("Ceiling"))
+        // {
+        //     Debug.Log("Contains Ceiling");
 
-            rb.constraints = RigidbodyConstraints.None;
-            GetComponent<BoxCollider>().enabled = true;
-            previousWallCeiling = true;
-        }
-        else Debug.Log("None");
+        //     rb.constraints = RigidbodyConstraints.None;
+        //     GetComponent<BoxCollider>().enabled = true;
+        //     previousWallCeiling = true;
+        // }
+        // else Debug.Log("None");
 
 
         yield return new WaitForSeconds(0.01f);
@@ -122,23 +122,23 @@ public class EnemyGibs : MonoBehaviour
     {
         if (other.CompareTag("Level"))
         {
-            if (previousWallCeiling)
-            {
-                Physics.IgnoreCollision(transform.parent.GetComponent<Collider>(), GetComponent<Collider>());
+            // if (previousWallCeiling)
+            // {
+            //     Physics.IgnoreCollision(transform.parent.GetComponent<Collider>(), GetComponent<Collider>());
 
-                if (other.gameObject == transform.parent.gameObject)
-                {
-                    Debug.Log("Collided with SAME object");
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    Debug.Log("Collided with NEW object");
-                    rb.constraints = RigidbodyConstraints.FreezeAll;
-                    GetComponent<BoxCollider>().enabled = true;
-                    return;
-                }
-            }
+            //     if (other.gameObject == transform.parent.gameObject)
+            //     {
+            //         Debug.Log("Collided with SAME object");
+            //         Destroy(gameObject);
+            //     }
+            //     else
+            //     {
+            //         Debug.Log("Collided with NEW object");
+            //         rb.constraints = RigidbodyConstraints.FreezeAll;
+            //         GetComponent<BoxCollider>().enabled = true;
+            //         return;
+            //     }
+            // }
 
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             GetComponent<BoxCollider>().enabled = false;

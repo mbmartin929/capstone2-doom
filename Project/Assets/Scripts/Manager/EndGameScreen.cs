@@ -47,7 +47,11 @@ public class EndGameScreen : MonoBehaviour
     public void StartEndLevelScreen()
     {
         blackOverlay.SetActive(true);
-        MusicManager.Instance.StopBGM();
+
+        MusicManager.Instance.FadeOutActiveMusicCaller();
+        MusicManager.Instance.FadeOutAmbientMusicCaller();
+
+
         GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
 
         Debug.Log("End Level");
@@ -61,6 +65,9 @@ public class EndGameScreen : MonoBehaviour
     private IEnumerator EndScreenActive(float time)
     {
         yield return new WaitForSeconds(time);
+
+        MusicManager.Instance.FadeInActiveMusicCaller(5, true, 2);
+
         Debug.Log("EndScreen Active");
         endScreen.SetActive(true);
         GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(false);
