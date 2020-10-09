@@ -1,17 +1,66 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EightDirectionalSpriteSystem;
 
-public class Payload : MonoBehaviour
+public class Payload : UnitController
 {
     public GameObject[] waypoints;
+    public float radius = 2f;
     public float startTime = 2.9f;
-    private int current = 0;
+    public int current = 0;
     public float rotSpeed;
     public float moveSpeed = 1.0f;
     float waypointRadius = 1f;
 
-    private bool startMove = false;
+    public bool startMove = false;
+
+    public void TakeDamage(int amount)
+    {
+        //bloodOverlay.ChangeActiveBloodOverlayOpacity();
+        //passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
+
+        if (CurArmor > 0)
+        {
+            int armorDamage = amount / 2;
+            int healthDamage = amount - armorDamage;
+
+            CurArmor -= armorDamage;
+            CurHealth -= healthDamage;
+
+            Debug.Log("Armor Damage: " + armorDamage);
+            Debug.Log("Health Damage: " + healthDamage);
+        }
+        else
+        {
+            CurHealth -= amount;
+
+            Debug.Log("Health Damage: " + amount);
+        }
+
+        TextManager.Instance.UpdateHealthArmorText();
+
+        if (CurHealth <= 0)
+        {
+            Debug.Log("Player Dies");
+            CurHealth = 0;
+            //gameOverScreen.SetActive(true);
+
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+            GetComponent<FirstPersonAIO>().ControllerPause();
+            GetComponent<FirstPersonAIO>().enabled = false;
+
+            transform.GetChild(3).gameObject.SetActive(false);
+
+            Debug.Log("Paused");
+
+            //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+        }
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +75,7 @@ public class Payload : MonoBehaviour
         {
             if (Vector3.Distance(waypoints[current].transform.position, transform.position) < waypointRadius)
             {
-                current++;
+                //current++;
                 if (current >= waypoints.Length) current = 0;
             }
 
@@ -40,6 +89,12 @@ public class Payload : MonoBehaviour
 
             transform.localRotation = Quaternion.LookRotation(newDirection);
         }
+
+        if ((Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position) < radius))
+        {
+            startMove = true;
+        }
+        else startMove = false;
     }
 
     private IEnumerator WillMove(float time)
@@ -47,4 +102,10 @@ public class Payload : MonoBehaviour
         yield return new WaitForSeconds(time);
         startMove = true;
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject.name);
+    }
+
 }
