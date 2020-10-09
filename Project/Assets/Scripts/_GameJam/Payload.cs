@@ -15,6 +15,8 @@ public class Payload : UnitController
 
     public bool startMove = false;
 
+    [SerializeField] public Transform middle;
+
     public void TakeDamage(int amount)
     {
         //bloodOverlay.ChangeActiveBloodOverlayOpacity();
@@ -90,7 +92,7 @@ public class Payload : UnitController
             transform.localRotation = Quaternion.LookRotation(newDirection);
         }
 
-        if ((Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position) < radius))
+        if ((Vector3.Distance(middle.position, GameManager.Instance.playerGo.transform.position) < radius))
         {
             startMove = true;
         }
