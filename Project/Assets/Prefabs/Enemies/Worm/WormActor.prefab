@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423949438595970571}
-  m_LocalRotation: {x: 0, y: 0.9217694, z: -0, w: -0.38773867}
+  m_LocalRotation: {x: -0, y: 0.11211225, z: -0, w: 0.99369556}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1065904029742435345, guid: 8a91293b6cd4e3846800940168b51bac,
+  m_Sprite: {fileID: 4223479697576462649, guid: 8a91293b6cd4e3846800940168b51bac,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 6423949439062104480}
-  currentFrameIndex: 0
+  currentFrameIndex: 1
   enemy: 0
   materials: []
 --- !u!65 &6423949438595970575
@@ -309,7 +309,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.9
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -364,15 +364,16 @@ MonoBehaviour:
   minPatrolSoundTime: 1.5
   maxPatrolSoundTime: 5
   idle:
-  - {fileID: 8300000, guid: 56f4467ebcc7ed748b61b8633982891c, type: 3}
+  - {fileID: 8300000, guid: 4e446eeae13a480499fda79ca8e92bf0, type: 3}
+  - {fileID: 8300000, guid: b667f2374583b4b46b329e0345a12944, type: 3}
   chase:
-  - {fileID: 8300000, guid: 56f4467ebcc7ed748b61b8633982891c, type: 3}
+  - {fileID: 8300000, guid: 4d60de79518e8b54589d8deca0598c66, type: 3}
   fire:
-  - {fileID: 8300000, guid: 23c6cd4e3d852f443abfb36555cc8c40, type: 3}
+  - {fileID: 8300000, guid: 20d707e088d67c741a75f93bdc9f82aa, type: 3}
   pain:
-  - {fileID: 8300000, guid: 23c6cd4e3d852f443abfb36555cc8c40, type: 3}
+  - {fileID: 8300000, guid: 20d707e088d67c741a75f93bdc9f82aa, type: 3}
   death:
-  - {fileID: 8300000, guid: 23c6cd4e3d852f443abfb36555cc8c40, type: 3}
+  - {fileID: 8300000, guid: e6dc795413bf5dc49a41a06156975f9e, type: 3}
   splatter:
   - {fileID: 8300000, guid: caeb579e4c30fee41a8f41f67e334d43, type: 3}
   gibExplosion:

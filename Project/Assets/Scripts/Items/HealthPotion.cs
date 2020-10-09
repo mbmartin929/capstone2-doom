@@ -39,7 +39,7 @@ namespace EightDirectionalSpriteSystem
         {
             HealthArmorPickUp(other);
 
-            if (CompareTag("Player") && numberOfHealth >= 1) EndGameScreen.Instance.healthFound++;
+            if (other.CompareTag("Player") && numberOfHealth >= 1) EndGameScreen.Instance.healthFound++;
         }
     }
 }

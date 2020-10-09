@@ -10,7 +10,6 @@ namespace EightDirectionalSpriteSystem
         public float distanceToPickUp = 3.69f;
         public float lerpSpeed = 0.69f;
 
-        public Image overlayImage;
         public AudioClip ambientSound;
         public AudioClip pickUpSound;
         protected PlayerController playerController;
@@ -75,7 +74,7 @@ namespace EightDirectionalSpriteSystem
 
                 //audioSource.PlayOneShot(pickUpSound);
 
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 0.01f);
             }
         }
     }

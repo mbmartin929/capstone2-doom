@@ -61,6 +61,24 @@ namespace EightDirectionalSpriteSystem
             Debug.Log("Play Pain Sound");
         }
 
+        public void DeathSound()
+        {
+            int random = Random.Range(0, death.Length);
+
+            audioSource.PlayOneShot(death[random]);
+
+            Debug.Log("Play Death Sound");
+        }
+
+        public void FireSound()
+        {
+            int random = Random.Range(0, fire.Length);
+
+            audioSource.PlayOneShot(fire[random]);
+
+            Debug.Log("Play Fire Sound");
+        }
+
         public void BloodSplatterSound()
         {
             int random = Random.Range(0, splatter.Length);

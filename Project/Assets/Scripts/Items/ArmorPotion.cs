@@ -38,7 +38,11 @@ namespace EightDirectionalSpriteSystem
         {
             HealthArmorPickUp(other);
 
-            if (CompareTag("Player") && numberOfArmor >= 1) EndGameScreen.Instance.armorFound++;
+            if (other.CompareTag("Player") && numberOfArmor >= 1)
+            {
+                Debug.Log("Armor Found");
+                EndGameScreen.Instance.armorFound++;
+            }
         }
     }
 }

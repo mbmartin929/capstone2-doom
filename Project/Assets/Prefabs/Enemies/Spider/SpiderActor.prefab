@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4589526529951126740}
-  m_LocalRotation: {x: -0, y: 0.86050344, z: -0, w: 0.5094446}
+  m_LocalRotation: {x: -0, y: 0.44039616, z: -0, w: 0.8978036}
   m_LocalPosition: {x: 0, y: -0.15999985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4618897482561276667, guid: 44dcc0d935ac03e41bdb3fcbbbf2b175,
+  m_Sprite: {fileID: 4734144162153754382, guid: 44dcc0d935ac03e41bdb3fcbbbf2b175,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -308,7 +308,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.9
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

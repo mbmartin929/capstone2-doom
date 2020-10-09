@@ -112,12 +112,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 8300000, guid: 75338d9d0ce415443a83cdc66a7d7b80, type: 3}
-  ammoType: 0
   itemName: Ammo
   recoverAmount: 4
+  ammoType: 0
   weapon: {fileID: 7648730109480126502, guid: 0dd233844e4d1554ea6bd50ea9a840dc, type: 3}
+  numberOfAmmo: 0
 --- !u!95 &7850591807823875133
 Animator:
   serializedVersion: 3

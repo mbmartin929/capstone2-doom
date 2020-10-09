@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629349247}
   m_LocalRotation: {x: -0.05257588, y: 0.70514953, z: 0.70514953, w: 0.052575916}
-  m_LocalPosition: {x: 0.037391372, y: -0.8875738, z: -0.028112167}
+  m_LocalPosition: {x: 0.037391372, y: -1.012, z: -0.028112167}
   m_LocalScale: {x: 7.109853, y: 8.789379, z: 7.3275356}
   m_Children: []
   m_Father: {fileID: 7328639068343049390}
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328639067869672197}
-  m_LocalRotation: {x: -0, y: 0.99868155, z: -0, w: 0.05133444}
+  m_LocalRotation: {x: -0, y: 0.42922503, z: -0, w: -0.9031976}
   m_LocalPosition: {x: 0, y: -0.22500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1134392569920833681, guid: b9d55e427f1d94f4bb049b729a161506,
+  m_Sprite: {fileID: -6017003217773665294, guid: b9d55e427f1d94f4bb049b729a161506,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 7328639068343049390}
-  currentFrameIndex: 1
+  currentFrameIndex: 0
   enemy: 2
   materials: []
 --- !u!65 &7328639067869672193
@@ -229,7 +229,7 @@ MonoBehaviour:
   projectileGo: {fileID: 0}
   maxHealth: 60
   maxArmor: 0
-  damage: 10
+  damage: 7
   painChance: 0.25
   painDuration: 0.3
   painStrength: 1
@@ -540,7 +540,7 @@ MonoBehaviour:
   attackPlayerOnStartDelayTime: 2.9
   distanceToAttack: 2
   viewRadius: 16
-  viewAngle: 300
+  viewAngle: 240
   targetMask:
     serializedVersion: 2
     m_Bits: 512

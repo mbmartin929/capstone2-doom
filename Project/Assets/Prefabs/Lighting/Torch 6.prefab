@@ -43,7 +43,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.2
+  m_Intensity: 0.21
   m_Range: 3.55
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
@@ -88,7 +88,8 @@ Light:
   m_BounceIntensity: 1.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0.000000020781258, z: 7.02e-43, w: 0}
+  m_BoundingSphereOverride: {x: 2.6213528e+14, y: 4.3712434e+24, z: 5.829073e-10,
+    w: 0.000000041723233}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -488,10 +489,11 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.11
+  m_BounceIntensity: 1.29
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3.6e-43, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3.0856683e+29, y: 2.614032e+11, z: 4.5449726e+30,
+    w: 1.8519046e+28}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -530,7 +532,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4076973888711258501
 Transform:
@@ -4148,7 +4150,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4076973889683177404
 Transform:
@@ -4421,9 +4423,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
   m_Intensity: 0.29
-  m_Range: 4.2
-  m_SpotAngle: 130.18207
-  m_InnerSpotAngle: 68.87557
+  m_Range: 4.29
+  m_SpotAngle: 148.52658
+  m_InnerSpotAngle: 102.74235
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4465,7 +4467,7 @@ Light:
   m_BounceIntensity: 7.85
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.43e-41, y: 0, z: 0, w: 5.0492e-41}
+  m_BoundingSphereOverride: {x: 10, y: 9, z: -11, w: 7}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

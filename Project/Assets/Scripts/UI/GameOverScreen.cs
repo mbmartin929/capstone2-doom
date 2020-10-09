@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EightDirectionalSpriteSystem;
 
 public class GameOverScreen : MonoBehaviour
 {
+    [SerializeField] private GameObject[] allEnemies;
 
     void Awake()
     {
@@ -12,7 +14,23 @@ public class GameOverScreen : MonoBehaviour
 
     void Start()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Pause();
+        Debug.Log("GameOverScreen");
+    }
+
+    public void Pause()
+    {
+        MusicManager.Instance.FadeOutActiveMusicCaller();
+        MusicManager.Instance.FadeOutAmbientMusicCaller();
+
+        StartCoroutine(LateStartMusic());
+    }
+
+    private IEnumerator LateStartMusic()
+    {
+        yield return new WaitForSeconds(0.69f);
+        MusicManager.Instance.FadeInActiveMusicCaller(3, true, 2);
     }
 
     public void Restart()

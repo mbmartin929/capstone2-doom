@@ -172,18 +172,18 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077416785}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 352a4daffb830754baa4a96d46fdbae9, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.09
-  m_Pitch: 0.8
+  m_audioClip: {fileID: 8300000, guid: ae0f7dd80b0cec145bcc475cc5751799, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.12
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 256
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -424,22 +424,22 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -519,7 +519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1834442448}
   - component: {fileID: 1834442449}
-  - component: {fileID: 2117175844}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -637,18 +636,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2117175844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834442447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf2767c9b892ba44b5f6bf1834ee0ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5115042798176270234
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181108794733687454}
+  - component: {fileID: 54198289}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: Untagged
@@ -682,6 +670,33 @@ Transform:
   m_Father: {fileID: 7360741691027915928}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54198289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115042798176270234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3c226696fa0f642ac9c1361d2e7a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVolume: 0.7
+  speed: 0.029
+  useMidi: 0
+  musicTrackMidi:
+  - {fileID: 8300000, guid: 665ce837e4552194ca0fb13ed754ed78, type: 3}
+  musicTrackNormal:
+  - {fileID: 8300000, guid: 4bbbd280565bf9948bff4dc13676b80e, type: 3}
+  - {fileID: 8300000, guid: ca47af7d3a014b644ad488675ea830c0, type: 3}
+  - {fileID: 8300000, guid: ce59ab488780eb547bdb6eaa6148b75a, type: 3}
+  - {fileID: 8300000, guid: d4ef30f66c1e9fa46b98adea211a2a9a, type: 3}
+  - {fileID: 8300000, guid: a4a15932ccbca234bbbef18a89ee9f27, type: 3}
+  - {fileID: 8300000, guid: 6263542607b702440b174abd9dced790, type: 3}
+  bgmAudioSource: {fileID: 1834442449}
+  activeAudioSource: {fileID: 1674373874}
+  ambientAudioSource: {fileID: 1077416787}
 --- !u!1 &7360741690320949187
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc1b7388bd4214d95dfe84bd5342c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introEnabled: 0
+  introEnabled: 1
   psxVolume: {fileID: 0}
   frameRate: 200
   playerGo: {fileID: 0}
@@ -839,6 +854,7 @@ MonoBehaviour:
   breakWallsTutorial: 0
   switchPistolTutorial: 0
   switchShotgunTutorial: 0
+  level: 1
 --- !u!114 &8745383587705318907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,15 +867,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69dbb4616d5ce7b4ba2addd0e5d1e53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoIconRectVector3: {x: 675, y: -365, z: 33.867}
+  WBorderRectVector3: {x: 635, y: -370, z: 47}
   bloodOverlays:
   - {fileID: 0}
   - {fileID: 0}
   bloodOverlayScale:
   - {x: 2467.15, y: 1055, z: 0}
   - {x: 2123.07, y: 1197, z: 0}
-  healthHolder: {fileID: 0}
+  HSBox: {fileID: 0}
+  dialogueHolder: {fileID: 0}
   weaponHolder: {fileID: 0}
-  holderPos: []
+  healthHolderPos:
+  - {x: -1041.57, y: -414.4, z: 0}
+  - {x: -929, y: -500, z: 0}
+  weaponHolderPos:
+  - {x: -203.7, y: 98.6, z: 0}
+  - {x: -341.8, y: 33.4, z: 0}
+  dialogueHolderPos:
+  - {x: -108.5, y: 17.3, z: 0}
+  - {x: 30.77, y: -29, z: 0}
 --- !u!82 &1023408256
 AudioSource:
   m_ObjectHideFlags: 0
