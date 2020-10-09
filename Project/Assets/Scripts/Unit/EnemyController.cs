@@ -38,6 +38,8 @@ namespace EightDirectionalSpriteSystem
         private Coroutine currentCoroutine = null;
         private EnemySounds enemySounds;
 
+        private bool contributedGib = false;
+
         void Awake()
         {
             //enemyAI = GetComponent<EnemyAI>();
@@ -101,7 +103,12 @@ namespace EightDirectionalSpriteSystem
                 if (CurHealth <= -gibDeath)
                 {
                     enemySounds.GibExplosionSound();
-                    EndGameScreen.Instance.enemiesGibbed++;
+
+                    if (!contributedGib)
+                    {
+                        EndGameScreen.Instance.enemiesGibbed++;
+                        contributedGib = true;
+                    }
 
                     //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                     gameObject.SetActive(false);
@@ -159,7 +166,12 @@ namespace EightDirectionalSpriteSystem
                     if (CurHealth <= -gibAlive)
                     {
                         enemySounds.GibExplosionSound();
-                        EndGameScreen.Instance.enemiesGibbed++;
+
+                        if (!contributedGib)
+                        {
+                            EndGameScreen.Instance.enemiesGibbed++;
+                            contributedGib = true;
+                        }
 
                         //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                         //gameObject.SetActive(false);

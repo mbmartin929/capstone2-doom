@@ -21,70 +21,70 @@ public class AspectRatioManager : MonoBehaviour
 
     void Awake()
     {
+        // float targetaspect = 16.0f / 9.0f;
+        // float windowAspect = (float)Screen.width / (float)Screen.height;
+        // float scaleHeight = windowAspect / targetaspect;
+
+        // float scaleWidth = 1.0f / scaleHeight;
+
+        // // if scaled height is less than current height, add letterbox
+        // if (scaleHeight < 1.0f)
+        // {
+        //     Rect rect = Camera.main.rect;
+
+        //     rect.width = 1.0f;
+        //     rect.height = scaleHeight;
+        //     rect.x = 0;
+        //     rect.y = (1.0f - scaleHeight) / 2.0f;
+
+        //     Camera.main.rect = rect;
+        // }
+        // else // add pillarbox
+        // {
+        //     float scalewidth = 1.0f / scaleHeight;
+
+        //     Rect rect = Camera.main.rect;
+
+        //     rect.width = scalewidth;
+        //     rect.height = 1.0f;
+        //     rect.x = (1.0f - scalewidth) / 2.0f;
+        //     rect.y = 0;
+
+        //     Camera.main.rect = rect;
+        // }
+
         if (Camera.main.aspect >= 1.8)
         {
-            Debug.Log("21:9");
-            foreach (var overlay in bloodOverlays)
-            {
-                RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
-                rt.sizeDelta = new Vector2(bloodOverlayScale[0].x, bloodOverlayScale[0].y);
-            }
-
-            //RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-
-            // weaponRect.pivot = new Vector2(0.5f, -0.2f);
-            // weaponRect.anchorMax = new Vector2(0.29f, 0.5f);
-
-            // Code Below is required for 21:9 fix
-            //weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
-
-            // float targetaspect = 16.0f / 9.0f;
-            // float windowAspect = (float)Screen.width / (float)Screen.height;
-            // float scaleHeight = windowAspect / targetaspect;
-
-            // float scaleWidth = 1.0f / scaleHeight;
-
-            // // if scaled height is less than current height, add letterbox
-            // if (scaleHeight < 1.0f)
+            // Debug.Log("21:9");
+            // foreach (var overlay in bloodOverlays)
             // {
-            //     Rect rect = Camera.main.rect;
-
-            //     rect.width = 1.0f;
-            //     rect.height = scaleHeight;
-            //     rect.x = 0;
-            //     rect.y = (1.0f - scaleHeight) / 2.0f;
-
-            //     Camera.main.rect = rect;
-            // }
-            // else // add pillarbox
-            // {
-            //     float scalewidth = 1.0f / scaleHeight;
-
-            //     Rect rect = Camera.main.rect;
-
-            //     rect.width = scalewidth;
-            //     rect.height = 1.0f;
-            //     rect.x = (1.0f - scalewidth) / 2.0f;
-            //     rect.y = 0;
-
-            //     Camera.main.rect = rect;
+            //     RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
+            //     rt.sizeDelta = new Vector2(bloodOverlayScale[0].x, bloodOverlayScale[0].y);
             // }
 
-            RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
-            healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
+            // //RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
 
-            RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-            weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
-            weaponRect.pivot = new Vector2(2.0f, 0.35f);
+            // // weaponRect.pivot = new Vector2(0.5f, -0.2f);
+            // // weaponRect.anchorMax = new Vector2(0.29f, 0.5f);
 
-            // RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
-            // ammoIconRect.localPosition = ammoIconRectVector3;
+            // // Code Below is required for 21:9 fix
+            // //weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
 
-            // RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
-            // WBorderRect.localPosition = WBorderRectVector3;
+            // RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
+            // healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
 
-            RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-            dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
+            // RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+            // weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
+            // weaponRect.pivot = new Vector2(2.0f, 0.35f);
+
+            // // RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
+            // // ammoIconRect.localPosition = ammoIconRectVector3;
+
+            // // RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
+            // // WBorderRect.localPosition = WBorderRectVector3;
+
+            // RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+            // dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
         }
         else if (Camera.main.aspect >= 1.7)
         {
