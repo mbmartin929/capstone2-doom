@@ -867,8 +867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69dbb4616d5ce7b4ba2addd0e5d1e53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoIconRectVector3: {x: 675, y: -365, z: 33.867}
-  WBorderRectVector3: {x: 635, y: -370, z: 47}
+  ammoIconRectVector3: {x: 673, y: -347, z: 33.867}
+  WBorderRectVector3: {x: 635, y: -355, z: 47}
   bloodOverlays:
   - {fileID: 0}
   - {fileID: 0}
@@ -879,14 +879,14 @@ MonoBehaviour:
   dialogueHolder: {fileID: 0}
   weaponHolder: {fileID: 0}
   healthHolderPos:
-  - {x: -1041.57, y: -414.4, z: 0}
+  - {x: -1200, y: -414.4, z: 0}
   - {x: -929, y: -500, z: 0}
   weaponHolderPos:
   - {x: -203.7, y: 98.6, z: 0}
   - {x: -341.8, y: 33.4, z: 0}
   dialogueHolderPos:
   - {x: -108.5, y: 17.3, z: 0}
-  - {x: 30.77, y: -29, z: 0}
+  - {x: 269, y: 18, z: 0}
 --- !u!82 &1023408256
 AudioSource:
   m_ObjectHideFlags: 0
