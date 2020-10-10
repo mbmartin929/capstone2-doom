@@ -51,10 +51,10 @@ namespace EightDirectionalSpriteSystem
             {
                 //Debug.Log("Weapon Name: " + currentWeapon.name);
 
-                if (currentWeapon.name == "Pistol")
+                if (currentWeapon.name == "GameJam_Pistol")
                 {
                     curAmmoText.text = currentWeapon.GetComponent<PistolController>().CurAmmo.ToString();
-                    maxAmmoText.text = AmmoInventory.Instance.curPistolAmmo.ToString();
+                    //maxAmmoText.text = AmmoInventory.Instance.curPistolAmmo.ToString();
                 }
                 else if (currentWeapon.name == "Shotgun")
                 {

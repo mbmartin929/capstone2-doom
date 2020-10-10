@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public int frameRate = 200;
     public GameObject playerGo;
+    public GameObject cargoGo;
 
     public int deadEnemiesNumber;
     #endregion 

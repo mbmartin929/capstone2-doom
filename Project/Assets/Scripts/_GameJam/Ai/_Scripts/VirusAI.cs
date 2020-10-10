@@ -5,37 +5,21 @@ using UnityEngine;
 
 public class VirusAI : MonoBehaviour
 {
-    Animator anim;
-    public GameObject enemy;
-    public GameObject cargo;
-
-
-
-
-    // Start is called before the first frame update
-
-    public GameObject GetOpponent()
-    {
-        return enemy;
-
-    }
-
+    public Animator anim;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
-
-   
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        anim.SetFloat("distance", Vector3.Distance(transform.position, enemy.transform.position));
+        anim.SetFloat("distance",
+        Vector3.Distance(transform.position,
+        GameManager.Instance.cargoGo.transform.position));
     }
 
-  
+
 
 }

@@ -7,6 +7,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class EnemyController : UnitController
     {
+        public GameObject deathParticle;
+
         public int damage = 15;
         public float painChance = 0.5f;
         public float painDuration = 0.2f;
@@ -50,29 +52,13 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-            //Debug.Log("Parent: " + transform.parent);
-            //Debug.Log("Parent Parent: " + transform.parent.parent);
-
-            // Debug options
-            //maxHealth -= 20;
-
-            EndGameScreen.Instance.totalEnemies++;
-
             CurHealth = maxHealth;
         }
 
         // Update is called once per frame
         void Update()
         {
-            //CurrentHealth = CurHealth;W
 
-            if (getHit)
-            {
-                if (painStrength <= 0) painStrength = 0;
-                Debug.Log("Pain Strength: " + painStrength);
-                //Debug.Log("Pain: " + (transform.forward * (painStrength - painResistance)));
-                transform.parent.position += (transform.forward * (painStrength - painResistance)) * Time.deltaTime;
-            }
         }
 
         public void TakeDamage(int amount)
@@ -82,211 +68,159 @@ namespace EightDirectionalSpriteSystem
                 int id = Random.Range(0, bloodSplatGos.Length);
             }
 
-            RaycastHit hit;
-            int layerMask = LayerMask.GetMask("Ground");
-            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
-            {
-                int randomBloodNumber = Random.Range(1, 5);
-                float randomBloodTimer = Random.Range(0.1f, 0.25f);
+            // RaycastHit hit;
+            // int layerMask = LayerMask.GetMask("Ground");
+            // if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
+            // {
+            //     int randomBloodNumber = Random.Range(1, 5);
+            //     float randomBloodTimer = Random.Range(0.1f, 0.25f);
 
-                StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
-            }
+            //     StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
+            // }
 
             if (IsDead())
             {
-                enemySounds.BloodSplatterSound();
+                Instantiate(deathParticle, transform.position, Quaternion.identity);
+                Destroy(transform.parent.gameObject, 0f);
 
-                // DECREASES HEALTH
-                CurHealth -= amount;
+                //enemySounds.BloodSplatterSound();
 
-                // Gibbed
-                if (CurHealth <= -gibDeath)
-                {
-                    enemySounds.GibExplosionSound();
+                // // DECREASES HEALTH
+                // CurHealth -= amount;
 
-                    if (!contributedGib)
-                    {
-                        EndGameScreen.Instance.enemiesGibbed++;
-                        contributedGib = true;
-                    }
+                // // Gibbed
+                // if (CurHealth <= -gibDeath)
+                // {
+                //     enemySounds.GibExplosionSound();
 
-                    //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
-                    gameObject.SetActive(false);
+                //     if (!contributedGib)
+                //     {
+                //         EndGameScreen.Instance.enemiesGibbed++;
+                //         contributedGib = true;
+                //     }
 
-                    for (int i = 0; i < gibsAmount; i++)
-                    {
-                        GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
-                    }
+                //     gameObject.SetActive(false);
 
-                    GetComponent<EnemyDrops>().Drop();
+                //     for (int i = 0; i < gibsAmount; i++)
+                //     {
+                //         GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                //     }
 
-                    Destroy(gameObject, 5.0f);
-                    //transform.parent = GameManager.Instance.deadEnemies.transform;
-                    transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                //     GetComponent<EnemyDrops>().Drop();
 
-                    Debug.Log("Dead Gib!");
+                //     Destroy(gameObject, 5.0f);
+                //     transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
-                    // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
-                    // {
-                    //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
-                    //     {
-                    //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
-                    //         return;
-                    //     }
-                    // }
-                }
+                //     Debug.Log("Dead Gib!");
+
+                // }
             }
             else if (!IsDead())
             {
-                //GetComponent<AudioSource>().Play();
-
-                enemySounds.BloodSplatterSound();
+                //enemySounds.BloodSplatterSound();
 
                 if (CurArmor <= 0)
                 {
                     // DECREASES HEALTH
                     CurHealth -= amount;
 
-                    // Checks Hurt Chance
-                    float randValue = Random.value;
-                    if (randValue < painChance)
-                    {
-                        //Debug.Log("Pain");
-                        //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-                        enemySounds.PainSound();
-
-                        if (currentCoroutine != null)
-                        {
-                            StopCoroutine(currentCoroutine);
-                        }
-
-                        currentCoroutine = StartCoroutine(GetHit());
-                    }
-
-                    if (CurHealth <= -gibAlive)
-                    {
-                        enemySounds.GibExplosionSound();
-
-                        if (!contributedGib)
-                        {
-                            EndGameScreen.Instance.enemiesGibbed++;
-                            contributedGib = true;
-                        }
-
-                        //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
-                        //gameObject.SetActive(false);
-                        //transform.parent = GameManager.Instance.deadEnemies.transform;
-                        transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-
-                        for (int i = 0; i < gibsAmount; i++)
-                        {
-                            GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
-                        }
-
-
-                        //Destroy(gameObject, 5.0f);
-
-                        Debug.Log("Gib!");
-
-                        // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
-                        // {
-                        //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
-                        //     {
-                        //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
-                        //         return;
-                        //     }
-                        // }
-                    }
-
-                    if (IsDead())
-                    {
-                        // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
-                        // bloodFlowGo.transform.parent = transform;
-
-                        Destroy(transform.parent.GetChild(2).gameObject);
-                        Die();
-                    }
-                    //else StartCoroutine(GetHit());
+                    Debug.Log("Gib!");
                 }
-                else
+
+                if (IsDead())
                 {
-                    // DECREASES ARMOR
-                    CurArmor -= amount;
-                    //StartCoroutine(GetHit());
+                    GameObject _deathParticle = Instantiate(deathParticle, transform.position, Quaternion.identity) as GameObject;
+                    _deathParticle.GetComponent<ParticleSystem>().Play();
+                    Destroy(transform.parent.gameObject, 0f);
 
-                    // float randValue = Random.value;
-                    // if (randValue < painChance)
-                    // {
-                    //     Debug.Log("Pain");
-                    //     enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-                    //     StartCoroutine(GetHit());
-                    // }
+                    // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
+                    // bloodFlowGo.transform.parent = transform;
 
+                    //Destroy(transform.parent.GetChild(2).gameObject);
+                    //Die();
                 }
-            }
-        }
-
-        public void Die()
-        {
-            EndGameScreen.Instance.killedEnemies++;
-
-            //Debug.Log("Die");
-            animator.SetTrigger("Dead");
-            enemySounds.DeathSound();
-
-            Vector3 size = GetComponent<BoxCollider>().size;
-            Vector3 center = GetComponent<BoxCollider>().center;
-
-            GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
-            GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
-
-            //Debug.Log(transform.parent);
-            //Debug.Log(GameManager.Instance.DeadEnemies.transform);
-            //transform.parent = GameManager.Instance.deadEnemies.transform;
-            transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-            //Debug.Log("Set Parent");
-        }
-
-        private IEnumerator GetHit()
-        {
-            if (IsDead())
-            {
-                //Debug.Log("IENumerator Die");
-                //Die();
+                //else StartCoroutine(GetHit());
             }
             else
             {
-                //Debug.Log("Get Hit");
+                // DECREASES ARMOR
+                CurArmor -= amount;
+                //StartCoroutine(GetHit());
 
-                animator.SetTrigger("Get Hit");
+                // float randValue = Random.value;
+                // if (randValue < painChance)
+                // {
+                //     Debug.Log("Pain");
+                //     enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                //     StartCoroutine(GetHit());
+                // }
 
-                enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-
-                // transform.parent.GetComponent<NavMeshAgent>().isStopped = true;
-                transform.parent.GetComponent<NavMeshAgent>().enabled = false;
-
-                // getHit = true;
-
-                //transform.parent.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
             }
-
-            yield return new WaitForSeconds(painDuration);
-
-            transform.parent.GetComponent<NavMeshAgent>().enabled = true;
-            //transform.parent.GetComponent<NavMeshAgent>().isStopped = false;
-            // getHit = false;
-
-            if (!IsDead())
-            {
-                //Debug.Log("After IENumerator IS NOT DEAD");
-                animator.SetTrigger("Attack");
-            }
-            else
-            {
-                //Debug.Log("After IENumerator IS DEAD");
-                animator.SetTrigger("Dead");
-            }
-
         }
     }
+
+    // public void Die()
+    // {
+    //     EndGameScreen.Instance.killedEnemies++;
+
+    //     //Debug.Log("Die");
+    //     animator.SetTrigger("Dead");
+    //     enemySounds.DeathSound();
+
+    //     Vector3 size = GetComponent<BoxCollider>().size;
+    //     Vector3 center = GetComponent<BoxCollider>().center;
+
+    //     GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
+    //     GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
+
+    //     //Debug.Log(transform.parent);
+    //     //Debug.Log(GameManager.Instance.DeadEnemies.transform);
+    //     //transform.parent = GameManager.Instance.deadEnemies.transform;
+    //     transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+    //     //Debug.Log("Set Parent");
+    // }
+
+    // private IEnumerator GetHit()
+    // {
+    //     if (IsDead())
+    //     {
+    //         //Debug.Log("IENumerator Die");
+    //         //Die();
+    //     }
+    //     else
+    //     {
+    //         //Debug.Log("Get Hit");
+
+    //         animator.SetTrigger("Get Hit");
+
+    //         enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+
+    //         // transform.parent.GetComponent<NavMeshAgent>().isStopped = true;
+    //         transform.parent.GetComponent<NavMeshAgent>().enabled = false;
+
+    //         // getHit = true;
+
+    //         //transform.parent.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+    //     }
+
+    //     yield return new WaitForSeconds(painDuration);
+
+    //     transform.parent.GetComponent<NavMeshAgent>().enabled = true;
+    //     //transform.parent.GetComponent<NavMeshAgent>().isStopped = false;
+    //     // getHit = false;
+
+    //     if (!IsDead())
+    //     {
+    //         //Debug.Log("After IENumerator IS NOT DEAD");
+    //         animator.SetTrigger("Attack");
+    //     }
+    //     else
+    //     {
+    //         //Debug.Log("After IENumerator IS DEAD");
+    //         animator.SetTrigger("Dead");
+    //     }
+
+    // }
 }
+
+

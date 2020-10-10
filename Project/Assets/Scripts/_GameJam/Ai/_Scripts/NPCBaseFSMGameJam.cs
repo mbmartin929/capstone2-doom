@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class NPCBaseFSMGameJam : StateMachineBehaviour 
+public class NPCBaseFSMGameJam : StateMachineBehaviour
 {
 
     public GameObject NPC;
@@ -17,12 +18,12 @@ public class NPCBaseFSMGameJam : StateMachineBehaviour
     {
         NPC = animator.gameObject;
         //GameObject opponent = NPC.GetComponent<VirusAI>().GetPlayer(); /// HERE
-     
-        agent = NPC.GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        agent = NPC.transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
 
-        opponent = GameObject.FindGameObjectsWithTag("EnemyGameJam");
-        var target = opponent[Random.Range(0, opponent.Length)].transform;
+        //opponent = GameObject.FindGameObjectsWithTag("EnemyGameJam");
+        //var target = opponent[Random.Range(0, opponent.Length)].transform;
     }
 }

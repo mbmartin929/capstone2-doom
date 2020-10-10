@@ -10,7 +10,9 @@ public class Payload : UnitController
     public float startTime = 2.9f;
     public int current = 0;
     public float rotSpeed;
-    public float moveSpeed = 1.0f;
+
+    public float defaultMoveSpeed = 6.9f;
+    public float curMoveSpeed = 1.0f;
     float waypointRadius = 1f;
 
     public bool startMove = false;
@@ -68,6 +70,8 @@ public class Payload : UnitController
     void Start()
     {
         StartCoroutine(WillMove(startTime));
+
+        curMoveSpeed = defaultMoveSpeed;
     }
 
     // Update is called once per frame
@@ -77,11 +81,11 @@ public class Payload : UnitController
         {
             if (Vector3.Distance(waypoints[current].transform.position, transform.position) < waypointRadius)
             {
-                //current++;
-                if (current >= waypoints.Length) current = 0;
+                current++;
+                //if (current >= waypoints.Length) current = 0;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * moveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * curMoveSpeed);
 
             Vector3 targetDirection = waypoints[current].transform.position - transform.position;
 

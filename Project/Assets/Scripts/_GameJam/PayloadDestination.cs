@@ -47,54 +47,23 @@ public class PayloadDestination : MonoBehaviour
     {
         if ((Vector3.Distance(transform.position, payloadGo.transform.position) < radius && !arrived))
         {
+            arrived = true;
             Payload payload = payloadGo.GetComponent<Payload>();
             StartCoroutine(CollidePayload(payload));
-            arrived = true;
         }
 
 
         if (startLoading)
         {
-            Debug.Log("Start Loading");
-            // waitTime += Time.deltaTime;
-            // var percent = activeTime / waitTime;
-
-            // float fillAmount = 1.0f * percent;
-
-            //image.fillAmount = Mathf.Lerp(0, 1, percent);
-
-            //image.fillAmount = fillAmount;
-
-            //image.fillAmount += 1.0f / waitTime * Time.deltaTime;
-
-            //image.value = Time.time;
-
-            //image.fillAmount = Mathf.Lerp(0, 1.0f, waitTime) / 1.0f;
-
             timer += Time.deltaTime / waitTime;
             displayValue = Mathf.Lerp(0, 1.0f, timer);
             image.fillAmount = displayValue;
         }
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     Debug.Log(other.gameObject.name);
-
-    //     if (other.CompareTag("Payload"))
-    //     {
-    //         Payload payload = other.GetComponent<Payload>();
-    //         arrived = true;
-    //         StartCoroutine(CollidePayload(payload));
-
-    //         Debug.Log("Arrived");
-    //     }
-    // }
-
     private IEnumerator CollidePayload(Payload payload)
     {
-        float speed = payload.moveSpeed;
-        payload.moveSpeed = 0;
+        payload.curMoveSpeed = 0;
 
         startLoading = true;
 
@@ -108,15 +77,11 @@ public class PayloadDestination : MonoBehaviour
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FirstEmail());
         }
 
-        payload.current++;
-        payload.moveSpeed = speed;
+        Debug.Log("Continue to next waypoint");
+
+        //payload.current++;
+        payload.curMoveSpeed = payload.defaultMoveSpeed;
 
         Debug.Log("Payload going next");
-    }
-
-
-    void OnCollisionEnter(Collision other)
-    {
-        Debug.Log(other.gameObject.name);
     }
 }
