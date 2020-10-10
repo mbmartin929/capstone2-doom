@@ -157,7 +157,7 @@ namespace EightDirectionalSpriteSystem
                     // DECREASES HEALTH
                     CurHealth -= amount;
 
-                    Debug.Log("Gib!");
+                    // Debug.Log("Gib!");
                 }
 
                 if (IsDead())

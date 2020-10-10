@@ -168,9 +168,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 665ce837e4552194ca0fb13ed754ed78, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.16
+  m_audioClip: {fileID: 8300000, guid: 0c6339433db119342811c39350f6f2f3, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -459,7 +459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2983736379458663945
 Transform:
   m_ObjectHideFlags: 0
@@ -822,7 +822,6 @@ GameObject:
   - component: {fileID: 5714724863704283573}
   - component: {fileID: 5714724863704283572}
   - component: {fileID: 2983736380111242581}
-  - component: {fileID: 5779671263353753809}
   - component: {fileID: 2983736380111242666}
   m_Layer: 0
   m_Name: GameManager
@@ -864,10 +863,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc1b7388bd4214d95dfe84bd5342c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introEnabled: 1
+  introEnabled: 0
   psxVolume: {fileID: 0}
   frameRate: 200
   playerGo: {fileID: 0}
+  cargoGo: {fileID: 0}
   deadEnemiesNumber: 0
   enableHeadBob: 1
   deadEnemies: {fileID: 5714724864035795689}
@@ -924,6 +924,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b675491f7e973a48996a3a1c7f7a615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces:
+  - {fileID: 2800000, guid: 3f358b0aed0dc5d43821cbb5c8895610, type: 3}
+  - {fileID: 2800000, guid: 276d1461953cc814693bc8d60fab9a6b, type: 3}
+  - {fileID: 2800000, guid: feb87dcd045abb046b4bf2303b36f4d4, type: 3}
+  - {fileID: 2800000, guid: 55aa3872956eb2d48b6b0b37b5ef6229, type: 3}
+  - {fileID: 2800000, guid: 4fe12b94d4b1ad749b4157208c4668a5, type: 3}
+  dialogueFaceHolder: {fileID: 0}
   textWriter: {fileID: 0}
   nameTag: {fileID: 0}
   dialogueAnim: {fileID: 0}
@@ -937,38 +944,7 @@ MonoBehaviour:
   switchPistolTutorial: 0
   switchShotgunTutorial: 0
   level: 1
---- !u!114 &5779671263353753809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5714724863704283568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69dbb4616d5ce7b4ba2addd0e5d1e53e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoIconRectVector3: {x: 673, y: -347, z: 33.867}
-  WBorderRectVector3: {x: 635, y: -355, z: 47}
-  bloodOverlays:
-  - {fileID: 0}
-  - {fileID: 0}
-  bloodOverlayScale:
-  - {x: 2467.15, y: 1055, z: 0}
-  - {x: 2123.07, y: 1197, z: 0}
-  HSBox: {fileID: 0}
-  dialogueHolder: {fileID: 0}
-  weaponHolder: {fileID: 0}
-  healthHolderPos:
-  - {x: -1200, y: -414.4, z: 0}
-  - {x: -929, y: -500, z: 0}
-  weaponHolderPos:
-  - {x: -203.7, y: 98.6, z: 0}
-  - {x: -341.8, y: 33.4, z: 0}
-  dialogueHolderPos:
-  - {x: -108.5, y: 17.3, z: 0}
-  - {x: 269, y: 18, z: 0}
+  blackOverlay: {fileID: 0}
 --- !u!82 &2983736380111242666
 AudioSource:
   m_ObjectHideFlags: 0

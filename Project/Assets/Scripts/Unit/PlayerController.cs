@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EightDirectionalSpriteSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : UnitController
 {
@@ -187,7 +188,8 @@ public class PlayerController : UnitController
             {
                 Debug.Log("Player Dies");
                 CurHealth = 0;
-                gameOverScreen.SetActive(true);
+
+                //gameOverScreen.SetActive(true);
 
                 gameObject.GetComponent<CapsuleCollider>().enabled = false;
                 gameObject.GetComponent<Rigidbody>().useGravity = false;
@@ -197,12 +199,12 @@ public class PlayerController : UnitController
                 GetComponent<FirstPersonAIO>().enabled = false;
                 //Time.timeScale = 0;
 
-                transform.GetChild(3).gameObject.SetActive(false);
+                //transform.GetChild(3).gameObject.SetActive(false);
 
 
                 Debug.Log("Paused");
 
-                //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+                StartCoroutine(GameManager.Instance.RestartCurrentScene(4.2f));
             }
         }
     }

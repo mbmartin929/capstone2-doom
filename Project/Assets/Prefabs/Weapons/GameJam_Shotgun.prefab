@@ -120,7 +120,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2d5781c5c0707344b1bd5a92d4bf903, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.29
   m_Pitch: 0.42
   Loop: 0
   Mute: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 39b47b39fd4800e4b91daf31868a722b, type: 3}
   - {fileID: 8300000, guid: 86d206faf6871314d899945a7d647e8d, type: 3}
   canSwitch: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 7717953421197668686, guid: ad33abb871d18114c85df8002271d039, type: 3}
   sinSpeed: 3
   sinFrequency: 15
   sinMagnitude: 0.5
@@ -254,7 +254,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   bulletCasingLoc: {fileID: 0}
   bulletTracerLoc: {fileID: 0}
-  pelletCount: 16
+  pelletCount: 6
   scaleLimit: 1.85
   z: 10
   fireDelay: 1

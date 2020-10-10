@@ -32,7 +32,7 @@ namespace EightDirectionalSpriteSystem
                     //curAmmo = AmmoInventory.Instance.curShotgunAmmo;
                 }
 
-                CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
+                //CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
             }
         }
 
@@ -122,7 +122,6 @@ namespace EightDirectionalSpriteSystem
             StartCoroutine("MuzzleLight");
             StartCoroutine(Wait(0.2f));
             Vector3 rotationVector = transform.rotation.eulerAngles;
-            //GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
 
             TextManager.Instance.UpdateAmmoText();
 

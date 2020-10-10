@@ -82,10 +82,10 @@ namespace EightDirectionalSpriteSystem
                 //transform.parent.GetComponent<WaveManger>().totalHealth += _enemyGo.GetComponent<EnemyAI>().enemyController.maxHealth;
             }
 
-            if (chasePlayerOnSpawn)
-            {
-                _enemyGo.GetComponent<EnemyAI>().ChasePlayer();
-            }
+            // if (chasePlayerOnSpawn)
+            // {
+            //     _enemyGo.GetComponent<EnemyAI>().ChasePlayer();
+            // }
 
         }
 

@@ -24,6 +24,12 @@ namespace EightDirectionalSpriteSystem
 
         public void PickUpPistolAmmo(int amount, Transform currentWeapon)
         {
+            if (currentWeapon == null)
+            {
+                curPistolAmmo += amount;
+                TextManager.Instance.UpdateAmmoText();
+                return;
+            }
             PistolController weapon = currentWeapon.GetComponent<PistolController>();
 
             curPistolAmmo += amount;
@@ -35,6 +41,12 @@ namespace EightDirectionalSpriteSystem
 
         public void PickUpShotgunAmmo(int amount, Transform currentWeapon)
         {
+            if (currentWeapon == null)
+            {
+                curShotgunAmmo += amount;
+                TextManager.Instance.UpdateAmmoText();
+                return;
+            }
             ShotgunController weapon = currentWeapon.GetComponent<ShotgunController>();
 
             curShotgunAmmo += amount;

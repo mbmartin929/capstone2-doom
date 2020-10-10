@@ -89,7 +89,7 @@ Light:
   m_BounceIntensity: 6.9
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.8e-43, y: -10.266151, z: 8.8e-43, w: -1.793281e+12}
+  m_BoundingSphereOverride: {x: 0, y: 2.3510647e-38, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -264,7 +264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d8cf12c332c4c742857243aa3be2797, type: 2}
+  - {fileID: 2100000, guid: d4c0b38a3a406334b91a23db87cae0d3, type: 2}
   - {fileID: 2100000, guid: 01d605ae39c5aaa4b8f1e077efd80129, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1578,9 +1578,17 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 13000000
+  m_SelectedEdges:
+  - a: 79
+    b: 76
+  - a: 78
+    b: 79
+  - a: 76
+    b: 77
+  - a: 77
+    b: 78
+  m_SelectedVertices: 4f0000004c0000004e0000004d000000
 --- !u!64 &9161227273767831760
 MeshCollider:
   m_ObjectHideFlags: 0
