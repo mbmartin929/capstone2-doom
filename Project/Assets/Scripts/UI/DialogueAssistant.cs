@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueAssistant : MonoBehaviour
 {
     // Instantiates Singleton
     public static DialogueAssistant Instance { set; get; }
+
+    public Texture[] faces;
+    public UnityEngine.UI.RawImage dialogueFaceHolder;
 
     [SerializeField] private TextWriter textWriter;
     [SerializeField] private TextWriter nameTag;
@@ -42,7 +45,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         dialogueAnim.gameObject.SetActive(false);
 
-        if (level == 1) StartCoroutine(AnotherIntroDialogue());
+        //if (level == 1) StartCoroutine(GameJamIntroDialogue());
     }
 
     public void PlaySound(int index)
@@ -53,8 +56,60 @@ public class DialogueAssistant : MonoBehaviour
     public IEnumerator NameTag()
     {
         nameTag.AddWriter(" ", defaultTypeTime, true);
-        yield return new WaitForSeconds(1.18f);
-        nameTag.AddWriter("Commander", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.0f);
+        nameTag.AddWriter("E-MAIL SENT", defaultTypeTime + 0.0f, true);
+    }
+
+    public IEnumerator FirstEmail()
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        dialogueFaceHolder.texture = faces[0];
+        textWriter.AddWriter("Email Reads as:", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.9f);
+
+        dialogueFaceHolder.texture = faces[1];
+        textWriter.AddWriter("My beloved sister Ashley.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(3.69f);
+        textWriter.AddWriter("I hope you are doing fine in these trying times", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(4.69f);
+        textWriter.AddWriter("Mom and Dad misses you", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(2.69f);
+        textWriter.AddWriter("I'm excited for your visit. See you then!", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(4.20f);
+
+        dialogueFaceHolder.texture = faces[0];
+        textWriter.AddWriter("Yeah these are trying times", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter("Since it's quarantine.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("People can't meet up like usual.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.9f);
+        textWriter.AddWriter("I'm glad I helped send that email.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(3.42f);
+
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator GameJamIntroDialogue()
+    {
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("Soldier! You are deep in enemy territory.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(4.75f);
+        textWriter.AddWriter("You have one objective when you encounter monsters.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(4.42f);
+        textWriter.AddWriter("KILL.", defaultTypeTime + 0.21f, true);
+        yield return new WaitForSeconds(3.42f);
+
+        //MusicManager.Instance.FadeInActiveMusicCaller(0);
+        MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
+        //FirstPersonAIO.Instance.playerCanMove = true;
+        if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
+
+        StartCoroutine(EndTransition());
     }
 
     public IEnumerator AnotherIntroDialogue()
@@ -304,7 +359,7 @@ public class DialogueAssistant : MonoBehaviour
         dialogueAnim.SetTrigger("Exit");
         yield return new WaitForSeconds(0.8f);
         PlaySound(1);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         dialogueAnim.gameObject.SetActive(false);
     }
 }

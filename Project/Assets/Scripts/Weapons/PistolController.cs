@@ -7,7 +7,6 @@ namespace EightDirectionalSpriteSystem
     public class PistolController : WeaponController
     {
         public Transform bulletCasingLoc;
-        public Transform bulletTracerLoc;
 
         public float maxBulletSpread = 1.0f;
         public float fireTime = 0.5f;
@@ -50,7 +49,7 @@ namespace EightDirectionalSpriteSystem
 
             FOV = fpsCam.fieldOfView;
 
-            CurAmmo = clipAmmo;
+            CurAmmo = AmmoInventory.Instance.maxPistolCapacity;
             //CurAmmo = AmmoInventory.Instance.curPistolAmmo;
             //Reload();
 
@@ -75,42 +74,6 @@ namespace EightDirectionalSpriteSystem
             {
                 Shoot();
             }
-            else if (Input.GetKeyDown(KeyCode.R))
-            {
-                Reload();
-            }
-        }
-
-        private void Reload()
-        {
-            if (curAmmo >= clipAmmo)
-            {
-                Debug.Log("You have full ammo");
-                return;
-            }
-            else if (AmmoInventory.Instance.curPistolAmmo <= 0)
-            {
-                Debug.Log("You have no ammo");
-                return;
-            }
-            else if ((clipAmmo - curAmmo) >= AmmoInventory.Instance.curPistolAmmo)
-            {
-                curAmmo += AmmoInventory.Instance.curPistolAmmo;
-                AmmoInventory.Instance.curPistolAmmo = 0;
-
-                anim.SetTrigger("Reload");
-                Debug.Log("Decreased Reload");
-            }
-            else
-            {
-                AmmoInventory.Instance.curPistolAmmo -= (clipAmmo - curAmmo);
-                curAmmo = clipAmmo;
-
-                Debug.Log("Normal Reload");
-                anim.SetTrigger("Reload");
-            }
-
-            TextManager.Instance.UpdateAmmoText();
         }
 
         void Shoot()
@@ -130,7 +93,7 @@ namespace EightDirectionalSpriteSystem
             }
 
             Vector3 rotationVector = transform.rotation.eulerAngles;
-            GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
+            //GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
             bulletTracerParticle.Play();
 
             StartCoroutine(Wait(0.2f));
