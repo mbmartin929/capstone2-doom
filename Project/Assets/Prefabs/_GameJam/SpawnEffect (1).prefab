@@ -4895,7 +4895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717cd3f2b462e75489fa66dd2ed339d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGo: {fileID: 6423949439062104494, guid: fa6025f1cea12d240a93bc12f405333c, type: 3}
+  enemyGo: {fileID: 4429146466678277258, guid: 84f338408ace0394da368577d983c51a, type: 3}
   chasePlayerOnSpawn: 1
   spawnTime: 2
   smokeBombStartTime: 0
@@ -4903,7 +4903,7 @@ MonoBehaviour:
   startingScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 0, y: 0, z: 0}
   startingSize: 0
-  targetSize: 0.75
+  targetSize: 0.69
   isArena: 0
 --- !u!1 &7241073100950681612
 GameObject:
