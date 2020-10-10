@@ -17,6 +17,8 @@ public class GrenadePath : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
+
+  
     float throwDelay = 1f;
     float throwCountdDown;
 
@@ -25,7 +27,7 @@ public class GrenadePath : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         throwCountdDown = throwDelay;
-      
+     
     }
 
     // Update is called once per frame
