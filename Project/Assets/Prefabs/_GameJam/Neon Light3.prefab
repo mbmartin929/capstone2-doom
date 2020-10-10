@@ -43,8 +43,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.41037738, g: 0.72542363, b: 1, a: 1}
-  m_Intensity: 0.69
-  m_Range: 9.11
+  m_Intensity: 0.75
+  m_Range: 11.9
   m_SpotAngle: 179
   m_InnerSpotAngle: 103.06853
   m_CookieSize: 10
@@ -85,7 +85,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 6.9
+  m_BounceIntensity: 9.11
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2149700881331835086}
   - component: {fileID: 2149700881331835087}
   m_Layer: 0
-  m_Name: Neon Light2
+  m_Name: Neon Light3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
