@@ -8,12 +8,9 @@ namespace EightDirectionalSpriteSystem
     {
         [HideInInspector] public int damage;
 
-        public GameObject cursor;
-        public LayerMask layer;
-        public Transform shootPoint;
-        public float duration = 1.29f;
+        public Transform attackLockPos;
 
-        public EnemyAI enemyAI;
+        public float duration = 1.29f;
 
         private Camera cam;
 
@@ -33,13 +30,8 @@ namespace EightDirectionalSpriteSystem
 
         public void LaunchProjectile1()
         {
-            //Ray camRay = cam.ScreenPointToRay()
-            RaycastHit hit;
-
-            //if (Physics.Raycast())
-
             Vector3 playerPos = GameManager.Instance.playerGo.transform.position;
-            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
+            Vector3 Vo = CalculateVelocity(playerPos, attackLockPos.position, duration);
 
             transform.rotation = Quaternion.LookRotation(Vo);
 
@@ -49,7 +41,7 @@ namespace EightDirectionalSpriteSystem
         public void LaunchProjectile2()
         {
             Vector3 playerPos = GameManager.Instance.playerGo.transform.position + GameManager.Instance.playerGo.transform.right * 6.9f;
-            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
+            Vector3 Vo = CalculateVelocity(playerPos, attackLockPos.position, duration);
 
             transform.rotation = Quaternion.LookRotation(Vo);
 
@@ -59,7 +51,7 @@ namespace EightDirectionalSpriteSystem
         public void LaunchProjectile3()
         {
             Vector3 playerPos = GameManager.Instance.playerGo.transform.position - GameManager.Instance.playerGo.transform.right * 6.9f;
-            Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
+            Vector3 Vo = CalculateVelocity(playerPos, attackLockPos.position, duration);
 
             transform.rotation = Quaternion.LookRotation(Vo);
 

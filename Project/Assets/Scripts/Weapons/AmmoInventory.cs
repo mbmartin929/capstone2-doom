@@ -24,18 +24,22 @@ namespace EightDirectionalSpriteSystem
 
         public void PickUpPistolAmmo(int amount, Transform currentWeapon)
         {
-            //WeaponController weapon = currentWeapon.GetComponent<WeaponController>();
+            PistolController weapon = currentWeapon.GetComponent<PistolController>();
+
             curPistolAmmo += amount;
             if (curPistolAmmo >= maxPistolCapacity) curPistolAmmo = maxPistolCapacity;
+            weapon.CurAmmo = curPistolAmmo;
 
             TextManager.Instance.UpdateAmmoText();
         }
 
         public void PickUpShotgunAmmo(int amount, Transform currentWeapon)
         {
-            //WeaponController weapon = currentWeapon.GetComponent<WeaponController>();
+            ShotgunController weapon = currentWeapon.GetComponent<ShotgunController>();
+
             curShotgunAmmo += amount;
             if (curShotgunAmmo >= maxShotgunCapacity) curShotgunAmmo = maxShotgunCapacity;
+            weapon.CurAmmo = curShotgunAmmo;
 
             TextManager.Instance.UpdateAmmoText();
         }

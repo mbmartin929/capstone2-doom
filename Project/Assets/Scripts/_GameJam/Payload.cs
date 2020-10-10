@@ -109,9 +109,9 @@ public class Payload : UnitController
         startMove = true;
     }
 
-    void OnCollisionEnter(Collision other)
-    {
-        Debug.Log(other.gameObject.name);
-    }
+    // void OnCollisionEnter(Collision other)
+    // {
+    //     Debug.Log(other.gameObject.name);
+    // }
 
 }

@@ -31,6 +31,8 @@ namespace EightDirectionalSpriteSystem
                 {
                     //curAmmo = AmmoInventory.Instance.curShotgunAmmo;
                 }
+
+                CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
             }
         }
 
@@ -48,9 +50,7 @@ namespace EightDirectionalSpriteSystem
 
             FOV = fpsCam.fieldOfView;
 
-            CurAmmo = clipAmmo;
-            //CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
-            //Reload();
+            CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
 
             canAttack = true;
             TextManager.Instance.UpdateAmmoText();
@@ -71,15 +71,6 @@ namespace EightDirectionalSpriteSystem
             {
                 Shoot();
             }
-            else if (Input.GetKeyDown(KeyCode.R))
-            {
-                Reload();
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                StartCoroutine(WillCancelReload());
-            }
         }
 
         private IEnumerator WillCancelReload()
@@ -87,87 +78,6 @@ namespace EightDirectionalSpriteSystem
             cancelReload = true;
             yield return new WaitForSeconds(0.42f);
             cancelReload = false;
-        }
-
-        private void Reload()
-        {
-            if (CurAmmo >= clipAmmo)
-            {
-                Debug.Log("You have full ammo");
-                return;
-            }
-            else if (AmmoInventory.Instance.curShotgunAmmo <= 0)
-            {
-                Debug.Log("You have no ammo");
-                return;
-            }
-            else if ((clipAmmo - CurAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
-            {
-                //Debug.Log("Hi");
-                // curAmmo += 1;
-                // AmmoInventory.Instance.curShotgunAmmo -= 1;
-
-                // anim.SetTrigger("Reload");
-                // Debug.Log("Decreased Reload");
-
-                if (AmmoInventory.Instance.curShotgunAmmo <= 0)
-                {
-                    return;
-                }
-                else
-                {
-                    Debug.Log("Normal Reload");
-                    anim.SetTrigger("Reload");
-                    canAttack = false;
-                }
-            }
-            else
-            {
-                // AmmoInventory.Instance.curShotgunAmmo -= 1;
-                // curAmmo += 1;
-
-                Debug.Log("Normal Reload");
-                anim.SetTrigger("Reload");
-
-                canAttack = false;
-            }
-
-
-            TextManager.Instance.UpdateAmmoText();
-        }
-
-        private void AddBullet()
-        {
-            if (CurAmmo >= clipAmmo)
-            {
-                Debug.Log("You have full ammo");
-                return;
-            }
-            else if (AmmoInventory.Instance.curShotgunAmmo <= 0)
-            {
-                Debug.Log("You have no ammo");
-                cancelReload = true;
-                return;
-            }
-            else
-            {
-                AmmoInventory.Instance.curShotgunAmmo -= 1;
-                CurAmmo += 1;
-            }
-
-            TextManager.Instance.UpdateAmmoText();
-        }
-
-        public void CheckReload()
-        {
-            //Debug.Log("Check Reload");
-            if (CurAmmo != clipAmmo)
-            {
-                //Debug.Log("IF Check Reload");
-
-                if (!cancelReload) anim.Play("Reload", 0, 0.0f);
-
-            }
         }
 
         public void CanAttackState()
@@ -206,16 +116,15 @@ namespace EightDirectionalSpriteSystem
             }
 
             CurAmmo--;
+            PlayGunshotSound();
 
             anim.SetTrigger("Shoot");
             StartCoroutine("MuzzleLight");
             StartCoroutine(Wait(0.2f));
             Vector3 rotationVector = transform.rotation.eulerAngles;
-            GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
+            //GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
 
             TextManager.Instance.UpdateAmmoText();
-
-            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
             for (int i = 0; i < pelletCount; ++i)
             {
@@ -287,23 +196,12 @@ namespace EightDirectionalSpriteSystem
                             door.DestroyMesh();
                         }
                     }
-                    else
-                    {
-                        //Debug.Log(hit.transform.gameObject.name);
-                        //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                    }
                 }
             }
             canAttack = false;
 
             readyToFire = false;
-            //Invoke("setReadyToFire", fireDelay);
         }
-
-        // void setReadyToFire()
-        // {
-        //     readyToFire = true;
-        // }
 
         private IEnumerator Wait(float seconds)
         {

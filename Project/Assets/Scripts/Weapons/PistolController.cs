@@ -27,10 +27,12 @@ namespace EightDirectionalSpriteSystem
                 }
                 if (curAmmo > AmmoInventory.Instance.curPistolAmmo)
                 {
-                    Debug.Log("AmmoInventory: " + curAmmo);
+                    // Debug.Log("AmmoInventory: " + curAmmo);
 
-                    //curAmmo = AmmoInventory.Instance.curPistolAmmo;
+                    // curAmmo = AmmoInventory.Instance.curPistolAmmo;
                 }
+
+                //CurAmmo = AmmoInventory.Instance.curPistolAmmo;
             }
         }
 
@@ -49,14 +51,9 @@ namespace EightDirectionalSpriteSystem
 
             FOV = fpsCam.fieldOfView;
 
-            CurAmmo = AmmoInventory.Instance.maxPistolCapacity;
-            //CurAmmo = AmmoInventory.Instance.curPistolAmmo;
-            //Reload();
-
-            //Debug.Log("CurAmmo: " + CurAmmo + " || " + "ClipAmmo: " + clipAmmo);
+            CurAmmo = AmmoInventory.Instance.curPistolAmmo;
 
             canAttack = true;
-            //Debug.Log("PistolController: " + canAttack);
 
             TextManager.Instance.UpdateAmmoText();
         }
@@ -104,13 +101,7 @@ namespace EightDirectionalSpriteSystem
             PlayGunshotSound();
             #endregion
 
-            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
-
-            //Debug.Log("Shoot");
-            //Debug.Log("Shoot: " + CurAmmo);
             CurAmmo--;
-
-
 
             Vector3 shootDirection = fpsCam.transform.forward;
             shootDirection.x += Random.Range(-spreadFactor, spreadFactor);

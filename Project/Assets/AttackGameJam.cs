@@ -21,7 +21,7 @@ public class AttackGameJam : NPCBaseFSMGameJam
         //agent.transform.LookAt(opponent.transform.position);
 
         agent.isStopped = true;
-        Debug.Log("ATTACKING PLAYER");
+        //Debug.Log("ATTACKING PLAYER");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

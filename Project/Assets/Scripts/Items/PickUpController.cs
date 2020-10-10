@@ -50,13 +50,13 @@ namespace EightDirectionalSpriteSystem
                 if (itemName == "Armor")
                 {
                     playerController.RecoverArmor(recoverAmount);
-                    PickUpOverlayManager.Instance.ShieldOverlay();
+                    //PickUpOverlayManager.Instance.ShieldOverlay();
                     Debug.Log("Armor PICKED! " + recoverAmount);
                 }
                 else if (itemName == "Health")
                 {
                     playerController.RecoverHealth(recoverAmount);
-                    PickUpOverlayManager.Instance.HealthOverlay();
+                    //PickUpOverlayManager.Instance.HealthOverlay();
                     Debug.Log("Health PICKED! " + recoverAmount);
                 }
 

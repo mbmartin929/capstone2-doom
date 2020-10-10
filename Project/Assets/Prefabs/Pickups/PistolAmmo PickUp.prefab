@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3324047688444070250}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69, y: 0.69, z: 0.69}
+  m_LocalPosition: {x: 0, y: 0.84, z: 0}
+  m_LocalScale: {x: 2.2635276, y: 2.2635276, z: 2.2635276}
   m_Children: []
   m_Father: {fileID: 6567769057077856296}
   m_RootOrder: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f80d6aaa29d265749acf5c0e17918450, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b428c6cfd21b235499db946be1b8822e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf427c3bc9bfe904899651e351824bcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,8 +151,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.82230294, y: 1.1942891, z: 0.05493717}
-  m_Center: {x: -0.037220597, y: -0.10803334, z: -0.0025348386}
+  m_Size: {x: 0.8619427, y: 1.1942891, z: 0.27118316}
+  m_Center: {x: -0.01740071, y: -0.108033314, z: 0.014746275}
 --- !u!114 &3310668953145935745
 MonoBehaviour:
   m_ObjectHideFlags: 0

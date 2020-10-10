@@ -32,23 +32,23 @@ public class PickUpOverlayManager : MonoBehaviour
 
     }
 
-    public void ShieldOverlay()
-    {
-        armorPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
-    }
+    // public void ShieldOverlay()
+    // {
+    //     armorPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
+    // }
 
-    public void HealthOverlay()
-    {
-        healthPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
-    }
+    // public void HealthOverlay()
+    // {
+    //     healthPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
+    // }
 
-    public void AmmoOverlay()
-    {
-        ammoPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
-    }
+    // public void AmmoOverlay()
+    // {
+    //     ammoPickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
+    // }
 
-    public void KeyOverlay()
-    {
-        keyickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
-    }
+    // public void KeyOverlay()
+    // {
+    //     keyickUpOverlay.GetComponent<Animator>().SetTrigger("Start Fade");
+    // }
 }

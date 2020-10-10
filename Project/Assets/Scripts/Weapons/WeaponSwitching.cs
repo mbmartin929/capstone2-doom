@@ -28,6 +28,11 @@ namespace EightDirectionalSpriteSystem
         {
             previousSelectedWeapon = selectedWeapon;
 
+            if (transform.childCount >= 2)
+            {
+                Destroy(transform.GetChild(0).gameObject, 0f);
+            }
+
             // if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             // {
             //     if (selectedWeapon >= transform.childCount - 1)
@@ -53,86 +58,61 @@ namespace EightDirectionalSpriteSystem
 
 
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                int chosenWeapon = 1;
-                if (gameObject.transform.childCount >= chosenWeapon)
-                {
-                    Debug.Log("Pressed 1");
-                    //_previousWeapon = transform.GetChild(0).transform;
-                    Debug.Log("Current Weapon: " + _previousWeapon.gameObject.name);
+            // if (Input.GetKeyDown(KeyCode.Alpha1))
+            // {
+            //     int chosenWeapon = 1;
+            //     if (gameObject.transform.childCount >= chosenWeapon)
+            //     {
+            //         Debug.Log("Pressed 1");
+            //         //_previousWeapon = transform.GetChild(0).transform;
+            //         Debug.Log("Current Weapon: " + _previousWeapon.gameObject.name);
 
-                    Transform weapon = transform.GetChild(0).transform;
-                    if (_previousWeapon.GetComponent<WeaponController>().canSwitch)
-                    {
-                        Debug.Log("Previous Weapon: " + _previousWeapon.gameObject.name);
-                        Debug.Log("Next Weapon: " + weapon.gameObject.name);
-                        selectedWeapon = 0;
-                        _previousWeapon = weapon;
-                    }
+            //         Transform weapon = transform.GetChild(0).transform;
+            //         if (_previousWeapon.GetComponent<WeaponController>().canSwitch)
+            //         {
+            //             Debug.Log("Previous Weapon: " + _previousWeapon.gameObject.name);
+            //             Debug.Log("Next Weapon: " + weapon.gameObject.name);
+            //             selectedWeapon = 0;
+            //             _previousWeapon = weapon;
+            //         }
 
-                    if (_previousWeapon == weapon)
-                    {
-                        SelectWeapon();
-                    }
-                }
-                else Debug.Log("Weapon Out of Bounds");
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                int chosenWeapon = 2;
-                if (gameObject.transform.childCount >= chosenWeapon)
-                {
-                    Debug.Log("Pressed 2");
-                    //_previousWeapon = transform.GetChild(1).transform;
-                    Debug.Log("Current Weapon: " + _previousWeapon.gameObject.name);
+            //         if (_previousWeapon == weapon)
+            //         {
+            //             SelectWeapon();
+            //         }
+            //     }
+            //     else Debug.Log("Weapon Out of Bounds");
+            // }
+            // if (Input.GetKeyDown(KeyCode.Alpha2))
+            // {
+            //     int chosenWeapon = 2;
+            //     if (gameObject.transform.childCount >= chosenWeapon)
+            //     {
+            //         Debug.Log("Pressed 2");
+            //         //_previousWeapon = transform.GetChild(1).transform;
+            //         Debug.Log("Current Weapon: " + _previousWeapon.gameObject.name);
 
-                    Transform weapon = transform.GetChild(1).transform;
-                    if (_previousWeapon.GetComponent<WeaponController>().canSwitch)
-                    {
-                        Debug.Log("Previous Weapon: " + _previousWeapon.gameObject.name);
-                        Debug.Log("Next Weapon: " + weapon.gameObject.name);
-                        selectedWeapon = 1;
-                        _previousWeapon = weapon;
-                    }
+            //         Transform weapon = transform.GetChild(1).transform;
+            //         if (_previousWeapon.GetComponent<WeaponController>().canSwitch)
+            //         {
+            //             Debug.Log("Previous Weapon: " + _previousWeapon.gameObject.name);
+            //             Debug.Log("Next Weapon: " + weapon.gameObject.name);
+            //             selectedWeapon = 1;
+            //             _previousWeapon = weapon;
+            //         }
 
-                    if (_previousWeapon == weapon)
-                    {
-                        SelectWeapon();
-                    }
-                }
-                else Debug.Log("Weapon Out of Bounds");
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                int chosenWeapon = 3;
-                if (gameObject.transform.childCount >= chosenWeapon)
-                {
-                    Debug.Log("Pressed 3");
-                    //_previousWeapon = transform.GetChild(2).transform;
-                    Debug.Log("Current Weapon: " + _previousWeapon.gameObject.name);
+            //         if (_previousWeapon == weapon)
+            //         {
+            //             SelectWeapon();
+            //         }
+            //     }
+            //     else Debug.Log("Weapon Out of Bounds");
+            // }
 
-                    Transform weapon = transform.GetChild(2).transform;
-                    if (_previousWeapon.GetComponent<WeaponController>().canSwitch)
-                    {
-                        Debug.Log("Previous Weapon: " + _previousWeapon.gameObject.name);
-                        Debug.Log("Next Weapon: " + weapon.gameObject.name);
-                        selectedWeapon = 2;
-                        _previousWeapon = weapon;
-                    }
-
-                    if (_previousWeapon == weapon)
-                    {
-                        SelectWeapon();
-                    }
-                }
-                else Debug.Log("Weapon Out of Bounds");
-            }
-
-            if (previousSelectedWeapon != selectedWeapon)
-            {
-                SelectWeapon();
-            }
+            // if (previousSelectedWeapon != selectedWeapon)
+            // {
+            //     SelectWeapon();
+            // }
         }
 
         private void SelectWeapon()
@@ -186,22 +166,22 @@ namespace EightDirectionalSpriteSystem
                         StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
                         StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
 
-                        if (currentWeapon.gameObject.name == "Fists")
-                        {
-                            rawImage.texture = ammoIcons[0];
-                        }
-                        else if (currentWeapon.gameObject.name == "Pistol")
-                        {
-                            rawImage.texture = ammoIcons[1];
-                        }
-                        else if (currentWeapon.gameObject.name == "Shotgun")
-                        {
-                            rawImage.texture = ammoIcons[2];
-                        }
-                        else if (currentWeapon.gameObject.name == "Shotgun_URP")
-                        {
-                            rawImage.texture = ammoIcons[2];
-                        }
+                        // if (currentWeapon.gameObject.name == "Fists")
+                        // {
+                        //     rawImage.texture = ammoIcons[0];
+                        // }
+                        // else if (currentWeapon.gameObject.name == "Pistol")
+                        // {
+                        //     rawImage.texture = ammoIcons[1];
+                        // }
+                        // else if (currentWeapon.gameObject.name == "Shotgun")
+                        // {
+                        //     rawImage.texture = ammoIcons[2];
+                        // }
+                        // else if (currentWeapon.gameObject.name == "Shotgun_URP")
+                        // {
+                        //     rawImage.texture = ammoIcons[2];
+                        // }
 
                         return;
                         //}

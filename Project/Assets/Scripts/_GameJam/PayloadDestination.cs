@@ -76,6 +76,11 @@ public class PayloadDestination : MonoBehaviour
             Debug.Log("Play First Email");
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FirstEmail());
         }
+        else if (destinationID == 1)
+        {
+            Debug.Log("Play Second Email");
+            DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SecondEmail());
+        }
 
         Debug.Log("Continue to next waypoint");
 

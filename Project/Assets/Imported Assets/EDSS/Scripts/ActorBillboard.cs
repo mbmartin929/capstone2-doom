@@ -262,7 +262,7 @@ namespace EightDirectionalSpriteSystem
                     if (currentFrameIndex == 1)
                     {
                         transform.parent.LookAt(GameManager.Instance.playerGo.transform.position);
-                        transform.GetComponentInParent<EnemyAI>().WormAttack();
+                        //transform.GetComponentInParent<EnemyAI>().WormAttack();
 
 
                         // Get new Dir after Attack

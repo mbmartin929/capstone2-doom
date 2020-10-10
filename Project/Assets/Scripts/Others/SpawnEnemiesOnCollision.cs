@@ -30,6 +30,26 @@ public class SpawnEnemiesOnCollision : MonoBehaviour
     {
         if (other.CompareTag("Payload"))
         {
+            Debug.Log("Spawn from Tag");
+
+            SpawnEnemies();
+
+            Destroy(gameObject, 0f);
+        }
+
+        if (other.name == "Payload")
+        {
+            Debug.Log("Spawn from Name");
+
+            SpawnEnemies();
+
+            Destroy(gameObject, 0f);
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Spawn from Tag");
+
             SpawnEnemies();
 
             Destroy(gameObject, 0f);

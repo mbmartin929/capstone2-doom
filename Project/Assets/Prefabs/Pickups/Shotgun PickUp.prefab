@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2812522056852201294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.2, y: -4.2000003, z: 39}
-  m_LocalScale: {x: 5.69, y: 5.69, z: 5.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b6f876b7520fc5a44af92e75d23750b7, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d58794c410b6394980aa7a2d86f23f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 98c5b37e3bcbb1343a0bbd60b856d3c7, type: 3}
+  m_Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8580594, y: 0.4884529, z: 0.06474018}
-  m_Center: {x: -0.010710478, y: -0.09886956, z: 0.01556921}
+  m_Size: {x: 1.4826498, y: 2.2992291, z: 0.23795414}
+  m_Center: {x: -0.027351856, y: 0.14892864, z: 0.10217619}
 --- !u!114 &2812522056852201296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,9 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 0}
-  ammoType: 1
   itemName: Shotgun
   recoverAmount: 8
-  weapon: {fileID: 477633209898544756, guid: 4efcedb30307b0445a6d9ada63b54e7c, type: 3}
+  ammoType: 1
+  weapon: {fileID: 1012319656549411454, guid: e20c85bea49f29547bd46a8e3aa26493, type: 3}
+  numberOfAmmo: 0

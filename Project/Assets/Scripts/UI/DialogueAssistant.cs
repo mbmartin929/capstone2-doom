@@ -45,7 +45,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         dialogueAnim.gameObject.SetActive(false);
 
-        //if (level == 1) StartCoroutine(GameJamIntroDialogue());
+        if (level == 1) StartCoroutine(GameJamIntroDialogue());
     }
 
     public void PlaySound(int index)
@@ -60,14 +60,23 @@ public class DialogueAssistant : MonoBehaviour
         nameTag.AddWriter("E-MAIL SENT", defaultTypeTime + 0.0f, true);
     }
 
+    public IEnumerator IntroNameTag()
+    {
+        nameTag.AddWriter(" ", defaultTypeTime, true);
+        yield return new WaitForSeconds(1.0f);
+        nameTag.AddWriter("Nord", defaultTypeTime + 0.0f, true);
+    }
+
     public IEnumerator FirstEmail()
     {
         StartTransition();
         yield return new WaitForSeconds(2.0f);
 
         dialogueFaceHolder.texture = faces[0];
-        textWriter.AddWriter("Email Reads as:", defaultTypeTime + 0.01f, true);
+        textWriter.AddWriter("Nice! It's uploaded.", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.9f);
+        textWriter.AddWriter("Let's see what the email says.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(3.18f);
 
         dialogueFaceHolder.texture = faces[1];
         textWriter.AddWriter("My beloved sister Ashley.", defaultTypeTime + 0.01f, true);
@@ -90,24 +99,81 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(3.42f);
 
         StartCoroutine(EndTransition());
+
+        StartCoroutine(AfterEmailDialogue());
     }
 
-    public IEnumerator GameJamIntroDialogue()
+    public IEnumerator AfterEmailDialogue()
+    {
+        yield return new WaitForSeconds(6.9f);
+
+        StartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        dialogueFaceHolder.texture = faces[0];
+        textWriter.AddWriter("I won't let these viruses infect the emails!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(3.18f);
+
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator SecondEmail()
     {
         StartTransition();
         yield return new WaitForSeconds(2.0f);
 
-        textWriter.AddWriter("Soldier! You are deep in enemy territory.", defaultTypeTime + 0.01f, true);
-        yield return new WaitForSeconds(4.75f);
-        textWriter.AddWriter("You have one objective when you encounter monsters.", defaultTypeTime + 0.01f, true);
-        yield return new WaitForSeconds(4.42f);
-        textWriter.AddWriter("KILL.", defaultTypeTime + 0.21f, true);
+        dialogueFaceHolder.texture = faces[0];
+        textWriter.AddWriter("Okay, uploading is done.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.9f);
+        textWriter.AddWriter("Let's see what it says.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(3.18f);
+
+        dialogueFaceHolder.texture = faces[1];
+        textWriter.AddWriter("Hey lil bro!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.9f);
+        textWriter.AddWriter("I heard that your company laid you off.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(4.20f);
+        textWriter.AddWriter("If you need any help don't be afraid to ask!", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.42f);
+        textWriter.AddWriter("I'm always here for ya lil bro.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.2f);
+        textWriter.AddWriter("Lova ya!", defaultTypeTime + 0.029f, true);
+
+        yield return new WaitForSeconds(4.20f);
+
+        dialogueFaceHolder.texture = faces[0];
+        textWriter.AddWriter("I'm glad I helped them connect to each other.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter("I'm glad I helped send that email.", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(3.42f);
 
-        //MusicManager.Instance.FadeInActiveMusicCaller(0);
-        MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
-        //FirstPersonAIO.Instance.playerCanMove = true;
-        if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator GameJamIntroDialogue()
+    {
+        IntroStartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("It's my duty as a VPN.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.69f);
+        textWriter.AddWriter("To protect all these emails from viruses.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.42f);
+        textWriter.AddWriter("And successfuly upload them to the receiver.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.69f);
+
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator GameJamDialogue1()
+    {
+        IntroStartTransition();
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("I have to stick close to the payload.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.69f);
+        textWriter.AddWriter("It can only move when I'm near.", defaultTypeTime + 0.00f, true);
+        yield return new WaitForSeconds(3.42f);
 
         StartCoroutine(EndTransition());
     }
@@ -149,91 +215,22 @@ public class DialogueAssistant : MonoBehaviour
         StartCoroutine(EndTransition());
     }
 
-    public IEnumerator SwitchPistol()
-    {
-        if (switchPistolTutorial == 0)
-        {
-            StartTransition();
-            yield return new WaitForSeconds(2.0f);
-
-            textWriter.AddWriter("Soldier!", defaultTypeTime, true);
-            yield return new WaitForSeconds(1.42f);
-            textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
-            yield return new WaitForSeconds(3.69f);
-            textWriter.AddWriter("Switch to your PISTOL!", defaultTypeTime, true);
-            yield return new WaitForSeconds(4.0f);
-
-            switchPistolTutorial++;
-
-            StartCoroutine(EndTransition());
-
-            StartCoroutine(Surrounded1());
-        }
-    }
-
     public IEnumerator SwitchShotgun()
     {
         if (switchShotgunTutorial == 0)
         {
-            MusicManager.Instance.FadeOutAmbientMusicCaller();
-            MusicManager.Instance.FadeInActiveMusicCaller(4, false, 0);
-
-            StartTransition();
+            IntroStartTransition();
             yield return new WaitForSeconds(2.0f);
 
-            textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
-            yield return new WaitForSeconds(3.09f);
-            textWriter.AddWriter("Switch to your SHOTGUN!", defaultTypeTime, true);
-            yield return new WaitForSeconds(0.29f);
-            textWriter.AddWriter("", defaultTypeTime, true);
-            yield return new WaitForSeconds(0.29f);
-
-            textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
+            textWriter.AddWriter("Nice a new weapon!", defaultTypeTime, true);
             yield return new WaitForSeconds(2.29f);
-            textWriter.AddWriter("Make'em eat lead!", defaultTypeTime + 0.00f, true);
-
-            yield return new WaitForSeconds(3.29f);
+            textWriter.AddWriter("Let me just switch to it.", defaultTypeTime, true);
+            yield return new WaitForSeconds(2.69f);
 
             switchShotgunTutorial++;
 
             StartCoroutine(EndTransition());
-
-            //StartCoroutine(Surrounded2());
         }
-    }
-
-    public IEnumerator Surrounded1()
-    {
-        yield return new WaitForSeconds(4.2f);
-
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter("You are SURROUNDED", defaultTypeTime + 0.00f, true);
-        yield return new WaitForSeconds(2.0f);
-        textWriter.AddWriter("SHOOT!", defaultTypeTime + 0.00f, true);
-        yield return new WaitForSeconds(2.0f);
-        textWriter.AddWriter("KILL", defaultTypeTime + 0.00f, true);
-        yield return new WaitForSeconds(2.0f);
-        textWriter.AddWriter("MASSACRE", defaultTypeTime + 0.00f, true);
-
-        yield return new WaitForSeconds(2.9f);
-
-        StartCoroutine(EndTransition());
-    }
-
-    public IEnumerator Surrounded2()
-    {
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
-        yield return new WaitForSeconds(2.42f);
-        textWriter.AddWriter("Make'em eat lead!", defaultTypeTime + 0.00f, true);
-
-        yield return new WaitForSeconds(2.9f);
-
-        StartCoroutine(EndTransition());
     }
 
     public IEnumerator FinishArena()
@@ -244,33 +241,6 @@ public class DialogueAssistant : MonoBehaviour
         textWriter.AddWriter("Good job Soldier!", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.29f);
         textWriter.AddWriter("You got them all!", defaultTypeTime + 0.069f, true);
-        yield return new WaitForSeconds(2.9f);
-
-        StartCoroutine(EndTransition());
-    }
-
-
-    public IEnumerator NeedKey()
-    {
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter("You need a KEY before continuing", defaultTypeTime + 0.01f, true);
-        yield return new WaitForSeconds(2.42f);
-        textWriter.AddWriter("Find it!", defaultTypeTime + 0.069f, true);
-        yield return new WaitForSeconds(2.9f);
-
-        StartCoroutine(EndTransition());
-    }
-
-    public IEnumerator FoundKey()
-    {
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter("You found the KEY!", defaultTypeTime + 0.042f, true);
-        yield return new WaitForSeconds(2.9f);
-        textWriter.AddWriter("Now get to the EXIT!", defaultTypeTime + 0.042f, true);
         yield return new WaitForSeconds(2.9f);
 
         StartCoroutine(EndTransition());
@@ -300,46 +270,6 @@ public class DialogueAssistant : MonoBehaviour
         StartCoroutine(EndTransition());
     }
 
-    public IEnumerator Dialogue1(string sentence1, float additionalTime)
-    {
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
-
-        yield return new WaitForSeconds(4.2f);
-
-        StartCoroutine(EndTransition());
-    }
-    public IEnumerator Dialogue2(string sentence1, string sentence2, float additionalTime)
-    {
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.29f);
-        textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
-
-        yield return new WaitForSeconds(4.2f);
-
-        StartCoroutine(EndTransition());
-    }
-    public IEnumerator Dialogue3(string sentence1, string sentence2, string sentence3, float additionalTime)
-    {
-        StartTransition();
-        yield return new WaitForSeconds(2.0f);
-
-        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.29f);
-        textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.29f);
-        textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
-
-        yield return new WaitForSeconds(4.2f);
-
-        StartCoroutine(EndTransition());
-    }
-
     private void StartTransition()
     {
         audioSource.pitch = 0.75f;
@@ -351,6 +281,20 @@ public class DialogueAssistant : MonoBehaviour
         dialogueAnim.gameObject.SetActive(true);
         dialogueAnim.SetTrigger("Start");
         StartCoroutine(NameTag());
+        textWriter.AddWriter(" ", defaultTypeTime, true);
+    }
+
+    private void IntroStartTransition()
+    {
+        audioSource.pitch = 0.75f;
+        audioSource.volume = 0.9f;
+        PlaySound(0);
+        audioSource.pitch = 1.0f;
+        audioSource.volume = 1.0f;
+
+        dialogueAnim.gameObject.SetActive(true);
+        dialogueAnim.SetTrigger("Start");
+        StartCoroutine(IntroNameTag());
         textWriter.AddWriter(" ", defaultTypeTime, true);
     }
 

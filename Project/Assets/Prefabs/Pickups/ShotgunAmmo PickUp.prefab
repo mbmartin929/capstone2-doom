@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2157250552788667719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69, y: 0.69, z: 0.69}
+  m_LocalScale: {x: 2.263528, y: 2.263528, z: 2.263528}
   m_Children: []
   m_Father: {fileID: 4394127949990291590}
   m_RootOrder: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db0df3364b6c196408cd72f04f65afec, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 160e06dbaba0a064fb4292a14878c5d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cea509a861d8de4e948e2f8263e4431, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0773494, y: 1.967104, z: 0.54631996}
-  m_Center: {x: 0.052811444, y: -0.010574728, z: 0.018172333}
+  m_Size: {x: 0.517022, y: 1.9671041, z: 0.19180265}
+  m_Center: {x: 0.028546676, y: -0.010574763, z: 0.011896449}
 --- !u!114 &443821335447720307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,12 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 8300000, guid: 75338d9d0ce415443a83cdc66a7d7b80, type: 3}
   itemName: Ammo
   recoverAmount: 8
   ammoType: 1
   weapon: {fileID: 7648730109480126502, guid: 0dd233844e4d1554ea6bd50ea9a840dc, type: 3}
+  numberOfAmmo: 0
 --- !u!95 &3069875427656575602
 Animator:
   serializedVersion: 3
