@@ -8,6 +8,7 @@ namespace EightDirectionalSpriteSystem
     public class EnemyController : UnitController
     {
         public GameObject deathParticle;
+        public Transform attackPos;
 
         public int damage = 15;
         public float painChance = 0.5f;
@@ -59,6 +60,38 @@ namespace EightDirectionalSpriteSystem
         void Update()
         {
 
+        }
+
+        public void WormAttack()
+        {
+            GameObject a1 = Instantiate(projectileGo, attackPos.position, transform.rotation);
+            projectileGo.GetComponent<Projectile>().attackLockPos = attackPos;
+            a1.GetComponent<Projectile>().damage = damage;
+            a1.GetComponent<Projectile>().attackLockPos = attackPos;
+            a1.GetComponent<Projectile>().LaunchProjectile1();
+
+            GameObject a2 = Instantiate(projectileGo, attackPos.position, transform.rotation);
+            a2.GetComponent<Projectile>().damage = damage;
+            a1.GetComponent<Projectile>().attackLockPos = attackPos;
+            a2.GetComponent<Projectile>().LaunchProjectile2();
+
+            GameObject a3 = Instantiate(projectileGo, attackPos.position, transform.rotation);
+            a3.GetComponent<Projectile>().damage = damage;
+            a3.GetComponent<Projectile>().attackLockPos = attackPos;
+            a3.GetComponent<Projectile>().LaunchProjectile3();
+
+            float distance;
+            distance = Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position);
+
+
+            if (distance <= 5.5f)
+            {
+                distance *= -30.0f;
+            }
+            else
+            {
+                distance *= 35.0f;
+            }
         }
 
         public void TakeDamage(int amount)

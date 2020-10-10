@@ -108,7 +108,7 @@ public class PlayerController : UnitController
                         }
                         else
                         {
-                            StartCoroutine(DialogueAssistant.Instance.NeedKey());
+                            //StartCoroutine(DialogueAssistant.Instance.NeedKey());
                             Debug.Log("Need Exit Key");
                         }
                     }

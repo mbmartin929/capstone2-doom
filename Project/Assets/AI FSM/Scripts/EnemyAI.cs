@@ -93,36 +93,36 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
-        public void WormAttack()
-        {
-            GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            a1.GetComponent<Projectile>().enemyAI = this;
-            a1.GetComponent<Projectile>().damage = enemyController.damage;
-            a1.GetComponent<Projectile>().LaunchProjectile1();
+        // public void WormAttack()
+        // {
+        //     GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+        //     a1.GetComponent<Projectile>().enemyAI = this;
+        //     a1.GetComponent<Projectile>().damage = enemyController.damage;
+        //     a1.GetComponent<Projectile>().LaunchProjectile1();
 
-            GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            a2.GetComponent<Projectile>().enemyAI = this;
-            a2.GetComponent<Projectile>().damage = enemyController.damage;
-            a2.GetComponent<Projectile>().LaunchProjectile2();
+        //     GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+        //     a2.GetComponent<Projectile>().enemyAI = this;
+        //     a2.GetComponent<Projectile>().damage = enemyController.damage;
+        //     a2.GetComponent<Projectile>().LaunchProjectile2();
 
-            GameObject a3 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            a3.GetComponent<Projectile>().enemyAI = this;
-            a3.GetComponent<Projectile>().damage = enemyController.damage;
-            a3.GetComponent<Projectile>().LaunchProjectile3();
+        //     GameObject a3 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+        //     a3.GetComponent<Projectile>().enemyAI = this;
+        //     a3.GetComponent<Projectile>().damage = enemyController.damage;
+        //     a3.GetComponent<Projectile>().LaunchProjectile3();
 
-            float distance;
-            distance = Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position);
-            //Debug.Log("Before Distance: " + distance);
+        //     float distance;
+        //     distance = Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position);
+        //     //Debug.Log("Before Distance: " + distance);
 
-            if (distance <= 5.5f)
-            {
-                distance *= -30.0f;
-            }
-            else
-            {
-                distance *= 35.0f;
-            }
-        }
+        //     if (distance <= 5.5f)
+        //     {
+        //         distance *= -30.0f;
+        //     }
+        //     else
+        //     {
+        //         distance *= 35.0f;
+        //     }
+        // }
 
         public void SlimeAttack(float radius)
         {

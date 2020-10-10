@@ -13,25 +13,25 @@ public class DialogueCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (numberOfSentences == NumberOfSentences.One)
-            {
-                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.Dialogue1(sentences[0], additionalTime));
-            }
-            else if (numberOfSentences == NumberOfSentences.Two)
-            {
-                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.Dialogue2(sentences[0], sentences[1], additionalTime));
-            }
-            else if (numberOfSentences == NumberOfSentences.Three)
-            {
-                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.Dialogue3(sentences[0], sentences[1], sentences[2], additionalTime));
-            }
+        // if (other.CompareTag("Player"))
+        // {
+        //     if (numberOfSentences == NumberOfSentences.One)
+        //     {
+        //         DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.Dialogue1(sentences[0], additionalTime));
+        //     }
+        //     else if (numberOfSentences == NumberOfSentences.Two)
+        //     {
+        //         DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.Dialogue2(sentences[0], sentences[1], additionalTime));
+        //     }
+        //     else if (numberOfSentences == NumberOfSentences.Three)
+        //     {
+        //         DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.Dialogue3(sentences[0], sentences[1], sentences[2], additionalTime));
+        //     }
 
 
 
-            GetComponent<BoxCollider>().enabled = false;
-            Destroy(gameObject, 5.0f);
-        }
+        //     GetComponent<BoxCollider>().enabled = false;
+        //     Destroy(gameObject, 5.0f);
+        // }
     }
 }

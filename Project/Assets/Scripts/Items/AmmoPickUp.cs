@@ -21,7 +21,7 @@ public class AmmoPickUp : PickUpController
 
     void Start()
     {
-        EndGameScreen.Instance.totalAmmo += numberOfAmmo;
+        //EndGameScreen.Instance.totalAmmo += numberOfAmmo;
     }
 
     void Update()
@@ -71,7 +71,7 @@ public class AmmoPickUp : PickUpController
                     pistol.SetActive(false);
                 }
 
-                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchPistol());
+                //DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchPistol());
             }
             // Player has this weapon already. Will add ammo instead
             else
@@ -82,24 +82,30 @@ public class AmmoPickUp : PickUpController
         }
         else if (itemName == "Shotgun")
         {
-            Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
-            if (currentWeapon == null)
-            {
-                GameObject shotgun = Instantiate(weapon, playerWeapons) as GameObject;
-                shotgun.name = "Shotgun";
-                if (playerWeapons.childCount >= 2)
-                {
-                    shotgun.SetActive(false);
-                }
+            // Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
+            // if (currentWeapon == null)
+            // {
 
-                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
 
-            }
-            else
-            {
-                //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
-                AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
-            }
+
+            //     // if (playerWeapons.childCount >= 2)
+            //     // {
+            //     //     shotgun.SetActive(false);
+            //     // }
+
+            //     //DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
+
+            // }
+            // else
+            // {
+            //     //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+            //     AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
+            // }
+
+
+
+            GameObject shotgun = Instantiate(weapon, playerWeapons) as GameObject;
+            shotgun.name = "GameJam_Shotgun";
         }
 
         TextManager.Instance.UpdateAmmoText();
@@ -110,13 +116,13 @@ public class AmmoPickUp : PickUpController
         // Finds correct ammo type
         if (ammoType == AmmoType.Pistol)
         {
-            Transform currentWeapon = SearchWeapons(playerWeapons, "Pistol");
+            Transform currentWeapon = SearchWeapons(playerWeapons, "GameJam_Pistol");
 
             AmmoInventory.Instance.PickUpPistolAmmo(recoverAmount, currentWeapon);
         }
         else if (ammoType == AmmoType.Shotgun)
         {
-            Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
+            Transform currentWeapon = SearchWeapons(playerWeapons, "GameJam_Shotgun");
 
             AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
         }
@@ -131,7 +137,7 @@ public class AmmoPickUp : PickUpController
 
         Debug.Log("Pick up Ammo");
 
-        PickUpOverlayManager.Instance.AmmoOverlay();
+        //PickUpOverlayManager.Instance.AmmoOverlay();
 
         if (numberOfAmmo >= 1) EndGameScreen.Instance.ammoFound++;
 

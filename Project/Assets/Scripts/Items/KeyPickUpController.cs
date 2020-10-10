@@ -26,11 +26,11 @@ public class KeyPickUpController : PickUpController
             Debug.Log("Picked up Key");
 
             //StartCoroutine(DialogueAssistant.Instance.FoundKey());
-            DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FoundKey());
+            //DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FoundKey());
 
             other.GetComponent<PlayerController>().keyAmount += keyValue;
 
-            PickUpOverlayManager.Instance.KeyOverlay();
+            //PickUpOverlayManager.Instance.KeyOverlay();
 
             Destroy(gameObject, 0f);
         }

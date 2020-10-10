@@ -7,19 +7,11 @@ public class VirusAI : MonoBehaviour
 {
     public Animator anim;
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         anim.SetFloat("distance",
         Vector3.Distance(transform.position,
-        GameManager.Instance.cargoGo.transform.position));
+        GameManager.Instance.playerGo.transform.position));
     }
-
-
-
 }

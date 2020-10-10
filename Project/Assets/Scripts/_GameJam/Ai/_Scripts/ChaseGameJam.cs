@@ -10,16 +10,13 @@ public class ChaseGameJam : NPCBaseFSMGameJam
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC = animator.gameObject;
-
-
-
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(GameManager.Instance.cargoGo.transform.position);
-        Debug.Log("Chase");
+        agent.SetDestination(GameManager.Instance.playerGo.transform.position);
+        //Debug.Log("Chase");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
