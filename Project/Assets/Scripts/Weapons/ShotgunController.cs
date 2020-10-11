@@ -32,7 +32,7 @@ namespace EightDirectionalSpriteSystem
                     //curAmmo = AmmoInventory.Instance.curShotgunAmmo;
                 }
 
-                CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
+                //CurAmmo = AmmoInventory.Instance.curShotgunAmmo;
             }
         }
 
@@ -122,7 +122,6 @@ namespace EightDirectionalSpriteSystem
             StartCoroutine("MuzzleLight");
             StartCoroutine(Wait(0.2f));
             Vector3 rotationVector = transform.rotation.eulerAngles;
-            //GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
 
             TextManager.Instance.UpdateAmmoText();
 
@@ -140,33 +139,9 @@ namespace EightDirectionalSpriteSystem
                     Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
 
                     HitLevel(hit);
-                    if (hit.transform.tag == "Level")
-                    {
-                        MeshCollider collider = hit.collider as MeshCollider;
-                        // Remember to handle case where collider is null because you hit a non-mesh primitive...
-
-                        Mesh mesh = collider.sharedMesh;
-
-                        // There are 3 indices stored per triangle
-                        int limit = hit.triangleIndex * 3;
-                        int submesh;
-                        for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
-                        {
-                            int numIndices = mesh.GetTriangles(submesh).Length;
-                            if (numIndices > limit)
-                                break;
-
-                            limit -= numIndices;
-                        }
-
-                        Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
-
-                        Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                        Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
-                    }
 
                     // Raycast hits Enemy
-                    else if (hit.transform.tag == "Enemy")
+                    if (hit.transform.tag == "Enemy")
                     {
                         EnemyController enemy = hit.transform.GetComponent<EnemyController>();
 
@@ -185,16 +160,6 @@ namespace EightDirectionalSpriteSystem
                             }
                         }
                         enemy.TakeDamage(10);
-                    }
-                    else if (hit.transform.tag == "Destructible")
-                    {
-                        DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
-
-                        door.health -= damage;
-                        if (door.health <= 0)
-                        {
-                            door.DestroyMesh();
-                        }
                     }
                 }
             }

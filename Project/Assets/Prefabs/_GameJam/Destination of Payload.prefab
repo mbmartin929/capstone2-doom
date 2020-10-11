@@ -22973,7 +22973,6 @@ GameObject:
   - component: {fileID: 1120035378}
   - component: {fileID: 1469459418}
   - component: {fileID: 1469459417}
-  - component: {fileID: 1469459416}
   m_Layer: 0
   m_Name: Destination of Payload
   m_TagString: Untagged
@@ -23126,11 +23125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1772386337}
-  payloadGo: {fileID: 0}
   radius: 9.29
   waitTime: 6.9
   arrived: 0
-  activeTime: 0
   destinationID: 0
 --- !u!65 &1469459418
 BoxCollider:
@@ -23241,25 +23238,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1469459416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257611811295314509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4fa3fa2da906ef4d86b394f6ddfde09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 404650979}
-  payloadGo: {fileID: 0}
-  radius: 9.29
-  waitTime: 6.9
-  arrived: 0
-  activeTime: 0
-  destinationID: 0
 --- !u!1 &257611811494391244
 GameObject:
   m_ObjectHideFlags: 0

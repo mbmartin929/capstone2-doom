@@ -123,8 +123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747626228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.68087, z: 0.07}
+  m_LocalScale: {x: 1.6463, y: 1.6463, z: 1.6463}
   m_Children:
   - {fileID: 197436635}
   m_Father: {fileID: 3906452072551657727}
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a5ea1d6ac09f6e46a62a1f9674d73d3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169,8 +169,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ec2f2b125e67154ba6daed796fea1c0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 51029a7e2af830444b952d10ec54c9d8, type: 3}
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -333,12 +333,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 746ddfcc4f00f5a45be59e95b6dbb536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 8300000, guid: 36ed971bf1cb82247b07904314432795, type: 3}
   pickUpSound: {fileID: 8300000, guid: 3d722ef35fba64b43a12b7645e80c037, type: 3}
-  ammoType: 0
   itemName: Health
-  recoverAmount: 5
-  weapon: {fileID: 0}
+  recoverAmount: 10
+  numberOfHealth: 0
 --- !u!65 &7843593928872233725
 BoxCollider:
   m_ObjectHideFlags: 0

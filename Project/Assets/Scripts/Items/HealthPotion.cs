@@ -20,7 +20,7 @@ namespace EightDirectionalSpriteSystem
 
             Health.itemName = "Health";
 
-            EndGameScreen.Instance.totalHealth += numberOfHealth;
+            //EndGameScreen.Instance.totalHealth += numberOfHealth;
         }
 
         void Update()
