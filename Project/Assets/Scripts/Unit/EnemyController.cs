@@ -7,6 +7,7 @@ namespace EightDirectionalSpriteSystem
 {
     public class EnemyController : UnitController
     {
+        public AudioClip[] audioClips;
         public GameObject deathParticle;
         public Transform attackPos;
 
@@ -43,10 +44,11 @@ namespace EightDirectionalSpriteSystem
 
         private bool contributedGib = false;
 
+        private AudioSource audioSource;
+
         void Awake()
         {
-            //enemyAI = GetComponent<EnemyAI>();
-
+            audioSource = GetComponent<AudioSource>();
             enemySounds = GetComponent<EnemySounds>();
         }
 
@@ -64,6 +66,8 @@ namespace EightDirectionalSpriteSystem
 
         public void WormAttack()
         {
+            audioSource.PlayOneShot(audioClips[0]);
+
             GameObject a1 = Instantiate(projectileGo, attackPos.position, transform.rotation);
             projectileGo.GetComponent<Projectile>().attackLockPos = attackPos;
             a1.GetComponent<Projectile>().damage = damage;
@@ -101,52 +105,11 @@ namespace EightDirectionalSpriteSystem
                 int id = Random.Range(0, bloodSplatGos.Length);
             }
 
-            // RaycastHit hit;
-            // int layerMask = LayerMask.GetMask("Ground");
-            // if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
-            // {
-            //     int randomBloodNumber = Random.Range(1, 5);
-            //     float randomBloodTimer = Random.Range(0.1f, 0.25f);
-
-            //     StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
-            // }
-
             if (IsDead())
             {
+                audioSource.PlayOneShot(audioClips[1]);
                 Instantiate(deathParticle, transform.position, Quaternion.identity);
                 Destroy(transform.parent.gameObject, 0f);
-
-                //enemySounds.BloodSplatterSound();
-
-                // // DECREASES HEALTH
-                // CurHealth -= amount;
-
-                // // Gibbed
-                // if (CurHealth <= -gibDeath)
-                // {
-                //     enemySounds.GibExplosionSound();
-
-                //     if (!contributedGib)
-                //     {
-                //         EndGameScreen.Instance.enemiesGibbed++;
-                //         contributedGib = true;
-                //     }
-
-                //     gameObject.SetActive(false);
-
-                //     for (int i = 0; i < gibsAmount; i++)
-                //     {
-                //         GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
-                //     }
-
-                //     GetComponent<EnemyDrops>().Drop();
-
-                //     Destroy(gameObject, 5.0f);
-                //     transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-
-                //     Debug.Log("Dead Gib!");
-
-                // }
             }
             else if (!IsDead())
             {
@@ -156,8 +119,6 @@ namespace EightDirectionalSpriteSystem
                 {
                     // DECREASES HEALTH
                     CurHealth -= amount;
-
-                    // Debug.Log("Gib!");
                 }
 
                 if (IsDead())
@@ -165,29 +126,12 @@ namespace EightDirectionalSpriteSystem
                     GameObject _deathParticle = Instantiate(deathParticle, transform.position, Quaternion.identity) as GameObject;
                     _deathParticle.GetComponent<ParticleSystem>().Play();
                     Destroy(transform.parent.gameObject, 0f);
-
-                    // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
-                    // bloodFlowGo.transform.parent = transform;
-
-                    //Destroy(transform.parent.GetChild(2).gameObject);
-                    //Die();
                 }
-                //else StartCoroutine(GetHit());
             }
             else
             {
                 // DECREASES ARMOR
                 CurArmor -= amount;
-                //StartCoroutine(GetHit());
-
-                // float randValue = Random.value;
-                // if (randValue < painChance)
-                // {
-                //     Debug.Log("Pain");
-                //     enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-                //     StartCoroutine(GetHit());
-                // }
-
             }
         }
     }

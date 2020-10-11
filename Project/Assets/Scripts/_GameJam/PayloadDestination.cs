@@ -32,24 +32,24 @@ public class PayloadDestination : MonoBehaviour
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-
-
-        payloadGo = GameManager.Instance.cargoGo;
-        payload = payloadGo.GetComponent<Payload>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // image.minValue = Time.time;
-        // image.maxValue = Time.time + waitTime;
+        payloadGo = GameManager.Instance.cargoGo;
+        payload = payloadGo.GetComponent<Payload>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        payloadGo = GameManager.Instance.cargoGo;
+        payload = payloadGo.GetComponent<Payload>();
+
         if ((Vector3.Distance(transform.position, payloadGo.transform.position) < radius && !arrived))
         {
+            Debug.Log("Arrived");
             arrived = true;
             StartCoroutine(CollidePayload(payload));
         }
@@ -58,6 +58,7 @@ public class PayloadDestination : MonoBehaviour
         if (startLoading)
         {
             //audioSource.Play();
+            Debug.Log("Loading");
             timer += Time.deltaTime / waitTime;
             displayValue = Mathf.Lerp(0, 1.0f, timer);
             image.fillAmount = displayValue;
@@ -65,35 +66,35 @@ public class PayloadDestination : MonoBehaviour
 
         if (image.fillAmount >= 1.0f && destinationID == 0)
         {
-            audioSource.Play();
+            //audioSource.Play();
             Debug.Log("Play First Email");
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FirstEmail());
             payload.curMoveSpeed = payload.defaultMoveSpeed;
-            this.enabled = false;
+            Destroy(gameObject, 0f);
         }
         else if (image.fillAmount >= 1.0f && destinationID == 1)
         {
-            audioSource.Play();
+            //audioSource.Play();
             Debug.Log("Play Second Email");
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SecondEmail());
             payload.curMoveSpeed = payload.defaultMoveSpeed;
-            this.enabled = false;
+            Destroy(gameObject, 0f);
         }
         else if (image.fillAmount >= 1.0f && destinationID == 2)
         {
-            audioSource.Play();
+            //audioSource.Play();
             Debug.Log("Play Third Email");
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.ThirdEmail());
             payload.curMoveSpeed = payload.defaultMoveSpeed;
-            this.enabled = false;
+            Destroy(gameObject, 0f);
         }
         else if (image.fillAmount >= 1.0f && destinationID == 3)
         {
-            audioSource.Play();
+            //audioSource.Play();
             Debug.Log("Play Fourth Email");
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FourthEmail());
             payload.curMoveSpeed = payload.defaultMoveSpeed;
-            this.enabled = false;
+            Destroy(gameObject, 0f);
         }
     }
 
