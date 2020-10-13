@@ -91,7 +91,16 @@ public class TextWriter : MonoBehaviour
 
                 //Debug.Log("Text to Write: " + textToWrite);
 
-                string text = textToWrite.Substring(0, characterIndex);
+                //Debug.Log("characterindex: " + characterIndex);
+                string text = null;
+                try
+                {
+                    text = textToWrite.Substring(0, characterIndex);
+                }
+                catch (System.ArgumentOutOfRangeException ex)
+                {
+                    Debug.LogException(ex);
+                }
 
                 if (invisibleCharacters)
                 {

@@ -25,8 +25,6 @@ public class DialogueAssistant : MonoBehaviour
     [SerializeField] private int switchPistolTutorial = 0;
     [SerializeField] private int switchShotgunTutorial = 0;
 
-    [SerializeField] private int level = 1;
-
     void Awake()
     {
         Instance = this;
@@ -42,7 +40,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         dialogueAnim.gameObject.SetActive(false);
 
-        if (level == 1) StartCoroutine(AnotherIntroDialogue());
+        if (GameManager.Instance.level == 1) StartCoroutine(AnotherIntroDialogue());
     }
 
     public void PlaySound(int index)
@@ -71,11 +69,12 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(3.42f);
 
         //MusicManager.Instance.FadeInActiveMusicCaller(0);
-        MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
-        //FirstPersonAIO.Instance.playerCanMove = true;
         if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
 
         StartCoroutine(EndTransition());
+        MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
+        //FirstPersonAIO.Instance.playerCanMove = true;
+
     }
 
     public IEnumerator IntroDialogue()
@@ -113,6 +112,10 @@ public class DialogueAssistant : MonoBehaviour
             StartCoroutine(EndTransition());
 
             StartCoroutine(Surrounded1());
+
+            yield return new WaitForSeconds(1.0f);
+
+            ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Survive!", 0.069f));
         }
     }
 
@@ -205,6 +208,8 @@ public class DialogueAssistant : MonoBehaviour
         textWriter.AddWriter("Find it!", defaultTypeTime + 0.069f, true);
         yield return new WaitForSeconds(2.9f);
 
+        ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find The Key", 0.042f));
+
         StartCoroutine(EndTransition());
     }
 
@@ -217,6 +222,8 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(2.9f);
         textWriter.AddWriter("Now get to the EXIT!", defaultTypeTime + 0.042f, true);
         yield return new WaitForSeconds(2.9f);
+
+        ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Go to the Exit", 0.042f));
 
         StartCoroutine(EndTransition());
     }
@@ -304,7 +311,7 @@ public class DialogueAssistant : MonoBehaviour
         dialogueAnim.SetTrigger("Exit");
         yield return new WaitForSeconds(0.8f);
         PlaySound(1);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         dialogueAnim.gameObject.SetActive(false);
     }
 }

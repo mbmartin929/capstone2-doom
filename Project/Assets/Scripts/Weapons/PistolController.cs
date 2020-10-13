@@ -43,7 +43,7 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-            pos = transform.position;
+            //pos = transform.position;
 
             cameraGo = GameObject.FindGameObjectWithTag("Player");
             FindObjectwithTag("MainCamera");
@@ -60,6 +60,8 @@ namespace EightDirectionalSpriteSystem
             //Debug.Log("PistolController: " + canAttack);
 
             TextManager.Instance.UpdateAmmoText();
+
+            //InvokeRepeating("RepeatingFix", 0.69f, 0.1f);
         }
 
         // Update is called once per frame
@@ -67,6 +69,12 @@ namespace EightDirectionalSpriteSystem
         {
             fpsCam.transform.eulerAngles += camRotation;
             fpsCam.fieldOfView = FOV;
+
+            //transform.position = new Vector3(transform.position.x, transform.position.y, startPos.z);
+
+            // Debug.Log("startPos: " + startPos);
+            // transform.position = startPos;
+            // Debug.Log("transform: " + transform.position);
         }
 
         void LateUpdate()
@@ -81,8 +89,15 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
+        private void RepeatingFix()
+        {
+            transform.localPosition = startPos;
+        }
+
         private void Reload()
         {
+            transform.localPosition = startPos;
+
             if (curAmmo >= clipAmmo)
             {
                 Debug.Log("You have full ammo");
@@ -115,6 +130,8 @@ namespace EightDirectionalSpriteSystem
 
         void Shoot()
         {
+            transform.localPosition = startPos;
+
             RaycastHit hit;
             if (CurAmmo <= 0)
             {
@@ -162,7 +179,6 @@ namespace EightDirectionalSpriteSystem
             if (Physics.Raycast(fpsCam.transform.position, fireRotation * (Vector3.forward * 100f), out hit, range))
             {
                 TextManager.Instance.UpdateAmmoText();
-                HitLevel(hit);
                 if (hit.transform.tag == "Level")
                 {
                     MeshCollider collider = hit.collider as MeshCollider;

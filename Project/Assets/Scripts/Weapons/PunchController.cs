@@ -108,7 +108,6 @@ namespace EightDirectionalSpriteSystem
             if (Physics.Raycast(fpsCam.transform.position, fireRotation * (Vector3.forward * 100f), out hit, range))
             {
                 TextManager.Instance.UpdateAmmoText();
-                HitLevel(hit);
                 if (hit.transform.tag == "Level")
                 {
                     MeshCollider collider = hit.collider as MeshCollider;

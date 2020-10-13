@@ -303,7 +303,7 @@ MonoBehaviour:
   soundRadius: 16
   range: 69
   spreadFactor: 0.2
-  FOV: 85
+  FOV: 80
   gunshotSounds:
   - {fileID: 8300000, guid: 0d85eeb825535a148b6bd9a2fd98ff66, type: 3}
   - {fileID: 8300000, guid: 4976b523fa863114ba78cb9cc71b8b65, type: 3}
@@ -311,12 +311,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f81741e1d22eee74d8ce7024baf37e05, type: 3}
   - {fileID: 8300000, guid: 39b47b39fd4800e4b91daf31868a722b, type: 3}
   - {fileID: 8300000, guid: 86d206faf6871314d899945a7d647e8d, type: 3}
+  canSwitch: 0
   hitSFX: {fileID: 0}
   sinSpeed: 3
   sinFrequency: 15
   sinMagnitude: 0.5
   painStrength: 1
-  startWeaponSwitchVector: {x: -0.02, y: -2.3, z: 0.26}
+  startWeaponSwitchVector: {x: -0.02, y: -3.669, z: 0.26}
   startWeaponSwitchRot: {x: 0, y: 0, z: 0}
   actors: []
   muzzleLightResetTime: 0.1

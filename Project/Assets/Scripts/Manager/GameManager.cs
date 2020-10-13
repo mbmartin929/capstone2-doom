@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public float restartSceneTime = 2.9f;
     private Scene currentScene;
 
+    public int level = 1;
+
     private void Awake()
     {
         // Sets Singleton

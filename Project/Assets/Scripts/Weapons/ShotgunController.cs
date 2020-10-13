@@ -188,8 +188,7 @@ namespace EightDirectionalSpriteSystem
 
         void Shoot()
         {
-            //startTransform = transform.localPosition;
-            //Debug.Log(startTransform);
+            transform.localPosition = startPos;
 
             RaycastHit hit;
             if (CurAmmo <= 0)
@@ -230,7 +229,6 @@ namespace EightDirectionalSpriteSystem
                 {
                     Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
 
-                    HitLevel(hit);
                     if (hit.transform.tag == "Level")
                     {
                         MeshCollider collider = hit.collider as MeshCollider;

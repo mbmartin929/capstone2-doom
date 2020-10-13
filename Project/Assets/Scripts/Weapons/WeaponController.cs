@@ -29,9 +29,6 @@ namespace EightDirectionalSpriteSystem
         [Header("Others")]
         public bool canSwitch = false;
         public GameObject hitSFX;
-        public float sinSpeed = 3f;
-        public float sinFrequency = 15f;
-        public float sinMagnitude = 0.5f;
         public float painStrength = 1.0f;
         public Vector3 startWeaponSwitchVector;
         public Vector3 startWeaponSwitchRot;
@@ -182,16 +179,14 @@ namespace EightDirectionalSpriteSystem
         protected void SinMovement()
         {
             //pos += transform.up * Time.deltaTime * sinSpeed;
-            transform.position = pos + transform.up * Mathf.Sin(Time.time * sinFrequency) * sinMagnitude;
+            //transform.position = pos + transform.up * Mathf.Sin(Time.time * sinFrequency) * sinMagnitude;
         }
 
         // Used as Animation
         private void FixIdleAnimationPosition()
         {
-            Debug.Log("StartPos: " + startPos);
-            Debug.Log("Before: " + transform.position);
-            transform.position = startPos;
-            Debug.Log("After: " + transform.position);
+            Debug.Log("FixedIdleAnimation");
+            transform.localPosition = startPos;
         }
 
         // Used as Animation
@@ -200,13 +195,6 @@ namespace EightDirectionalSpriteSystem
             anim.SetTrigger("Idle");
             TextManager.Instance.UpdateAmmoText();
         }
-
-        // public void PickUpAmmo(int amount)
-        // {
-        //     maxAmmo += amount;
-        //     if (maxAmmo >= maxCapacity) maxAmmo = maxCapacity;
-        //     TextManager.Instance.UpdateAmmoText();
-        // }
 
         private IEnumerator MuzzleLight()
         {
@@ -238,12 +226,6 @@ namespace EightDirectionalSpriteSystem
             actors.Clear();
             Transform parent = cameraGo.transform;
             GetChildObject(parent, _tag);
-        }
-
-        protected void HitLevel(RaycastHit hit)
-        {
-            // Raycast hits Level
-
         }
 
         public void GetChildObject(Transform parent, string _tag)

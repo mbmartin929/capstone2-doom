@@ -13,18 +13,6 @@ namespace EightDirectionalSpriteSystem
         public float exitOpenTime = 1.5f;
         public GameObject exitGo;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public IEnumerator SpawnWaves(float time)
         {
 
@@ -51,10 +39,13 @@ namespace EightDirectionalSpriteSystem
 
         public IEnumerator OpenExit(float time)
         {
+            Debug.Log("Open Exit Door");
+
             yield return new WaitForSeconds(time);
             exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
 
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FinishArena());
+            ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find the exit", 0.029f));
         }
     }
 }

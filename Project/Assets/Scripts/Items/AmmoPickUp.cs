@@ -80,7 +80,7 @@ public class AmmoPickUp : PickUpController
                 AmmoInventory.Instance.PickUpPistolAmmo(recoverAmount, currentWeapon);
             }
         }
-        else if (itemName == "Shotgun")
+        else if (itemName == "Shotgun" || itemName == "Shotgun_URP")
         {
             Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
             if (currentWeapon == null)
@@ -93,7 +93,6 @@ public class AmmoPickUp : PickUpController
                 }
 
                 DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
-
             }
             else
             {
@@ -101,7 +100,6 @@ public class AmmoPickUp : PickUpController
                 AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
             }
         }
-
         TextManager.Instance.UpdateAmmoText();
     }
 

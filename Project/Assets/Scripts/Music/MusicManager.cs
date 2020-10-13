@@ -7,7 +7,6 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;
 
-
     public float maxVolume = 1.0f;
     public float speed;
     public bool useMidi = false;
