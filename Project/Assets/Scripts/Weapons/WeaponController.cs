@@ -183,16 +183,18 @@ namespace EightDirectionalSpriteSystem
         }
 
         // Used as Animation
-        private void FixIdleAnimationPosition()
+        protected void FixIdleAnimationPosition()
         {
-            Debug.Log("FixedIdleAnimation");
+            //Debug.Log("FixedIdleAnimation");
             transform.localPosition = startPos;
         }
 
         // Used as Animation
         private void FinishReload()
         {
+            transform.localPosition = startPos;
             anim.SetTrigger("Idle");
+
             TextManager.Instance.UpdateAmmoText();
         }
 

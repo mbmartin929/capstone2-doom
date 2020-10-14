@@ -13,6 +13,7 @@ public class Sway : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Debug.Log("WEAPON SWAY!");
         originRotation = transform.localRotation;
         originPosition = transform.position;
     }

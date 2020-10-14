@@ -91,6 +91,7 @@ namespace EightDirectionalSpriteSystem
 
         private void Reload()
         {
+            transform.localPosition = startPos;
             if (CurAmmo >= clipAmmo)
             {
                 Debug.Log("You have full ammo");
@@ -188,7 +189,8 @@ namespace EightDirectionalSpriteSystem
 
         void Shoot()
         {
-            transform.localPosition = startPos;
+            //transform.localPosition = startPos;
+            //transform.localPosition = startWeaponSwitchVector;
 
             RaycastHit hit;
             if (CurAmmo <= 0)
@@ -295,7 +297,6 @@ namespace EightDirectionalSpriteSystem
             canAttack = false;
 
             readyToFire = false;
-            //Invoke("setReadyToFire", fireDelay);
         }
 
         // void setReadyToFire()

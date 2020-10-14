@@ -708,29 +708,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
+  - time: 0.28333333
     functionName: PlayReloadSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.48333332
+  - time: 0.45
     functionName: PlayReloadSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.6166667
-    functionName: FinishReload
+  - time: 0.6333333
+    functionName: ResetTransform
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6166667
-    functionName: ResetTransform
+  - time: 0.6333333
+    functionName: FinishReload
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
