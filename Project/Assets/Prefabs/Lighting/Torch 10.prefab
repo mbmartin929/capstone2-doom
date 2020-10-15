@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087215361172297218}
-  m_LocalRotation: {x: 0.5507281, y: 0.4488082, z: -0.51262134, w: 0.48217142}
-  m_LocalPosition: {x: -0.27998126, y: 1.0600038, z: 0.13998525}
+  m_LocalRotation: {x: 0.584661, y: 0.39368552, z: -0.5572376, w: 0.43894148}
+  m_LocalPosition: {x: -0.279982, y: 1.0600033, z: 0.1399814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6777650363413242263}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 97.595, y: 85.895, z: -0.000015258789}
+  m_LocalEulerAnglesHint: {x: 107.821, y: 91.19199, z: 5.4079895}
 --- !u!108 &2087215361172297244
 Light:
   m_ObjectHideFlags: 0
@@ -44,9 +44,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
   m_Intensity: 0.29
-  m_Range: 5
-  m_SpotAngle: 130.18207
-  m_InnerSpotAngle: 43.861027
+  m_Range: 6
+  m_SpotAngle: 147.11545
+  m_InnerSpotAngle: 93.25006
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 6.9
+  m_BounceIntensity: 9.11
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1, y: 1, z: 1, w: 1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 6777650363413242263}
   - component: {fileID: 2978533367158698204}
   m_Layer: 8
-  m_Name: Torch 13
+  m_Name: Torch 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4046,7 +4046,7 @@ Light:
   m_BounceIntensity: 0.42
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 6.6610987e+10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4420,8 +4420,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.09
-  m_Range: 1.42
+  m_Intensity: 0.018
+  m_Range: 2.9
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
   m_CookieSize: 10
@@ -4462,10 +4462,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.1
+  m_BounceIntensity: 2.29
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.9e-43, y: -71.76288, z: 8.9e-43, w: 6e-45}
+  m_BoundingSphereOverride: {x: 1, y: 1, z: 1, w: 1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
