@@ -426,7 +426,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTypeTime: 0.029
+  starTime: 21
   objective: {fileID: 0}
+  currentObjective: {fileID: 0}
   ObjectivesGo: {fileID: 0}
 --- !u!1 &1674373872
 GameObject:
@@ -783,10 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7360741691027915928}
   - component: {fileID: 7360741691027915929}
-  - component: {fileID: 7360741691027915935}
   - component: {fileID: 7360741691027915934}
-  - component: {fileID: 1023408255}
-  - component: {fileID: 8745383587705318907}
   - component: {fileID: 1023408256}
   m_Layer: 0
   m_Name: GameManager
@@ -838,24 +837,6 @@ MonoBehaviour:
   deadEnemies: {fileID: 7360741690320949187}
   restartSceneTime: 2.9
   level: 1
---- !u!114 &7360741691027915935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ae5a35085fe8849a8b301ac7d56d4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  weaponSwitching: {fileID: 0}
-  healthText: {fileID: 0}
-  armorText: {fileID: 0}
-  curAmmoText: {fileID: 0}
-  maxAmmoText: {fileID: 0}
 --- !u!114 &7360741691027915934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,66 +859,6 @@ MonoBehaviour:
   gameTitleTime: 4
   gameTitle: {fileID: 0}
   arenaManager: {fileID: 0}
---- !u!114 &1023408255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b675491f7e973a48996a3a1c7f7a615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textWriter: {fileID: 0}
-  nameTag: {fileID: 0}
-  dialogueAnim: {fileID: 0}
-  defaultTypeTime: 0.035
-  audioClips:
-  - {fileID: 8300000, guid: 82e54dbab4568684887ef98b4aca4481, type: 3}
-  - {fileID: 8300000, guid: dbb3add236a3f62489ab8d7804ef2440, type: 3}
-  lowHealthTutorial: 0
-  lowArmorTutorial: 0
-  breakWallsTutorial: 0
-  switchPistolTutorial: 0
-  switchShotgunTutorial: 0
---- !u!114 &8745383587705318907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69dbb4616d5ce7b4ba2addd0e5d1e53e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoIconRectVector3: {x: 673, y: -347, z: 33.867}
-  WBorderRectVector3: {x: 635, y: -355, z: 47}
-  bloodOverlays:
-  - {fileID: 0}
-  - {fileID: 0}
-  bloodOverlayScale:
-  - {x: 2467.15, y: 1055, z: 0}
-  - {x: 2123.07, y: 1197, z: 0}
-  HSBox: {fileID: 0}
-  dialogueHolder: {fileID: 0}
-  weaponHolder: {fileID: 0}
-  objectiveGo: {fileID: 0}
-  healthHolderPos:
-  - {x: -1200, y: -414.4, z: 0}
-  - {x: -929, y: -500, z: 0}
-  weaponHolderPos:
-  - {x: -203.7, y: 98.6, z: 0}
-  - {x: -341.8, y: 33.4, z: 0}
-  dialogueHolderPos:
-  - {x: -108.5, y: 17.3, z: 0}
-  - {x: 269, y: 18, z: 0}
-  objectivePos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!82 &1023408256
 AudioSource:
   m_ObjectHideFlags: 0
