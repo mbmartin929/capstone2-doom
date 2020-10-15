@@ -177,7 +177,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ae0f7dd80b0cec145bcc475cc5751799, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.12
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -382,6 +382,54 @@ MonoBehaviour:
   defaultTypeTime: 0.29
   blackOverlay: {fileID: 0}
   endScreen: {fileID: 0}
+--- !u!1 &1641396268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641396269}
+  - component: {fileID: 1641396270}
+  m_Layer: 0
+  m_Name: Objective Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1641396269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641396268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7360741691027915928}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641396270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641396268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1930883efb39f554db47aca09425b426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultTypeTime: 0.029
+  starTime: 21
+  objective: {fileID: 0}
+  currentObjective: {fileID: 0}
+  ObjectivesGo: {fileID: 0}
 --- !u!1 &1674373872
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +600,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 665ce837e4552194ca0fb13ed754ed78, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.16
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -682,8 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3c226696fa0f642ac9c1361d2e7a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVolume: 0.7
-  speed: 0.029
+  maxVolume: 0
+  speed: 0
   useMidi: 0
   musicTrackMidi:
   - {fileID: 8300000, guid: 665ce837e4552194ca0fb13ed754ed78, type: 3}
@@ -737,10 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7360741691027915928}
   - component: {fileID: 7360741691027915929}
-  - component: {fileID: 7360741691027915935}
   - component: {fileID: 7360741691027915934}
-  - component: {fileID: 1023408255}
-  - component: {fileID: 8745383587705318907}
   - component: {fileID: 1023408256}
   m_Layer: 0
   m_Name: GameManager
@@ -767,6 +812,7 @@ Transform:
   - {fileID: 971765993}
   - {fileID: 1205639324}
   - {fileID: 1510214435}
+  - {fileID: 1641396269}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -782,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc1b7388bd4214d95dfe84bd5342c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introEnabled: 1
+  introEnabled: 0
   psxVolume: {fileID: 0}
   frameRate: 200
   playerGo: {fileID: 0}
@@ -790,24 +836,7 @@ MonoBehaviour:
   enableHeadBob: 1
   deadEnemies: {fileID: 7360741690320949187}
   restartSceneTime: 2.9
---- !u!114 &7360741691027915935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ae5a35085fe8849a8b301ac7d56d4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  weaponSwitching: {fileID: 0}
-  healthText: {fileID: 0}
-  armorText: {fileID: 0}
-  curAmmoText: {fileID: 0}
-  maxAmmoText: {fileID: 0}
+  level: 1
 --- !u!114 &7360741691027915934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,63 +859,6 @@ MonoBehaviour:
   gameTitleTime: 4
   gameTitle: {fileID: 0}
   arenaManager: {fileID: 0}
---- !u!114 &1023408255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b675491f7e973a48996a3a1c7f7a615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textWriter: {fileID: 0}
-  nameTag: {fileID: 0}
-  dialogueAnim: {fileID: 0}
-  defaultTypeTime: 0.035
-  audioClips:
-  - {fileID: 8300000, guid: 82e54dbab4568684887ef98b4aca4481, type: 3}
-  - {fileID: 8300000, guid: dbb3add236a3f62489ab8d7804ef2440, type: 3}
-  lowHealthTutorial: 0
-  lowArmorTutorial: 0
-  breakWallsTutorial: 0
-  switchPistolTutorial: 0
-  switchShotgunTutorial: 0
-  level: 1
---- !u!114 &8745383587705318907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69dbb4616d5ce7b4ba2addd0e5d1e53e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoIconRectVector3: {x: 675, y: -365, z: 33.867}
-  WBorderRectVector3: {x: 635, y: -370, z: 47}
-  bloodOverlays:
-  - {fileID: 0}
-  - {fileID: 0}
-  bloodOverlayScale:
-  - {x: 2467.15, y: 1055, z: 0}
-  - {x: 2123.07, y: 1197, z: 0}
-  HSBox: {fileID: 0}
-  dialogueHolder: {fileID: 0}
-  weaponHolder: {fileID: 0}
-  healthHolderPos:
-  - {x: -1041.57, y: -414.4, z: 0}
-  - {x: -929, y: -500, z: 0}
-  weaponHolderPos:
-  - {x: -203.7, y: 98.6, z: 0}
-  - {x: -341.8, y: 33.4, z: 0}
-  dialogueHolderPos:
-  - {x: -108.5, y: 17.3, z: 0}
-  - {x: 30.77, y: -29, z: 0}
 --- !u!82 &1023408256
 AudioSource:
   m_ObjectHideFlags: 0

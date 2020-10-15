@@ -19,6 +19,7 @@ namespace EightDirectionalSpriteSystem
     {
         public Transform actorTransform;
         public enum Enemy { Worm, GreenSlime, RedSlime, Spider };
+        public GameObject slimeShockwave;
 
         public delegate void BeforeRenderBillboardEvent();
 
@@ -172,6 +173,8 @@ namespace EightDirectionalSpriteSystem
                     {
                         //Debug.Log("Slime Attack");
                         transform.GetComponentInParent<EnemyAI>().SlimeAttack(2.69f);
+                        Transform attackLoc = transform.parent.GetChild(1);
+                        Instantiate(slimeShockwave, attackLoc.position, slimeShockwave.transform.rotation);
                         //GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }

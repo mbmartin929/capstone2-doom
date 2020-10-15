@@ -40,10 +40,11 @@ public class Motion : MonoBehaviour
 
         if (horizontalMove == 0 && verticalMove == 0)
         {
-            HeadBob(idleCounter, 0.025f, 0.025f);
+            HeadBob(idleCounter, 0.0f, 0.00f);
             idleCounter += Time.deltaTime;
-            weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 4f);
+            weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 1.29f);
 
+            //Debug.Log("Idle Counter");
             //Camera.main.transform.localPosition = Vector3.Lerp(Camera.main.transform.localPosition, targetWeaponBobPosition, Time.deltaTime * 4f);
         }
         else

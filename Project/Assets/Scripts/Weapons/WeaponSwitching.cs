@@ -183,8 +183,8 @@ namespace EightDirectionalSpriteSystem
 
                         previousWeapon.GetComponent<WeaponController>().SwitchAway();
 
-                        StartCoroutine(SwitchIENumerator(0.1f, currentWeapon, true, true));
-                        StartCoroutine(SwitchIENumerator(0.1f, previousWeapon, false, false));
+                        StartCoroutine(SwitchIENumerator(0.09f, currentWeapon, true, true));
+                        StartCoroutine(SwitchIENumerator(0.09f, previousWeapon, false, false));
 
                         if (currentWeapon.gameObject.name == "Fists")
                         {
@@ -218,6 +218,7 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator SwitchIENumerator(float seconds, Transform weapon, bool active, bool switchTo)
         {
+            Debug.Log("SwitchIENumerator: " + weapon.gameObject.name);
             yield return new WaitForSeconds(seconds);
             weapon.gameObject.SetActive(active);
 

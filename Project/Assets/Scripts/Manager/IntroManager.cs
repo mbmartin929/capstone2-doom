@@ -42,17 +42,19 @@ namespace EightDirectionalSpriteSystem
 
         public void InstantiateTitle()
         {
-            //Debug.Log("Ravage");
-            foreach (GameObject item in disabledGos)
+            if (GameManager.Instance.level == 1)
             {
-                Destroy(item, 0f);
+                foreach (GameObject item in disabledGos)
+                {
+                    Destroy(item, 0f);
+                }
+
+                movePodium = true;
+
+                entranceDoor.SetActive(true);
+
+                StartCoroutine(GameTitle(gameTitleTime));
             }
-
-            movePodium = true;
-
-            entranceDoor.SetActive(true);
-
-            StartCoroutine(GameTitle(gameTitleTime));
         }
 
         private IEnumerator GameTitle(float time)

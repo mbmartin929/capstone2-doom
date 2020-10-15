@@ -37,8 +37,16 @@ public class MainMenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            launchVideo.gameObject.SetActive(false);
-            audioSource.Play();
+            if (launchVideo.gameObject.activeSelf)
+            {
+                audioSource.Play();
+                launchVideo.gameObject.SetActive(false);
+            }
+            else if (!launchVideo.gameObject.activeSelf)
+            {
+                //VideoPlayer.gameObject.SetActive(false);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 
@@ -70,6 +78,7 @@ public class MainMenuManager : MonoBehaviour
     {
         endBlackOverlay.SetActive(true);
         yield return new WaitForSeconds(time);
+        VideoPlayer.gameObject.SetActive(true);
         VideoPlayer.Play();
     }
 

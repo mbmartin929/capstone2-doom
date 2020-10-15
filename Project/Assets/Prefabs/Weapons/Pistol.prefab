@@ -373,7 +373,7 @@ MonoBehaviour:
   soundRadius: 14
   range: 109
   spreadFactor: 0.015
-  FOV: 85
+  FOV: 80
   gunshotSounds:
   - {fileID: 8300000, guid: c2d5781c5c0707344b1bd5a92d4bf903, type: 3}
   - {fileID: 8300000, guid: 4976b523fa863114ba78cb9cc71b8b65, type: 3}
@@ -382,12 +382,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7ae0e5abadbba9c46bef293a23ad94b5, type: 3}
   - {fileID: 8300000, guid: d0d8f9d5c6d59c54798982d382dc3af0, type: 3}
   - {fileID: 8300000, guid: 36f78da31761abc40b6360663b23c9dd, type: 3}
+  canSwitch: 0
   hitSFX: {fileID: 0}
-  sinSpeed: 3
-  sinFrequency: 15
-  sinMagnitude: 0.5
   painStrength: 1
-  startWeaponSwitchVector: {x: 0.12, y: -2.225, z: 0.26}
+  startWeaponSwitchVector: {x: 0.12, y: -3.5, z: 0.26}
   startWeaponSwitchRot: {x: 0, y: 0, z: 0}
   actors: []
   muzzleLightResetTime: 0.1
@@ -398,7 +396,7 @@ MonoBehaviour:
   hitEffectGo: {fileID: 3291211880898960590, guid: db1db929cfd7cfa459968e10ecc71399,
     type: 3}
   camRotation: {x: 0, y: 0, z: 0}
-  startPos: {x: 0.12, y: -0.95, z: 0.26}
+  startPos: {x: 0.12, y: -0.85, z: 0.26}
   bulletHole: {fileID: 7406244889931771800, guid: 50dd7cc6809dbcd4fb61bb66982b167e,
     type: 3}
   canAttack: 1

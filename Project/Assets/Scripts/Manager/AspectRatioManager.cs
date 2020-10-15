@@ -15,9 +15,12 @@ public class AspectRatioManager : MonoBehaviour
     public GameObject HSBox;
     public GameObject dialogueHolder;
     public GameObject weaponHolder;
+    public GameObject objectiveGo;
+
     public Vector3[] healthHolderPos;
     public Vector3[] weaponHolderPos;
     public Vector3[] dialogueHolderPos;
+    public Vector3[] objectivePos;
 
     void Awake()
     {
@@ -110,6 +113,9 @@ public class AspectRatioManager : MonoBehaviour
 
             RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
             dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
+
+            // RectTransform objectiveRect = objectiveGo.GetComponent(typeof(RectTransform)) as RectTransform;
+            // objectiveRect.localPosition = new Vector2(objectivePos[1].x, objectivePos[1].y);
         }
         else if (Camera.main.aspect >= 1.5) Debug.Log("3:2");
         else Debug.Log("4:3");
