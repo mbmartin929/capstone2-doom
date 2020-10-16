@@ -88,7 +88,7 @@ Light:
   m_BounceIntensity: 1.29
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.9e-43, y: -71.76288, z: 8.9e-43, w: 6e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 5.316039e+11}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -102,7 +102,6 @@ GameObject:
   m_Component:
   - component: {fileID: 927646707832104900}
   - component: {fileID: 927646707832104902}
-  - component: {fileID: 927646707832104903}
   m_Layer: 8
   m_Name: Point Light (2)
   m_TagString: Untagged
@@ -118,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927646707832104901}
   m_LocalRotation: {x: -0, y: -0.68558323, z: -0, w: 0.72799426}
-  m_LocalPosition: {x: 0.083, y: 0.153, z: -0.319}
+  m_LocalPosition: {x: 0.02, y: -0.72, z: -0.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 927646708479937744}
@@ -135,8 +134,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9316286, b: 0.759434, a: 1}
-  m_Intensity: 0.12
+  m_Color: {r: 1, g: 0.827265, b: 0.7294118, a: 1}
+  m_Intensity: 0.042
   m_Range: 2.69
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -178,30 +177,13 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.42
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 5.1841e-41, y: 5.9e-44, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &927646707832104903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927646707832104901}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d5ca92e52e0184abef7c6af957c985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minIntensity: 0.15
-  maxIntensity: 0.2
-  minRange: 2.69
-  maxRange: 3.8
-  changeTime: 0.25
 --- !u!1 &927646707924995374
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927646707924995361}
   m_Layer: 8
-  m_Name: Torch 16 Hand Style
+  m_Name: Torch Hand Style 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +281,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2ffbeb43ef08b6e48a5443209ba0bc5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1449,7 +1431,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2ffbeb43ef08b6e48a5443209ba0bc5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2043,8 +2025,10 @@ MonoBehaviour:
   assetGuid: 
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  m_SelectedVertices: 0000000000000000
 --- !u!64 &927646708093700864
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2250,7 +2234,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2ffbeb43ef08b6e48a5443209ba0bc5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3012,10 +2996,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.29
-  m_Range: 5.5
-  m_SpotAngle: 130.18207
+  m_Color: {r: 1, g: 0.8883933, b: 0.79607844, a: 1}
+  m_Intensity: 0.3
+  m_Range: 6.19
+  m_SpotAngle: 149.93768
   m_InnerSpotAngle: 87.605606
   m_CookieSize: 10
   m_Shadows:
@@ -3055,10 +3039,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 9.29
+  m_BounceIntensity: 9.42
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5.7e-43, y: 5.4272706e-31, z: 1e-44, w: 7.4048364e+28}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

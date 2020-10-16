@@ -12,6 +12,7 @@ public class ActorAvatarManager : MonoBehaviour
     public Material[] redSlimeAvatars;
     public Material[] wormAvatars;
     public Material[] spiderAvatars;
+    public Material[] snailAvatars;
 
     void Awake()
     {

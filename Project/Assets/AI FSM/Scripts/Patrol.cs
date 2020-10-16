@@ -19,15 +19,7 @@ namespace EightDirectionalSpriteSystem
             base.OnStateEnter(animator, stateInfo, layerIndex);
             agent.isStopped = false;
 
-            //Debug.Log("Patrol State");
-
-
-            if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Spider)
-            {
-                //Debug.Log(enemyAI.actor.name);
-            }
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
-
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

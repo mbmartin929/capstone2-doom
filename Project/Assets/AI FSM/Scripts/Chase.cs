@@ -67,6 +67,23 @@ namespace EightDirectionalSpriteSystem
                         //.actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }
+                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Snail)
+                {
+                    agent.SetDestination(playerGo.transform.position);
+
+                    Vector3 targetPosition = new Vector3(playerGo.transform.position.x,
+                                                         agent.transform.position.y,
+                                                         playerGo.transform.position.z);
+
+                    if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 1.0f)
+                    {
+                        enemyAI.anim.SetTrigger("Attack");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Unassigned ActorBillboard enum Enemy");
+                }
             }
         }
 
