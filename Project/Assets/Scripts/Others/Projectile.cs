@@ -8,14 +8,14 @@ namespace EightDirectionalSpriteSystem
     {
         [HideInInspector] public int damage;
 
-        public GameObject cursor;
-        public LayerMask layer;
-        public Transform shootPoint;
         public float duration = 1.29f;
 
         public EnemyAI enemyAI;
 
         private Camera cam;
+
+        [SerializeField] private float forwardMultiplier = 2.0f;
+        [SerializeField] private float upwardMultiplier = 42.0f;
 
         // Start is called before the first frame update
         void Start()
@@ -29,6 +29,23 @@ namespace EightDirectionalSpriteSystem
         void Update()
         {
 
+        }
+
+        public void LaunchSnailProjectile(Vector3 transformPosition)
+        {
+            // Vector3 playerPos = GameManager.Instance.playerGo.transform.position;
+            // Vector3 Vo = CalculateVelocity(playerPos, enemyAI.attackLoc.position, duration);
+
+            // transform.rotation = Quaternion.LookRotation(Vo);
+
+            // gameObject.GetComponent<Rigidbody>().velocity = Vo;
+
+            float dist = Vector3.Distance(GameManager.Instance.playerGo.transform.position, transformPosition);
+
+            //Debug.Log("Distance: " + dist);
+            GetComponent<Rigidbody>().AddForce(((enemyAI.attackLoc.forward + enemyAI.attackLoc.up + enemyAI.attackLoc.forward) * (forwardMultiplier * dist)));
+            //GetComponent<Rigidbody>().AddRelativeForce(enemyAI.attackLoc.up * upwardMultiplier * (dist * 0.75f));
+            //Debug.Log("Multiplied Distance: " + multiplier * dist);
         }
 
         public void LaunchProjectile1()
@@ -99,6 +116,7 @@ namespace EightDirectionalSpriteSystem
                     transform.GetChild(0).transform.parent = null;
                 }
 
+                Debug.Log("Collided with Level");
                 Destroy(gameObject);
             }
             else if (other.CompareTag("Player"))
@@ -106,6 +124,19 @@ namespace EightDirectionalSpriteSystem
                 other.GetComponent<PlayerController>().TakeDamage(damage);
 
                 Destroy(gameObject);
+            }
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            GetComponent<Grenade>().damage = damage;
+            GetComponent<Grenade>().EnemyExplode();
+            Debug.Log("Collided with Level");
+            Destroy(gameObject);
+
+            if (other.gameObject.CompareTag("Level"))
+            {
+
             }
         }
     }

@@ -18,7 +18,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
-        public enum Enemy { Worm, GreenSlime, RedSlime, Spider };
+        public enum Enemy { Worm, GreenSlime, RedSlime, Spider, Snail };
         public GameObject slimeShockwave;
 
         public delegate void BeforeRenderBillboardEvent();
@@ -273,6 +273,39 @@ namespace EightDirectionalSpriteSystem
 
                     }
                     else if (currentFrameIndex == 2)
+                    {
+                        if (!GetComponent<EnemyController>().IsDead())
+                        {
+                            //Debug.Log(currentAnimation.Action);
+                            transform.GetComponentInParent<EnemyAI>().GetNewDir();
+                        }
+                        else GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.DIE);
+                    }
+                }
+                #endregion
+
+                #region Snail Behaviour
+                if ((enemy == Enemy.Snail) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    if (currentFrameIndex == 3)
+                    {
+                        GetComponentInParent<EnemyAI>().actor.SetCurrentState(DemoActor.State.SHOOT);
+                    }
+                }
+
+                if ((enemy == Enemy.Snail) && (currentAnimation.Action == ActorAnimation.AnimAction.Attack))
+                {
+                    if (currentFrameIndex == 6)
+                    {
+                        transform.parent.LookAt(GameManager.Instance.playerGo.transform.position);
+                        transform.GetComponentInParent<EnemyAI>().SnailAttack();
+
+
+                        // Get new Dir after Attack
+
+
+                    }
+                    else if (currentFrameIndex == 7)
                     {
                         if (!GetComponent<EnemyController>().IsDead())
                         {

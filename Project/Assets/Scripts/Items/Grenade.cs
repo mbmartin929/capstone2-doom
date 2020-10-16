@@ -10,7 +10,7 @@ public class Grenade : MonoBehaviour
     public float timer = 2f;
     float grenadeForceExplosion = 500;
     float countdown;
-    public int power = 50;
+    public int damage = 50;
     bool canFire;
 
     UnitController player;
@@ -18,39 +18,32 @@ public class Grenade : MonoBehaviour
     bool hasExplode;
     public GameObject explosionParticle;
     public GameObject grenadeCrater;
+    public bool useCrater = false;
+
     // Start is called before the first frame update
     void Start()
     {
         countdown = timer;
 
         UnitController player = GameManager.Instance.playerGo.GetComponent<PlayerController>();
-
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-       
-
-        countdown -= Time.deltaTime;
-        if (countdown <= 0 && !hasExplode)
-        {
-            instantiateCrater();
-            Explode();
-            hasExplode = true;
-     
-
-        }
+        // countdown -= Time.deltaTime;
+        // if (countdown <= 0 && !hasExplode)
+        // {
+        //     instantiateCrater();
+        //     Explode();
+        //     hasExplode = true;
+        // }
 
         //raycast this grenade
 
-
     }
 
-    void Explode()
+    public void EnemyExplode()
     {
         hasExplode = true;
         //instantiate explotion anim
@@ -62,46 +55,24 @@ public class Grenade : MonoBehaviour
             {
                 if (hit.collider == nearbyObject)
                 {
-
                     if (hit.rigidbody)
                     {
                         if (hit.collider.tag == "Player")
                         {
                             hit.rigidbody.AddExplosionForce(0, transform.position, radius);
-                            GameManager.Instance.playerGo.GetComponent<PlayerController>().TakeDamage(power);
-                        }
-                        if (hit.collider.tag == "Enemy")
-                        {
-                            EnemyController enemy = hit.transform.GetComponent<EnemyController>();
-                            enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
-
-                            Debug.Log(enemy.CurrentHealth);
-                            hit.rigidbody.AddExplosionForce(0, transform.position, radius);
-                            enemy.TakeDamage(power);
-                            Debug.Log("HERE" + hit.transform.name);
-
-                            Debug.Log(power);
-                            Debug.Log(enemy.CurrentHealth);
-
-                            //DAMAGE ENEMY
-                        }
-                        if (hit.collider.tag == "Untagged")
-                        {
-                            hit.rigidbody.AddExplosionForce(grenadeForceExplosion, transform.position, radius);
+                            GameManager.Instance.playerGo.GetComponent<PlayerController>().TakeDamage(damage);
                         }
                     }
                 }
-                GameObject grenadeVfx = Instantiate(explosionParticle, this.transform.position, Quaternion.identity);
-                //GameObject grenadeCrate = Instantiate(grenadeCrater, this.transform.position, Quaternion.identity);
-
-
-
-                Destroy(gameObject);
-
             }
         }
-        //Destroy(gameObject);
 
+        GameObject grenadeVfx = Instantiate(explosionParticle, this.transform.position, Quaternion.identity);
+        if (useCrater)
+        {
+            GameObject grenadeCrate = Instantiate(grenadeCrater, this.transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 
 
@@ -109,11 +80,11 @@ public class Grenade : MonoBehaviour
     {
         Vector3 currentPos = this.transform.position;
         RaycastHit hit;
- 
-        if (Physics.Raycast(currentPos,Vector3.down,out hit))
+
+        if (Physics.Raycast(currentPos, Vector3.down, out hit))
         {
-            GameObject grenadeCrate = Instantiate(grenadeCrater,hit.point, Quaternion.identity);
-            grenadeCrate.transform.rotation = Quaternion.LookRotation(transform.up, hit.normal) * grenadeCrate.transform.rotation;         
+            GameObject grenadeCrate = Instantiate(grenadeCrater, hit.point, Quaternion.identity);
+            grenadeCrate.transform.rotation = Quaternion.LookRotation(transform.up, hit.normal) * grenadeCrate.transform.rotation;
         }
     }
 }

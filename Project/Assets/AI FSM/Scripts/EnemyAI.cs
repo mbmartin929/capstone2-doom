@@ -124,6 +124,14 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
+        public void SnailAttack()
+        {
+            GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            a1.GetComponent<Projectile>().enemyAI = this;
+            a1.GetComponent<Projectile>().damage = enemyController.damage;
+            a1.GetComponent<Projectile>().LaunchSnailProjectile(transform.position);
+        }
+
         public void SlimeAttack(float radius)
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
