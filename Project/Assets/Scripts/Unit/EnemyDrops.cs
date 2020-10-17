@@ -12,6 +12,7 @@ namespace EightDirectionalSpriteSystem
         public GameObject[] armorDrops;
         public GameObject[] pistolAmmoDrops;
         public GameObject[] shotgunAmmoDrops;
+        public GameObject[] launcherAmmoDrops;
 
         [Header("Amount of Drops while Player is at Normal Health")]
         public int minAmountOfDropsNormal = 0;
@@ -28,12 +29,16 @@ namespace EightDirectionalSpriteSystem
         [Header("Amount of Drops while Shotgun is at Low")]
         public int minAmountOfShotgunAmmoNormal = 2;
         public int maxAmountOfShotgunAmmoNormal = 4;
+        [Header("Amount of Drops while Launcher is at Low")]
+        public int minAmountOfLauncherAmmoNormal = 0;
+        public int maxAmountOfLauncherAmmoNormal = 2;
 
         [Header("Player's Low Values")]
         public int lowHealth = 40;
         public int lowArmor = 10;
         public int lowPistolAmmo = 15;
         public int lowShotgunAmmo = 9;
+        public int lowLauncherAmmo = 2;
 
         // Start is called before the first frame update
         void Start()
@@ -109,6 +114,23 @@ namespace EightDirectionalSpriteSystem
                     shotgunAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
 
                     shotgunAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 3);
+                }
+            }
+            else if (AmmoInventory.Instance.curLauncherAmmo <= lowLauncherAmmo)
+            {
+                Debug.Log("Low Launcher Ammo! Will drop lots of launcher ammo");
+
+                amount = Random.Range(minAmountOfLauncherAmmoNormal, maxAmountOfLauncherAmmoNormal);
+                Debug.Log("Amount: " + amount);
+
+                for (int i = 0; i <= amount; i++)
+                {
+                    index = Random.Range(0, launcherAmmoDrops.Length - 1);
+
+                    GameObject launcherAmmoDrop = Instantiate(launcherAmmoDrops[index], transform.position, Quaternion.identity);
+                    launcherAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
+
+                    launcherAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 3);
                 }
             }
             else

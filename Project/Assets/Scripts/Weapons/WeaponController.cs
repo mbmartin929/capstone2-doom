@@ -169,7 +169,7 @@ namespace EightDirectionalSpriteSystem
             TextManager.Instance.UpdateAmmoText();
         }
 
-        private IEnumerator Wait(float seconds)
+        protected IEnumerator Wait(float seconds)
         {
             yield return new WaitForSeconds(seconds);
             canAttack = true;

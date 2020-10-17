@@ -24,6 +24,7 @@ public class DialogueAssistant : MonoBehaviour
     [SerializeField] private int breakWallsTutorial = 0;
     [SerializeField] private int switchPistolTutorial = 0;
     [SerializeField] private int switchShotgunTutorial = 0;
+    [SerializeField] private int switchLauncherTutorial = 0;
 
     void Awake()
     {
@@ -143,6 +144,37 @@ public class DialogueAssistant : MonoBehaviour
             yield return new WaitForSeconds(3.29f);
 
             switchShotgunTutorial++;
+
+            StartCoroutine(EndTransition());
+
+            //StartCoroutine(Surrounded2());
+        }
+    }
+
+    public IEnumerator SwitchLauncher()
+    {
+        if (switchLauncherTutorial == 0)
+        {
+            MusicManager.Instance.FadeOutAmbientMusicCaller();
+            MusicManager.Instance.FadeInActiveMusicCaller(4, false, 0);
+
+            StartTransition();
+            yield return new WaitForSeconds(2.0f);
+
+            textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
+            yield return new WaitForSeconds(3.09f);
+            textWriter.AddWriter("Switch to your SHOTGUN!", defaultTypeTime, true);
+            yield return new WaitForSeconds(0.29f);
+            textWriter.AddWriter("", defaultTypeTime, true);
+            yield return new WaitForSeconds(0.29f);
+
+            textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
+            yield return new WaitForSeconds(2.29f);
+            textWriter.AddWriter("Make'em eat lead!", defaultTypeTime + 0.00f, true);
+
+            yield return new WaitForSeconds(3.29f);
+
+            switchLauncherTutorial++;
 
             StartCoroutine(EndTransition());
 
