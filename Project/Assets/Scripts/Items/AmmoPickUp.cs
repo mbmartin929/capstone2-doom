@@ -100,26 +100,6 @@ public class AmmoPickUp : PickUpController
                 AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
             }
         }
-        else if (itemName == "Launcher")
-        {
-            Transform currentWeapon = SearchWeapons(playerWeapons, "Launcher");
-            if (currentWeapon == null)
-            {
-                GameObject launcher = Instantiate(weapon, playerWeapons) as GameObject;
-                launcher.name = "Launcher";
-                if (playerWeapons.childCount >= 2)
-                {
-                    launcher.SetActive(false);
-                }
-
-                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
-            }
-            else
-            {
-                //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
-                AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
-            }
-        }
         TextManager.Instance.UpdateAmmoText();
     }
 

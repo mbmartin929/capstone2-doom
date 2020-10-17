@@ -129,23 +129,14 @@ namespace EightDirectionalSpriteSystem
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            GetComponent<Grenade>().damage = damage;
+            GetComponent<Grenade>().EnemyExplode();
+            Debug.Log("Collided with Level");
+            Destroy(gameObject);
+
+            if (other.gameObject.CompareTag("Level"))
             {
 
-            }
-            else if (other.gameObject.CompareTag("Level"))
-            {
-                GetComponent<Grenade>().damage = damage;
-                GetComponent<Grenade>().EnemyExplode();
-                Debug.Log("Collided with: " + other.gameObject.name);
-                Destroy(gameObject);
-            }
-            else if (other.gameObject.CompareTag("Player"))
-            {
-                GetComponent<Grenade>().damage = damage;
-                GetComponent<Grenade>().EnemyExplode();
-                Debug.Log("Collided with: " + other.gameObject.name);
-                Destroy(gameObject);
             }
         }
     }
