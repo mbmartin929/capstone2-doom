@@ -17,7 +17,6 @@ namespace EightDirectionalSpriteSystem
             anim = GetComponent<Animator>();
         }
 
-
         // Start is called before the first frame update
         void Start()
         {
@@ -89,16 +88,7 @@ namespace EightDirectionalSpriteSystem
         {
             RaycastHit hit;
 
-            // if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
-            // {
-            //     return;
-            // }
-
             StartCoroutine(Wait(0.2f));
-            #region Gun Effects
-
-            //PlayGunshotSound();
-            #endregion
 
             ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 

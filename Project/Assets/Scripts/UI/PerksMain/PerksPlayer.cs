@@ -27,6 +27,7 @@ public class PerksPlayer : MonoBehaviour
 
     private void Awake()
     {
+        //Commented out temporarily
         image = GetComponent<Image>();
         countText.text = $"{MyCurrentCount}/{maxCount}";
         if (unlocked)
@@ -37,14 +38,14 @@ public class PerksPlayer : MonoBehaviour
 
     public virtual bool Click()
     {
-        if(MyCurrentCount < maxCount && unlocked)
+        if (MyCurrentCount < maxCount && unlocked)
         {
             MyCurrentCount++;
             countText.text = $"{MyCurrentCount}/{maxCount}";
 
-           if(MyCurrentCount == maxCount)
+            if (MyCurrentCount == maxCount)
             {
-                if(childPerk != null)
+                if (childPerk != null)
                 {
                     childPerk.unlockPerk();
                 }
@@ -67,7 +68,7 @@ public class PerksPlayer : MonoBehaviour
         counterText.color = Color.white;
 
         unlocked = true;
-  
+
     }
-        
+
 }

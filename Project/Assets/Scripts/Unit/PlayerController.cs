@@ -21,6 +21,7 @@ public class PlayerController : UnitController
     public int keyAmount = 0;
 
     public GameObject gameOverScreen;
+    public Transform launcherPos;
 
     [Header("Door function")]
     bool guiShow = false;
