@@ -296,9 +296,4 @@ public class ShotgunController : WeaponController
         yield return new WaitForSeconds(seconds);
         canAttack = true;
     }
-
-    public void ReloadSound()
-    {
-        //GetComponent<AudioSource>().playone
-    }
 }

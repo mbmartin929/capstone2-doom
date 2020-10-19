@@ -5,6 +5,8 @@ using EightDirectionalSpriteSystem;
 
 public class LauncherController : WeaponController
 {
+    public GameObject projectileGo;
+
     public bool readyToFire = true;
 
     private bool cancelReload = false;
@@ -59,11 +61,17 @@ public class LauncherController : WeaponController
         }
     }
 
+
+    public void CanAttackState()
+    {
+        canAttack = true;
+    }
+
     void Shoot()
     {
         if (CurAmmo <= 0)
         {
-            Debug.Log("CurAmmo <= 0");
+            //Debug.Log("CurAmmo <= 0");
             //GetComponent<AudioSource>().PlayOneShot(gunshotSounds[1]);
             return;
         }
@@ -74,20 +82,42 @@ public class LauncherController : WeaponController
             return;
         }
 
+        StartCoroutine(Wait(0.2f));
+
         CurAmmo--;
+
+        GameObject _projectileGo = Instantiate(projectileGo, (transform.position + transform.forward), Quaternion.identity);
+        _projectileGo.GetComponent<Projectile>().LaunchLauncherProjectile(transform.forward * 2.29f + transform.up * 1f);
 
         anim.SetTrigger("Shoot");
         StartCoroutine("MuzzleLight");
-        StartCoroutine(Wait(0.2f));
 
         TextManager.Instance.UpdateAmmoText();
 
         ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
-        bulletTracerParticle.Play();
-
         canAttack = false;
 
         readyToFire = false;
+    }
+
+    private void AddBullet()
+    {
+        AmmoInventory.Instance.curLauncherAmmo -= 1;
+        CurAmmo += 1;
+
+        TextManager.Instance.UpdateAmmoText();
+    }
+
+    private void AmmoCheck()
+    {
+        if (AmmoInventory.Instance.curLauncherAmmo <= 0) anim.SetTrigger("Idle");
+        else anim.SetTrigger("Reload");
+    }
+
+    private IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        canAttack = true;
     }
 }

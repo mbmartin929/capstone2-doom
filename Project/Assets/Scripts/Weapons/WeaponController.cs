@@ -120,13 +120,6 @@ namespace EightDirectionalSpriteSystem
 
         }
 
-        public void SwitchWeapon(Transform _weapon)
-        {
-            WeaponController weapon = _weapon.GetComponent<WeaponController>();
-
-            weapon.anim.SetTrigger("");
-        }
-
         public void SwitchTo()
         {
             anim.SetTrigger("Switch To");
@@ -169,7 +162,7 @@ namespace EightDirectionalSpriteSystem
             TextManager.Instance.UpdateAmmoText();
         }
 
-        protected IEnumerator Wait(float seconds)
+        private IEnumerator Wait(float seconds)
         {
             yield return new WaitForSeconds(seconds);
             canAttack = true;
@@ -192,10 +185,25 @@ namespace EightDirectionalSpriteSystem
         // Used as Animation
         private void FinishReload()
         {
+            //Debug.Log("FinishReload");
+
+            // Debug.Log("Before: " + transform.localPosition);
             transform.localPosition = startPos;
+            // Debug.Log("Target: " + startPos);
+            // Debug.Log("After: " + transform.localPosition);
             anim.SetTrigger("Idle");
+            //StartCoroutine(WaitDebug());
 
             TextManager.Instance.UpdateAmmoText();
+        }
+
+        private IEnumerator WaitDebug()
+        {
+            yield return new WaitForSeconds(0.29f);
+
+            Debug.Log("After After: " + transform.localPosition);
+
+            transform.localPosition = startPos;
         }
 
         private IEnumerator MuzzleLight()

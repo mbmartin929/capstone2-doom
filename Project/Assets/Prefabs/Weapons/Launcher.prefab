@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5420018839447009571}
-  m_LocalRotation: {x: 0, y: 0.95838743, z: 0, w: 0.28547093}
-  m_LocalPosition: {x: -16.59738, y: -14.110226, z: 108.830666}
-  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: -0.93, z: 0.26}
+  m_LocalScale: {x: 0.42000005, y: 0.41999996, z: 0.42000005}
   m_Children:
   - {fileID: 5420018841088725864}
   - {fileID: 5420018839627596062}
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 5420018839778169707}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 146.826, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5420018839447009759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 40b3d35092579374591c5aea9beedfb5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -120,7 +120,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2d5781c5c0707344b1bd5a92d4bf903, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.69
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -218,29 +218,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   curAmmo: 0
-  clipAmmo: 9
+  clipAmmo: 1
   soundRadius: 10
   range: 100
   spreadFactor: 0.1
   FOV: 0
-  gunshotSounds: []
-  reloadSounds: []
+  gunshotSounds:
+  - {fileID: 8300000, guid: 527529be9b11d2c4d9202855d0d336e1, type: 3}
+  reloadSounds:
+  - {fileID: 8300000, guid: 7571a36bf242ee34c953902715595a9f, type: 3}
+  - {fileID: 8300000, guid: 967be2dd499a8d54b963b09a09f52fd8, type: 3}
+  - {fileID: 8300000, guid: ee7ce625b25e04741a026e96af0ea324, type: 3}
+  - {fileID: 8300000, guid: fe79d6b7f04d0ff4289d93a58fcd858f, type: 3}
   canSwitch: 0
   hitSFX: {fileID: 0}
   painStrength: 1
-  startWeaponSwitchVector: {x: 0, y: -0.77, z: 0}
+  startWeaponSwitchVector: {x: 0, y: -0.6199746, z: 0}
   startWeaponSwitchRot: {x: 0, y: 0, z: 0}
   actors: []
   muzzleLightResetTime: 0.1
   bulletCasingParticleGo: {fileID: 0}
   bulletTracerParticle: {fileID: 0}
-  muzzleLightGo: {fileID: 0}
+  muzzleLightGo: {fileID: 5420018840564155057}
   hitEffectGo: {fileID: 0}
   camRotation: {x: 0, y: 0, z: 0}
-  startPos: {x: 0, y: 0, z: 0}
+  startPos: {x: -0.02, y: -0.93, z: 0.26}
   bulletHole: {fileID: 0}
   canAttack: 0
   anim: {fileID: 0}
+  projectileGo: {fileID: 3052994133037248473, guid: 78163267d4b987248b4376def6edd36e,
+    type: 3}
   readyToFire: 1
 --- !u!1 &5420018839627596061
 GameObject:

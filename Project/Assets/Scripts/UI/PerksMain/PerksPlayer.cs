@@ -27,13 +27,13 @@ public class PerksPlayer : MonoBehaviour
 
     private void Awake()
     {
-        // Commented out temporarily
-        // image = GetComponent<Image>();
-        // countText.text = $"{MyCurrentCount}/{maxCount}";
-        // if (unlocked)
-        // {
-        //     unlockPerk();
-        // }
+        //Commented out temporarily
+        image = GetComponent<Image>();
+        countText.text = $"{MyCurrentCount}/{maxCount}";
+        if (unlocked)
+        {
+            unlockPerk();
+        }
     }
 
     public virtual bool Click()
