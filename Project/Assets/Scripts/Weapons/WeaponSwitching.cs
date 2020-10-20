@@ -128,6 +128,30 @@ namespace EightDirectionalSpriteSystem
                 }
                 else Debug.Log("Weapon Out of Bounds");
             }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                int chosenWeapon = 4;
+                if (gameObject.transform.childCount >= chosenWeapon)
+                {
+                    Debug.Log("Pressed 4");
+                    Debug.Log("Current Weapon: " + _previousWeapon.gameObject.name);
+
+                    Transform weapon = transform.GetChild(3).transform;
+                    if (_previousWeapon.GetComponent<WeaponController>().canSwitch)
+                    {
+                        Debug.Log("Previous Weapon: " + _previousWeapon.gameObject.name);
+                        Debug.Log("Next Weapon: " + weapon.gameObject.name);
+                        selectedWeapon = 3;
+                        _previousWeapon = weapon;
+                    }
+
+                    if (_previousWeapon == weapon)
+                    {
+                        SelectWeapon();
+                    }
+                }
+                else Debug.Log("Weapon Out of Bounds");
+            }
 
             if (previousSelectedWeapon != selectedWeapon)
             {
@@ -218,7 +242,7 @@ namespace EightDirectionalSpriteSystem
 
         private IEnumerator SwitchIENumerator(float seconds, Transform weapon, bool active, bool switchTo)
         {
-            Debug.Log("SwitchIENumerator: " + weapon.gameObject.name);
+            //Debug.Log("SwitchIENumerator: " + weapon.gameObject.name);
             yield return new WaitForSeconds(seconds);
             weapon.gameObject.SetActive(active);
 

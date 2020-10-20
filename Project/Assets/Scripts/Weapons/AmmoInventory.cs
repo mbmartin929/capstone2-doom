@@ -13,6 +13,8 @@ namespace EightDirectionalSpriteSystem
         public int maxPistolCapacity = 41;
         public int curShotgunAmmo;
         public int maxShotgunCapacity = 21;
+        public int curLauncherAmmo;
+        public int maxLauncherCapacity = 21;
 
         void Awake()
         {
@@ -36,6 +38,15 @@ namespace EightDirectionalSpriteSystem
             //WeaponController weapon = currentWeapon.GetComponent<WeaponController>();
             curShotgunAmmo += amount;
             if (curShotgunAmmo >= maxShotgunCapacity) curShotgunAmmo = maxShotgunCapacity;
+
+            TextManager.Instance.UpdateAmmoText();
+        }
+
+        public void PickUpLauncherAmmo(int amount, Transform currentWeapon)
+        {
+            //WeaponController weapon = currentWeapon.GetComponent<WeaponController>();
+            curLauncherAmmo += amount;
+            if (curLauncherAmmo >= maxLauncherCapacity) curLauncherAmmo = maxLauncherCapacity;
 
             TextManager.Instance.UpdateAmmoText();
         }

@@ -67,6 +67,20 @@ namespace EightDirectionalSpriteSystem
                     }
                 }
             }
+
+            if (avatar.GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.Snail)
+            {
+                for (int i = 0; i < ActorAvatarManager.Instance.snailAvatars.Length; i++)
+                {
+                    if (ActorAvatarManager.Instance.snailAvatars[i] != null)
+                    {
+                        chosenMaterial = ActorAvatarManager.Instance.snailAvatars[i];
+                        ActorAvatarManager.Instance.snailAvatars[i] = null;
+                        avatar.GetComponent<SpriteRenderer>().material = chosenMaterial;
+                        return;
+                    }
+                }
+            }
         }
     }
 }
