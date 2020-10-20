@@ -160,6 +160,9 @@ namespace EightDirectionalSpriteSystem
             }
             else if (projectileType == ProjectileType.LauncherProjectile)
             {
+                //Invoke("Explode", 4.2f);
+                GetComponent<Grenade>().Invoke("Explode", 2.9f);
+
                 damage = GetComponent<Grenade>().damage;
                 if (other.gameObject.CompareTag("Player"))
                 {

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5900984252581644909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.400001, y: -4.2000003, z: 39}
-  m_LocalScale: {x: 0.69, y: 0.69, z: 2}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8580594, y: 0.4884529, z: 0.06474018}
-  m_Center: {x: -0.010710478, y: -0.09886956, z: 0.01556921}
+  m_Size: {x: 2.9204834, y: 1.6693902, z: 2.68}
+  m_Center: {x: 0.047548562, y: -0.48829377, z: 0.042300485}
 --- !u!114 &5900984252581644906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,8 +126,8 @@ MonoBehaviour:
   lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 0}
-  itemName: Pistol
+  itemName: Launcher
   recoverAmount: 9
-  ammoType: 0
+  ammoType: 2
   weapon: {fileID: 5420018839447009571, guid: 34e58ee6197e077498d71e54376dbde8, type: 3}
   numberOfAmmo: 0

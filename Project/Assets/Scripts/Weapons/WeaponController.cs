@@ -185,6 +185,7 @@ namespace EightDirectionalSpriteSystem
         // Used as Animation
         private void FinishReload()
         {
+
             //Debug.Log("FinishReload");
 
             // Debug.Log("Before: " + transform.localPosition);
@@ -194,7 +195,30 @@ namespace EightDirectionalSpriteSystem
             anim.SetTrigger("Idle");
             //StartCoroutine(WaitDebug());
 
+            //canAttack = true;
+
             TextManager.Instance.UpdateAmmoText();
+        }
+
+        // Used as Animation
+        private void FinishLauncherReload()
+        {
+            transform.localPosition = startPos;
+
+
+
+            TextManager.Instance.UpdateAmmoText();
+
+            StartCoroutine(WaitReload());
+
+
+            //canAttack = true;
+        }
+
+        private IEnumerator WaitReload()
+        {
+            yield return new WaitForSeconds(0.42f);
+            anim.SetTrigger("Idle");
         }
 
         private IEnumerator WaitDebug()

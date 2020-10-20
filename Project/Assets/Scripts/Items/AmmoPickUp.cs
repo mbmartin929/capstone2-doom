@@ -14,11 +14,6 @@ public class AmmoPickUp : PickUpController
 
     public int numberOfAmmo = 0;
 
-    // int NumberSyllables(string word)
-    // {
-
-    // }
-
     void Start()
     {
         EndGameScreen.Instance.totalAmmo += numberOfAmmo;
@@ -138,6 +133,12 @@ public class AmmoPickUp : PickUpController
 
             AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
         }
+        else if (ammoType == AmmoType.Launcher)
+        {
+            Transform currentWeapon = SearchWeapons(playerWeapons, "Launcher");
+
+            AmmoInventory.Instance.PickUpLauncherAmmo(recoverAmount, currentWeapon);
+        }
 
         GameObject pickUpSFX = new GameObject();
         GameObject _pickUpSFX = Instantiate(pickUpSFX, transform.position, Quaternion.identity);
@@ -168,6 +169,4 @@ public class AmmoPickUp : PickUpController
         }
         return null;
     }
-
-    private int Convert(int hour) { return hour *= 60; }
 }
