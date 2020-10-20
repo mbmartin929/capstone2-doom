@@ -151,7 +151,7 @@ public class Grenade : MonoBehaviour
             {
                 Debug.Log("Hit Player");
                 // hit.rigidbody.AddExplosionForce(0, transform.position, radius);
-                GameManager.Instance.playerGo.GetComponent<PlayerController>().TakeDamage(damage);
+                GameManager.Instance.playerGo.GetComponent<PlayerController>().TakeDamage(damage / 2);
             }
             else if (nearbyObject.tag == "Enemy")
             {
@@ -179,9 +179,9 @@ public class Grenade : MonoBehaviour
             }
             else if (nearbyObject.tag == "Barricade")
             {
-                Debug.Log("Hit Barricade");
+                Debug.Log(nearbyObject.name);
                 // hit.rigidbody.AddExplosionForce(0, transform.position, radius);
-                Destroy(nearbyObject.gameObject);
+                nearbyObject.GetComponent<Barricade>().TakeDamage(damage);
             }
         }
 
