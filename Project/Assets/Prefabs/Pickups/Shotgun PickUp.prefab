@@ -95,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8580594, y: 0.4884529, z: 0.06474018}
+  m_Size: {x: 0.8580594, y: 0.4884529, z: 0.24}
   m_Center: {x: -0.010710478, y: -0.09886956, z: 0.01556921}
 --- !u!114 &2812522056852201296
 MonoBehaviour:
@@ -122,9 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 0}
-  ammoType: 1
   itemName: Shotgun
   recoverAmount: 8
+  ammoType: 1
   weapon: {fileID: 477633209898544756, guid: 4efcedb30307b0445a6d9ada63b54e7c, type: 3}
+  numberOfAmmo: 0

@@ -76,13 +76,21 @@ public class LauncherController : WeaponController
             return;
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+        int shootLayerIndex = anim.GetLayerIndex("Shoot");
+        int reloadLayerIndex = anim.GetLayerIndex("Reload")
+        ;
+        if (anim.GetCurrentAnimatorStateInfo(shootLayerIndex).IsName("Shoot"))
         {
-            //Debug.Log("Playing Shoot");
+            Debug.Log("Playing Shoot");
+            return;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(reloadLayerIndex).IsName("Reload"))
+        {
+            Debug.Log("Playing Shoot");
             return;
         }
 
-        StartCoroutine(Wait(0.2f));
+        StartCoroutine(Wait(2.42f));
 
         CurAmmo--;
 
@@ -111,8 +119,16 @@ public class LauncherController : WeaponController
 
     private void AmmoCheck()
     {
-        if (AmmoInventory.Instance.curLauncherAmmo <= 0) anim.SetTrigger("Idle");
-        else anim.SetTrigger("Reload");
+        if (AmmoInventory.Instance.curLauncherAmmo <= 0)
+        {
+            Debug.Log("Idle after Shoot");
+            anim.SetTrigger("Idle");
+        }
+        else
+        {
+            Debug.Log("Reload after Shoot");
+            anim.SetTrigger("Reload");
+        }
     }
 
     private IEnumerator Wait(float seconds)

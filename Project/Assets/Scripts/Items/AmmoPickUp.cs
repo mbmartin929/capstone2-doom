@@ -7,17 +7,12 @@ public class AmmoPickUp : PickUpController
 {
     public enum AmmoType
     {
-        Pistol, Shotgun
+        Pistol, Shotgun, Launcher
     }
     public AmmoType ammoType;
     public GameObject weapon;
 
     public int numberOfAmmo = 0;
-
-    // int NumberSyllables(string word)
-    // {
-
-    // }
 
     void Start()
     {
@@ -100,6 +95,26 @@ public class AmmoPickUp : PickUpController
                 AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
             }
         }
+        else if (itemName == "Launcher")
+        {
+            Transform currentWeapon = SearchWeapons(playerWeapons, "Launcher");
+            if (currentWeapon == null)
+            {
+                GameObject launcher = Instantiate(weapon, playerWeapons) as GameObject;
+                launcher.name = "Launcher";
+                if (playerWeapons.childCount >= 2)
+                {
+                    launcher.SetActive(false);
+                }
+
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.SwitchShotgun());
+            }
+            else
+            {
+                //currentWeapon.GetComponent<WeaponController>().maxAmmo += recoverAmount;
+                AmmoInventory.Instance.PickUpLauncherAmmo(recoverAmount, currentWeapon);
+            }
+        }
         TextManager.Instance.UpdateAmmoText();
     }
 
@@ -117,6 +132,12 @@ public class AmmoPickUp : PickUpController
             Transform currentWeapon = SearchWeapons(playerWeapons, "Shotgun");
 
             AmmoInventory.Instance.PickUpShotgunAmmo(recoverAmount, currentWeapon);
+        }
+        else if (ammoType == AmmoType.Launcher)
+        {
+            Transform currentWeapon = SearchWeapons(playerWeapons, "Launcher");
+
+            AmmoInventory.Instance.PickUpLauncherAmmo(recoverAmount, currentWeapon);
         }
 
         GameObject pickUpSFX = new GameObject();
@@ -148,6 +169,4 @@ public class AmmoPickUp : PickUpController
         }
         return null;
     }
-
-    private int Convert(int hour) { return hour *= 60; }
 }

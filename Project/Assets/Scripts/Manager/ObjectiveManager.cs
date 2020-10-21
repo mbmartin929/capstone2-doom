@@ -17,13 +17,12 @@ public class ObjectiveManager : MonoBehaviour
     {
         Instance = this;
         if (Instance == this) Debug.Log("Objective Manager Singleton Initialized");
-
-        StartCoroutine(SetActive(starTime));
     }
 
     void Start()
     {
-
+        if (GameManager.Instance.level == 1) StartCoroutine(SetActive(starTime));
+        else if (GameManager.Instance.level == 2) StartCoroutine(SetActive(starTime));
     }
 
     private IEnumerator SetActive(float time)

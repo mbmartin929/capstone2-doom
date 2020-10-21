@@ -147,7 +147,6 @@ namespace EightDirectionalSpriteSystem
                 }
                 else if (other.gameObject.CompareTag("Level"))
                 {
-
                     GetComponent<Grenade>().EnemyExplode();
                     Debug.Log("Collided with: " + other.gameObject.name);
                     Destroy(gameObject);
@@ -155,12 +154,15 @@ namespace EightDirectionalSpriteSystem
                 else if (other.gameObject.CompareTag("Player"))
                 {
                     GetComponent<Grenade>().EnemyExplode();
-                    Debug.Log("Collided with: " + other.gameObject.name);
+                    Debug.Log(gameObject.name + " collided with: " + other.gameObject.name);
                     Destroy(gameObject);
                 }
             }
             else if (projectileType == ProjectileType.LauncherProjectile)
             {
+                //Invoke("Explode", 4.2f);
+                GetComponent<Grenade>().Invoke("Explode", 2.9f);
+
                 damage = GetComponent<Grenade>().damage;
                 if (other.gameObject.CompareTag("Player"))
                 {
