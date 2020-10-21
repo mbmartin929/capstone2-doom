@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6181195829499939848}
   - component: {fileID: 6181195829499939849}
   - component: {fileID: 6181195829499939854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 6181195829680305782}
   - component: {fileID: 6181195829680305783}
   - component: {fileID: 6181195829680305780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 6181195829772487417}
   - component: {fileID: 6181195829772487422}
   - component: {fileID: 6181195829772487423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6181195829841977430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6181195830059970676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Foundation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 6181195830133409637}
   - component: {fileID: 6181195830133409562}
   - component: {fileID: 6181195830133409563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +977,7 @@ GameObject:
   - component: {fileID: 6181195830718420170}
   - component: {fileID: 6181195830718420171}
   - component: {fileID: 6181195830718420168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 6181195830793723805}
   - component: {fileID: 6181195830793723794}
   - component: {fileID: 6181195830793723795}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,9 +1357,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6181195830822863211}
-  m_Layer: 0
+  - component: {fileID: 5203177292900213804}
+  m_Layer: 8
   m_Name: Mining Elevator
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1379,6 +1380,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5203177292900213804
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181195830822863208}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92b4fc66c0b69da46926015735db3106, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6181195830850724414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1412,7 @@ GameObject:
   - component: {fileID: 6181195830850724410}
   - component: {fileID: 6181195830850724411}
   - component: {fileID: 6181195830850724408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1607,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedVertices: 00000000
 --- !u!64 &6181195830850724408
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1615,7 +1635,7 @@ GameObject:
   - component: {fileID: 6181195831096283419}
   - component: {fileID: 6181195831096283416}
   - component: {fileID: 6181195831096283417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,7 +1887,7 @@ GameObject:
   - component: {fileID: 6181195831196296991}
   - component: {fileID: 6181195831196296988}
   - component: {fileID: 6181195831196296989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2028,7 +2048,7 @@ GameObject:
   - component: {fileID: 6181195831250036934}
   - component: {fileID: 6181195831250036935}
   - component: {fileID: 6181195831250036932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,7 +2271,7 @@ GameObject:
   - component: {fileID: 6181195831388252467}
   - component: {fileID: 6181195831388252464}
   - component: {fileID: 6181195831388252465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ceiling Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
