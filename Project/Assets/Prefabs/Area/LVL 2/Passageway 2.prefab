@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15878487789318006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ceiling electrical box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487789318006
 Transform:
@@ -56,12 +56,12 @@ GameObject:
   - component: {fileID: 15878487823160297}
   - component: {fileID: 15878487823160296}
   - component: {fileID: 15878487823160303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487823160299
 Transform:
@@ -846,12 +846,12 @@ GameObject:
   - component: {fileID: 15878487824936242}
   - component: {fileID: 15878487824936241}
   - component: {fileID: 15878487824936240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487824936252
 Transform:
@@ -1636,12 +1636,12 @@ GameObject:
   - component: {fileID: 15878487854318901}
   - component: {fileID: 15878487854318900}
   - component: {fileID: 15878487854318891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487854318903
 Transform:
@@ -3344,12 +3344,12 @@ GameObject:
   - component: {fileID: 15878487878152402}
   - component: {fileID: 15878487878152401}
   - component: {fileID: 15878487878152400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487878152412
 Transform:
@@ -3972,12 +3972,12 @@ GameObject:
   - component: {fileID: 15878487887419248}
   - component: {fileID: 15878487887419255}
   - component: {fileID: 15878487887419254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487887419250
 Transform:
@@ -4285,12 +4285,12 @@ GameObject:
   - component: {fileID: 15878487943635001}
   - component: {fileID: 15878487943635000}
   - component: {fileID: 15878487943635007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487943635003
 Transform:
@@ -5795,12 +5795,12 @@ GameObject:
   - component: {fileID: 15878487983605805}
   - component: {fileID: 15878487983605804}
   - component: {fileID: 15878487983605795}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487983605794
 Transform:
@@ -6585,12 +6585,12 @@ GameObject:
   - component: {fileID: 15878487994908995}
   - component: {fileID: 15878487994908994}
   - component: {fileID: 15878487994908993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878487994908992
 Transform:
@@ -7375,12 +7375,12 @@ GameObject:
   - component: {fileID: 15878488080941446}
   - component: {fileID: 15878488080941445}
   - component: {fileID: 15878488080941444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488080941440
 Transform:
@@ -7654,12 +7654,12 @@ GameObject:
   - component: {fileID: 15878488093249581}
   - component: {fileID: 15878488093249580}
   - component: {fileID: 15878488093249571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488093249583
 Transform:
@@ -8149,12 +8149,12 @@ GameObject:
   - component: {fileID: 15878488112735802}
   - component: {fileID: 15878488112735801}
   - component: {fileID: 15878488112735800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488112735748
 Transform:
@@ -9765,12 +9765,12 @@ GameObject:
   - component: {fileID: 15878488195695322}
   - component: {fileID: 15878488195695321}
   - component: {fileID: 15878488195695320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488195695327
 Transform:
@@ -10555,12 +10555,12 @@ GameObject:
   - component: {fileID: 15878488225609733}
   - component: {fileID: 15878488225609732}
   - component: {fileID: 15878488225609787}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488225609735
 Transform:
@@ -11708,12 +11708,12 @@ GameObject:
   - component: {fileID: 15878488270937394}
   - component: {fileID: 15878488270937393}
   - component: {fileID: 15878488270937392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488270937404
 Transform:
@@ -12336,12 +12336,12 @@ GameObject:
   - component: {fileID: 15878488275046674}
   - component: {fileID: 15878488275046673}
   - component: {fileID: 15878488275046672}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488275046684
 Transform:
@@ -12673,12 +12673,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15878488327992801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488327992801
 Transform:
@@ -12714,12 +12714,12 @@ GameObject:
   - component: {fileID: 15878488374468740}
   - component: {fileID: 15878488374468795}
   - component: {fileID: 15878488374468794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488374468742
 Transform:
@@ -13342,12 +13342,12 @@ GameObject:
   - component: {fileID: 15878488620732649}
   - component: {fileID: 15878488620732648}
   - component: {fileID: 15878488620732655}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ceiling
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488620732651
 Transform:
@@ -13743,12 +13743,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15878488628581379}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Window closing bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488628581379
 Transform:
@@ -13781,12 +13781,12 @@ GameObject:
   - component: {fileID: 15878488647784863}
   - component: {fileID: 15878488647784862}
   - component: {fileID: 15878488647784861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488647784857
 Transform:
@@ -14409,12 +14409,12 @@ GameObject:
   - component: {fileID: 15878488666300202}
   - component: {fileID: 15878488666300201}
   - component: {fileID: 15878488666300200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488666300212
 Transform:
@@ -15037,12 +15037,12 @@ GameObject:
   - component: {fileID: 15878488695566989}
   - component: {fileID: 15878488695566988}
   - component: {fileID: 15878488695566979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488695566991
 Transform:
@@ -15412,12 +15412,12 @@ GameObject:
   - component: {fileID: 15878488736187493}
   - component: {fileID: 15878488736187492}
   - component: {fileID: 15878488736187547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488736187495
 Transform:
@@ -16742,12 +16742,12 @@ GameObject:
   - component: {fileID: 15878488835111850}
   - component: {fileID: 15878488835111849}
   - component: {fileID: 15878488835111848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488835111860
 Transform:
@@ -17213,12 +17213,12 @@ GameObject:
   - component: {fileID: 15878488843617721}
   - component: {fileID: 15878488843617720}
   - component: {fileID: 15878488843617727}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488843617723
 Transform:
@@ -17618,12 +17618,12 @@ GameObject:
   - component: {fileID: 15878488948093764}
   - component: {fileID: 15878488948093819}
   - component: {fileID: 15878488948093818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488948093766
 Transform:
@@ -18143,7 +18143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488954381983
 Transform:
@@ -18152,7 +18152,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15878488954381982}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3, y: -1, z: 41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18176,12 +18176,12 @@ GameObject:
   - component: {fileID: 15878488955162904}
   - component: {fileID: 15878488955162911}
   - component: {fileID: 15878488955162910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878488955162906
 Transform:
@@ -18734,12 +18734,12 @@ GameObject:
   - component: {fileID: 15878489016921628}
   - component: {fileID: 15878489016921619}
   - component: {fileID: 15878489016921618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489016921630
 Transform:
@@ -19524,12 +19524,12 @@ GameObject:
   - component: {fileID: 15878489060138679}
   - component: {fileID: 15878489060138678}
   - component: {fileID: 15878489060138677}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489060138673
 Transform:
@@ -19838,12 +19838,12 @@ GameObject:
   - component: {fileID: 15878489086533600}
   - component: {fileID: 15878489086533607}
   - component: {fileID: 15878489086533606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489086533602
 Transform:
@@ -20364,12 +20364,12 @@ GameObject:
   - component: {fileID: 15878489087268972}
   - component: {fileID: 15878489087268963}
   - component: {fileID: 15878489087268962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489087268961
 Transform:
@@ -21150,12 +21150,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15878489114190677}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Window closing bars (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489114190677
 Transform:
@@ -21185,12 +21185,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15878489132969531}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Passageway 2 Populate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489132969531
 Transform:
@@ -21237,12 +21237,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15878489133909544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489133909544
 Transform:
@@ -21281,12 +21281,12 @@ GameObject:
   - component: {fileID: 15878489219060137}
   - component: {fileID: 15878489219060136}
   - component: {fileID: 15878489219060143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489219060139
 Transform:
@@ -22371,12 +22371,12 @@ GameObject:
   - component: {fileID: 15878489261774644}
   - component: {fileID: 15878489261774635}
   - component: {fileID: 15878489261774634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489261774646
 Transform:
@@ -22774,12 +22774,12 @@ GameObject:
   - component: {fileID: 15878489278284441}
   - component: {fileID: 15878489278284440}
   - component: {fileID: 15878489278284447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489278284443
 Transform:
@@ -24482,12 +24482,12 @@ GameObject:
   - component: {fileID: 15878489282414792}
   - component: {fileID: 15878489282414799}
   - component: {fileID: 15878489282414798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489282414794
 Transform:
@@ -24674,12 +24674,12 @@ GameObject:
   - component: {fileID: 15878489341492437}
   - component: {fileID: 15878489341492436}
   - component: {fileID: 15878489341492427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489341492426
 Transform:
@@ -25464,12 +25464,12 @@ GameObject:
   - component: {fileID: 15878489394802966}
   - component: {fileID: 15878489394802965}
   - component: {fileID: 15878489394802964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489394802960
 Transform:
@@ -26254,12 +26254,12 @@ GameObject:
   - component: {fileID: 15878489401109987}
   - component: {fileID: 15878489401109986}
   - component: {fileID: 15878489401109985}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489401109997
 Transform:
@@ -26882,12 +26882,12 @@ GameObject:
   - component: {fileID: 15878489418589667}
   - component: {fileID: 15878489418589666}
   - component: {fileID: 15878489418589665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489418589677
 Transform:
@@ -28590,12 +28590,12 @@ GameObject:
   - component: {fileID: 15878489471131380}
   - component: {fileID: 15878489471131371}
   - component: {fileID: 15878489471131370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489471131382
 Transform:
@@ -30100,12 +30100,12 @@ GameObject:
   - component: {fileID: 15878489725176264}
   - component: {fileID: 15878489725176271}
   - component: {fileID: 15878489725176270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489725176266
 Transform:
@@ -30563,12 +30563,12 @@ GameObject:
   - component: {fileID: 15878489776889107}
   - component: {fileID: 15878489776889106}
   - component: {fileID: 15878489776889105}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15878489776889117
 Transform:
@@ -31146,6 +31146,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 15878489132969531}
     m_Modifications:
+    - target: {fileID: 311636537, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421927657, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010922545, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010922545, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036210485561797752, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036210485561797752, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987677937038143165, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4613792578024814240, guid: d6042724f14372f4cb7ba603002764df,
         type: 3}
       propertyPath: m_Mesh
@@ -31346,6 +31377,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7026810409129642725, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6042724f14372f4cb7ba603002764df, type: 3}
 --- !u!4 &4668928864642724470 stripped
@@ -31431,6 +31467,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31440,6 +31486,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -31451,6 +31507,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31460,6 +31526,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -31546,6 +31622,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31555,6 +31641,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -31566,6 +31662,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31575,6 +31681,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -31656,6 +31772,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31665,6 +31791,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -31676,6 +31812,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31685,6 +31831,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -31761,6 +31917,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31770,6 +31936,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -31781,6 +31957,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31790,6 +31976,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -31876,6 +32072,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041008, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
@@ -31901,6 +32107,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31911,6 +32127,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -31920,6 +32146,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32006,6 +32242,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32015,6 +32261,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -32026,6 +32282,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32035,6 +32301,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32116,6 +32392,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32125,6 +32411,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -32136,6 +32432,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32145,6 +32451,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32226,6 +32542,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32235,6 +32561,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -32246,6 +32582,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32255,6 +32601,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32346,6 +32702,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041008, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
@@ -32371,6 +32737,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32381,6 +32757,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32390,6 +32776,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32471,6 +32867,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32480,6 +32886,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -32491,6 +32907,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32500,6 +32926,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32516,6 +32952,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 15878489132969531}
     m_Modifications:
+    - target: {fileID: 311636537, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421927657, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010922545, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010922545, guid: d6042724f14372f4cb7ba603002764df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036210485561797752, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036210485561797752, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987677937038143165, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4613792578024814240, guid: d6042724f14372f4cb7ba603002764df,
         type: 3}
       propertyPath: m_Mesh
@@ -32716,6 +33183,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7026810409129642725, guid: d6042724f14372f4cb7ba603002764df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6042724f14372f4cb7ba603002764df, type: 3}
 --- !u!4 &4668928865452621987 stripped
@@ -32801,6 +33273,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32810,6 +33292,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -32821,6 +33313,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32830,6 +33332,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -32906,6 +33418,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32915,6 +33437,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -32926,6 +33458,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -32935,6 +33477,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -33021,6 +33573,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33030,6 +33592,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -33041,6 +33613,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33050,6 +33632,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -33136,6 +33728,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33145,6 +33747,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -33156,6 +33768,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33165,6 +33787,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -33241,6 +33873,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33250,6 +33892,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -33261,6 +33913,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33270,6 +33932,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -33351,6 +34023,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33360,6 +34042,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -33371,6 +34063,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33380,6 +34082,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}
@@ -33466,6 +34178,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch 20 Hand Style 4 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707924995374, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646707995041009, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33475,6 +34197,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646707995041023, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 927646708093700864, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
@@ -33486,6 +34218,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708093700878, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 927646708932535793, guid: 16c89e4097dec0349aa8907b187c4373,
         type: 3}
       propertyPath: m_Mesh
@@ -33495,6 +34237,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927646708932535805, guid: 16c89e4097dec0349aa8907b187c4373,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c89e4097dec0349aa8907b187c4373, type: 3}

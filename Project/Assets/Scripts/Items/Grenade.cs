@@ -32,8 +32,6 @@ public class Grenade : MonoBehaviour
         countdown = timer;
 
         UnitController player = GameManager.Instance.playerGo.GetComponent<PlayerController>();
-
-        Invoke("Explode", 4.2f);
     }
 
     // Update is called once per frame
