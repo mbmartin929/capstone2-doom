@@ -279,6 +279,10 @@ public class ShotgunController : WeaponController
                         door.DestroyMesh();
                     }
                 }
+                else if (hit.transform.tag == "Egg")
+                {
+                    hit.transform.GetComponent<EggController>().TakeDamage(damage);
+                }
                 else
                 {
                     //Debug.Log(hit.transform.gameObject.name);

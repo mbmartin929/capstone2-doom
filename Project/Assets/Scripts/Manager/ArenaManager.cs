@@ -45,7 +45,7 @@ namespace EightDirectionalSpriteSystem
             exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
 
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FinishArena());
-            ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find the exit", 0.029f));
+            ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find the exit", 0.029f, 0f));
         }
     }
 }

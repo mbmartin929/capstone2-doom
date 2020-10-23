@@ -159,6 +159,11 @@ namespace EightDirectionalSpriteSystem
                     if (door.health <= 0) door.DestroyMesh();
                     PlayRandomPunchSound();
                 }
+                else if (hit.transform.tag == "Egg")
+                {
+                    PlayRandomPunchSound();
+                    hit.transform.GetComponent<EggController>().TakeDamage(damage);
+                }
                 else { }
                 //Debug.Log(hit.transform.name);
             }

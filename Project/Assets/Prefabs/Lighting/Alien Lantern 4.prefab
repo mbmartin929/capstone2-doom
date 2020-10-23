@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 311636538}
   - component: {fileID: 311636540}
   - component: {fileID: 311636539}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1421927658
 Transform:
@@ -155,7 +155,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 7.5
-  m_SpotAngle: 125.3776
+  m_SpotAngle: 166.12328
   m_InnerSpotAngle: 125.3776
   m_CookieSize: 10
   m_Shadows:
@@ -195,7 +195,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2.9
+  m_BounceIntensity: 4.2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
@@ -215,12 +215,12 @@ GameObject:
   - component: {fileID: 2010922549}
   - component: {fileID: 2010922548}
   - component: {fileID: 2010922547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2010922546
 Transform:
@@ -344,12 +344,12 @@ GameObject:
   - component: {fileID: 7799785701803155355}
   - component: {fileID: 6061740258654898097}
   - component: {fileID: 743105496088036692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7799785701803155355
 Transform:
@@ -426,7 +426,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5862292048994924370
 Transform:
@@ -2854,7 +2854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680145418531252824}
   m_Layer: 8
-  m_Name: Alien Lantern 2
+  m_Name: Alien Lantern 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10845,7 +10845,7 @@ GameObject:
   - component: {fileID: 497520411605715719}
   - component: {fileID: 5899792389428534465}
   - component: {fileID: 5678107323980272043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

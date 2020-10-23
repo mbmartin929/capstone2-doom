@@ -18,7 +18,7 @@ namespace EightDirectionalSpriteSystem
     public class ActorBillboard : MonoBehaviour
     {
         public Transform actorTransform;
-        public enum Enemy { Worm, GreenSlime, RedSlime, Spider, Snail };
+        public enum Enemy { Worm, GreenSlime, RedSlime, Spider, Snail, BbWorm };
         public GameObject slimeShockwave;
 
         public delegate void BeforeRenderBillboardEvent();

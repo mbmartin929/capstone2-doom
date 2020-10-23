@@ -265,6 +265,10 @@ namespace EightDirectionalSpriteSystem
                         door.DestroyMesh();
                     }
                 }
+                else if (hit.transform.tag == "Egg")
+                {
+                    hit.transform.GetComponent<EggController>().TakeDamage(damage);
+                }
                 else
                 {
 

@@ -183,6 +183,10 @@ public class Grenade : MonoBehaviour
                 // hit.rigidbody.AddExplosionForce(0, transform.position, radius);
                 nearbyObject.GetComponent<Barricade>().TakeDamage(damage);
             }
+            else if (nearbyObject.tag == "Egg")
+            {
+                nearbyObject.GetComponent<EggController>().TakeDamage(damage);
+            }
         }
 
         GameObject grenadeVfx = Instantiate(explosionParticle, this.transform.position, Quaternion.identity);

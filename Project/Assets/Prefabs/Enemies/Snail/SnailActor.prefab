@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109692149655733250}
   m_LocalRotation: {x: -0.16548984, y: 0.68746865, z: 0.68746865, w: 0.16548984}
-  m_LocalPosition: {x: 0.073737666, y: -1.0299999, z: -0.13762516}
-  m_LocalScale: {x: 4.955348, y: 6.778525, z: 5.773379}
+  m_LocalPosition: {x: 0.073737666, y: -1.67, z: -0.13762516}
+  m_LocalScale: {x: 16.092756, y: 13.157107, z: 13.139922}
   m_Children: []
   m_Father: {fileID: 4927309833011861594}
   m_RootOrder: 2
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4927309832395880433}
-  m_LocalRotation: {x: -0, y: 0.92227757, z: -0, w: 0.38652825}
+  m_LocalRotation: {x: -0, y: 0.31565383, z: -0, w: 0.9488745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6614170326607093066, guid: 0cc90b7865b7e984f8cd71cdab61b129,
+  m_Sprite: {fileID: -8062612764804823426, guid: 0cc90b7865b7e984f8cd71cdab61b129,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -213,8 +213,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4256992, y: 1.787008, z: 0.8684964}
-  m_Center: {x: 0.06067401, y: -0.10307616, z: -0.024076536}
+  m_Size: {x: 2.4239118, y: 3.020887, z: 0.8684964}
+  m_Center: {x: 0.0151553815, y: -0.023027908, z: -0.024076536}
 --- !u!114 &4927309832395880436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 3052994133037248473, guid: 8475de2ae0fa7ce4cad8dfe87dd1e575,
     type: 3}
-  maxHealth: 60
+  maxHealth: 169
   maxArmor: 0
   damage: 20
   painChance: 0.5
@@ -246,10 +246,11 @@ MonoBehaviour:
   bloodSplatGos:
   - {fileID: 897968338700256403, guid: da34b8e5ed918884c91bebd5527c9c69, type: 3}
   CurrentHealth: 0
+  useGib: 1
   gibGo: {fileID: 1257690072450890127, guid: 50f7d37bf31d5634db3b5fb8f2fd5e1d, type: 3}
   gibsAmount: 12
-  gibAlive: 15
-  gibDeath: 30
+  gibAlive: 42
+  gibDeath: 69
   projectileSpeed: 929
   enemyAI: {fileID: 4927309833011861592}
   animator: {fileID: 4927309833011861597}
@@ -475,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 4927309833011861588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.264067, y: -16.02, z: 103.49218}
-  m_LocalScale: {x: 1.69, y: 1.69, z: 1.69}
+  m_LocalScale: {x: 1.2899997, y: 1.29, z: 1.2899997}
   m_Children:
   - {fileID: 4927309832395880432}
   - {fileID: 4927309833374932096}
@@ -511,16 +512,16 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.29
-  m_Speed: 6
-  m_Acceleration: 15
+  m_Speed: 4.2
+  m_Acceleration: 6.9
   avoidancePriority: 50
   m_AngularSpeed: 140
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
+  m_Height: 2.7
+  m_BaseOffset: 1.69
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4927309833011861592
