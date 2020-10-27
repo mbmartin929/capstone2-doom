@@ -136,14 +136,9 @@ namespace EightDirectionalSpriteSystem
             if (CurAmmo <= 0)
             {
                 //Debug.Log(curAmmo);
+                Debug.Log("No Ammo, please Reload");
                 GetComponent<AudioSource>().PlayOneShot(gunshotSounds[1]);
                 return;
-            }
-
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
-            {
-                return;
-                //Debug.Log("Playing Shoot");
             }
 
             Vector3 rotationVector = transform.rotation.eulerAngles;
@@ -153,18 +148,13 @@ namespace EightDirectionalSpriteSystem
             StartCoroutine(Wait(0.2f));
             #region Gun Effects
             anim.SetTrigger("Shoot");
-
             StartCoroutine("MuzzleLight");
             PlayGunshotSound();
             #endregion
 
-            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+            //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
-            //Debug.Log("Shoot");
-            //Debug.Log("Shoot: " + CurAmmo);
             CurAmmo--;
-
-
 
             Vector3 shootDirection = fpsCam.transform.forward;
             shootDirection.x += Random.Range(-spreadFactor, spreadFactor);
@@ -181,34 +171,38 @@ namespace EightDirectionalSpriteSystem
                 TextManager.Instance.UpdateAmmoText();
                 if (hit.transform.tag == "Level")
                 {
-                    MeshCollider collider = hit.collider as MeshCollider;
-                    // Remember to handle case where collider is null because you hit a non-mesh primitive...
+                    Debug.Log("Hit Level");
 
-                    Mesh mesh = collider.sharedMesh;
+                    // MeshCollider collider = hit.collider as MeshCollider;
+                    // // Remember to handle case where collider is null because you hit a non-mesh primitive...
 
-                    // There are 3 indices stored per triangle
-                    int limit = hit.triangleIndex * 3;
-                    int submesh;
-                    for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
-                    {
-                        int numIndices = mesh.GetTriangles(submesh).Length;
-                        if (numIndices > limit)
-                            break;
+                    // Mesh mesh = collider.sharedMesh;
 
-                        limit -= numIndices;
-                    }
+                    // // There are 3 indices stored per triangle
+                    // int limit = hit.triangleIndex * 3;
+                    // int submesh;
+                    // for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                    // {
+                    //     int numIndices = mesh.GetTriangles(submesh).Length;
+                    //     if (numIndices > limit)
+                    //         break;
 
-                    Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
+                    //     limit -= numIndices;
+                    // }
+
+                    // Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
 
                     //Debug.Log(material.name);
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                     Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+                    Debug.Log("Finish Hit Level");
                 }
 
                 // Raycast hits Enemy
                 else if (hit.transform.tag == "Enemy")
                 {
+                    Debug.Log("Hit Enemy");
                     EnemyController enemy = hit.transform.GetComponent<EnemyController>();
                     if (enemy == null) enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
 
@@ -257,6 +251,7 @@ namespace EightDirectionalSpriteSystem
                 }
                 else if (hit.transform.tag == "Destructible")
                 {
+                    Debug.Log("Hit Destructible");
                     DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
 
                     door.health -= damage;
@@ -267,18 +262,19 @@ namespace EightDirectionalSpriteSystem
                 }
                 else if (hit.transform.tag == "Egg")
                 {
+                    Debug.Log("Hit Egg");
                     hit.transform.GetComponent<EggController>().TakeDamage(damage);
                 }
                 else
                 {
-
+                    Debug.Log("Pistol Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
                     //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                 }
                 //Debug.Log("Hit Name: " + hit.transform.gameObject.name);
                 //Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
             }
             canAttack = false;
-
+            Debug.Log("Finish Shooting");
             //Debug.Log("Before: " + transform.position);
             //readyToFire = false;
             //Invoke("setReadyToFire", fireDelay);

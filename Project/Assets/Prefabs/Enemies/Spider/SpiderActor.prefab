@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 781004112}
   - component: {fileID: 781004113}
   - component: {fileID: 781004114}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 6486811251985863733}
   - component: {fileID: 5431138125307625960}
   - component: {fileID: 8899968400254334987}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Avatar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 4589526530543008639}
+  slimeShockwave: {fileID: 0}
   currentFrameIndex: 3
   enemy: 3
   materials: []
@@ -244,6 +245,7 @@ MonoBehaviour:
   bloodSplatGos:
   - {fileID: 2271519705940005313, guid: 4ffe5b9e051517542a62c18a41900b6f, type: 3}
   CurrentHealth: 0
+  useGib: 1
   gibGo: {fileID: 1257690072450890127, guid: 4cf895537ac1ad74cbc6310d539e63e6, type: 3}
   gibsAmount: 4
   gibAlive: 0
@@ -454,7 +456,7 @@ GameObject:
   - component: {fileID: 4589526530543008637}
   - component: {fileID: 4589526530543008632}
   - component: {fileID: 7489080971311659633}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpiderActor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -589,7 +591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4589526530712092581}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

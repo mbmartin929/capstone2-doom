@@ -10,12 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { set; get; }
     public bool introEnabled = false;
 
-    public GameObject psxVolume;
-
     public int frameRate = 200;
     [HideInInspector] public GameObject playerGo;
-
-    public GameObject all;
 
     public int deadEnemiesNumber;
     #endregion 
@@ -62,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.PageUp))
         {
             Debug.Log("Press PageUp");
-            StartCoroutine(LoadSecondScene(-1.69f));
+            StartCoroutine(LoadNextScene(-1.69f));
         }
     }
 
@@ -73,7 +69,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentScene.name);
     }
 
-    public IEnumerator LoadSecondScene(float time)
+    public IEnumerator LoadNextScene(float time)
     {
         Debug.Log("Loading Second Scene");
         yield return new WaitForSeconds(restartSceneTime + time);
@@ -85,15 +81,28 @@ public class GameManager : MonoBehaviour
         // Debug.Log("Scene 1 Name: " + SceneManager.GetSceneByBuildIndex(1).name);
         // Debug.Log("Scene 2 Name: " + SceneManager.GetSceneByBuildIndex(2).name);
 
-        Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(2);
+        Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(level += 1);
 
         SceneManager.MoveGameObjectToScene(playerGo, sceneToLoad);
-        SceneManager.UnloadSceneAsync(1);
+        GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
+        SceneManager.UnloadSceneAsync(level -= 1);
 
-        Debug.Log("Second Scene Loaded");
+        EndGameScreen.Instance.endScreen.SetActive(false);
+        EndGameScreen.Instance.blackOverlay.SetActive(false);
 
-        playerGo.transform.position = new Vector3(-21.1f, -13.93f, 110.3f);
-        playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+
+        if (level == 1)
+        {
+            playerGo.transform.position = new Vector3(-21.1f, -14.0f, 110.3f);
+            playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+
+            DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl2());
+            GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
+        }
+        else if (level == 2)
+        {
+
+        }
     }
 
     public void CountDeadEnemies()
@@ -103,6 +112,4 @@ public class GameManager : MonoBehaviour
             deadEnemiesNumber++;
         }
     }
-
-
 }

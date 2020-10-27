@@ -70,7 +70,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         face.texture = faces[0];
         yield return new WaitForSeconds(6.0f);
-        StartTransition();
+        StartTransition(0);
         yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("Soldier! You are deep in enemy territory.", defaultTypeTime + 0.01f, true);
@@ -93,7 +93,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         face.texture = faces[4];
         yield return new WaitForSeconds(2.9f);
-        StartTransition();
+        StartTransition(0);
         yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("Hey.", defaultTypeTime + 0.018f, true);
@@ -115,7 +115,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         if (switchPistolTutorial == 0)
         {
-            StartTransition();
+            StartTransition(0);
             yield return new WaitForSeconds(2.0f);
 
             face.texture = faces[0];
@@ -140,12 +140,12 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator SwitchShotgun()
     {
-        if (switchShotgunTutorial == 0)
+        if (switchShotgunTutorial == 0 && GameManager.Instance.level == 1)
         {
             MusicManager.Instance.FadeOutAmbientMusicCaller();
             MusicManager.Instance.FadeInActiveMusicCaller(4, false, 0);
 
-            StartTransition();
+            StartTransition(0);
             yield return new WaitForSeconds(2.0f);
 
             face.texture = faces[0];
@@ -174,7 +174,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         yield return new WaitForSeconds(4.2f);
 
-        StartTransition();
+        StartTransition(0);
         face.texture = faces[2];
         yield return new WaitForSeconds(2.0f);
 
@@ -194,7 +194,7 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator Surrounded2()
     {
-        StartTransition();
+        StartTransition(0);
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
@@ -210,7 +210,7 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator FinishArena()
     {
-        StartTransition();
+        StartTransition(0);
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
@@ -226,7 +226,7 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator NeedKey()
     {
-        StartTransition();
+        StartTransition(0);
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
@@ -242,7 +242,7 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator FoundKey()
     {
-        StartTransition();
+        StartTransition(0);
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
@@ -258,7 +258,7 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator KillDialogue1()
     {
-        StartTransition();
+        StartTransition(0);
         face.texture = faces[2];
         yield return new WaitForSeconds(2.0f);
 
@@ -273,7 +273,7 @@ public class DialogueAssistant : MonoBehaviour
 
     public IEnumerator KillDialogue2()
     {
-        StartTransition();
+        StartTransition(0);
         yield return new WaitForSeconds(2.0f);
         face.texture = faces[1];
         textWriter.AddWriter("Shoot to KILL!", defaultTypeTime + 0.01f, true);
@@ -282,21 +282,20 @@ public class DialogueAssistant : MonoBehaviour
         StartCoroutine(EndTransition());
     }
 
-    public IEnumerator Dialogue1(string sentence1, float additionalTime, int faceID)
+    public IEnumerator Dialogue1(string sentence1, float time1, float additionalTime, int faceID, int nametagID)
     {
-        StartTransition();
+        StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
-
-        yield return new WaitForSeconds(4.2f);
+        yield return new WaitForSeconds(time1);
 
         StartCoroutine(EndTransition());
     }
-    public IEnumerator Dialogue2(string sentence1, string sentence2, float additionalTime, int faceID)
+    public IEnumerator Dialogue2(string sentence1, float time1, string sentence2, float time2, float additionalTime, int faceID, int nametagID)
     {
-        StartTransition();
+        StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
@@ -308,42 +307,40 @@ public class DialogueAssistant : MonoBehaviour
 
         StartCoroutine(EndTransition());
     }
-    public IEnumerator Dialogue3(string sentence1, string sentence2, string sentence3, float additionalTime, int faceID)
+    public IEnumerator Dialogue3(string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, float additionalTime, int faceID, int nametagID)
     {
-        StartTransition();
+        StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.42f);
+        yield return new WaitForSeconds(time1);
         textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.42f);
+        yield return new WaitForSeconds(time2);
         textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
-
-        yield return new WaitForSeconds(4.2f);
+        yield return new WaitForSeconds(time3);
 
         StartCoroutine(EndTransition());
     }
-    public IEnumerator Dialogue4(string sentence1, string sentence2, string sentence3, string sentence4, float additionalTime, int faceID)
+    public IEnumerator Dialogue4(string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, string sentence4, float time4, float additionalTime, int faceID, int nametagID)
     {
-        StartTransition();
+        StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.42f);
+        yield return new WaitForSeconds(time1);
         textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.69f);
+        yield return new WaitForSeconds(time2);
         textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
-        yield return new WaitForSeconds(2.42f);
+        yield return new WaitForSeconds(time3);
         textWriter.AddWriter(sentence4, defaultTypeTime + additionalTime, true);
-
-        yield return new WaitForSeconds(4.2f);
+        yield return new WaitForSeconds(time4);
 
         StartCoroutine(EndTransition());
     }
 
-    private void StartTransition()
+    private void StartTransition(int nametagID)
     {
         Debug.Log("Start Transition");
 
@@ -357,7 +354,8 @@ public class DialogueAssistant : MonoBehaviour
 
         dialogueAnim.gameObject.SetActive(true);
         dialogueAnim.SetTrigger("Start");
-        StartCoroutine(CommanderNameTag());
+        if (nametagID == 0) StartCoroutine(CommanderNameTag());
+        else if (nametagID == 1) StartCoroutine(PinkyNameTag());
         textWriter.AddWriter(" ", defaultTypeTime, true);
     }
 

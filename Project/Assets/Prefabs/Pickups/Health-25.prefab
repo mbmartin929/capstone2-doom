@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4846832659110419091}
   - component: {fileID: 4846832659110419092}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7726810177400426382}
   - component: {fileID: 122460248021245282}
   - component: {fileID: 6676853911519806182}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,12 +333,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 746ddfcc4f00f5a45be59e95b6dbb536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 8300000, guid: 36ed971bf1cb82247b07904314432795, type: 3}
   pickUpSound: {fileID: 8300000, guid: 3d722ef35fba64b43a12b7645e80c037, type: 3}
-  ammoType: 0
   itemName: Health
   recoverAmount: 25
-  weapon: {fileID: 0}
+  numberOfHealth: 0
 --- !u!65 &6676853911519806182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -364,7 +365,7 @@ GameObject:
   - component: {fileID: 4846832658878298103}
   - component: {fileID: 4846832658878297992}
   - component: {fileID: 5464607474199245595}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Health-25
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2109692149655733251}
   - component: {fileID: 2109692149655733249}
   - component: {fileID: 2109692149655733248}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 2159259089776881176}
   - component: {fileID: 2109692149431014588}
   - component: {fileID: 2275219276330239794}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Avatar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4927309832395880433}
-  m_LocalRotation: {x: -0, y: 0.31565383, z: -0, w: 0.9488745}
+  m_LocalRotation: {x: -0, y: 0.7330624, z: -0, w: 0.6801615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,8 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8062612764804823426, guid: 0cc90b7865b7e984f8cd71cdab61b129,
-    type: 3}
+  m_Sprite: {fileID: 322688995752144306, guid: 0cc90b7865b7e984f8cd71cdab61b129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -227,9 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57d76dda3a9a54f9d6054f115e7189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileGo: {fileID: 3052994133037248473, guid: 8475de2ae0fa7ce4cad8dfe87dd1e575,
+  projectileGo: {fileID: 3052994133037248473, guid: bc5a4abd92f0c484e8f8f335639ef983,
     type: 3}
-  maxHealth: 169
+  maxHealth: 290
   maxArmor: 0
   damage: 20
   painChance: 0.5
@@ -460,7 +459,7 @@ GameObject:
   - component: {fileID: 4927309833011861597}
   - component: {fileID: 2109692150115757989}
   - component: {fileID: 9094045083865581790}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SnailActor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -511,7 +510,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4927309833011861588}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.29
+  m_Radius: 1.74
   m_Speed: 4.2
   m_Acceleration: 6.9
   avoidancePriority: 50
@@ -618,7 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4927309833374932096}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

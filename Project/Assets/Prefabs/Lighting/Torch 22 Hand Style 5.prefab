@@ -88,7 +88,7 @@ Light:
   m_BounceIntensity: 1.1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.9e-43, y: -71.76288, z: 8.9e-43, w: 6e-45}
+  m_BoundingSphereOverride: {x: 4.2295e-41, y: 3.4e-44, z: 0, w: 2.4e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -181,7 +181,8 @@ Light:
   m_BounceIntensity: 0.42
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 1.4803603e+37, y: 3.097271e+27, z: 1.8605425e+34,
+    w: 7.1561207e+22}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -211,12 +212,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927646707924995361}
-  m_Layer: 0
-  m_Name: Torch 14 Hand Style
+  m_Layer: 8
+  m_Name: Torch 22 Hand Style 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &927646707924995361
 Transform:
@@ -225,7 +226,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927646707924995374}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.49, y: 0.83, z: -9.26}
   m_LocalScale: {x: 1.64023, y: 1.64023, z: 1.64023}
   m_Children:
@@ -252,12 +253,12 @@ GameObject:
   - component: {fileID: 927646707995041011}
   - component: {fileID: 927646707995041008}
   - component: {fileID: 927646707995041009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube(Clone)(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &927646707995041022
 Transform:
@@ -299,7 +300,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 449ec6810a201984f8e970e3e54354c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1402,12 +1403,12 @@ GameObject:
   - component: {fileID: 927646708093700866}
   - component: {fileID: 927646708093700867}
   - component: {fileID: 927646708093700864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &927646708093700865
 Transform:
@@ -1449,7 +1450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 449ec6810a201984f8e970e3e54354c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2135,7 +2136,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4169216540974903324, guid: b3cf3f3b636d75343b310f4db6c11117,
     type: 3}
-  m_Color: {r: 0.3372549, g: 0.3647059, b: 0.39607844, a: 1}
+  m_Color: {r: 0.33535066, g: 0.4528302, b: 0.3578174, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2203,12 +2204,12 @@ GameObject:
   - component: {fileID: 927646708932535806}
   - component: {fileID: 927646708932535807}
   - component: {fileID: 927646708932535804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &927646708932535792
 Transform:
@@ -2250,7 +2251,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 449ec6810a201984f8e970e3e54354c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3012,9 +3013,9 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.29
-  m_Range: 5
+  m_Color: {r: 0.89245284, g: 1, b: 0.8726415, a: 1}
+  m_Intensity: 0.35
+  m_Range: 9.11
   m_SpotAngle: 130.18207
   m_InnerSpotAngle: 43.861027
   m_CookieSize: 10
@@ -3055,10 +3056,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 6.9
+  m_BounceIntensity: 9.11
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 7.2715916e+31, y: 2.9647712e+23, z: 939718.56, w: 5.829046e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

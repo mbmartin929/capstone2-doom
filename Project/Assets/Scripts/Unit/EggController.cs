@@ -11,21 +11,19 @@ public class EggController : MonoBehaviour
     public bool isObjective = false;
     public GameObject[] bloodSplashGos;
 
+    public int minNumberBabySpawns;
+    public int maxNumberBabySpawns;
+    public GameObject babyWormGo;
+
     private void Start()
     {
         ObjectiveManager.Instance.targetNumber++;
     }
 
-    private void Update()
-    {
-
-    }
-
     public void TakeDamage(int damage)
     {
         hp -= damage;
-
-
+        if (hp <= 0) Die();
         foreach (GameObject item in bloodSplashGos)
         {
             if (item.tag == "Hit Normal")
@@ -40,18 +38,32 @@ public class EggController : MonoBehaviour
             }
         }
 
-        if (hp <= 0) Die();
+
     }
 
     private void Die()
     {
         Debug.Log("Die Egg");
-        if (isObjective)
-        {
+        // if (isObjective)
+        // {
 
+        // }
+        //Debug.Log("Is Objective Egg");
+
+        int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
+
+        if (eggCount != 0)
+        {
+            for (int i = 0; i < random; i++)
+            {
+                Debug.Log("Spawning Baby Worms from Egg");
+                Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+                GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+            }
         }
-        Debug.Log("Is Objective Egg");
+
         ObjectiveManager.Instance.currentNumber += eggCount;
+        eggCount = 0;
         ObjectiveManager.Instance.UpdateTargetNumberObjective();
         Destroy(gameObject);
     }

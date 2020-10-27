@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3069875427656575602}
   - component: {fileID: 5051018397967122211}
   - component: {fileID: 4005977373415226585}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,12 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 8300000, guid: 75338d9d0ce415443a83cdc66a7d7b80, type: 3}
   itemName: Ammo
   recoverAmount: 8
   ammoType: 1
   weapon: {fileID: 7648730109480126502, guid: 0dd233844e4d1554ea6bd50ea9a840dc, type: 3}
+  numberOfAmmo: 0
 --- !u!95 &3069875427656575602
 Animator:
   serializedVersion: 3
@@ -271,7 +274,7 @@ GameObject:
   - component: {fileID: 4394127949990291608}
   - component: {fileID: 154834781869837591}
   - component: {fileID: -9021545737521551175}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ShotgunAmmo PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

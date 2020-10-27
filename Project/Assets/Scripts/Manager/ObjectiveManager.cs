@@ -17,7 +17,7 @@ public class ObjectiveManager : MonoBehaviour
 
     [SerializeField] private TextWriter objective;
     [SerializeField] private TextWriter currentObjective;
-    [SerializeField] private GameObject ObjectivesGo;
+    [SerializeField] private GameObject objectivesGo;
 
     void Awake()
     {
@@ -34,10 +34,16 @@ public class ObjectiveManager : MonoBehaviour
     public void UpdateTargetNumberObjective()
     {
         Debug.Log("Update Text Objective");
-        textMesh.text = "Exterminate Eggs " + currentNumber + "/" + targetNumber;
+
+        if (GameManager.Instance.level == 2)
+        {
+            textMesh.text = "Exterminate Eggs " + currentNumber + "/" + targetNumber;
+            //textMesh.text = "Destroy the eggs ";
+        }
 
         if (currentNumber >= targetNumber)
         {
+            if (GameManager.Instance.level == 2) StartCoroutine(TypeObjective("Regroup with Kaichi", 0.069f, 2.9f));
             Debug.Log("Objective Finished");
         }
     }
@@ -45,7 +51,7 @@ public class ObjectiveManager : MonoBehaviour
     private IEnumerator SetActive(float time)
     {
         yield return new WaitForSeconds(time);
-        ObjectivesGo.SetActive(true);
+        objectivesGo.SetActive(true);
         objective.AddWriter("", defaultTypeTime, true);
         currentObjective.AddWriter("", defaultTypeTime, true);
 

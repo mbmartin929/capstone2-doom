@@ -76,7 +76,7 @@ public class GoodAlien : MonoBehaviour
                 {
                     Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, 1);
                     agent.SetDestination(newPos);
-                    Debug.Log("ROAM");
+                    //Debug.Log("ROAM");
                     timer = 0;
                 }
             }
@@ -89,7 +89,7 @@ public class GoodAlien : MonoBehaviour
                 //Debug.Log("Distance: " + distance);
                 if (distance <= cryDistance && isFleeing && !isCrying)
                 {
-                    Debug.Log("FACING");
+                    //Debug.Log("FACING");
                     FacePlayer();
                     isFleeing = false;
                 }
@@ -108,7 +108,7 @@ public class GoodAlien : MonoBehaviour
     {
         if (!isCrying)
         {
-            Debug.Log("is Crying");
+            //Debug.Log("is Crying");
             demoActor.SetCurrentState(DemoActor.State.SHOOT);
             isCrying = true;
         }
@@ -156,7 +156,7 @@ public class GoodAlien : MonoBehaviour
 
     void RunAway()
     {
-        Debug.Log("FLEEING");
+        //Debug.Log("FLEEING");
         isFleeing = true;
         demoActor.SetCurrentState(DemoActor.State.WALKING);
         float distance = Vector3.Distance(transform.position, player.transform.position);

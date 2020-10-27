@@ -90,7 +90,7 @@ namespace EightDirectionalSpriteSystem
 
             StartCoroutine(Wait(0.2f));
 
-            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+            //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
             Vector3 fireDirection = fpsCam.transform.forward;
             Quaternion fireRotation = Quaternion.LookRotation(fireDirection);

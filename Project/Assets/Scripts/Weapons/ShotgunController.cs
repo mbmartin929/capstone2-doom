@@ -187,14 +187,8 @@ public class ShotgunController : WeaponController
         RaycastHit hit;
         if (CurAmmo <= 0)
         {
-            //Debug.Log(curAmmo);
+            Debug.Log("No Ammo, please Reload");
             GetComponent<AudioSource>().PlayOneShot(gunshotSounds[1]);
-            return;
-        }
-
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
-        {
-            //Debug.Log("Playing Shoot");
             return;
         }
 
@@ -208,7 +202,7 @@ public class ShotgunController : WeaponController
 
         TextManager.Instance.UpdateAmmoText();
 
-        ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+        //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
         for (int i = 0; i < pelletCount; ++i)
         {
@@ -221,36 +215,40 @@ public class ShotgunController : WeaponController
 
             if (Physics.Raycast(ray, out hit, range))
             {
+
                 Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
 
                 if (hit.transform.tag == "Level")
                 {
-                    MeshCollider collider = hit.collider as MeshCollider;
-                    // Remember to handle case where collider is null because you hit a non-mesh primitive...
+                    Debug.Log("Hit Level");
+                    // MeshCollider collider = hit.collider as MeshCollider;
+                    // // Remember to handle case where collider is null because you hit a non-mesh primitive...
 
-                    Mesh mesh = collider.sharedMesh;
+                    // Mesh mesh = collider.sharedMesh;
 
-                    // There are 3 indices stored per triangle
-                    int limit = hit.triangleIndex * 3;
-                    int submesh;
-                    for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
-                    {
-                        int numIndices = mesh.GetTriangles(submesh).Length;
-                        if (numIndices > limit)
-                            break;
+                    // // There are 3 indices stored per triangle
+                    // int limit = hit.triangleIndex * 3;
+                    // int submesh;
+                    // for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                    // {
+                    //     int numIndices = mesh.GetTriangles(submesh).Length;
+                    //     if (numIndices > limit)
+                    //         break;
 
-                        limit -= numIndices;
-                    }
+                    //     limit -= numIndices;
+                    // }
 
-                    Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
+                    // Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                     Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+                    Debug.Log("Finish Hit Level");
                 }
 
                 // Raycast hits Enemy
                 else if (hit.transform.tag == "Enemy")
                 {
+                    Debug.Log("Hit Enemy");
                     EnemyController enemy = hit.transform.GetComponent<EnemyController>();
 
                     foreach (GameObject item in enemy.bloodSplashGos)
@@ -267,10 +265,11 @@ public class ShotgunController : WeaponController
                             //bloodGo.transform.parent = hit.transform;
                         }
                     }
-                    enemy.TakeDamage(10);
+                    enemy.TakeDamage(damage);
                 }
                 else if (hit.transform.tag == "Destructible")
                 {
+                    Debug.Log("Hit Destructible");
                     DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
 
                     door.health -= damage;
@@ -281,18 +280,19 @@ public class ShotgunController : WeaponController
                 }
                 else if (hit.transform.tag == "Egg")
                 {
+                    Debug.Log("Hit Egg");
                     hit.transform.GetComponent<EggController>().TakeDamage(damage);
                 }
                 else
                 {
-                    //Debug.Log(hit.transform.gameObject.name);
+                    Debug.Log("Shotgun Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
                     //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
         }
         canAttack = false;
-
         readyToFire = false;
+        Debug.Log("Finish Shooting");
     }
 
     private IEnumerator Wait(float seconds)

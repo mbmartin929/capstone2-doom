@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4986886951155786506}
   - component: {fileID: 8642389519729801868}
   m_Layer: 9
-  m_Name: Shotgun_URP
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,11 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6176b241d5f824ba360765e078e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
+  damage: 9
   curAmmo: 0
-  clipAmmo: 6
+  clipAmmo: 7
   soundRadius: 16
-  range: 69
+  range: 68
   spreadFactor: 0.2
   FOV: 80
   gunshotSounds:
@@ -331,11 +331,9 @@ MonoBehaviour:
   canAttack: 0
   anim: {fileID: 0}
   bulletCasingLoc: {fileID: 2993207196435992781}
-  bulletTracerLoc: {fileID: 2223797159799757586}
-  pelletCount: 16
-  scaleLimit: 1.85
-  z: 10
-  fireDelay: 1
+  pelletCount: 14
+  scaleLimit: 1.8
+  z: 9
   readyToFire: 1
 --- !u!1 &927921215973532232
 GameObject:
