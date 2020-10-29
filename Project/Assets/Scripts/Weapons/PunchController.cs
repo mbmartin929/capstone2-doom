@@ -90,7 +90,7 @@ namespace EightDirectionalSpriteSystem
 
             StartCoroutine(Wait(0.2f));
 
-            ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+            //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
             Vector3 fireDirection = fpsCam.transform.forward;
             Quaternion fireRotation = Quaternion.LookRotation(fireDirection);
@@ -158,6 +158,11 @@ namespace EightDirectionalSpriteSystem
                     door.health -= damage;
                     if (door.health <= 0) door.DestroyMesh();
                     PlayRandomPunchSound();
+                }
+                else if (hit.transform.tag == "Egg")
+                {
+                    PlayRandomPunchSound();
+                    hit.transform.GetComponent<EggController>().TakeDamage(damage);
                 }
                 else { }
                 //Debug.Log(hit.transform.name);

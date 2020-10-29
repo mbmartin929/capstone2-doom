@@ -226,6 +226,10 @@ namespace EightDirectionalSpriteSystem
                         {
                             rawImage.texture = ammoIcons[2];
                         }
+                        else if (currentWeapon.gameObject.name == "Launcher")
+                        {
+                            rawImage.texture = ammoIcons[3];
+                        }
 
                         return;
                         //}

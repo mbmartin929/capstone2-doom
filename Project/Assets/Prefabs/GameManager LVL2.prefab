@@ -190,6 +190,32 @@ MonoBehaviour:
   - {fileID: 2100000, guid: afbde648f345177458471a8475f3ee3c, type: 2}
   - {fileID: 2100000, guid: 5d311c89a925c13428a271acae910d18, type: 2}
   - {fileID: 2100000, guid: 9c86d05216bcbf34ab3a4ad13c50533a, type: 2}
+  bbWormAvatars:
+  - {fileID: 2100000, guid: 935516fbdbb03e84f88d4aac252eb2e1, type: 2}
+  - {fileID: 2100000, guid: 4baaee40eec480044b3a4aa762c1825c, type: 2}
+  - {fileID: 2100000, guid: 52c32c85967e1154a892439bc18ae519, type: 2}
+  - {fileID: 2100000, guid: cb18746c289e4aa4c90f8d40f50e6ac3, type: 2}
+  - {fileID: 2100000, guid: e9b15a335be74c746871cf6f28a6e341, type: 2}
+  - {fileID: 2100000, guid: dbdc10cf7941f1f4da6524001f41f111, type: 2}
+  - {fileID: 2100000, guid: 5207cc46210af144aa40a8e021d014ba, type: 2}
+  - {fileID: 2100000, guid: 5defd0845f8053e4fa169e8d04179aac, type: 2}
+  - {fileID: 2100000, guid: e0edfd62931309441b924525d7b53451, type: 2}
+  - {fileID: 2100000, guid: 4583d2c980bb5d54fadae3ec7ad67428, type: 2}
+  - {fileID: 2100000, guid: b8cc977f1262cfc4ab2a00cdd8de1933, type: 2}
+  - {fileID: 2100000, guid: ee7ec49631b4c8b4a9be3bc185befb7b, type: 2}
+  - {fileID: 2100000, guid: 9df33549762594c4d88c19feb87182c8, type: 2}
+  - {fileID: 2100000, guid: 406f80294ed37d64f945d0e785fc167c, type: 2}
+  - {fileID: 2100000, guid: 5edb84823350cb84b997ae23d9ee389f, type: 2}
+  - {fileID: 2100000, guid: 96abc2cf4af2ba64e87d96ded02fb267, type: 2}
+  - {fileID: 2100000, guid: d46e3e873768be447a1786e1c1abcd1b, type: 2}
+  - {fileID: 2100000, guid: 213e6dc929e4d3348983805819a3b520, type: 2}
+  - {fileID: 2100000, guid: e6ac42e786c40994ab03132b7c379c9b, type: 2}
+  - {fileID: 2100000, guid: 7b4855371457f6347b1ca709baf44a12, type: 2}
+  - {fileID: 2100000, guid: 82e666d8d8c987c42b0a24ba33ef4555, type: 2}
+  - {fileID: 2100000, guid: e15fd29611ab95148a4ac2dcb9e7b87b, type: 2}
+  - {fileID: 2100000, guid: 984f9a4920bdc6f43b9a5cdcdf09ba7a, type: 2}
+  - {fileID: 2100000, guid: b544db3fc6a5cd44780da4f97dd47995, type: 2}
+  - {fileID: 2100000, guid: c739d539e7d681d47bdb1d6c9783cff9, type: 2}
 --- !u!1 &437685813949052766
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +228,7 @@ GameObject:
   - component: {fileID: 437685813949052765}
   - component: {fileID: 437685813949052762}
   - component: {fileID: 6932275111906396996}
+  - component: {fileID: 1879677563}
   m_Layer: 0
   m_Name: GameManager LVL2
   m_TagString: Untagged
@@ -225,7 +252,6 @@ Transform:
   - {fileID: 7113169535142019418}
   - {fileID: 6932275111988972333}
   - {fileID: 6932275111484795736}
-  - {fileID: 6932275111404615911}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,7 +276,7 @@ MonoBehaviour:
   enableHeadBob: 1
   deadEnemies: {fileID: 437685814633479175}
   restartSceneTime: 2.9
-  level: 1
+  level: 2
 --- !u!114 &437685813949052762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +395,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1879677563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437685813949052766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79401b27e7788d3418c42ce881dde4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenHeight: 754
+  screenWidth: 1100
 --- !u!1 &437685814633479175
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,65 +754,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &6932275111404615910
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6932275111404615911}
-  - component: {fileID: 6932275111404615904}
-  m_Layer: 0
-  m_Name: EndGame Screen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6932275111404615911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6932275111404615910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 437685813949052764}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6932275111404615904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6932275111404615910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9603c379e58bd048961e06eb7a5b21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  evaluationTitle: {fileID: 0}
-  nameTitle: {fileID: 0}
-  totalSecrets: 0
-  totalSecretsFound: 0
-  totalEnemies: 0
-  killedEnemies: 0
-  enemiesGibbed: 0
-  healthFound: 0
-  totalHealth: 0
-  armorFound: 0
-  totalArmor: 0
-  ammoFound: 0
-  totalAmmo: 0
-  defaultTypeTime: 0.29
-  blackOverlay: {fileID: 0}
-  endScreen: {fileID: 0}
 --- !u!1 &6932275111484795743
 GameObject:
   m_ObjectHideFlags: 0

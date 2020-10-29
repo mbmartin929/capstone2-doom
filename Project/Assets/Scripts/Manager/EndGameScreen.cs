@@ -62,6 +62,11 @@ public class EndGameScreen : MonoBehaviour
         //StartCoroutine(Quit());
     }
 
+    public void LoadNextScene()
+    {
+        StartCoroutine(GameManager.Instance.LoadNextScene(-1.69f));
+    }
+
     private IEnumerator EndScreenActive(float time)
     {
         yield return new WaitForSeconds(time);
@@ -95,27 +100,4 @@ public class EndGameScreen : MonoBehaviour
         yield return new WaitForSeconds(0.42f);
         //StartCoroutine(EndTransition());
     }
-
-    // private void StartTransition()
-    // {
-    //     audioSource.pitch = 0.75f;
-    //     audioSource.volume = 0.9f;
-    //     audioSource.Play();
-    //     audioSource.pitch = 1.0f;
-    //     audioSource.volume = 1.0f;
-
-    //     dialogueAnim.gameObject.SetActive(true);
-    //     dialogueAnim.SetTrigger("Start");
-    //     StartCoroutine(NameTag());
-    //     textWriter.AddWriter(" ", defaultTypeTime, true);
-    // }
-
-    // private IEnumerator EndTransition()
-    // {
-    //     dialogueAnim.SetTrigger("Exit");
-    //     yield return new WaitForSeconds(0.8f);
-    //     PlaySound(1);
-    //     yield return new WaitForSeconds(0.8f);
-    //     dialogueAnim.gameObject.SetActive(false);
-    // }
 }

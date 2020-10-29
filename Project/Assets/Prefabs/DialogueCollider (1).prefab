@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1070066484936778491}
   - component: {fileID: 1070066484936778492}
   - component: {fileID: 1070066484936778493}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DialogueCollider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,10 +58,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d8423a2b283d44e9d57808e876141b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nametagID: 0
+  faceID: 0
   numberOfSentences: 1
   sentences:
   - 'Our mission is as follows:'
   - Kill the vermin for the security of RN-1
+  timePerSentence:
+  - 2
+  - 2
+  - 2
+  - 2
   additionalTime: 0.01
 --- !u!23 &1070066484936778493
 MeshRenderer:

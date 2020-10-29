@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1224918521}
   - component: {fileID: 1224918523}
   - component: {fileID: 1224918522}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 49569724635607010}
   - component: {fileID: 1156568390}
   - component: {fileID: 203807905661765320}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Avatar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423949438595970571}
-  m_LocalRotation: {x: -0, y: 0.11211225, z: -0, w: 0.99369556}
+  m_LocalRotation: {x: -0, y: 0.99976814, z: -0, w: 0.021532953}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,8 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4223479697576462649, guid: 8a91293b6cd4e3846800940168b51bac,
-    type: 3}
+  m_Sprite: {fileID: 718005862480482712, guid: 8a91293b6cd4e3846800940168b51bac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,7 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 6423949439062104480}
-  currentFrameIndex: 1
+  slimeShockwave: {fileID: 0}
+  currentFrameIndex: 0
   enemy: 0
   materials: []
 --- !u!65 &6423949438595970575
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileGo: {fileID: 3052994133037248473, guid: 8475de2ae0fa7ce4cad8dfe87dd1e575,
     type: 3}
-  maxHealth: 60
+  maxHealth: 85
   maxArmor: 0
   damage: 20
   painChance: 0.5
@@ -245,6 +245,7 @@ MonoBehaviour:
   bloodSplatGos:
   - {fileID: 897968338700256403, guid: da34b8e5ed918884c91bebd5527c9c69, type: 3}
   CurrentHealth: 0
+  useGib: 1
   gibGo: {fileID: 1257690072450890127, guid: 50f7d37bf31d5634db3b5fb8f2fd5e1d, type: 3}
   gibsAmount: 12
   gibAlive: 15
@@ -452,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6423949438891449722}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +489,7 @@ GameObject:
   - component: {fileID: 6423949439062104487}
   - component: {fileID: 1841278559}
   - component: {fileID: 7166256180625000740}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WormActor
   m_TagString: Enemy
   m_Icon: {fileID: 0}

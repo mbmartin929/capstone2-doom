@@ -102,7 +102,7 @@ public class LauncherController : WeaponController
 
         TextManager.Instance.UpdateAmmoText();
 
-        ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
+        //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
         canAttack = false;
 

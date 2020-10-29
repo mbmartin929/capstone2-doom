@@ -80,6 +80,7 @@ namespace EightDirectionalSpriteSystem
                         enemyAI.anim.SetTrigger("Attack");
                     }
                 }
+                else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.BbWorm) { }
                 else
                 {
                     Debug.Log("Unassigned ActorBillboard enum Enemy");

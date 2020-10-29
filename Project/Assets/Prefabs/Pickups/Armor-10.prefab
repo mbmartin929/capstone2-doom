@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5663243654069621888}
   - component: {fileID: 9151873424146151835}
   - component: {fileID: 4320002904634664366}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,12 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61dfe134931bf24b952c372ba0faa8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 8300000, guid: 36ed971bf1cb82247b07904314432795, type: 3}
   pickUpSound: {fileID: 8300000, guid: 317269469f422d440a2444d198f1eae6, type: 3}
-  ammoType: 0
   itemName: Armor
   recoverAmount: 10
-  weapon: {fileID: 0}
+  numberOfArmor: 0
 --- !u!114 &96105317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2056282978541352363}
   - component: {fileID: 2056282978541352364}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +462,7 @@ GameObject:
   - component: {fileID: 2056282978842679503}
   - component: {fileID: 2056282978842679472}
   - component: {fileID: -1606589424505465404}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Armor-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}

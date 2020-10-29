@@ -37,7 +37,7 @@ public class GameOverScreen : MonoBehaviour
     {
         Debug.Log("Restart");
 
-        //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+        StartCoroutine(GameManager.Instance.RestartCurrentScene(0.0f));
     }
 
     public void Quit()

@@ -81,6 +81,21 @@ namespace EightDirectionalSpriteSystem
                     }
                 }
             }
+
+
+            if (avatar.GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.BbWorm)
+            {
+                for (int i = 0; i < ActorAvatarManager.Instance.bbWormAvatars.Length; i++)
+                {
+                    if (ActorAvatarManager.Instance.bbWormAvatars[i] != null)
+                    {
+                        chosenMaterial = ActorAvatarManager.Instance.bbWormAvatars[i];
+                        ActorAvatarManager.Instance.bbWormAvatars[i] = null;
+                        avatar.GetComponent<SpriteRenderer>().material = chosenMaterial;
+                        return;
+                    }
+                }
+            }
         }
     }
 }

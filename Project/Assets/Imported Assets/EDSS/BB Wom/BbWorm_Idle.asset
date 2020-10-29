@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0cf37e99fcb584dbdf7be0944f8cbf, type: 3}
+  m_Name: BbWorm_Idle
+  m_EditorClassIdentifier: 
+  animName: Bb Worm Idle
+  animType: 1
+  animAction: 1
+  animMode: 0
+  speed: 0.01
+  frameList:
+  - sprites:
+    - {fileID: -7915348264856934515, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: -234668187030934448, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: -8314328372136331635, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: 7141805372521921103, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: -2147043505970388218, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: -543388454646346733, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: -3732137987752852376, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}
+    - {fileID: -6244826331826047894, guid: 1c8fcddbe880bfc4cb8680928c645c49, type: 3}

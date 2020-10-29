@@ -9,6 +9,7 @@ namespace EightDirectionalSpriteSystem
         public bool isEnabled = false;
         public float offset = 1f;
 
+
         private EnemyController enemyController;
 
         // Start is called before the first frame update
@@ -21,6 +22,7 @@ namespace EightDirectionalSpriteSystem
         void Update()
         {
             if (enemyController.IsDead()) Destroy(gameObject);
+            //else if (transform.parent == null) Destroy(gameObject);
 
             if (isEnabled)
             {

@@ -22,6 +22,7 @@ namespace EightDirectionalSpriteSystem
 
         public int CurrentHealth;
 
+        public bool useGib = true;
         public GameObject gibGo;
         public int gibsAmount = 12;
         public int gibAlive = 15;
@@ -113,14 +114,17 @@ namespace EightDirectionalSpriteSystem
                     //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                     gameObject.SetActive(false);
 
-                    for (int i = 0; i < gibsAmount; i++)
+                    if (useGib)
                     {
-                        GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                        for (int i = 0; i < gibsAmount; i++)
+                        {
+                            GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                        }
                     }
 
                     GetComponent<EnemyDrops>().Drop();
 
-                    Destroy(gameObject, 5.0f);
+
                     //transform.parent = GameManager.Instance.deadEnemies.transform;
                     transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
@@ -134,6 +138,7 @@ namespace EightDirectionalSpriteSystem
                     //         return;
                     //     }
                     // }
+                    Destroy(gameObject, 5.0f);
                 }
             }
             else if (!IsDead())
@@ -176,13 +181,15 @@ namespace EightDirectionalSpriteSystem
                         //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                         //gameObject.SetActive(false);
                         //transform.parent = GameManager.Instance.deadEnemies.transform;
-                        transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
-                        for (int i = 0; i < gibsAmount; i++)
+
+                        if (useGib)
                         {
-                            GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                            for (int i = 0; i < gibsAmount; i++)
+                            {
+                                GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                            }
                         }
-
 
                         //Destroy(gameObject, 5.0f);
 
@@ -196,6 +203,7 @@ namespace EightDirectionalSpriteSystem
                         //         return;
                         //     }
                         // }
+                        transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
                     }
 
                     if (IsDead())
@@ -272,7 +280,7 @@ namespace EightDirectionalSpriteSystem
 
             yield return new WaitForSeconds(painDuration);
 
-            transform.parent.GetComponent<NavMeshAgent>().enabled = true;
+
             //transform.parent.GetComponent<NavMeshAgent>().isStopped = false;
             // getHit = false;
 
@@ -286,7 +294,7 @@ namespace EightDirectionalSpriteSystem
                 //Debug.Log("After IENumerator IS DEAD");
                 animator.SetTrigger("Dead");
             }
-
+            transform.parent.GetComponent<NavMeshAgent>().enabled = true;
         }
     }
 }

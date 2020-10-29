@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5900984252581644910}
   - component: {fileID: 5900984252581644906}
   - component: {fileID: 5900984252581644905}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Pistol PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,9 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPickUp: 3.69
+  lerpSpeed: 0.69
   ambientSound: {fileID: 0}
   pickUpSound: {fileID: 0}
-  ammoType: 0
   itemName: Pistol
   recoverAmount: 9
+  ammoType: 0
   weapon: {fileID: 7648730109480126502, guid: 0dd233844e4d1554ea6bd50ea9a840dc, type: 3}
+  numberOfAmmo: 0

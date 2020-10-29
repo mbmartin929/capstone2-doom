@@ -13,6 +13,7 @@ public class ActorAvatarManager : MonoBehaviour
     public Material[] wormAvatars;
     public Material[] spiderAvatars;
     public Material[] snailAvatars;
+    public Material[] bbWormAvatars;
 
     void Awake()
     {

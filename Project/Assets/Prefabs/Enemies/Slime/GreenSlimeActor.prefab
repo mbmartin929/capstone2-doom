@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 629349248}
   - component: {fileID: 629349250}
   - component: {fileID: 629349249}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1074000868}
   - component: {fileID: 1250469275128751673}
   - component: {fileID: 9147724855270883662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Avatar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -244,6 +244,7 @@ MonoBehaviour:
   bloodSplatGos:
   - {fileID: 2271519705940005313, guid: 4ffe5b9e051517542a62c18a41900b6f, type: 3}
   CurrentHealth: 0
+  useGib: 1
   gibGo: {fileID: 1257690072450890127, guid: 5789bb7a2b7aba140933a767b4ff6676, type: 3}
   gibsAmount: 8
   gibAlive: 11
@@ -454,7 +455,7 @@ GameObject:
   - component: {fileID: 7328639068343049388}
   - component: {fileID: 7328639068343049385}
   - component: {fileID: 4461737928191057312}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GreenSlimeActor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -589,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7328639068715030644}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
