@@ -170,7 +170,9 @@ namespace EightDirectionalSpriteSystem
 
             //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
-            CurAmmo--;
+            if (CheatsManager.Instance.enableUnlimitedAmmo) { Debug.Log("Unlimited Ammo"); }
+            else CurAmmo--;
+
             canAttack = false;
             Vector3 shootDirection = fpsCam.transform.forward;
             shootDirection.x += Random.Range(-spreadFactor, spreadFactor);

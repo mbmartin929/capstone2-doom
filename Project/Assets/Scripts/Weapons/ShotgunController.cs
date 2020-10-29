@@ -197,7 +197,9 @@ public class ShotgunController : WeaponController
         }
 
         transform.localPosition = startPos;
-        CurAmmo--;
+
+        if (CheatsManager.Instance.enableUnlimitedAmmo) { Debug.Log("Unlimited Ammo"); }
+        else CurAmmo--;
 
         anim.SetTrigger("Shoot");
         StartCoroutine("MuzzleLight");

@@ -76,8 +76,6 @@ public class LauncherController : WeaponController
             return;
         }
 
-
-
         int shootLayerIndex = anim.GetLayerIndex("Shoot");
         int reloadLayerIndex = anim.GetLayerIndex("Reload");
         if (anim.GetCurrentAnimatorStateInfo(shootLayerIndex).IsName("Shoot"))
@@ -93,7 +91,8 @@ public class LauncherController : WeaponController
 
         StartCoroutine(Wait(2.42f));
 
-        CurAmmo--;
+        if (CheatsManager.Instance.enableUnlimitedAmmo) { Debug.Log("Unlimited Ammo"); }
+        else CurAmmo--;
 
         GameObject _projectileGo = Instantiate(projectileGo, (transform.position + transform.forward), Quaternion.identity);
         _projectileGo.GetComponent<Projectile>().LaunchLauncherProjectile(transform.forward * 2.29f + transform.up * 1f);
