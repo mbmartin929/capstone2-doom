@@ -397,6 +397,7 @@ MonoBehaviour:
     type: 3}
   camRotation: {x: 0, y: 0, z: 0}
   startPos: {x: 0.12, y: -0.85, z: 0.26}
+  recoiling: 0
   bulletHole: {fileID: 7406244889931771800, guid: 50dd7cc6809dbcd4fb61bb66982b167e,
     type: 3}
   canAttack: 1
@@ -404,9 +405,8 @@ MonoBehaviour:
   bulletCasingLoc: {fileID: 838160938}
   bulletTracerLoc: {fileID: 1654311074}
   maxBulletSpread: 6
-  fireTime: 1
-  timeToMaxSpread: 2
-  fireDelay: 1
+  fireTime: 0.69
+  timeToMaxSpread: 1.69
   readyToFire: 1
 --- !u!1001 &807161380977438305
 PrefabInstance:

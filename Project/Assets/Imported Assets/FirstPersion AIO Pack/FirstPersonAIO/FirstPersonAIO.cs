@@ -828,6 +828,8 @@ public class FirstPersonAIO : MonoBehaviour
 
     public void ControllerPause()
     {
+        Debug.Log("Controller Pause");
+
         controllerPauseState = !controllerPauseState;
         if (lockAndHideCursor)
         {

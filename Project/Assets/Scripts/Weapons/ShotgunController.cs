@@ -83,7 +83,8 @@ public class ShotgunController : WeaponController
 
     private void Reload()
     {
-        transform.localPosition = startPos;
+        //transform.localPosition = startPos;
+
         if (CurAmmo >= clipAmmo)
         {
             Debug.Log("You have full ammo");
@@ -96,13 +97,6 @@ public class ShotgunController : WeaponController
         }
         else if ((clipAmmo - CurAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
         {
-            //Debug.Log("Hi");
-            // curAmmo += 1;
-            // AmmoInventory.Instance.curShotgunAmmo -= 1;
-
-            // anim.SetTrigger("Reload");
-            // Debug.Log("Decreased Reload");
-
             if (AmmoInventory.Instance.curShotgunAmmo <= 0)
             {
                 return;
@@ -181,7 +175,6 @@ public class ShotgunController : WeaponController
 
     void Shoot()
     {
-        //transform.localPosition = startPos;
         //transform.localPosition = startWeaponSwitchVector;
 
         RaycastHit hit;
@@ -192,6 +185,18 @@ public class ShotgunController : WeaponController
             return;
         }
 
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+        {
+            Debug.Log("Playing Shoot");
+            return;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+        {
+            Debug.Log("Playing Reload");
+            return;
+        }
+
+        transform.localPosition = startPos;
         CurAmmo--;
 
         anim.SetTrigger("Shoot");

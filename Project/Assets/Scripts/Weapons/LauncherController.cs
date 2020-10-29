@@ -76,9 +76,10 @@ public class LauncherController : WeaponController
             return;
         }
 
+
+
         int shootLayerIndex = anim.GetLayerIndex("Shoot");
-        int reloadLayerIndex = anim.GetLayerIndex("Reload")
-        ;
+        int reloadLayerIndex = anim.GetLayerIndex("Reload");
         if (anim.GetCurrentAnimatorStateInfo(shootLayerIndex).IsName("Shoot"))
         {
             Debug.Log("Playing Shoot");
@@ -86,7 +87,7 @@ public class LauncherController : WeaponController
         }
         if (anim.GetCurrentAnimatorStateInfo(reloadLayerIndex).IsName("Reload"))
         {
-            Debug.Log("Playing Shoot");
+            Debug.Log("Playing Reload");
             return;
         }
 

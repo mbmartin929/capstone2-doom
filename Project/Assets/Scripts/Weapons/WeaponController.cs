@@ -40,7 +40,9 @@ namespace EightDirectionalSpriteSystem
         public GameObject muzzleLightGo;
         public GameObject hitEffectGo;
         public Vector3 camRotation;
+        public Quaternion camQuat;
         public Vector3 startPos;
+        public bool recoiling = false;
         [SerializeField] protected GameObject bulletHole;
 
         #endregion
@@ -179,7 +181,7 @@ namespace EightDirectionalSpriteSystem
         protected void FixIdleAnimationPosition()
         {
             //Debug.Log("FixedIdleAnimation");
-            transform.localPosition = startPos;
+            //transform.localPosition = startPos;
         }
 
         // Used as Animation
@@ -188,10 +190,8 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log("FinishReload");
 
-            // Debug.Log("Before: " + transform.localPosition);
-            transform.localPosition = startPos;
-            // Debug.Log("Target: " + startPos);
-            // Debug.Log("After: " + transform.localPosition);
+            //transform.localPosition = startPos;
+
             anim.SetTrigger("Idle");
             //StartCoroutine(WaitDebug());
 

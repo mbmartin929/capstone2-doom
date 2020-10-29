@@ -12,7 +12,6 @@ namespace EightDirectionalSpriteSystem
         public float maxBulletSpread = 1.0f;
         public float fireTime = 0.5f;
         public float timeToMaxSpread = 2.0f;
-        public float fireDelay = 1.0f;
         public bool readyToFire = true;
 
         public int CurAmmo
@@ -43,42 +42,27 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
-            //pos = transform.position;
-
             cameraGo = GameObject.FindGameObjectWithTag("Player");
             FindObjectwithTag("MainCamera");
 
             FOV = fpsCam.fieldOfView;
 
             CurAmmo = clipAmmo;
-            //CurAmmo = AmmoInventory.Instance.curPistolAmmo;
-            //Reload();
-
-            //Debug.Log("CurAmmo: " + CurAmmo + " || " + "ClipAmmo: " + clipAmmo);
 
             canAttack = true;
-            //Debug.Log("PistolController: " + canAttack);
 
             TextManager.Instance.UpdateAmmoText();
-
-            //InvokeRepeating("RepeatingFix", 0.69f, 0.1f);
         }
 
         // Update is called once per frame
         void Update()
         {
-            fpsCam.transform.eulerAngles += camRotation;
+            //fpsCam.transform.eulerAngles += camRotation;
             fpsCam.fieldOfView = FOV;
 
+            //Debug.Log(camRotation);
             //transform.position = new Vector3(transform.position.x, transform.position.y, startPos.z);
 
-            // Debug.Log("startPos: " + startPos);
-            // transform.position = startPos;
-            // Debug.Log("transform: " + transform.position);
-        }
-
-        void LateUpdate()
-        {
             if ((Input.GetMouseButtonDown(0)) && (canAttack))
             {
                 Shoot();
@@ -87,6 +71,26 @@ namespace EightDirectionalSpriteSystem
             {
                 Reload();
             }
+
+
+        }
+
+        void LateUpdate()
+        {
+            //fpsCam.transform.eulerAngles += camRotation;
+            //GameManager.Instance.playerGo.transform.eulerAngles += camRotation;
+
+            //GameManager.Instance.playerGo.transform.rotation = camQuat;
+
+            //Quaternion rotation = Quaternion.Euler(0, -0.69f, 0);
+            //GameManager.Instance.playerGo.transform.rotation = Quaternion.Slerp(GameManager.Instance.playerGo.transform.rotation, rotation, Time.deltaTime * 1.29f);
+
+            // Vector3 a = new Vector3(0, 1.29f, 0);
+            // GameManager.Instance.playerGo.transform.Rotate(a, 1.29f * Time.deltaTime);
+
+            Quaternion rotationAmount = Quaternion.Euler(camRotation);
+            Quaternion postRotation = GameManager.Instance.playerGo.transform.rotation * rotationAmount;
+            GameManager.Instance.playerGo.transform.rotation = postRotation;
         }
 
         private void RepeatingFix()
@@ -96,6 +100,12 @@ namespace EightDirectionalSpriteSystem
 
         private void Reload()
         {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+            {
+                Debug.Log("Playing Shoot");
+                return;
+            }
+
             transform.localPosition = startPos;
 
             if (curAmmo >= clipAmmo)
@@ -141,11 +151,17 @@ namespace EightDirectionalSpriteSystem
                 return;
             }
 
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+            {
+                Debug.Log("Playing Shoot");
+                return;
+            }
+
             Vector3 rotationVector = transform.rotation.eulerAngles;
             GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
             bulletTracerParticle.Play();
 
-            StartCoroutine(Wait(0.2f));
+            //StartCoroutine(Wait(1f));
             #region Gun Effects
             anim.SetTrigger("Shoot");
             StartCoroutine("MuzzleLight");
@@ -155,7 +171,7 @@ namespace EightDirectionalSpriteSystem
             //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
             CurAmmo--;
-
+            canAttack = false;
             Vector3 shootDirection = fpsCam.transform.forward;
             shootDirection.x += Random.Range(-spreadFactor, spreadFactor);
             shootDirection.y += Random.Range(-spreadFactor, spreadFactor);
@@ -196,7 +212,7 @@ namespace EightDirectionalSpriteSystem
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                     Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
-                    Debug.Log("Finish Hit Level");
+                    //Debug.Log("Finish Hit Level");
                 }
 
                 // Raycast hits Enemy
@@ -273,11 +289,7 @@ namespace EightDirectionalSpriteSystem
                 //Debug.Log("Hit Name: " + hit.transform.gameObject.name);
                 //Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
             }
-            canAttack = false;
-            Debug.Log("Finish Shooting");
-            //Debug.Log("Before: " + transform.position);
-            //readyToFire = false;
-            //Invoke("setReadyToFire", fireDelay);
+            //Debug.Log("Finish Shooting");
         }
 
         void setReadyToFire()
