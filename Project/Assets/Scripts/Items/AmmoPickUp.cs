@@ -21,6 +21,11 @@ public class AmmoPickUp : PickUpController
 
     void Update()
     {
+
+    }
+
+    private void LateUpdate()
+    {
         if (itemName == "Ammo")
         {
             if (CheckCloseToTag("Player", distanceToPickUp))

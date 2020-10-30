@@ -11,7 +11,7 @@ public class PauseManager : MonoBehaviour
     public float transitionTime = 0.9f;
 
     #region  Press Button Booleans
-    private bool pressEscape = false;
+    [HideInInspector] public bool pressEscape = false;
     private bool pressCheats = false;
     private bool pressRestart = false;
     private bool pressSettings = false;
@@ -59,11 +59,13 @@ public class PauseManager : MonoBehaviour
             //pauseScreen.SetActive(pressEscape);
             if (pressEscape)
             {
+                //Time.timeScale = 0;
                 pauseScreen.SetActive(true);
                 animator.SetTrigger("Start");
             }
             else if (!pressEscape)
             {
+                //Time.timeScale = 1;
                 animator.SetTrigger("Escape");
                 ExitAllWindows();
             }
@@ -80,16 +82,19 @@ public class PauseManager : MonoBehaviour
     #region Pause Menu Buttons
     public void PressResume()
     {
+        //Time.timeScale = 1;
+
         Debug.Log("Press Resume");
+
         pressEscape = false;
         animator.SetTrigger("Escape");
 
+        GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
+
         cheatsBoxAnimator.SetTrigger("Exit");
         restartBoxAnimator.SetTrigger("Exit");
-        settingsBoxAnimator.SetTrigger("Exit");
+        //settingsBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
-
-        GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
     }
 
     public void PressCheats()
@@ -97,18 +102,6 @@ public class PauseManager : MonoBehaviour
         Debug.Log("Press Cheats");
 
         UpdateCheatToggleButtons();
-
-        // pressCheats = !pressCheats;
-        // if (pressCheats)
-        // {
-        //     cheatsBoxAnimator.gameObject.SetActive(true);
-        //     cheatsBoxAnimator.SetTrigger("Start");
-        // }
-        // else if (!pressCheats) cheatsBoxAnimator.SetTrigger("Escape");
-
-        //pressCheats = !pressCheats;
-
-
 
         if (pressRestart)
         {
@@ -137,14 +130,6 @@ public class PauseManager : MonoBehaviour
             pressCheats = true;
             Debug.Log("Press Cheats: " + pressCheats);
         }
-        // else if (pressCheats)
-        // {
-        //     Debug.Log("From Nothing");
-
-        //     //pressCheats = !pressCheats;
-        //     cheatsBoxAnimator.gameObject.SetActive(true);
-        //     cheatsBoxAnimator.SetTrigger("Start");
-        // }
 
         if (pressCheats && !pressRestart && !pressSettings && !pressQuit)
         {
@@ -162,8 +147,6 @@ public class PauseManager : MonoBehaviour
     public void PressRestart()
     {
         Debug.Log("Press Restart");
-
-        //pressRestart = !pressRestart;
 
         if (pressCheats)
         {
@@ -192,14 +175,6 @@ public class PauseManager : MonoBehaviour
             pressRestart = true;
             Debug.Log("Press Restart: " + pressRestart);
         }
-        // else if (pressRestart)
-        // {
-        //     Debug.Log("From Nothing");
-
-        //     //pressRestart = !pressRestart;
-        //     restartBoxAnimator.gameObject.SetActive(true);
-        //     restartBoxAnimator.SetTrigger("Start");
-        // }
 
         if (pressRestart && !pressCheats && !pressSettings && !pressQuit)
         {
@@ -214,9 +189,42 @@ public class PauseManager : MonoBehaviour
     public void PressQuit()
     {
         Debug.Log("Press Quit");
-        SceneManager.LoadScene(0);
+
+        if (pressCheats)
+        {
+            Debug.Log("From Cheats Window");
+
+            StartCoroutine(StartNewWindow(3));
+        }
+        else if (pressSettings)
+        {
+            Debug.Log("From Settings Window");
+
+            StartCoroutine(StartNewWindow(3));
+        }
+        else if (pressRestart)
+        {
+            Debug.Log("From Restart Window");
+
+            StartCoroutine(StartNewWindow(3));
+        }
+        else if (!pressQuit)
+        {
+            pressQuit = true;
+            Debug.Log("Press Quit: " + pressQuit);
+        }
+
+        if (pressQuit && !pressCheats && !pressSettings && !pressRestart)
+        {
+            Debug.Log("From Nothing");
+
+            restartBoxAnimator.gameObject.SetActive(true);
+            restartBoxAnimator.SetTrigger("Start");
+        }
     }
     #endregion
+
+    public void Quit() { SceneManager.LoadScene(0); }
 
     public void UpdateCheatToggleButtons()
     {
@@ -263,6 +271,8 @@ public class PauseManager : MonoBehaviour
 
         cheatsBoxAnimator.SetTrigger("Exit");
         restartBoxAnimator.SetTrigger("Exit");
+        quitBoxAnimator.SetTrigger("Exit");
+        //settingsBoxAnimator.SetTrigger("Exit");
 
         Debug.Log("Exit All Windows");
     }
@@ -278,6 +288,8 @@ public class PauseManager : MonoBehaviour
         if (id == 0)
         {
             pressSettings = true;
+            settingsBoxAnimator.gameObject.SetActive(true);
+            settingsBoxAnimator.SetTrigger("Start");
         }
         else if (id == 1)
         {
@@ -298,6 +310,8 @@ public class PauseManager : MonoBehaviour
         else if (id == 3)
         {
             pressQuit = true;
+            quitBoxAnimator.gameObject.SetActive(true);
+            quitBoxAnimator.SetTrigger("Start");
         }
     }
 

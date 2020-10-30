@@ -7,6 +7,8 @@ public class CheatsManager : MonoBehaviour
     // Instantiates Singleton
     public static CheatsManager Instance { set; get; }
 
+    public GameObject[] allWeapons;
+
     public bool enableUnlockAllWeapons = false;
     public bool enableUnlimitedAmmo = false;
     public bool enableGodMode = false;
@@ -27,6 +29,11 @@ public class CheatsManager : MonoBehaviour
             // Code when enabled
             Debug.Log("Turn On Equip All Weapons");
             PauseManager.Instance.UpdateCheatToggleButtons();
+
+            foreach (GameObject weapon in allWeapons)
+            {
+                GameObject pickUp = Instantiate(weapon, GameManager.Instance.playerGo.transform.position, Quaternion.identity);
+            }
         }
         else if (!enableUnlockAllWeapons)
         {

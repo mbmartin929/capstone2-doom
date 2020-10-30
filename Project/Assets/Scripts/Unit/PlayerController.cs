@@ -156,55 +156,59 @@ public class PlayerController : UnitController
         }
         else
         {
-            bloodOverlay.ChangeActiveBloodOverlayOpacity();
-            passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
-
-            if (CurArmor > 0)
-            {
-                //Debug.Log("Armor Damage");
-
-                int armorDamage = amount / 2;
-                int healthDamage = amount - armorDamage;
-
-                CurArmor -= armorDamage;
-                CurHealth -= healthDamage;
-
-                Debug.Log("Armor Damage: " + armorDamage);
-                Debug.Log("Health Damage: " + healthDamage);
-            }
+            if (CheatsManager.Instance.enableGodMode) { Debug.Log("Take No Damage"); return; }
             else
             {
-                //Debug.Log("Health Damage");
-                CurHealth -= amount;
+                bloodOverlay.ChangeActiveBloodOverlayOpacity();
+                passiveBloodOverlay.ChangePassiveBloodOverlayOpacity();
 
-                Debug.Log("Health Damage: " + amount);
-                //if (CurHealth <= 0) CurHealth = 0;
-            }
+                if (CurArmor > 0)
+                {
+                    //Debug.Log("Armor Damage");
 
-            TextManager.Instance.UpdateHealthArmorText();
+                    int armorDamage = amount / 2;
+                    int healthDamage = amount - armorDamage;
 
-            StartCoroutine(GetDamaged());
+                    CurArmor -= armorDamage;
+                    CurHealth -= healthDamage;
 
-            if (CurHealth <= 0)
-            {
-                Debug.Log("Player Dies");
-                CurHealth = 0;
-                gameOverScreen.SetActive(true);
+                    Debug.Log("Armor Damage: " + armorDamage);
+                    Debug.Log("Health Damage: " + healthDamage);
+                }
+                else
+                {
+                    //Debug.Log("Health Damage");
+                    CurHealth -= amount;
 
-                gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                gameObject.GetComponent<Rigidbody>().useGravity = false;
-                gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    Debug.Log("Health Damage: " + amount);
+                    //if (CurHealth <= 0) CurHealth = 0;
+                }
 
-                GetComponent<FirstPersonAIO>().ControllerPause();
-                GetComponent<FirstPersonAIO>().enabled = false;
-                //Time.timeScale = 0;
+                TextManager.Instance.UpdateHealthArmorText();
 
-                transform.GetChild(3).gameObject.SetActive(false);
+                StartCoroutine(GetDamaged());
+
+                if (CurHealth <= 0)
+                {
+                    Debug.Log("Player Dies");
+                    CurHealth = 0;
+                    gameOverScreen.SetActive(true);
+
+                    gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                    gameObject.GetComponent<Rigidbody>().useGravity = false;
+                    gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+                    GetComponent<FirstPersonAIO>().ControllerPause();
+                    GetComponent<FirstPersonAIO>().enabled = false;
+                    //Time.timeScale = 0;
+
+                    transform.GetChild(3).gameObject.SetActive(false);
 
 
-                Debug.Log("Paused");
+                    Debug.Log("Paused");
 
-                //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+                    //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+                }
             }
         }
     }

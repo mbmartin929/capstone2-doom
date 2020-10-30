@@ -83,7 +83,8 @@ public class ShotgunController : WeaponController
 
     private void Reload()
     {
-        transform.localPosition = startPos;
+        //transform.localPosition = startPos;
+
         if (CurAmmo >= clipAmmo)
         {
             Debug.Log("You have full ammo");
@@ -96,13 +97,6 @@ public class ShotgunController : WeaponController
         }
         else if ((clipAmmo - CurAmmo) >= AmmoInventory.Instance.curShotgunAmmo)
         {
-            //Debug.Log("Hi");
-            // curAmmo += 1;
-            // AmmoInventory.Instance.curShotgunAmmo -= 1;
-
-            // anim.SetTrigger("Reload");
-            // Debug.Log("Decreased Reload");
-
             if (AmmoInventory.Instance.curShotgunAmmo <= 0)
             {
                 return;
@@ -181,8 +175,7 @@ public class ShotgunController : WeaponController
 
     void Shoot()
     {
-        //transform.localPosition = startPos;
-        //transform.localPosition = startWeaponSwitchVector;
+        if (PauseManager.Instance.pressEscape) { return; }
 
         RaycastHit hit;
         if (CurAmmo <= 0)
@@ -192,7 +185,21 @@ public class ShotgunController : WeaponController
             return;
         }
 
-        CurAmmo--;
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
+        {
+            Debug.Log("Playing Shoot");
+            return;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+        {
+            Debug.Log("Playing Reload");
+            return;
+        }
+
+        transform.localPosition = startPos;
+
+        if (CheatsManager.Instance.enableUnlimitedAmmo) { Debug.Log("Unlimited Ammo"); }
+        else CurAmmo--;
 
         anim.SetTrigger("Shoot");
         StartCoroutine("MuzzleLight");
