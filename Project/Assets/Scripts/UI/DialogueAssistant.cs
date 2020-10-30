@@ -340,6 +340,26 @@ public class DialogueAssistant : MonoBehaviour
         StartCoroutine(EndTransition());
     }
 
+    public IEnumerator Dialogue5(string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, string sentence4, float time4, string sentence5, float time5, float additionalTime, int faceID, int nametagID)
+    {
+        StartTransition(nametagID);
+        face.texture = faces[faceID];
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(time1);
+        textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(time2);
+        textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(time3);
+        textWriter.AddWriter(sentence4, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(time4);
+        textWriter.AddWriter(sentence5, defaultTypeTime + additionalTime, true);
+        yield return new WaitForSeconds(time5);
+
+        StartCoroutine(EndTransition());
+    }
+
     private void StartTransition(int nametagID)
     {
         Debug.Log("Start Transition");
@@ -378,9 +398,9 @@ public class DialogueAssistant : MonoBehaviour
     private IEnumerator EndTransition()
     {
         dialogueAnim.SetTrigger("Exit");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.79f);
         PlaySound(1);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         face.texture = faces[0];
         dialogueAnim.gameObject.SetActive(false);
     }

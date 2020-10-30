@@ -69,6 +69,8 @@ public class LauncherController : WeaponController
 
     void Shoot()
     {
+        if (PauseManager.Instance.pressEscape) { return; }
+
         if (CurAmmo <= 0)
         {
             //Debug.Log("CurAmmo <= 0");

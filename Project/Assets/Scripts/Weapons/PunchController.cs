@@ -42,8 +42,7 @@ namespace EightDirectionalSpriteSystem
         {
             if ((Input.GetMouseButtonDown(0)) && (canAttack))
             {
-
-
+                if (PauseManager.Instance.pressEscape) { return; }
                 anim.SetTrigger("Start Punch");
                 RandomPunch();
 

@@ -11,7 +11,7 @@ public class PauseManager : MonoBehaviour
     public float transitionTime = 0.9f;
 
     #region  Press Button Booleans
-    private bool pressEscape = false;
+    [HideInInspector] public bool pressEscape = false;
     private bool pressCheats = false;
     private bool pressRestart = false;
     private bool pressSettings = false;
@@ -59,11 +59,13 @@ public class PauseManager : MonoBehaviour
             //pauseScreen.SetActive(pressEscape);
             if (pressEscape)
             {
+                //Time.timeScale = 0;
                 pauseScreen.SetActive(true);
                 animator.SetTrigger("Start");
             }
             else if (!pressEscape)
             {
+                //Time.timeScale = 1;
                 animator.SetTrigger("Escape");
                 ExitAllWindows();
             }
@@ -80,7 +82,10 @@ public class PauseManager : MonoBehaviour
     #region Pause Menu Buttons
     public void PressResume()
     {
+        //Time.timeScale = 1;
+
         Debug.Log("Press Resume");
+
         pressEscape = false;
         animator.SetTrigger("Escape");
 

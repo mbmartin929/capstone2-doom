@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6176b241d5f824ba360765e078e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9
+  damage: 10
   curAmmo: 0
   clipAmmo: 7
   soundRadius: 16
@@ -325,13 +325,15 @@ MonoBehaviour:
   hitEffectGo: {fileID: 3291211880898960590, guid: 54eb6fa428311644c8b9850712e85906,
     type: 3}
   camRotation: {x: 0, y: 0, z: 0}
+  camQuat: {x: 0, y: 0, z: 0, w: 0}
   startPos: {x: -0.02, y: -0.93, z: 0.26}
+  recoiling: 0
   bulletHole: {fileID: 7406244889931771800, guid: 50dd7cc6809dbcd4fb61bb66982b167e,
     type: 3}
   canAttack: 0
   anim: {fileID: 0}
   bulletCasingLoc: {fileID: 2993207196435992781}
-  pelletCount: 14
+  pelletCount: 16
   scaleLimit: 1.8
   z: 9
   readyToFire: 1

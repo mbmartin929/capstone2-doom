@@ -140,6 +140,8 @@ namespace EightDirectionalSpriteSystem
 
         void Shoot()
         {
+            if (PauseManager.Instance.pressEscape) { return; }
+
             transform.localPosition = startPos;
 
             RaycastHit hit;

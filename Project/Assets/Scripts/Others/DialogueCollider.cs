@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueCollider : MonoBehaviour
 {
     //public bool specialDialogue = false;
-    public enum NumberOfSentences { One, Two, Three, Four };
+    public enum NumberOfSentences { One, Two, Three, Four, Five };
     public int nametagID = 0;
     public int faceID = 0;
     public NumberOfSentences numberOfSentences = NumberOfSentences.One;
@@ -13,6 +13,9 @@ public class DialogueCollider : MonoBehaviour
     public string[] sentences;
     public float[] timePerSentence;
     public float additionalTime = 0.01f;
+
+    public bool kaichiDeath = false;
+    public GameObject door;
 
     void OnTriggerEnter(Collider other)
     {
@@ -53,9 +56,28 @@ public class DialogueCollider : MonoBehaviour
                 sentences[3], timePerSentence[3],
                 additionalTime, faceID, nametagID));
             }
+            else if (numberOfSentences == NumberOfSentences.Five)
+            {
+                DialogueAssistant.Instance.StartCoroutine
+                (DialogueAssistant.Instance.Dialogue5(
+                sentences[0], timePerSentence[0],
+                sentences[1], timePerSentence[1],
+                sentences[2], timePerSentence[2],
+                sentences[3], timePerSentence[3],
+                sentences[4], timePerSentence[4],
+                additionalTime, faceID, nametagID));
+
+                if (kaichiDeath)
+                {
+                    Debug.Log("Kaichi Death");
+                    door.GetComponent<ImportantDoor>().StartCoroutine(door.GetComponent<ImportantDoor>().PlayAnimation());
+                }
+            }
 
             GetComponent<BoxCollider>().enabled = false;
             Destroy(gameObject, 5.0f);
         }
+
+
     }
 }

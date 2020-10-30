@@ -175,7 +175,7 @@ public class ShotgunController : WeaponController
 
     void Shoot()
     {
-        //transform.localPosition = startWeaponSwitchVector;
+        if (PauseManager.Instance.pressEscape) { return; }
 
         RaycastHit hit;
         if (CurAmmo <= 0)
