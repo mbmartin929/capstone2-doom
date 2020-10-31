@@ -89,7 +89,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.825e-41, y: -0.0000000030990943, z: 6.24e-43, w: 3.85e-43}
+  m_BoundingSphereOverride: {x: 9.78048e-39, y: 1.37753e-40, z: 7.163169e-39, w: 9.1835e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -152,11 +152,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.990566, g: 0.9300466, b: 0.88309896, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.99215686, g: 0.9779668, b: 0.88235295, a: 1}
+  m_Intensity: 0.75
   m_Range: 7.5
-  m_SpotAngle: 125.3776
-  m_InnerSpotAngle: 125.3776
+  m_SpotAngle: 155.01103
+  m_InnerSpotAngle: 135.88884
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -195,10 +195,11 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 4.2
+  m_BounceIntensity: 6.9
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 40.35861, z: 1.0494785, w: 39.936348}
+  m_BoundingSphereOverride: {x: 4.6893778e+27, y: 2.817509e+20, z: 2.7244976e+20,
+    w: 4.7418096e+30}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2039,7 +2040,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedVertices: 00000000
 --- !u!64 &4680145418420352156
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4441,9 +4442,17 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  m_SelectedVertices: 00000000000000000000000000000000
 --- !u!64 &4680145419090163282
 MeshCollider:
   m_ObjectHideFlags: 0
