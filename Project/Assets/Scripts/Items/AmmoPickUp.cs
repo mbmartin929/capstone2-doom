@@ -150,8 +150,11 @@ public class AmmoPickUp : PickUpController
         _pickUpSFX.name = "PickUp SFX";
 
         _pickUpSFX.AddComponent<AudioSource>();
+        _pickUpSFX.GetComponent<AudioSource>().priority = 29;
         _pickUpSFX.GetComponent<AudioSource>().volume = 0.5f;
         _pickUpSFX.GetComponent<AudioSource>().PlayOneShot(pickUpSound);
+
+        Destroy(_pickUpSFX, 2.9f);
 
         Debug.Log("Pick up Ammo");
 

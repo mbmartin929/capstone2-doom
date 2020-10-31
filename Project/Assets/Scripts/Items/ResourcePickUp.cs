@@ -38,6 +38,21 @@ public class ResourcePickUp : PickUpController
         {
             Transform playerWeapons = other.GetComponent<PlayerController>().weapons;
 
+            GameObject pickUpSFX = new GameObject();
+            GameObject _pickUpSFX = Instantiate(pickUpSFX, transform.position, Quaternion.identity);
+            _pickUpSFX.name = "PickUp SFX";
+
+            _pickUpSFX.AddComponent<AudioSource>();
+            _pickUpSFX.GetComponent<AudioSource>().priority = 29;
+            _pickUpSFX.GetComponent<AudioSource>().volume = 0.5f;
+            _pickUpSFX.GetComponent<AudioSource>().PlayOneShot(pickUpSound);
+
+            Destroy(_pickUpSFX, 2.9f);
+
+            Debug.Log("Pick up Ammo");
+
+            PickUpOverlayManager.Instance.AmmoOverlay();
+
             ResourceManager.Instance.curResources += recoverAmount;
 
             Destroy(gameObject, 0f);

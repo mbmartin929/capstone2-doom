@@ -16,6 +16,7 @@ public class PauseManager : MonoBehaviour
     private bool pressRestart = false;
     private bool pressSettings = false;
     private bool pressQuit = false;
+    private bool pressUpgrades = false;
     #endregion
 
     // 0=Settings 1=Cheats 2=Restart 3=Quit
@@ -26,6 +27,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Animator settingsBoxAnimator;
     [SerializeField] private Animator cheatsBoxAnimator;
     [SerializeField] private Animator restartBoxAnimator;
+    [SerializeField] private Animator upgradestBoxAnimator;
     [SerializeField] private Animator quitBoxAnimator;
     private Animator animator;
 
@@ -93,8 +95,9 @@ public class PauseManager : MonoBehaviour
 
         cheatsBoxAnimator.SetTrigger("Exit");
         restartBoxAnimator.SetTrigger("Exit");
-        //settingsBoxAnimator.SetTrigger("Exit");
+        settingsBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
+        //upgradestBoxAnimator.SetTrigger("Exit");
     }
 
     public void PressCheats()
@@ -107,35 +110,36 @@ public class PauseManager : MonoBehaviour
         {
             Debug.Log("From Cheats Window");
 
-            //pressCheats = !pressCheats;
             StartCoroutine(StartNewWindow(1));
         }
         else if (pressSettings)
         {
             Debug.Log("From Settings Window");
 
-            //pressCheats = !pressCheats;
             StartCoroutine(StartNewWindow(1));
         }
         else if (pressQuit)
         {
             Debug.Log("From Quit Window");
 
-            //pressCheats = !pressCheats;
+            StartCoroutine(StartNewWindow(1));
+        }
+        else if (pressUpgrades)
+        {
+            Debug.Log("From Upgrades Window");
+
             StartCoroutine(StartNewWindow(1));
         }
         else if (!pressCheats)
         {
-            //pressCheats = !pressCheats;
             pressCheats = true;
             Debug.Log("Press Cheats: " + pressCheats);
         }
 
-        if (pressCheats && !pressRestart && !pressSettings && !pressQuit)
+        if (pressCheats && !pressRestart && !pressSettings && !pressQuit && !pressUpgrades)
         {
             Debug.Log("From Nothing");
 
-            //pressCheats = !pressCheats;
             cheatsBoxAnimator.gameObject.SetActive(true);
             cheatsBoxAnimator.SetTrigger("Start");
         }
@@ -143,7 +147,7 @@ public class PauseManager : MonoBehaviour
         UpdateCheatToggleButtons();
     }
 
-    // 0=Settings 1=Cheats 2=Restart 3=Quit
+    // 0=Settings 1=Cheats 2=Restart 3=Quit 4=Upgrades
     public void PressRestart()
     {
         Debug.Log("Press Restart");
@@ -152,40 +156,43 @@ public class PauseManager : MonoBehaviour
         {
             Debug.Log("From Cheats Window");
 
-            //pressRestart = !pressRestart;
             StartCoroutine(StartNewWindow(2));
         }
         else if (pressSettings)
         {
             Debug.Log("From Settings Window");
 
-            //pressRestart = !pressRestart;
             StartCoroutine(StartNewWindow(2));
         }
         else if (pressQuit)
         {
             Debug.Log("From Quit Window");
 
-            // pressRestart = !pressRestart;
+            StartCoroutine(StartNewWindow(2));
+        }
+        else if (pressUpgrades)
+        {
+            Debug.Log("From Upgrades Window");
+
             StartCoroutine(StartNewWindow(2));
         }
         else if (!pressRestart)
         {
-            //pressRestart = !pressRestart;
             pressRestart = true;
+
             Debug.Log("Press Restart: " + pressRestart);
         }
 
-        if (pressRestart && !pressCheats && !pressSettings && !pressQuit)
+        if (pressRestart && !pressCheats && !pressSettings && !pressQuit && !pressUpgrades)
         {
             Debug.Log("From Nothing");
 
-            //pressCheats = !pressCheats;
             restartBoxAnimator.gameObject.SetActive(true);
             restartBoxAnimator.SetTrigger("Start");
         }
     }
 
+    // 0=Settings 1=Cheats 2=Restart 3=Quit 4=Upgrades
     public void PressQuit()
     {
         Debug.Log("Press Quit");
@@ -208,18 +215,112 @@ public class PauseManager : MonoBehaviour
 
             StartCoroutine(StartNewWindow(3));
         }
+        else if (pressUpgrades)
+        {
+            Debug.Log("From Upgrades Window");
+
+            StartCoroutine(StartNewWindow(3));
+        }
         else if (!pressQuit)
         {
             pressQuit = true;
             Debug.Log("Press Quit: " + pressQuit);
         }
 
-        if (pressQuit && !pressCheats && !pressSettings && !pressRestart)
+        if (pressQuit && !pressCheats && !pressSettings && !pressRestart && !pressUpgrades)
         {
             Debug.Log("From Nothing");
 
             restartBoxAnimator.gameObject.SetActive(true);
             restartBoxAnimator.SetTrigger("Start");
+        }
+    }
+
+    // 0=Settings 1=Cheats 2=Restart 3=Quit 4=Upgrades
+    public void PressSettings()
+    {
+        Debug.Log("Press Settings");
+
+        if (pressCheats)
+        {
+            Debug.Log("From Cheats Window");
+
+            StartCoroutine(StartNewWindow(0));
+        }
+        else if (pressQuit)
+        {
+            Debug.Log("From Quit Window");
+
+            StartCoroutine(StartNewWindow(0));
+        }
+        else if (pressRestart)
+        {
+            Debug.Log("From Restart Window");
+
+            StartCoroutine(StartNewWindow(0));
+        }
+        else if (pressUpgrades)
+        {
+            Debug.Log("From Upgrades Window");
+
+            StartCoroutine(StartNewWindow(0));
+        }
+        else if (!pressSettings)
+        {
+            pressSettings = true;
+            Debug.Log("Press Settings: " + pressSettings);
+        }
+
+        if (pressSettings && !pressCheats && !pressQuit && !pressRestart && !pressUpgrades)
+        {
+            Debug.Log("From Nothing");
+
+            settingsBoxAnimator.gameObject.SetActive(true);
+            settingsBoxAnimator.SetTrigger("Start");
+        }
+    }
+
+    // 0=Settings 1=Cheats 2=Restart 3=Quit 4=Upgrades
+    public void PressUpgrades()
+    {
+        Debug.Log("Press Upgrades");
+
+        if (pressCheats)
+        {
+            Debug.Log("From Cheats Window");
+
+            StartCoroutine(StartNewWindow(4));
+        }
+        else if (pressQuit)
+        {
+            Debug.Log("From Quit Window");
+
+            StartCoroutine(StartNewWindow(4));
+        }
+        else if (pressRestart)
+        {
+            Debug.Log("From Restart Window");
+
+            StartCoroutine(StartNewWindow(4));
+        }
+        else if (pressSettings)
+        {
+            Debug.Log("From Settings Window");
+
+            StartCoroutine(StartNewWindow(4));
+        }
+        else if (!pressUpgrades)
+        {
+            pressUpgrades = true;
+            Debug.Log("Press Settings: " + pressUpgrades);
+        }
+
+        if (pressUpgrades && !pressCheats && !pressQuit && !pressRestart && !pressSettings)
+        {
+            Debug.Log("From Nothing");
+
+            settingsBoxAnimator.gameObject.SetActive(true);
+            settingsBoxAnimator.SetTrigger("Start");
         }
     }
     #endregion
@@ -268,19 +369,20 @@ public class PauseManager : MonoBehaviour
         pressRestart = false;
         pressSettings = false;
         pressQuit = false;
+        pressUpgrades = false;
 
         cheatsBoxAnimator.SetTrigger("Exit");
         restartBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
-        //settingsBoxAnimator.SetTrigger("Exit");
+        settingsBoxAnimator.SetTrigger("Exit");
+        //upgradestBoxAnimator.SetTrigger("Exit");
 
         Debug.Log("Exit All Windows");
     }
 
-    // 0=Settings 1=Cheats 2=Restart 3=Quit
+    // 0=Settings 1=Cheats 2=Restart 3=Quit 4=Upgrades
     public IEnumerator StartNewWindow(int id)
     {
-        //Debug.Log("Start New Window");
         ExitAllWindows();
 
         yield return new WaitForSeconds(transitionTime);
@@ -312,6 +414,12 @@ public class PauseManager : MonoBehaviour
             pressQuit = true;
             quitBoxAnimator.gameObject.SetActive(true);
             quitBoxAnimator.SetTrigger("Start");
+        }
+        else if (id == 4)
+        {
+            pressUpgrades = true;
+            upgradestBoxAnimator.gameObject.SetActive(true);
+            upgradestBoxAnimator.SetTrigger("Start");
         }
     }
 
