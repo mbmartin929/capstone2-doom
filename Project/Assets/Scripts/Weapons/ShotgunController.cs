@@ -290,6 +290,10 @@ public class ShotgunController : WeaponController
                     Debug.Log("Hit Egg");
                     hit.transform.GetComponent<EggController>().TakeDamage(damage);
                 }
+                else if (hit.transform.tag == "Resource Block")
+                {
+                    hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
+                }
                 else
                 {
                     Debug.Log("Shotgun Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);

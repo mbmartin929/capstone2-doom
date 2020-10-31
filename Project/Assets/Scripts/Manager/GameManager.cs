@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class GameManager : MonoBehaviour
     // Instantiates Singleton
     public static GameManager Instance { set; get; }
     public bool introEnabled = false;
-
     public int frameRate = 200;
+    public Volume volume;
     [HideInInspector] public GameObject playerGo;
 
     public int deadEnemiesNumber;

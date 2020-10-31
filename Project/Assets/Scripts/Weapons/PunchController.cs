@@ -165,6 +165,11 @@ namespace EightDirectionalSpriteSystem
                     PlayRandomPunchSound();
                     hit.transform.GetComponent<EggController>().TakeDamage(damage);
                 }
+                else if (hit.transform.tag == "Resource Block")
+                {
+                    PlayRandomPunchSound();
+                    hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
+                }
                 else { }
                 //Debug.Log(hit.transform.name);
             }

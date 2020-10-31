@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7340671730953866067}
   - component: {fileID: 1765618715492390976}
   - component: {fileID: 4713435039947222119}
-  - component: {fileID: 443821335447720307}
   - component: {fileID: 3069875427656575602}
   - component: {fileID: 5051018397967122211}
   - component: {fileID: 4005977373415226585}
+  - component: {fileID: 968304133854188053}
   m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
@@ -113,27 +113,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0773494, y: 1.967104, z: 0.54631996}
   m_Center: {x: 0.052811444, y: -0.010574728, z: 0.018172333}
---- !u!114 &443821335447720307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2157250552788667719}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43a4da5963998a4b8cf8b4dbae1eb35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceToPickUp: 3.69
-  lerpSpeed: 0.69
-  ambientSound: {fileID: 0}
-  pickUpSound: {fileID: 8300000, guid: 75338d9d0ce415443a83cdc66a7d7b80, type: 3}
-  itemName: Ammo
-  recoverAmount: 8
-  ammoType: 1
-  weapon: {fileID: 7648730109480126502, guid: 0dd233844e4d1554ea6bd50ea9a840dc, type: 3}
-  numberOfAmmo: 0
 --- !u!95 &3069875427656575602
 Animator:
   serializedVersion: 3
@@ -262,6 +241,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &968304133854188053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157250552788667719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769c3cd07b187cd49bfb0af3848b38f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToPickUp: 2.9
+  lerpSpeed: 0.69
+  ambientSound: {fileID: 0}
+  pickUpSound: {fileID: 0}
+  itemName: Resource
+  recoverAmount: 1
 --- !u!1 &4394127949990291611
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +271,6 @@ GameObject:
   - component: {fileID: 4394127949990291608}
   - component: {fileID: 154834781869837591}
   - component: {fileID: -9021545737521551175}
-  - component: {fileID: 2581026878776134354}
   m_Layer: 14
   m_Name: Resource PickUp
   m_TagString: Untagged
@@ -323,12 +319,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExplode: 0
-  minY: 690
-  maxY: 1000
-  minX: 222
-  maxX: 690
-  minZ: 222
-  maxZ: 690
+  minY: 420
+  maxY: 690
+  minX: 69
+  maxX: 290
+  minZ: 69
+  maxZ: 290
 --- !u!54 &-9021545737521551175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -345,15 +341,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2581026878776134354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4394127949990291611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769c3cd07b187cd49bfb0af3848b38f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

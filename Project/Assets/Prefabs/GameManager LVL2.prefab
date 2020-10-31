@@ -268,10 +268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introEnabled: 0
-  psxVolume: {fileID: 0}
   frameRate: 200
+  volume: {fileID: 6932275111484795738}
   playerGo: {fileID: 0}
-  all: {fileID: 0}
   deadEnemiesNumber: 0
   enableHeadBob: 1
   deadEnemies: {fileID: 437685814633479175}

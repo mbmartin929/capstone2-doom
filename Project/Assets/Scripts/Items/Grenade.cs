@@ -187,6 +187,10 @@ public class Grenade : MonoBehaviour
             {
                 nearbyObject.GetComponent<EggController>().TakeDamage(damage);
             }
+            else if (nearbyObject.tag == "Resource Block")
+            {
+                nearbyObject.GetComponent<ResourceBlock>().TakeDamage(damage);
+            }
         }
 
         GameObject grenadeVfx = Instantiate(explosionParticle, this.transform.position, Quaternion.identity);

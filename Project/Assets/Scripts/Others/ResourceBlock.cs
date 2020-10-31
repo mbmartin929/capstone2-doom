@@ -6,8 +6,12 @@ public class ResourceBlock : MonoBehaviour
 {
     public int health = 290;
 
-    public int resourceDrops;
+    public int minResourceDrops = 1;
+    public int maxResourceDrops = 6;
+
     public GameObject[] resourceGos;
+
+    private int deathCount = 0;
 
     public void TakeDamage(int damage)
     {
@@ -21,11 +25,29 @@ public class ResourceBlock : MonoBehaviour
 
     public void DropResources()
     {
-        for (int i = 0; i <= resourceDrops; i++)
+        if (deathCount == 0)
         {
-            int random = Random.Range(0, resourceGos.Length);
+            Debug.Log("Drop Resources");
 
-            //Instantiate
+            int amount = Random.Range(minResourceDrops, maxResourceDrops);
+
+            for (int i = 0; i <= amount; i++)
+            {
+                int index = Random.Range(0, resourceGos.Length);
+
+                GameObject itemDrop = Instantiate(resourceGos[index], transform.position, Quaternion.identity);
+                itemDrop.GetComponent<ItemExplosion>().isExplode = true;
+            }
+
+            deathCount++;
+
+            // for (int i = 0; i <= amount; i++)
+            // {
+            //     index = Random.Range(0, drops.Length - 1);
+
+            //     GameObject itemDrop = Instantiate(drops[index], transform.position, Quaternion.identity);
+            //     itemDrop.GetComponent<ItemExplosion>().isExplode = true;
+            // }
         }
     }
 }
