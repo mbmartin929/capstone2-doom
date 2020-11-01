@@ -40,13 +40,17 @@ namespace EightDirectionalSpriteSystem
         private void OnValidate()
         {
             if (actorBillboard != null && actorBillboard.CurrentAnimation == null)
-                SetCurrentState(currentState);
+                SetCurrentState(currentState); //Debug.Log("OnValidate");
         }
 
         void Update()
         {
             if (actorBillboard != null)
             {
+                //Debug.Log(currentState);
+                // currentAnimation = idleAnim;
+                // Debug.Log(currentAnimation);
+                //Debug.Log("");
                 actorBillboard.SetActorForwardVector(myTransform.forward);
             }
 
@@ -87,6 +91,7 @@ namespace EightDirectionalSpriteSystem
 
         public void SetCurrentState(State newState)
         {
+
             if (currentState != newState)
             {
                 currentState = newState;
@@ -117,6 +122,7 @@ namespace EightDirectionalSpriteSystem
 
                 if (actorBillboard != null)
                 {
+                    //Debug.Log("Hi");
                     actorBillboard.PlayAnimation(currentAnimation);
                 }
             }
