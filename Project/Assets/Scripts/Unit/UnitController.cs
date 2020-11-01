@@ -76,8 +76,6 @@ namespace EightDirectionalSpriteSystem
             else return false;
         }
 
-
-
         public void getPerk(int amount)
         {
             curGold -= amount;

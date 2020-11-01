@@ -9,6 +9,8 @@ public class ObjectiveManager : MonoBehaviour
 
     public int targetNumber = 10;
     public int currentNumber = 0;
+    public GameObject eggDoor;
+
     public TMP_Text textMesh;
 
     public float defaultTypeTime = 0.029f;
@@ -43,7 +45,11 @@ public class ObjectiveManager : MonoBehaviour
 
         if (currentNumber >= targetNumber)
         {
-            if (GameManager.Instance.level == 2) StartCoroutine(TypeObjective("Regroup with Kaichi", 0.069f, 2.9f));
+            if (GameManager.Instance.level == 2)
+            {
+                StartCoroutine(TypeObjective("Regroup with Kaichi", 0.069f, 2.9f));
+                StartCoroutine(eggDoor.GetComponent<ImportantDoor>().PlayAnimation());
+            }
             Debug.Log("Objective Finished");
         }
     }

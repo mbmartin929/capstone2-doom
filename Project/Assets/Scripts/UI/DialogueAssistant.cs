@@ -66,6 +66,13 @@ public class DialogueAssistant : MonoBehaviour
         nameTag.AddWriter("Kaichi", defaultTypeTime + 0.01f, true);
     }
 
+    public IEnumerator UnknownNameTag()
+    {
+        nameTag.AddWriter(" ", defaultTypeTime, true);
+        yield return new WaitForSeconds(1.18f);
+        nameTag.AddWriter("Unknown", defaultTypeTime + 0.01f, true);
+    }
+
     public IEnumerator IntroDialogueLvl1()
     {
         face.texture = faces[0];
@@ -376,6 +383,7 @@ public class DialogueAssistant : MonoBehaviour
         dialogueAnim.SetTrigger("Start");
         if (nametagID == 0) StartCoroutine(CommanderNameTag());
         else if (nametagID == 1) StartCoroutine(PinkyNameTag());
+        else if (nametagID == 2) StartCoroutine(UnknownNameTag());
         textWriter.AddWriter(" ", defaultTypeTime, true);
     }
 

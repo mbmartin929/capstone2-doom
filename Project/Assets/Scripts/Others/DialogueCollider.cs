@@ -77,7 +77,5 @@ public class DialogueCollider : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             Destroy(gameObject, 5.0f);
         }
-
-
     }
 }

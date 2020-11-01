@@ -10,11 +10,11 @@ public class CircleConstrain : MonoBehaviour
 
     public float duration = 1.69f;
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
-        //spriteRenderer.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
