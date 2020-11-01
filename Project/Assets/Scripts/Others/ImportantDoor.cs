@@ -8,7 +8,9 @@ public class ImportantDoor : MonoBehaviour
 
     public IEnumerator PlayAnimation()
     {
+        Debug.Log("Going to Open Door"); ;
         yield return new WaitForSeconds(waitTime);
         GetComponent<Animation>().Play();
+        Debug.Log("Door Opened"); ;
     }
 }
