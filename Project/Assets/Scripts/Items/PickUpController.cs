@@ -62,13 +62,18 @@ namespace EightDirectionalSpriteSystem
 
                 TextManager.Instance.UpdateHealthArmorText();
 
-                GameObject pickUpSFX = new GameObject();
-                GameObject _pickUpSFX = Instantiate(pickUpSFX, transform.position, Quaternion.identity);
+                GameObject _pickUpSFX = new GameObject();
+                //GameObject _pickUpSFX = Instantiate(pickUpSFX, transform.position, Quaternion.identity);
+                _pickUpSFX.transform.position = transform.position;
                 _pickUpSFX.name = "PickUp SFX";
 
                 _pickUpSFX.AddComponent<AudioSource>();
+                _pickUpSFX.GetComponent<AudioSource>().priority = 6;
+                _pickUpSFX.GetComponent<AudioSource>().spatialBlend = 0.0f;
                 _pickUpSFX.GetComponent<AudioSource>().volume = 0.42f;
-                _pickUpSFX.GetComponent<AudioSource>().PlayOneShot(pickUpSound);
+                _pickUpSFX.GetComponent<AudioSource>().clip = pickUpSound;
+                _pickUpSFX.GetComponent<AudioSource>().Play();
+                //_pickUpSFX.GetComponent<AudioSource>().PlayOneShot(pickUpSound);
 
                 Destroy(_pickUpSFX, 2.0f);
 

@@ -40,7 +40,7 @@ namespace EightDirectionalSpriteSystem
 
             if (other.CompareTag("Player") && numberOfArmor >= 1)
             {
-                Debug.Log("Armor Found");
+                //Debug.Log("Armor Found");
                 EndGameScreen.Instance.armorFound++;
             }
         }
