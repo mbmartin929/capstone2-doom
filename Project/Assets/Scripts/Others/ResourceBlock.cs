@@ -10,6 +10,7 @@ public class ResourceBlock : MonoBehaviour
     public int maxResourceDrops = 6;
 
     public GameObject[] resourceGos;
+    public GameObject[] crystalEffects;
 
     private int deathCount = 0;
 

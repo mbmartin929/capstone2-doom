@@ -6,7 +6,7 @@ using TMPro;
 
 public class EndGameText : MonoBehaviour
 {
-    public enum EndGameTextType { Secrets, Kills, Brutalized, HealthFound, ArmorFound, AmmoFound };
+    public enum EndGameTextType { Secrets, Kills, Brutalized, HealthFound, ArmorFound, AmmoFound, PickupsFound };
     [SerializeField] private EndGameTextType textType;
 
     private string textToWrite;
@@ -36,14 +36,32 @@ public class EndGameText : MonoBehaviour
         if (textType == EndGameTextType.Secrets) StartCoroutine(Secrets());
         else if (textType == EndGameTextType.Kills) StartCoroutine(Kills());
         else if (textType == EndGameTextType.Brutalized) StartCoroutine(Brutalized());
+        else if (textType == EndGameTextType.PickupsFound) StartCoroutine(PickupsFound());
         else if (textType == EndGameTextType.HealthFound) StartCoroutine(HealthFound());
-        else if (textType == EndGameTextType.ArmorFound) StartCoroutine(ArmorFound());
-        else if (textType == EndGameTextType.AmmoFound) StartCoroutine(AmmoFound());
+        //else if (textType == EndGameTextType.ArmorFound) StartCoroutine(ArmorFound());
+        //else if (textType == EndGameTextType.AmmoFound) StartCoroutine(AmmoFound());
+    }
+
+    private string GetPercentage(int currentValue, int maxValue)
+    {
+        float value = (((float)currentValue) / ((float)maxValue)) * 100f;
+        int newValue = Mathf.RoundToInt(value);
+        //Debug.Log(newValue);
+        //Debug.Log((2 / 45) * 100);
+        //Debug.Log(value * 100);
+        //Debug.Log(currentValue + " / " + maxValue + "* 100 = " + value);
+        //Debug.Log("Before: " + value);
+        //value = Mathf.RoundToInt(value);
+
+        //Debug.Log("After: " + value);
+        Debug.Log("End");
+        string toReturn = " [" + Mathf.RoundToInt(value).ToString("F0") + "%]";
+        return toReturn;
     }
 
     public IEnumerator Secrets()
     {
-        string toWrite = "Secrets: " + EndGameScreen.Instance.totalSecretsFound + " / " + EndGameScreen.Instance.totalSecrets;
+        string toWrite = "Secrets: " + EndGameScreen.Instance.totalSecretsFound + " / " + EndGameScreen.Instance.totalSecrets + GetPercentage(EndGameScreen.Instance.totalSecretsFound, EndGameScreen.Instance.totalSecrets);
         AddWriter("", 0.0f, true);
         yield return new WaitForSeconds(0.29f);
         AddWriter(toWrite, 0.0f, true);
@@ -52,7 +70,8 @@ public class EndGameText : MonoBehaviour
 
     public IEnumerator Kills()
     {
-        string toWrite = "Kills: " + EndGameScreen.Instance.killedEnemies + " / " + EndGameScreen.Instance.totalEnemies;
+        string toWrite = "Kills: " + EndGameScreen.Instance.killedEnemies + " / " + EndGameScreen.Instance.totalEnemies + GetPercentage(EndGameScreen.Instance.killedEnemies, EndGameScreen.Instance.totalEnemies);
+        AddWriter("", 0.0f, true);
         AddWriter("", 0.0f, true);
         yield return new WaitForSeconds(0.29f);
         AddWriter(toWrite, 0.0f, true);
@@ -61,7 +80,20 @@ public class EndGameText : MonoBehaviour
 
     public IEnumerator Brutalized()
     {
-        string toWrite = "Brutalized: " + EndGameScreen.Instance.enemiesGibbed + " / " + EndGameScreen.Instance.totalEnemies;
+        string toWrite = "Brutalized: " + EndGameScreen.Instance.enemiesGibbed + " / " + EndGameScreen.Instance.totalEnemies + GetPercentage(EndGameScreen.Instance.enemiesGibbed, EndGameScreen.Instance.totalEnemies);
+        AddWriter("", 0.0f, true);
+        AddWriter("", 0.0f, true);
+        yield return new WaitForSeconds(0.29f);
+        AddWriter(toWrite, 0.0f, true);
+        yield return new WaitForSeconds(0.29f);
+    }
+
+    public IEnumerator PickupsFound()
+    {
+        int pickupsFound = EndGameScreen.Instance.healthFound + EndGameScreen.Instance.armorFound + EndGameScreen.Instance.ammoFound;
+        int totalPickups = EndGameScreen.Instance.totalHealth + EndGameScreen.Instance.totalArmor + EndGameScreen.Instance.totalAmmo;
+
+        string toWrite = "Pick Ups Found: " + pickupsFound + " / " + totalPickups + GetPercentage(pickupsFound, totalPickups);
         AddWriter("", 0.0f, true);
         yield return new WaitForSeconds(0.29f);
         AddWriter(toWrite, 0.0f, true);

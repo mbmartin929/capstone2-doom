@@ -19,7 +19,7 @@ namespace EightDirectionalSpriteSystem
         private PlayerController player;
 
         [SerializeField]
-        private Text goldText;
+        private Text currencyText;
 
         void Awake()
         {
@@ -30,50 +30,47 @@ namespace EightDirectionalSpriteSystem
         }
 
         // Start is called before the first frame update
-        void Start()
-        {
-            PlayerController player = GameManager.Instance.playerGo.GetComponent<PlayerController>();
-            ResetPerks();
-        }
+        // void Start()
+        // {
+        //     PlayerController player = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+        //     ResetPerks();
+        // }
 
-        public void buyPerk(PerksPlayer playerPerk)
-        {
-            Debug.Log("WORKING");
-            if (player.CurGold > 0 && playerPerk.Click())
-            {
-                player.CurGold--;
-            }
-            if (player.CurGold == 0)
-            {
-                foreach (PerksPlayer p in perks)
-                {
-                    if (p.MyCurrentCount == 0)
-                    {
-                        p.LockPerk();
-                    }
-                }
-            }
-        }
-        private void ResetPerks()
-        {
-            UpdateGoldText();
-            foreach (PerksPlayer perk in perks)
-            {
-                perk.LockPerk();
-            }
+        // public void buyPerk(PerksPlayer playerPerk)
+        // {
+        //     Debug.Log("WORKING");
+        //     if (player.CurGold > 0 && playerPerk.Click())
+        //     {
+        //         player.CurGold--;
+        //     }
+        //     if (player.CurGold == 0)
+        //     {
+        //         foreach (PerksPlayer p in perks)
+        //         {
+        //             if (p.MyCurrentCount == 0)
+        //             {
+        //                 p.LockPerk();
+        //             }
+        //         }
+        //     }
+        // }
+        // private void ResetPerks()
+        // {
+        //     UpdateGoldText();
+        //     foreach (PerksPlayer perk in perks)
+        //     {
+        //         perk.LockPerk();
+        //     }
 
-            foreach (PerksPlayer perk in unlockedByDefault)
-            {
-                perk.unlockPerk();
-            }
-        }
+        //     foreach (PerksPlayer perk in unlockedByDefault)
+        //     {
+        //         perk.unlockPerk();
+        //     }
+        // }
 
         public void UpdateGoldText()
         {
-            //Debug.Log(goldText.text);
-            //Debug.Log(player);
-
-            goldText.text = GameManager.Instance.playerGo.GetComponent<PlayerController>().CurGold.ToString();
+            currencyText.text = GameManager.Instance.playerGo.GetComponent<PlayerController>().CurGold.ToString();
         }
     }
 }

@@ -292,6 +292,22 @@ public class ShotgunController : WeaponController
                 }
                 else if (hit.transform.tag == "Resource Block")
                 {
+                    Debug.Log("Hit Resource Block");
+                    ResourceBlock block = hit.transform.GetComponent<ResourceBlock>();
+
+                    foreach (GameObject item in block.crystalEffects)
+                    {
+                        if (item.tag == "Hit Normal")
+                        {
+                            ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+
+                            GameObject crystalHitGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                        }
+                        else
+                        {
+                            GameObject crystalHitGo = Instantiate(item, hit.transform.position, item.transform.rotation);
+                        }
+                    }
                     hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
                 }
                 else
