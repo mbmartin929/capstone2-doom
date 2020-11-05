@@ -97,7 +97,7 @@ public class PauseManager : MonoBehaviour
         restartBoxAnimator.SetTrigger("Exit");
         settingsBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
-        //upgradestBoxAnimator.SetTrigger("Exit");
+        upgradestBoxAnimator.SetTrigger("Exit");
     }
 
     public void PressCheats()
@@ -312,16 +312,23 @@ public class PauseManager : MonoBehaviour
         else if (!pressUpgrades)
         {
             pressUpgrades = true;
-            Debug.Log("Press Settings: " + pressUpgrades);
+            Debug.Log("Press Upgrades: " + pressUpgrades);
         }
 
         if (pressUpgrades && !pressCheats && !pressQuit && !pressRestart && !pressSettings)
         {
             Debug.Log("From Nothing");
 
-            settingsBoxAnimator.gameObject.SetActive(true);
-            settingsBoxAnimator.SetTrigger("Start");
+            animator.SetTrigger("Upgrades Start");
+            upgradestBoxAnimator.gameObject.SetActive(true);
+            upgradestBoxAnimator.SetTrigger("Start");
         }
+    }
+
+    public void PressBack()
+    {
+        animator.SetTrigger("Upgrades End");
+        upgradestBoxAnimator.SetTrigger("Exit");
     }
     #endregion
 
@@ -375,7 +382,7 @@ public class PauseManager : MonoBehaviour
         restartBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
         settingsBoxAnimator.SetTrigger("Exit");
-        //upgradestBoxAnimator.SetTrigger("Exit");
+        upgradestBoxAnimator.SetTrigger("Exit");
 
         Debug.Log("Exit All Windows");
     }
@@ -418,6 +425,8 @@ public class PauseManager : MonoBehaviour
         else if (id == 4)
         {
             pressUpgrades = true;
+
+            animator.SetTrigger("Upgrades Start");
             upgradestBoxAnimator.gameObject.SetActive(true);
             upgradestBoxAnimator.SetTrigger("Start");
         }

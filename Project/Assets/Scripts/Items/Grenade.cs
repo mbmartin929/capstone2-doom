@@ -189,7 +189,23 @@ public class Grenade : MonoBehaviour
             }
             else if (nearbyObject.tag == "Resource Block")
             {
-                nearbyObject.GetComponent<ResourceBlock>().TakeDamage(damage);
+                Debug.Log("Hit Resource Block");
+                ResourceBlock block = nearbyObject.GetComponent<ResourceBlock>();
+
+                foreach (GameObject item in block.crystalEffects)
+                {
+                    if (item.tag == "Hit Normal")
+                    {
+                        ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+
+                        GameObject crystalHitGo = Instantiate(item, nearbyObject.transform.position, Quaternion.LookRotation(GameManager.Instance.playerGo.transform.position));
+                    }
+                    else
+                    {
+                        GameObject crystalHitGo = Instantiate(item, nearbyObject.transform.position, item.transform.rotation);
+                    }
+                }
+                nearbyObject.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
             }
         }
 
