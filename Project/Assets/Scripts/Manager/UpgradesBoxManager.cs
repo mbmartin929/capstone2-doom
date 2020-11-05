@@ -12,6 +12,7 @@ public class UpgradesBoxManager : MonoBehaviour
 
     [SerializeField] TextMeshPro titleText;
     [SerializeField] TextMeshPro costText;
+    [SerializeField] TextMeshPro currencyText;
     [SerializeField] TextMeshPro descriptionText;
 
     [SerializeField] Button upgradeButton;
@@ -30,8 +31,9 @@ public class UpgradesBoxManager : MonoBehaviour
         else upgradeButton.interactable = true;
 
         titleText.text = "" + perks[id].perkTitle;
-        costText.text = "Cost: " + perks[id].perkCost;
+        costText.text = "" + perks[id].perkCost;
         descriptionText.text = "" + perks[id].perkDescription;
+        currencyText.text = "" + ResourceManager.Instance.curResources;
 
         upgradeButton.onClick.RemoveAllListeners();
         upgradeButton.onClick.AddListener(perks[id].Click);
@@ -41,5 +43,6 @@ public class UpgradesBoxManager : MonoBehaviour
     {
         if (upgraded) upgradeButton.interactable = interactable;
         else upgradeButton.interactable = interactable;
+        currencyText.text = "" + ResourceManager.Instance.curResources;
     }
 }

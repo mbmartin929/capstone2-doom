@@ -36,7 +36,7 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             playerMovement = GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>();
-            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>(); 
+            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
             //UnitController player = GetComponent<UnitController>();
         }
 

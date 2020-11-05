@@ -46,15 +46,7 @@ public class EndGameText : MonoBehaviour
     {
         float value = (((float)currentValue) / ((float)maxValue)) * 100f;
         int newValue = Mathf.RoundToInt(value);
-        //Debug.Log(newValue);
-        //Debug.Log((2 / 45) * 100);
-        //Debug.Log(value * 100);
-        //Debug.Log(currentValue + " / " + maxValue + "* 100 = " + value);
-        //Debug.Log("Before: " + value);
-        //value = Mathf.RoundToInt(value);
 
-        //Debug.Log("After: " + value);
-        Debug.Log("End");
         string toReturn = " [" + Mathf.RoundToInt(value).ToString("F0") + "%]";
         return toReturn;
     }
