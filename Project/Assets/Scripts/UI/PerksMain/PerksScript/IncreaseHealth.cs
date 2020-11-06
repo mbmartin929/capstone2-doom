@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using EightDirectionalSpriteSystem;
 
-public class IncreaseSpeed : Perks
+public class IncreaseHealth : Perks
 {
-    [SerializeField] private float addedSpeed;
+    [SerializeField] private int addedHealth;
 
     public override void Click()
     {
@@ -13,11 +13,12 @@ public class IncreaseSpeed : Perks
         {
             if (ResourceManager.Instance.curResources >= perkCost)
             {
-                Debug.Log("Upgraded");
-                //Debug.Log("Before: " + playerMovement.walkSpeed);
-                playerMovement.walkSpeed += addedSpeed;
-                playerMovement.sprintSpeed += addedSpeed;
-                //Debug.Log("After: " + playerMovement.walkSpeed);
+                ResourceManager.Instance.curResources -= perkCost;
+
+                Debug.Log("Upgraded Health");
+
+                playerController.maxHealth += addedHealth;
+                playerController.CurHealth += addedHealth;
 
                 isUpgraded = true;
 
@@ -27,4 +28,3 @@ public class IncreaseSpeed : Perks
         }
     }
 }
-

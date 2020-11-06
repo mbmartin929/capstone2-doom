@@ -27,7 +27,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Animator settingsBoxAnimator;
     [SerializeField] private Animator cheatsBoxAnimator;
     [SerializeField] private Animator restartBoxAnimator;
-    [SerializeField] private Animator upgradestBoxAnimator;
+    [SerializeField] private Animator upgradesBoxAnimator;
     [SerializeField] private Animator quitBoxAnimator;
     private Animator animator;
 
@@ -97,7 +97,7 @@ public class PauseManager : MonoBehaviour
         restartBoxAnimator.SetTrigger("Exit");
         settingsBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
-        upgradestBoxAnimator.SetTrigger("Exit");
+        upgradesBoxAnimator.SetTrigger("Exit");
     }
 
     public void PressCheats()
@@ -320,15 +320,16 @@ public class PauseManager : MonoBehaviour
             Debug.Log("From Nothing");
 
             animator.SetTrigger("Upgrades Start");
-            upgradestBoxAnimator.gameObject.SetActive(true);
-            upgradestBoxAnimator.SetTrigger("Start");
+            upgradesBoxAnimator.gameObject.SetActive(true);
+            upgradesBoxAnimator.SetTrigger("Start");
+            UpgradesBoxManager.Instance.UpdateTextBox(0);
         }
     }
 
     public void PressBack()
     {
         animator.SetTrigger("Upgrades End");
-        upgradestBoxAnimator.SetTrigger("Exit");
+        upgradesBoxAnimator.SetTrigger("Exit");
     }
     #endregion
 
@@ -382,7 +383,7 @@ public class PauseManager : MonoBehaviour
         restartBoxAnimator.SetTrigger("Exit");
         quitBoxAnimator.SetTrigger("Exit");
         settingsBoxAnimator.SetTrigger("Exit");
-        upgradestBoxAnimator.SetTrigger("Exit");
+        upgradesBoxAnimator.SetTrigger("Exit");
 
         Debug.Log("Exit All Windows");
     }
@@ -427,8 +428,9 @@ public class PauseManager : MonoBehaviour
             pressUpgrades = true;
 
             animator.SetTrigger("Upgrades Start");
-            upgradestBoxAnimator.gameObject.SetActive(true);
-            upgradestBoxAnimator.SetTrigger("Start");
+            upgradesBoxAnimator.gameObject.SetActive(true);
+            upgradesBoxAnimator.SetTrigger("Start");
+            UpgradesBoxManager.Instance.UpdateTextBox(0);
         }
     }
 

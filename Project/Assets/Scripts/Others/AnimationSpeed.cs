@@ -19,9 +19,8 @@ public class AnimationSpeed : MonoBehaviour
         animator.speed = speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeSpeed(float speed)
     {
-
+        animator.speed = speed;
     }
 }
