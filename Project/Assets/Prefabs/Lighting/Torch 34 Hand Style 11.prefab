@@ -42,11 +42,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.29
-  m_Range: 4.2
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 119.318954
+  m_Color: {r: 1, g: 0.8938876, b: 0.8254717, a: 1}
+  m_Intensity: 0.114
+  m_Range: 2.9
+  m_SpotAngle: 86.23491
+  m_InnerSpotAngle: 26.553871
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -88,7 +88,7 @@ Light:
   m_BounceIntensity: 1.1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -63.247734, z: -21.005997, w: 105.97994}
+  m_BoundingSphereOverride: {x: 1.6789e-41, y: 1.01e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -181,7 +181,7 @@ Light:
   m_BounceIntensity: 0.42
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -38.184704, z: -24.729525, w: 143.4718}
+  m_BoundingSphereOverride: {x: 0.03515625, y: 0.09765625, z: 0.0078125, w: -0.00390625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3109,11 +3109,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
+  m_Color: {r: 1, g: 0.8069934, b: 0.7971698, a: 1}
   m_Intensity: 0.114
-  m_Range: 5.5
+  m_Range: 6.9
   m_SpotAngle: 130.18207
-  m_InnerSpotAngle: 43.861027
+  m_InnerSpotAngle: 71.93467
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3155,7 +3155,7 @@ Light:
   m_BounceIntensity: 6.9
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -38.61586, z: -24.369854, w: 143.40161}
+  m_BoundingSphereOverride: {x: 1.6789e-41, y: 1.01e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

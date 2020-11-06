@@ -1,31 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EightDirectionalSpriteSystem;
 
-namespace EightDirectionalSpriteSystem
+public class IncreaseSpeed : Perks
 {
-    public class IncreaseSpeed : PerksPlayer
+    [SerializeField] private float addedSpeed;
+
+    public override void Click()
     {
-        [SerializeField] private int addedSpeed;
-
-        [SerializeField] private UnitController player;
-
-        [SerializeField] private PlayerMovement playerMovement;
-
-        public void Start()
+        if (!isUpgraded)
         {
-
-        }
-        // Start is called before the first frame update
-        public override bool Click()
-        {
-            if (base.Click())
+            if (ResourceManager.Instance.curResources >= perkCost)
             {
-                playerMovement.movementSpeed += addedSpeed;
-                Debug.Log("INCREASE SPEED");
-                return true;
+                ResourceManager.Instance.curResources -= perkCost;
+
+                Debug.Log("Upgraded Speed");
+
+                playerMovement.walkSpeed += addedSpeed;
+                playerMovement.sprintSpeed += addedSpeed;
+
+                isUpgraded = true;
+
+                UpgradesBoxManager.Instance.UpdateButton(false, isUpgraded);
             }
-            return false;
+            else Debug.Log("Not enough resources for upgrade");
         }
     }
 }
+

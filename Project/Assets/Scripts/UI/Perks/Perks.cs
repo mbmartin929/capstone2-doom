@@ -7,90 +7,78 @@ namespace EightDirectionalSpriteSystem
 {
     public class Perks : MonoBehaviour
     {
-        public PlayerMovement playerStats;
-        public UnitController player;
+        protected FirstPersonAIO playerMovement;
+        protected PlayerController playerController;
+        protected Button upgradeButton;
 
-        public Image coolDownOverlay;
-        public Text goldText;
-        public Text costPerk;
+        public bool isUpgraded = false;
+
+        // public Image coolDownOverlay;
+        // public Text goldText;
+        // public Text costPerk;
 
 
-        [SerializeField] private float perkDuration;
-        [SerializeField] private int perkCost;
+        // [SerializeField] private float addAmount = 2.9f;
+        // [SerializeField] private float perkDuration;
+
+        public int perkCost;
+        public string perkTitle;
+        public string perkDescription;
         private float perkCoolDown = 1f;
+        //private float currency
 
+        private void Awake()
+        {
 
+        }
 
         // Start is called before the first frame update
         void Start()
         {
-            PlayerMovement playerStats = GetComponent<PlayerMovement>();
-            UnitController player = GetComponent<UnitController>();
+            playerMovement = GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>();
+            playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+            //UnitController player = GetComponent<UnitController>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public virtual void Click()
         {
-            goldText.text = "Gold: " + player.CurGold.ToString();
-            costPerk.text = "Cost: " + perkCost.ToString();
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("F WORKING");
-                player.CurHealth -= 10;
-
-            }
-        }
-
-        public void IncSpeed()
-        {
-            if (player.CurGold >= perkCost)
-            {
-                player.CurGold -= perkCost;
-                playerStats.movementSpeed += 5;
-                StartCoroutine(CoolDownDelay());
-                Debug.Log("HERE" + player.CurGold);
-            }
-            else
-            {
-                Debug.Log("NOT ENOUGH GOLD");
-            }
-
 
         }
 
-        public void Heal()
-        {
-            if (player.CurGold >= perkCost)
-            {
-                player.CurGold -= perkCost;
-                StartCoroutine(HealOverTime(20, perkDuration));
+        // }
 
-                Debug.Log("HEALING!");
-            }
+        // public void Heal()
+        // {
+        //     if (player.CurGold >= perkCost)
+        //     {
+        //         player.CurGold -= perkCost;
+        //         StartCoroutine(HealOverTime(20, perkDuration));
 
-        }
+        //         Debug.Log("HEALING!");
+        //     }
+        // }
 
-        public IEnumerator HealOverTime(int healAmount, float duration)
-        {
-            int amountHealead = 0;
-            int healPerloop = healAmount / (int)duration;
-            while (amountHealead < healAmount)
-            {
-                player.CurHealth += healPerloop;
-                amountHealead += healPerloop;
-                Debug.Log(amountHealead + " amount HEALED");
-                Debug.Log(player.CurHealth);
-                yield return new WaitForSeconds(1f);
+        // public IEnumerator HealOverTime(int healAmount, float duration)
+        // {
+        //     int amountHealead = 0;
+        //     int healPerloop = healAmount / (int)duration;
+        //     while (amountHealead < healAmount)
+        //     {
+        //         player.CurHealth += healPerloop;
+        //         amountHealead += healPerloop;
+        //         Debug.Log(amountHealead + " amount HEALED");
+        //         Debug.Log(player.CurHealth);
+        //         yield return new WaitForSeconds(1f);
 
-            }
-        }
+        //     }
+        // }
 
-        IEnumerator CoolDownDelay()
-        {
-            yield return new WaitForSeconds(0.5f);
-            perkCoolDown -= 0.5f;
-            coolDownOverlay.GetComponent<Image>().fillAmount = perkCoolDown;
-            StartCoroutine(CoolDownDelay());
-        }
+        // IEnumerator CoolDownDelay()
+        // {
+        //     yield return new WaitForSeconds(0.5f);
+        //     perkCoolDown -= 0.5f;
+        //     coolDownOverlay.GetComponent<Image>().fillAmount = perkCoolDown;
+        //     StartCoroutine(CoolDownDelay());
+        // }
     }
 }

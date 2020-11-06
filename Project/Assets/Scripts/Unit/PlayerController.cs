@@ -11,9 +11,6 @@ public class PlayerController : UnitController
     public bool isDamaged;
     public bool damaged;
 
-    public int currentHealth;
-    public int currentArmor;
-
     public Transform weapons;
 
     public float rayCastLength;
@@ -28,7 +25,6 @@ public class PlayerController : UnitController
     bool isOpen = false;
 
     public int currentGold;
-
 
     //[Header("Player Attributes")]
     //public List<PlayerAttributes> Attributes = new List<PlayerAttributes>();
@@ -55,9 +51,6 @@ public class PlayerController : UnitController
     // Update is called once per frame
     void Update()
     {
-        currentHealth = CurHealth;
-        currentArmor = CurArmor;
-
         currentGold = CurGold;
         playerRayCast();
     }

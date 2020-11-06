@@ -96,7 +96,7 @@ public class EndGameScreen : MonoBehaviour
 
         evaluationTitle.AddWriter("EVALUATION", 0.069f + additionalTime, true);
         yield return new WaitForSeconds(0.69f);
-        nameTitle.AddWriter("Prv. Jane Doe", 0.069f + additionalTime, true);
+        nameTitle.AddWriter("Prv. Lin Erevoir", 0.069f + additionalTime, true);
         yield return new WaitForSeconds(0.42f);
         //StartCoroutine(EndTransition());
     }
