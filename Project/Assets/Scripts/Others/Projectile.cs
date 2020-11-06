@@ -10,6 +10,9 @@ namespace EightDirectionalSpriteSystem
         public ProjectileType projectileType = ProjectileType.SnailProjectile;
         [HideInInspector] public int damage;
 
+        public float speed = 69f;
+        public float upwardsMultiplier = 2.9f;
+
         public float duration = 1.29f;
 
         public EnemyAI enemyAI;
@@ -55,6 +58,17 @@ namespace EightDirectionalSpriteSystem
             GetComponent<Rigidbody>().AddForce(((transformPosition /*+ enemyAI.attackLoc.up  + enemyAI.attackLoc.forward*/) * (forwardMultiplier)));
 
             //transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity);
+        }
+
+        public void LaunchWormProjectile()
+        {
+            Vector3 newPos = GameManager.Instance.playerGo.transform.position;
+            Vector3 upPos = new Vector3(0, 4.2f, 0);
+            //Vector3 newPos = GameManager.Instance.playerGo.transform.position + GameManager.Instance.playerGo.transform.up * upwardsMultiplier;
+            float dist = Vector3.Distance(newPos + upPos, enemyAI.attackLoc.position);
+            //GetComponent<Rigidbody>().AddForce(mouthOfAlien.transform.position * projectileSpeed * dist);
+            gameObject.GetComponent<Rigidbody>().velocity = (transform.forward + (transform.up / 4.42f)) * speed * dist;
+
         }
 
         public void LaunchProjectile1()

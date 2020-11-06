@@ -95,20 +95,25 @@ namespace EightDirectionalSpriteSystem
 
         public void WormAttack()
         {
+            // GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a1.GetComponent<Projectile>().enemyAI = this;
+            // a1.GetComponent<Projectile>().damage = enemyController.damage;
+            // a1.GetComponent<Projectile>().LaunchProjectile1();
+
+            // GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a2.GetComponent<Projectile>().enemyAI = this;
+            // a2.GetComponent<Projectile>().damage = enemyController.damage;
+            // a2.GetComponent<Projectile>().LaunchProjectile2();
+
+            // GameObject a3 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
+            // a3.GetComponent<Projectile>().enemyAI = this;
+            // a3.GetComponent<Projectile>().damage = enemyController.damage;
+            // a3.GetComponent<Projectile>().LaunchProjectile3();
+
             GameObject a1 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
             a1.GetComponent<Projectile>().enemyAI = this;
             a1.GetComponent<Projectile>().damage = enemyController.damage;
-            a1.GetComponent<Projectile>().LaunchProjectile1();
-
-            GameObject a2 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            a2.GetComponent<Projectile>().enemyAI = this;
-            a2.GetComponent<Projectile>().damage = enemyController.damage;
-            a2.GetComponent<Projectile>().LaunchProjectile2();
-
-            GameObject a3 = Instantiate(enemyController.projectileGo, attackLoc.position, transform.rotation);
-            a3.GetComponent<Projectile>().enemyAI = this;
-            a3.GetComponent<Projectile>().damage = enemyController.damage;
-            a3.GetComponent<Projectile>().LaunchProjectile3();
+            a1.GetComponent<Projectile>().LaunchWormProjectile();
 
             float distance;
             distance = Vector3.Distance(transform.position, GameManager.Instance.playerGo.transform.position);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2162347690228814096}
   - component: {fileID: 2162347690228814108}
   - component: {fileID: 2162347690228814111}
+  - component: {fileID: 2982965081855895397}
   m_Layer: 0
   m_Name: Crystal Resources
   m_TagString: Resource Block
@@ -137,6 +138,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4473256, y: 2.0475895, z: 0.2810604}
   m_Center: {x: -0.07828705, y: 0.02379473, z: 0.019545149}
+--- !u!114 &2982965081855895397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162347690228814099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e52446ca919e9a4a82dc82040334b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _LookMode: 0
 --- !u!1 &2162347690939019669
 GameObject:
   m_ObjectHideFlags: 0

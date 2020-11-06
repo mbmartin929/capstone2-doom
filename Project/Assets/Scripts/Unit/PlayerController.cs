@@ -97,7 +97,7 @@ public class PlayerController : UnitController
                     {
                         if (door.keyRequirement <= keyAmount)
                         {
-                            //Debug.Log("Exit Door");
+                            Debug.Log("Exit Door");
                             keyAmount -= 1;
                             EndGameScreen.Instance.StartEndLevelScreen();
                         }
