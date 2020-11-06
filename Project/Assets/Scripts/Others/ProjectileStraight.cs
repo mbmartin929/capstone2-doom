@@ -14,15 +14,15 @@ public class ProjectileStraight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-        LaunchProjectile();
-  
+
+        //LaunchProjectile();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 

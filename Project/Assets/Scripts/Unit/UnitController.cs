@@ -66,7 +66,7 @@ namespace EightDirectionalSpriteSystem
             {
                 curGold = value;
                 if (curGold < 0) curGold = 0;
-                PerkTree.Instance.UpdateGoldText();
+                //PerkTree.Instance.UpdateGoldText();
             }
         }
 
