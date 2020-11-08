@@ -8,8 +8,6 @@ namespace EightDirectionalSpriteSystem
     {
         public AudioClip[] wooshSounds;
 
-        public float fireTime = 1.5f;
-        public float fireDelay = 1.5f;
         public bool readyToFire = true;
 
         void Awake()

@@ -9,6 +9,10 @@ public class EggController : MonoBehaviour
     public int eggCount;
 
     public bool isObjective = false;
+
+    public GameObject[] enemySpawns;
+    public float spawnTime = 1.29f;
+
     public GameObject[] bloodSplashGos;
 
     public int minNumberBabySpawns;
@@ -62,9 +66,21 @@ public class EggController : MonoBehaviour
             }
         }
 
+        StartCoroutine(SpawnEnemies());
+
         ObjectiveManager.Instance.currentNumber += eggCount;
         eggCount = 0;
         ObjectiveManager.Instance.UpdateTargetNumberObjective();
         Destroy(gameObject);
+    }
+
+    private IEnumerator SpawnEnemies()
+    {
+        yield return new WaitForSeconds(spawnTime);
+
+        foreach (GameObject enemy in enemySpawns)
+        {
+            enemy.SetActive(true);
+        }
     }
 }

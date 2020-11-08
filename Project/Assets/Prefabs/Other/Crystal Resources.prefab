@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   minResourceDrops: 1
-  maxResourceDrops: 6
+  maxResourceDrops: 3
   resourceGos:
   - {fileID: 4394127949990291611, guid: df1fb9194f595274894939477cc31b11, type: 3}
   crystalEffects:
@@ -195,7 +195,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 2.9
+  m_Range: 2.29
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

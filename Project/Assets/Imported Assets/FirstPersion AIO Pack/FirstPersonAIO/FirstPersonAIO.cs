@@ -803,6 +803,7 @@ public class FirstPersonAIO : MonoBehaviour
     {
         //playerCanMove = false;
         yield return new WaitForSeconds(time);
+        TimeManager.Instance.StartTimer();
         playerCanMove = true;
     }
 

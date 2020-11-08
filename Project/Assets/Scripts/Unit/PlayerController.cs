@@ -17,6 +17,8 @@ public class PlayerController : UnitController
 
     public int keyAmount = 0;
 
+    [HideInInspector] public bool powerUpInvulnerable = false;
+
     public GameObject gameOverScreen;
     public Transform launcherPos;
 
@@ -149,7 +151,8 @@ public class PlayerController : UnitController
         }
         else
         {
-            if (CheatsManager.Instance.enableGodMode) { Debug.Log("Take No Damage"); return; }
+            if (powerUpInvulnerable) { Debug.Log("Take No Damage From Power Ups"); return; }
+            if (CheatsManager.Instance.enableGodMode) { Debug.Log("Take No Damage From Cheats"); return; }
             else
             {
                 bloodOverlay.ChangeActiveBloodOverlayOpacity();
