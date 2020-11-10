@@ -90,6 +90,7 @@ public class DialogueAssistant : MonoBehaviour
 
         //MusicManager.Instance.FadeInActiveMusicCaller(0);
         if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.0f));
+        else TimeManager.Instance.StartTimer();
 
         StartCoroutine(EndTransition());
         MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
@@ -113,6 +114,7 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(3.29f);
 
         if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.9f));
+        else TimeManager.Instance.StartTimer();
 
         StartCoroutine(EndTransition());
         //MusicManager.Instance.FadeInAmbientMusicCaller(0, true);

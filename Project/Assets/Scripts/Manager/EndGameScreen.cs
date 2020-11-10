@@ -13,6 +13,9 @@ public class EndGameScreen : MonoBehaviour
     public int totalSecrets = 0;
     public int totalSecretsFound = 0;
 
+    public int totalCrystals = 0;
+    public int crystalsFound = 0;
+
     public int totalEnemies = 0;
     public int killedEnemies = 0;
     public int enemiesGibbed = 0;
@@ -22,6 +25,9 @@ public class EndGameScreen : MonoBehaviour
 
     public int armorFound;
     public int totalArmor;
+
+    public int powerUpFound;
+    public int totalPowerUp;
 
     public int ammoFound;
     public int totalAmmo;
@@ -47,7 +53,7 @@ public class EndGameScreen : MonoBehaviour
     public void StartEndLevelScreen()
     {
         blackOverlay.SetActive(true);
-
+        TimeManager.Instance.StopTimer();
         MusicManager.Instance.FadeOutActiveMusicCaller();
         MusicManager.Instance.FadeOutAmbientMusicCaller();
 

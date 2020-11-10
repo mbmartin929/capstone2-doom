@@ -267,11 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47d17ed418330743b71695e01c11d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileType: 0
   damage: 0
-  cursor: {fileID: 0}
-  layer:
-    serializedVersion: 2
-    m_Bits: 0
-  shootPoint: {fileID: 0}
+  speed: 2.18
+  upwardsMultiplier: 6.9
   duration: 1
   enemyAI: {fileID: 0}
+  forwardMultiplier: 2
+  upwardMultiplier: 42

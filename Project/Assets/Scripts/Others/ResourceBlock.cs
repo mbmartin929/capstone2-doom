@@ -12,7 +12,14 @@ public class ResourceBlock : MonoBehaviour
     public GameObject[] resourceGos;
     public GameObject[] crystalEffects;
 
+    public int crystalAmount = 0;
+
     private int deathCount = 0;
+
+    private void Start()
+    {
+        EndGameScreen.Instance.totalCrystals += crystalAmount;
+    }
 
     public void TakeDamage(int damage)
     {
@@ -29,6 +36,8 @@ public class ResourceBlock : MonoBehaviour
         if (deathCount == 0)
         {
             Debug.Log("Drop Resources");
+
+            EndGameScreen.Instance.crystalsFound += crystalAmount;
 
             int amount = Random.Range(minResourceDrops, maxResourceDrops);
 
