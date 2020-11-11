@@ -197,6 +197,7 @@ public class ShotgunController : WeaponController
         }
 
         transform.localPosition = startPos;
+        transform.localRotation = Quaternion.identity;
 
         if (CheatsManager.Instance.enableUnlimitedAmmo) { Debug.Log("Unlimited Ammo"); }
         else CurAmmo--;

@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328639067869672197}
-  m_LocalRotation: {x: -0, y: 0.9970467, z: -0, w: 0.076797634}
+  m_LocalRotation: {x: -0, y: 0.9999268, z: -0, w: 0.012099982}
   m_LocalPosition: {x: 0, y: -0.22500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -173,7 +173,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 149564835618060751, guid: b9d55e427f1d94f4bb049b729a161506, type: 3}
+  m_Sprite: {fileID: -5481053314028960677, guid: b9d55e427f1d94f4bb049b729a161506,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,7 +200,7 @@ MonoBehaviour:
   actorTransform: {fileID: 7328639068343049390}
   slimeShockwave: {fileID: 1546403215493713465, guid: bf81471ddfe8eae4c9cdd7ea043330b9,
     type: 3}
-  currentFrameIndex: 0
+  currentFrameIndex: 4
   enemy: 1
   materials: []
 --- !u!65 &7328639067869672193
@@ -230,7 +231,7 @@ MonoBehaviour:
   projectileGo: {fileID: 0}
   maxHealth: 20
   maxArmor: 0
-  damage: 5
+  damage: 3
   painChance: 0.25
   painDuration: 0.3
   painStrength: 1

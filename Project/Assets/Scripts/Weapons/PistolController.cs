@@ -216,7 +216,7 @@ namespace EightDirectionalSpriteSystem
 
                     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
                     Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
-                    //Debug.Log("Finish Hit Level");
+                    Debug.Log("Finish Hit Level");
                 }
 
                 // Raycast hits Enemy
@@ -313,7 +313,7 @@ namespace EightDirectionalSpriteSystem
                 //Debug.Log("Hit Name: " + hit.transform.gameObject.name);
                 //Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
             }
-            //Debug.Log("Finish Shooting");
+            Debug.Log("Finish Shooting");
         }
 
         void setReadyToFire()

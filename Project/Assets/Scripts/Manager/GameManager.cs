@@ -38,14 +38,30 @@ public class GameManager : MonoBehaviour
 
         // Gets player gameobject
         playerGo = GameObject.FindGameObjectWithTag("Player");
-        if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log("GameManager Found Player");
+        if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log(gameObject.name + " Found Player");
 
         // Sets Framerate
         Application.targetFrameRate = frameRate;
 
-        if (Instance == this) Debug.Log("GameManager Singleton Initialized");
+        if (Instance == this) Debug.Log("GameManager " + level + " Singleton Initialized");
 
         currentScene = SceneManager.GetActiveScene();
+
+        DontDestroyOnLoad(playerGo);
+    }
+
+    private void Start()
+    {
+        if (introEnabled)
+        {
+            if (level == 2)
+            {
+                Debug.Log("Transferring Player");
+
+                playerGo.transform.position = new Vector3(-21.1f, -14.1f, 110.3f);
+                playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+            }
+        }
     }
 
     void Update()
@@ -59,7 +75,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.PageUp))
         {
             Debug.Log("Press PageUp");
-            StartCoroutine(LoadNextScene(-1.69f));
+            StartCoroutine(LoadSecondScene(-1.69f));
         }
     }
 
@@ -70,11 +86,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentScene.name);
     }
 
-    public IEnumerator LoadNextScene(float time)
+    public IEnumerator LoadSecondScene(float time)
     {
         Debug.Log("Loading Second Scene");
         yield return new WaitForSeconds(restartSceneTime + time);
-        SceneManager.LoadSceneAsync("Scene_2_URP_Martin", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("Scene_2_URP_Martin", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Scene_2_URP_Martin");
 
         yield return new WaitForSeconds(1.0f);
 
@@ -84,9 +101,12 @@ public class GameManager : MonoBehaviour
 
         Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(level += 1);
 
+
+
         SceneManager.MoveGameObjectToScene(playerGo, sceneToLoad);
         GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
-        SceneManager.UnloadSceneAsync(level -= 1);
+        //SceneManager.UnloadSceneAsync(level -= 1);
+        //SceneManager.UnloadScene(level -= 1);
 
         EndGameScreen.Instance.endScreen.SetActive(false);
         EndGameScreen.Instance.blackOverlay.SetActive(false);
@@ -94,6 +114,7 @@ public class GameManager : MonoBehaviour
 
         if (level == 1)
         {
+            SceneManager.UnloadSceneAsync(level);
             playerGo.transform.position = new Vector3(-21.1f, -14.0f, 110.3f);
             playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
 

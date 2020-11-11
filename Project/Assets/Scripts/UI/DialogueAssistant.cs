@@ -94,7 +94,7 @@ public class DialogueAssistant : MonoBehaviour
 
         StartCoroutine(EndTransition());
         MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
-        //FirstPersonAIO.Instance.playerCanMove = true;
+        FirstPersonAIO.Instance.playerCanMove = true;
     }
 
     public IEnumerator IntroDialogueLvl2()
@@ -117,7 +117,8 @@ public class DialogueAssistant : MonoBehaviour
         else TimeManager.Instance.StartTimer();
 
         StartCoroutine(EndTransition());
-        //MusicManager.Instance.FadeInAmbientMusicCaller(0, true);
+        MusicManager.Instance.FadeInAmbientMusicCaller(6, true);
+        FirstPersonAIO.Instance.playerCanMove = true;
     }
 
     public IEnumerator SwitchPistol()

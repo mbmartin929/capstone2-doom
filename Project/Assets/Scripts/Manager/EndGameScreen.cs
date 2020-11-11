@@ -70,7 +70,7 @@ public class EndGameScreen : MonoBehaviour
 
     public void LoadNextScene()
     {
-        StartCoroutine(GameManager.Instance.LoadNextScene(-1.69f));
+        StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
     }
 
     private IEnumerator EndScreenActive(float time)

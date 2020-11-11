@@ -344,6 +344,8 @@ namespace EightDirectionalSpriteSystem
 
         private void OnWillRenderObject()
         {
+            if (Camera.main == null) { Debug.Log("No Camera Detected"); return; }
+
             if (beforeRenderBillboardEvent != null)
                 beforeRenderBillboardEvent();
 

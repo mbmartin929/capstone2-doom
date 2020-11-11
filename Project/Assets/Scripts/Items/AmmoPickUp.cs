@@ -51,6 +51,7 @@ public class AmmoPickUp : PickUpController
             // Player picks up normal ammo
             PickUpAmmo(playerWeapons);
 
+            Destroy(transform.parent.gameObject, 0f);
             Destroy(gameObject, 0f);
         }
     }
