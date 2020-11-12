@@ -72,6 +72,26 @@ public class EggController : MonoBehaviour
         eggCount = 0;
         ObjectiveManager.Instance.UpdateTargetNumberObjective();
         Destroy(gameObject);
+
+
+        // if (eggCount != 0)
+        // {
+        //     Debug.Log("Die Egg");
+        //     int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
+
+        //     for (int i = 0; i < random; i++)
+        //     {
+        //         Debug.Log("Spawning Baby Worms from Egg");
+        //         Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        //         GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+        //     }
+        //     ObjectiveManager.Instance.UpdateTargetNumberObjective();
+        //     GameManager.Instance.StartCoroutine(SpawnEnemies());
+        //     ObjectiveManager.Instance.currentNumber += eggCount;
+        //     Destroy(gameObject);
+        // }
+
+        // eggCount = 0;
     }
 
     private IEnumerator SpawnEnemies()

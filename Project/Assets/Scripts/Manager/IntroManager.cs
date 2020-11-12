@@ -12,11 +12,9 @@ namespace EightDirectionalSpriteSystem
         public GameObject[] disabledGos;
         public GameObject entranceDoor;
 
-        public bool introEnabled = true;
         public bool movePodium = false;
 
         public float gameTitleTime = 3.5f;
-        public GameObject gameTitle;
 
         public ArenaManager arenaManager;
 

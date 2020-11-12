@@ -189,131 +189,202 @@ namespace EightDirectionalSpriteSystem
             if (Physics.Raycast(fpsCam.transform.position, fireRotation * (Vector3.forward * 100f), out hit, range))
             {
                 TextManager.Instance.UpdateAmmoText();
-                if (hit.transform.tag == "Level")
+
+                switch (hit.transform.tag)
                 {
-                    Debug.Log("Hit Level");
+                    case "Level":
+                        Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                        Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+                        Debug.Log("Finish Hit Level");
+                        break;
 
-                    // MeshCollider collider = hit.collider as MeshCollider;
-                    // // Remember to handle case where collider is null because you hit a non-mesh primitive...
+                    case "Enemy":
+                        Debug.Log("Hit Enemy");
+                        EnemyController enemy = hit.transform.GetComponent<EnemyController>();
 
-                    // Mesh mesh = collider.sharedMesh;
-
-                    // // There are 3 indices stored per triangle
-                    // int limit = hit.triangleIndex * 3;
-                    // int submesh;
-                    // for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
-                    // {
-                    //     int numIndices = mesh.GetTriangles(submesh).Length;
-                    //     if (numIndices > limit)
-                    //         break;
-
-                    //     limit -= numIndices;
-                    // }
-
-                    // Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
-
-                    //Debug.Log(material.name);
-
-                    Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                    Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
-                    //Debug.Log("Finish Hit Level");
-                }
-
-                // Raycast hits Enemy
-                else if (hit.transform.tag == "Enemy")
-                {
-                    Debug.Log("Hit Enemy");
-                    EnemyController enemy = hit.transform.GetComponent<EnemyController>();
-                    if (enemy == null) enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
-
-                    foreach (GameObject item in enemy.bloodSplashGos)
-                    {
-                        if (item.tag == "Hit Normal")
+                        foreach (GameObject item in enemy.bloodSplashGos)
                         {
-                            //GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
-
-                            ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
-                            // ParticleSystem.EmissionModule emissionModule = particleSys.emission;
-
-                            // ParticleSystem.Burst burst = emissionModule.GetBurst(0);
-                            // burst.minCount = minimumBloodParticles;
-                            // burst.maxCount = maximumBloodParticles;
-                            //emissionModule.SetBurst(0, burst);
-                            // emissionModule.burstCount = maximumBloodParticles;
-
-                            // emissionModule.enabled = true;
-
-
-
-                            // item.GetComponent<ParticleSystem>().emission.enabled = true;
-                            // item.GetComponent<ParticleSystem>().emission.type = ParticleSystemEmissionType.Time;
-                            // item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
-
-                            //particleSys.main.startSpeedMultiplier = maximumBloodParticles;
-
-                            GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-                            //bloodGo.transform.parent = hit.transform;
+                            if (item.tag == "Hit Normal")
+                            {
+                                GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+                                //bloodGo.transform.parent = hit.transform;
+                            }
+                            else
+                            {
+                                GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
+                                                                 item.transform.rotation);
+                                //bloodGo.transform.parent = hit.transform;
+                            }
                         }
-                        else
+                        enemy.TakeDamage(damage);
+                        break;
+
+                    case "Destructible":
+                        Debug.Log("Hit Destructible");
+                        DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+
+                        door.health -= damage;
+                        if (door.health <= 0)
                         {
-                            // GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
-                            //                                  item.transform.rotation);
-
-                            //item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
-
-                            GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
-                                                            item.transform.rotation);
-                            //bloodGo.transform.parent = hit.transform;
+                            door.DestroyMesh();
                         }
-                    }
-                    enemy.painStrength = painStrength;
-                    enemy.TakeDamage(damage);
-                }
-                else if (hit.transform.tag == "Destructible")
-                {
-                    Debug.Log("Hit Destructible");
-                    DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+                        break;
 
-                    door.health -= damage;
-                    if (door.health <= 0)
-                    {
-                        door.DestroyMesh();
-                    }
-                }
-                else if (hit.transform.tag == "Egg")
-                {
-                    Debug.Log("Hit Egg");
-                    hit.transform.GetComponent<EggController>().TakeDamage(damage);
-                }
-                else if (hit.transform.tag == "Resource Block")
-                {
-                    Debug.Log("Hit Resource Block");
-                    ResourceBlock block = hit.transform.GetComponent<ResourceBlock>();
+                    case "Egg":
+                        Debug.Log("Hit Egg");
+                        hit.transform.GetComponent<EggController>().TakeDamage(damage);
+                        break;
 
-                    foreach (GameObject item in block.crystalEffects)
-                    {
-                        if (item.tag == "Hit Normal")
+                    case "Resource Block":
+                        Debug.Log("Hit Resource Block");
+                        ResourceBlock block = hit.transform.GetComponent<ResourceBlock>();
+
+                        foreach (GameObject item in block.crystalEffects)
                         {
-                            ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+                            if (item.tag == "Hit Normal")
+                            {
+                                ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
 
-                            GameObject crystalHitGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                                GameObject crystalHitGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                            }
+                            else
+                            {
+                                GameObject crystalHitGo = Instantiate(item, hit.transform.position, item.transform.rotation);
+                            }
                         }
-                        else
-                        {
-                            GameObject crystalHitGo = Instantiate(item, hit.transform.position, item.transform.rotation);
-                        }
-                    }
-                    hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
+                        hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
+                        break;
+
+                    default:
+                        Debug.Log("Pistol Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
+                        break;
                 }
-                else
-                {
-                    Debug.Log("Pistol Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
-                    //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                }
+
+                // if (hit.transform.tag == "Level")
+                // {
+                //     Debug.Log("Hit Level");
+
+                //     // MeshCollider collider = hit.collider as MeshCollider;
+                //     // // Remember to handle case where collider is null because you hit a non-mesh primitive...
+
+                //     // Mesh mesh = collider.sharedMesh;
+
+                //     // // There are 3 indices stored per triangle
+                //     // int limit = hit.triangleIndex * 3;
+                //     // int submesh;
+                //     // for (submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                //     // {
+                //     //     int numIndices = mesh.GetTriangles(submesh).Length;
+                //     //     if (numIndices > limit)
+                //     //         break;
+
+                //     //     limit -= numIndices;
+                //     // }
+
+                //     // Material material = collider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
+
+                //     //Debug.Log(material.name);
+
+                //     Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                //     Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+                //     Debug.Log("Finish Hit Level");
+                // }
+
+                // // Raycast hits Enemy
+                // else if (hit.transform.tag == "Enemy")
+                // {
+                //     Debug.Log("Hit Enemy");
+                //     EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+                //     if (enemy == null) enemy = hit.transform.GetChild(0).GetComponent<EnemyController>();
+
+                //     foreach (GameObject item in enemy.bloodSplashGos)
+                //     {
+                //         if (item.tag == "Hit Normal")
+                //         {
+                //             //GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+
+                //             ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+                //             // ParticleSystem.EmissionModule emissionModule = particleSys.emission;
+
+                //             // ParticleSystem.Burst burst = emissionModule.GetBurst(0);
+                //             // burst.minCount = minimumBloodParticles;
+                //             // burst.maxCount = maximumBloodParticles;
+                //             //emissionModule.SetBurst(0, burst);
+                //             // emissionModule.burstCount = maximumBloodParticles;
+
+                //             // emissionModule.enabled = true;
+
+
+
+                //             // item.GetComponent<ParticleSystem>().emission.enabled = true;
+                //             // item.GetComponent<ParticleSystem>().emission.type = ParticleSystemEmissionType.Time;
+                //             // item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
+
+                //             //particleSys.main.startSpeedMultiplier = maximumBloodParticles;
+
+                //             GameObject bloodGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                //             //bloodGo.transform.parent = hit.transform;
+                //         }
+                //         else
+                //         {
+                //             // GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
+                //             //                                  item.transform.rotation);
+
+                //             //item.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0.0f, maximumBloodParticles));
+
+                //             GameObject bloodGo = Instantiate(item, hit.transform.position /*+ (hit.transform.forward * 1f)*/,
+                //                                             item.transform.rotation);
+                //             //bloodGo.transform.parent = hit.transform;
+                //         }
+                //     }
+                //     enemy.painStrength = painStrength;
+                //     enemy.TakeDamage(damage);
+                // }
+                // else if (hit.transform.tag == "Destructible")
+                // {
+                //     Debug.Log("Hit Destructible");
+                //     DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+
+                //     door.health -= damage;
+                //     if (door.health <= 0)
+                //     {
+                //         door.DestroyMesh();
+                //     }
+                // }
+                // else if (hit.transform.tag == "Egg")
+                // {
+                //     Debug.Log("Hit Egg");
+                //     hit.transform.GetComponent<EggController>().TakeDamage(damage);
+                // }
+                // else if (hit.transform.tag == "Resource Block")
+                // {
+                //     Debug.Log("Hit Resource Block");
+                //     ResourceBlock block = hit.transform.GetComponent<ResourceBlock>();
+
+                //     foreach (GameObject item in block.crystalEffects)
+                //     {
+                //         if (item.tag == "Hit Normal")
+                //         {
+                //             ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+
+                //             GameObject crystalHitGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                //         }
+                //         else
+                //         {
+                //             GameObject crystalHitGo = Instantiate(item, hit.transform.position, item.transform.rotation);
+                //         }
+                //     }
+                //     hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
+                // }
+                // else
+                // {
+                //     Debug.Log("Pistol Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
+                //     //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                // }
                 //Debug.Log("Hit Name: " + hit.transform.gameObject.name);
                 //Debug.Log("Hit Tag: " + hit.transform.gameObject.tag);
             }
-            //Debug.Log("Finish Shooting");
+            Debug.Log("Finish Shooting");
         }
 
         void setReadyToFire()

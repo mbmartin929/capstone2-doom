@@ -78,10 +78,11 @@ namespace EightDirectionalSpriteSystem
 
         public void TakeDamage(int amount)
         {
-            for (int i = 0; i <= 1; i++)
-            {
-                int id = Random.Range(0, bloodSplatGos.Length);
-            }
+            // for (int i = 0; i <= 1; i++)
+            // {
+
+            // }
+            //int id = Random.Range(0, bloodSplatGos.Length);
 
             RaycastHit hit;
             int layerMask = LayerMask.GetMask("Ground");
@@ -95,6 +96,7 @@ namespace EightDirectionalSpriteSystem
 
             if (IsDead())
             {
+                Debug.Log("Spawning Dead Gibs");
                 enemySounds.BloodSplatterSound();
 
                 // DECREASES HEALTH
@@ -116,9 +118,11 @@ namespace EightDirectionalSpriteSystem
 
                     if (useGib)
                     {
+                        Debug.Log("Dead Use Gib");
                         for (int i = 0; i < gibsAmount; i++)
                         {
                             GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                            Debug.Log("Finish Spawning Gibs");
                         }
                     }
 
@@ -126,7 +130,8 @@ namespace EightDirectionalSpriteSystem
 
 
                     //transform.parent = GameManager.Instance.deadEnemies.transform;
-                    transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                    //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                    Destroy(transform.parent.gameObject);
 
                     Debug.Log("Dead Gib!");
 
@@ -140,9 +145,11 @@ namespace EightDirectionalSpriteSystem
                     // }
                     Destroy(gameObject, 5.0f);
                 }
+                Debug.Log("Finished Dead Gibs");
             }
             else if (!IsDead())
             {
+                Debug.Log("Spawning Not-Dead Gibs");
                 //GetComponent<AudioSource>().Play();
 
                 enemySounds.BloodSplatterSound();
@@ -185,9 +192,11 @@ namespace EightDirectionalSpriteSystem
 
                         if (useGib)
                         {
+                            Debug.Log("Not-Dead Use Gib");
                             for (int i = 0; i < gibsAmount; i++)
                             {
                                 GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                                Debug.Log("Finish Spawning Gibs");
                             }
                         }
 
@@ -203,16 +212,21 @@ namespace EightDirectionalSpriteSystem
                         //         return;
                         //     }
                         // }
-                        transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                        //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                        Destroy(transform.parent.gameObject);
+                        Debug.Log("Finished setting parent");
                     }
 
                     if (IsDead())
                     {
+                        Debug.Log("Start IsDead from !IsDead");
+
                         // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
                         // bloodFlowGo.transform.parent = transform;
 
                         Destroy(transform.parent.GetChild(2).gameObject);
                         Die();
+                        Debug.Log("Finished IsDead from !IsDead");
                     }
                     //else StartCoroutine(GetHit());
                 }
@@ -231,11 +245,13 @@ namespace EightDirectionalSpriteSystem
                     // }
 
                 }
+                Debug.Log("Finished Not-Dead Gibs");
             }
         }
 
         public void Die()
         {
+            Debug.Log("Start Die");
             EndGameScreen.Instance.killedEnemies++;
 
             //Debug.Log("Die");
@@ -251,8 +267,9 @@ namespace EightDirectionalSpriteSystem
             //Debug.Log(transform.parent);
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
             //transform.parent = GameManager.Instance.deadEnemies.transform;
-            transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-            //Debug.Log("Set Parent");
+            //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+            Destroy(transform.parent.gameObject);
+            Debug.Log("Set Parent From Die");
         }
 
         private IEnumerator GetHit()

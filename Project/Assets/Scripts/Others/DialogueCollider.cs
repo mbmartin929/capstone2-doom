@@ -71,7 +71,7 @@ public class DialogueCollider : MonoBehaviour
                 {
                     Debug.Log("Kaichi Death");
                     door.GetComponent<ImportantDoor>().StartCoroutine(door.GetComponent<ImportantDoor>().PlayAnimation());
-                    ObjectiveManager.Instance.TypeObjective("Find a way out", 0.069f, 21f);
+                    ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find a way out", 0.069f, 21f));
                 }
             }
 
