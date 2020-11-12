@@ -70,7 +70,9 @@ public class EndGameScreen : MonoBehaviour
 
     public void LoadNextScene()
     {
-        StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
+        if (GameManager.Instance.level == 1) StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
+        else if (GameManager.Instance.level == 2) StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
+
     }
 
     private IEnumerator EndScreenActive(float time)

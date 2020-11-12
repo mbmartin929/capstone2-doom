@@ -49,6 +49,8 @@ namespace EightDirectionalSpriteSystem
 
         public void Drop()
         {
+            Debug.Log("Going to drop resources");
+
             int index;
             int amount;
 
@@ -91,8 +93,6 @@ namespace EightDirectionalSpriteSystem
                     }
                 }
                 else Debug.Log("Low Pistol Ammo! Will drop nothing");
-
-
             }
             else if (AmmoInventory.Instance.curShotgunAmmo <= lowShotgunAmmo)
             {

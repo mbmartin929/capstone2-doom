@@ -192,6 +192,32 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
+        public IEnumerator FindVisibleTargetsCoroutine()
+        {
+            visibleTargets.Clear();
+            Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            {
+                //Debug.Log(targetsInViewRadius[i].gameObject.name);
+                Debug.Log("Finding Visible Targets");
+
+                Transform target = targetsInViewRadius[i].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle /* / 2 */)
+                {
+                    float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                    {
+                        if (target.gameObject.tag == "Player") visibleTargets.Add(target);
+                    }
+                }
+
+                yield return new WaitForSeconds(0.69f);
+            }
+        }
+
         public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
         {
             if (!angleIsGlobal)
@@ -215,10 +241,6 @@ namespace EightDirectionalSpriteSystem
 
         public void ChasePlayer()
         {
-            // anim = GetComponent<Animator>();
-            // anim.SetTrigger("Chase");
-
-            //Debug.Log("ChasePlayer");
             visibleTargets.Add(GameManager.Instance.playerGo.transform);
             Debug.Log("Chase Player");
         }

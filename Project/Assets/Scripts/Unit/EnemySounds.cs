@@ -27,18 +27,6 @@ namespace EightDirectionalSpriteSystem
             audioSource = GetComponent<AudioSource>();
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void SlimeChaseSound()
         {
             audioSource.clip = chase[0];

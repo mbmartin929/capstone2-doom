@@ -54,7 +54,7 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SetActive(float time)
+    public IEnumerator SetActive(float time)
     {
         yield return new WaitForSeconds(time);
         objectivesGo.SetActive(true);
