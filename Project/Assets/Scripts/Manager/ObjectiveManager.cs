@@ -31,7 +31,7 @@ public class ObjectiveManager : MonoBehaviour
     {
         if (GameManager.Instance.level == 1) StartCoroutine(SetActive(starTime));
         else if (GameManager.Instance.level == 2) StartCoroutine(SetActive(starTime - 4.2f));
-        eggDoor = GameObject.Find("IMPORTANT Door near Stage (1)");
+
         Debug.Log("Found Door from Objective Manager");
     }
 
@@ -50,6 +50,7 @@ public class ObjectiveManager : MonoBehaviour
             if (GameManager.Instance.level == 2)
             {
                 StartCoroutine(TypeObjective("Regroup with Kaichi", 0.069f, 2.9f));
+                eggDoor = GameObject.Find("IMPORTANT Door near Stage (1)");
                 StartCoroutine(eggDoor.GetComponent<ImportantDoor>().PlayAnimation());
             }
             Debug.Log("Objective Finished");
