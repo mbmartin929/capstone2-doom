@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
                 playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
 
                 FirstPersonAIO.Instance.playerCanMove = false;
-                GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
+                //GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
+                FirstPersonAIO.Instance.controllerPauseState = false;
                 StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl2());
                 StartCoroutine(ObjectiveManager.Instance.SetActive(ObjectiveManager.Instance.starTime - 4.2f));
                 GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);

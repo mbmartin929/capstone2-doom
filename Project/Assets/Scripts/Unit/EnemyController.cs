@@ -150,6 +150,7 @@ namespace EightDirectionalSpriteSystem
             else if (!IsDead())
             {
                 Debug.Log("Spawning Not-Dead Gibs");
+                Debug.Log(useGib);
                 //GetComponent<AudioSource>().Play();
 
                 enemySounds.BloodSplatterSound();
@@ -216,6 +217,10 @@ namespace EightDirectionalSpriteSystem
                         Destroy(transform.parent.gameObject);
                         Debug.Log("Finished setting parent");
                     }
+                    else
+                    {
+                        Debug.Log(CurHealth + " <= " + -gibAlive);
+                    }
 
                     if (IsDead())
                     {
@@ -264,10 +269,10 @@ namespace EightDirectionalSpriteSystem
             GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
             GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
 
-            //Debug.Log(transform.parent);
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
             //transform.parent = GameManager.Instance.deadEnemies.transform;
             //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+            Debug.Log("My Parent: " + transform.parent.gameObject.name);
             Destroy(transform.parent.gameObject);
             Debug.Log("Set Parent From Die");
         }

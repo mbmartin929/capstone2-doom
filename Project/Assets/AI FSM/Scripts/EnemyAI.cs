@@ -200,7 +200,7 @@ namespace EightDirectionalSpriteSystem
             for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
                 //Debug.Log(targetsInViewRadius[i].gameObject.name);
-                Debug.Log("Finding Visible Targets");
+                //Debug.Log(gameObject.name + " Finding Visible Targets");
 
                 Transform target = targetsInViewRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
@@ -214,7 +214,7 @@ namespace EightDirectionalSpriteSystem
                     }
                 }
 
-                yield return new WaitForSeconds(0.69f);
+                yield return new WaitForSeconds(1.29f);
             }
         }
 
