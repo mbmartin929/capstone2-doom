@@ -127,7 +127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328639067869672197}
-  m_LocalRotation: {x: -0, y: 0.9999268, z: -0, w: 0.012099982}
+  m_LocalRotation: {x: -0, y: 0.99915546, z: -0, w: 0.041090745}
   m_LocalPosition: {x: 0, y: -0.22500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -248,7 +248,7 @@ MonoBehaviour:
   useGib: 1
   gibGo: {fileID: 1257690072450890127, guid: 5789bb7a2b7aba140933a767b4ff6676, type: 3}
   gibsAmount: 8
-  gibAlive: 11
+  gibAlive: 10
   gibDeath: 15
   projectileSpeed: 929
   enemyAI: {fileID: 7328639068343049388}

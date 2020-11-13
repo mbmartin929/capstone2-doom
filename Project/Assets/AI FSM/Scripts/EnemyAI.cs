@@ -88,8 +88,8 @@ namespace EightDirectionalSpriteSystem
             }
             catch (Exception e)
             {
-                //Debug.LogException(e, this);
-                //Debug.Log("Lol");
+                Debug.LogException(e, this);
+                Debug.Log("Lol");
             }
         }
 

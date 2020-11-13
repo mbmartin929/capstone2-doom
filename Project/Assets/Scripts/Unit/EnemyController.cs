@@ -150,7 +150,6 @@ namespace EightDirectionalSpriteSystem
             else if (!IsDead())
             {
                 Debug.Log("Spawning Not-Dead Gibs");
-                Debug.Log(useGib);
                 //GetComponent<AudioSource>().Play();
 
                 enemySounds.BloodSplatterSound();
