@@ -14,14 +14,14 @@ public class PowerPickUpController : PickUpController
 
     void Start()
     {
-        PickUpController PowerUp = new PickUpController();
+        //PickUpController PowerUp = new PickUpController();
         playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
 
         audioSource.clip = ambientSound;
         audioSource.Play();
 
-        PowerUp.itemName = "Power Up";
+        //PowerUp.itemName = "Power Up";
 
         EndGameScreen.Instance.totalPowerUp += numberOfPowerUp;
     }
