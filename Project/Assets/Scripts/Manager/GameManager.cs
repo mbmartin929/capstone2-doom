@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl2());
                 StartCoroutine(ObjectiveManager.Instance.SetActive(ObjectiveManager.Instance.starTime - 4.2f));
                 GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
+
+                SettingsManager.Instance.RestartSettingsManager();
             }
         }
     }

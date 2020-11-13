@@ -169,7 +169,19 @@ public class EndGameText : MonoBehaviour
             {
                 timer += timePerCharacter;
                 characterIndex++;
-                string _text = textToWrite.Substring(0, characterIndex);
+
+
+                // string _text = textToWrite.Substring(0, characterIndex);
+
+                string _text = null;
+                try
+                {
+                    if (_text != null) _text = textToWrite.Substring(0, characterIndex);
+                }
+                catch (System.ArgumentOutOfRangeException ex)
+                {
+                    Debug.LogException(ex);
+                }
 
                 if (invisibleCharacters)
                 {

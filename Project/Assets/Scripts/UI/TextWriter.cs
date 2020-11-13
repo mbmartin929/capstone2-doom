@@ -96,9 +96,9 @@ public class TextWriter : MonoBehaviour
                 try
                 {
                     //text = textToWrite.Substring(0, characterIndex);
-                    text = textToWrite.Substring(0, characterIndex);
+                    if (text != null) text = textToWrite.Substring(0, characterIndex);
                 }
-                catch (System.ArgumentException ex)
+                catch (System.ArgumentOutOfRangeException ex)
                 {
                     Debug.LogException(ex);
                 }

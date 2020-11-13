@@ -291,12 +291,12 @@ namespace EightDirectionalSpriteSystem
             {
                 //Debug.Log("Get Hit");
 
-                animator.SetTrigger("Get Hit");
+                // animator.SetTrigger("Get Hit");
 
-                enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                // enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
 
-                // transform.parent.GetComponent<NavMeshAgent>().isStopped = true;
-                transform.parent.GetComponent<NavMeshAgent>().enabled = false;
+                // // transform.parent.GetComponent<NavMeshAgent>().isStopped = true;
+                // transform.parent.GetComponent<NavMeshAgent>().enabled = false;
 
                 // getHit = true;
 

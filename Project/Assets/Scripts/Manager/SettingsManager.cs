@@ -57,6 +57,16 @@ public class SettingsManager : MonoBehaviour
         // }
     }
 
+    public void RestartSettingsManager()
+    {
+        volume = GameManager.Instance.volume;
+        volume.profile.TryGet(out liftGammaGain);
+        curGamma = liftGammaGain.gamma.value.w;
+        curGammaText.text = "" + (liftGammaGain.gamma.value.w * 10).ToString("F0");
+
+        Debug.Log("Found New Settings");
+    }
+
     public void IncreaseGamma()
     {
         Vector4 newGamma = new Vector4(0, 0, 0, 0.1f);
