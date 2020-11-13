@@ -292,7 +292,8 @@ public class ShotgunController : WeaponController
                         break;
 
                     default:
-                        Debug.Log("Shotgun Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
+                        Debug.Log("Shotgun Hit Raycast Hit Something Else Name: " + hit.transform.gameObject.name);
+                        Debug.Log("Shotgun Hit Raycast Hit Something Else Tag: " + hit.transform.gameObject.tag);
                         break;
                 }
 

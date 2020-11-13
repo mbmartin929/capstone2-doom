@@ -57,9 +57,8 @@ namespace EightDirectionalSpriteSystem
             // Debug options
             //maxHealth -= 20;
 
-            EndGameScreen.Instance.totalEnemies++;
-
             CurHealth = maxHealth;
+            EndGameScreen.Instance.totalEnemies++;
         }
 
         // Update is called once per frame
@@ -131,6 +130,7 @@ namespace EightDirectionalSpriteSystem
 
                     //transform.parent = GameManager.Instance.deadEnemies.transform;
                     //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                    Debug.Log("Parent: " + transform.parent.gameObject);
                     Destroy(transform.parent.gameObject);
 
                     Debug.Log("Dead Gib!");
@@ -213,6 +213,7 @@ namespace EightDirectionalSpriteSystem
                         //     }
                         // }
                         //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+                        Debug.Log("Parent: " + transform.parent.gameObject);
                         Destroy(transform.parent.gameObject);
                         Debug.Log("Finished setting parent");
                     }
@@ -228,7 +229,8 @@ namespace EightDirectionalSpriteSystem
                         // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
                         // bloodFlowGo.transform.parent = transform;
 
-                        Destroy(transform.parent.GetChild(2).gameObject);
+                        // Destroy(transform.parent.GetChild(2).gameObject);
+
                         Die();
                         Debug.Log("Finished IsDead from !IsDead");
                     }
@@ -271,8 +273,10 @@ namespace EightDirectionalSpriteSystem
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
             //transform.parent = GameManager.Instance.deadEnemies.transform;
             //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+
             Debug.Log("My Parent: " + transform.parent.gameObject.name);
             Destroy(transform.parent.gameObject);
+
             Debug.Log("Set Parent From Die");
         }
 
