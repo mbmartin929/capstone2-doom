@@ -52,7 +52,7 @@ public class AmmoPickUp : PickUpController
             PickUpAmmo(playerWeapons);
 
             Destroy(gameObject, 0f);
-            Destroy(transform.parent.gameObject, 0f);
+            //Destroy(transform.parent.gameObject, 0f);
         }
     }
 
