@@ -9,17 +9,17 @@ public class GameOverScreen : MonoBehaviour
 
     void Awake()
     {
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     void Start()
     {
         //gameObject.SetActive(false);
-        Pause();
-        Debug.Log("GameOverScreen");
+        //StartGameOver();
+        //Debug.Log("GameOverScreen");
     }
 
-    public void Pause()
+    public void StartGameOver()
     {
         MusicManager.Instance.FadeOutActiveMusicCaller();
         MusicManager.Instance.FadeOutAmbientMusicCaller();
@@ -37,6 +37,7 @@ public class GameOverScreen : MonoBehaviour
     {
         Debug.Log("Restart");
 
+        gameObject.SetActive(false);
         StartCoroutine(GameManager.Instance.RestartCurrentScene(0.0f));
     }
 

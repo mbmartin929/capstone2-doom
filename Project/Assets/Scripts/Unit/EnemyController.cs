@@ -112,7 +112,6 @@ namespace EightDirectionalSpriteSystem
                         contributedGib = true;
                     }
 
-                    //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
                     gameObject.SetActive(false);
 
                     if (useGib)
@@ -127,9 +126,6 @@ namespace EightDirectionalSpriteSystem
 
                     GetComponent<EnemyDrops>().Drop();
 
-
-                    //transform.parent = GameManager.Instance.deadEnemies.transform;
-                    //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
                     Debug.Log("Parent: " + transform.parent.gameObject);
                     Destroy(transform.parent.gameObject);
 
@@ -154,103 +150,86 @@ namespace EightDirectionalSpriteSystem
 
                 enemySounds.BloodSplatterSound();
 
-                if (CurArmor <= 0)
+                // DECREASES HEALTH
+                CurHealth -= amount;
+
+                // Checks Hurt Chance
+                float randValue = Random.value;
+                if (randValue < painChance)
                 {
-                    // DECREASES HEALTH
-                    CurHealth -= amount;
+                    //Debug.Log("Pain");
+                    //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                    enemySounds.PainSound();
 
-                    // Checks Hurt Chance
-                    float randValue = Random.value;
-                    if (randValue < painChance)
+                    if (currentCoroutine != null)
                     {
-                        //Debug.Log("Pain");
-                        //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-                        enemySounds.PainSound();
-
-                        if (currentCoroutine != null)
-                        {
-                            StopCoroutine(currentCoroutine);
-                        }
-
-                        currentCoroutine = StartCoroutine(GetHit());
+                        StopCoroutine(currentCoroutine);
                     }
 
-                    if (CurHealth <= -gibAlive)
+                    currentCoroutine = StartCoroutine(GetHit());
+                }
+
+                if (CurHealth <= -gibAlive)
+                {
+                    if (!contributedGib)
+                    {
+                        EndGameScreen.Instance.enemiesGibbed++;
+                        contributedGib = true;
+                    }
+
+                    if (useGib)
                     {
                         enemySounds.GibExplosionSound();
-
-                        if (!contributedGib)
+                        Debug.Log("Not-Dead Use Gib");
+                        for (int i = 0; i < gibsAmount; i++)
                         {
-                            EndGameScreen.Instance.enemiesGibbed++;
-                            contributedGib = true;
+                            GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
+                            Debug.Log("Finish Spawning Gibs");
                         }
+                    }
 
-                        //GameObject gib = Instantiate(gibGo, transform.position, transform.rotation);
-                        //gameObject.SetActive(false);
-                        //transform.parent = GameManager.Instance.deadEnemies.transform;
+                    //Destroy(gameObject, 5.0f);
 
+                    Debug.Log("Gib!");
 
-                        if (useGib)
-                        {
-                            Debug.Log("Not-Dead Use Gib");
-                            for (int i = 0; i < gibsAmount; i++)
-                            {
-                                GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
-                                Debug.Log("Finish Spawning Gibs");
-                            }
-                        }
+                    // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
+                    // {
+                    //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
+                    //     {
+                    //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    //         return;
+                    //     }
+                    // }
+                    //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
-                        //Destroy(gameObject, 5.0f);
-
-                        Debug.Log("Gib!");
-
-                        // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
-                        // {
-                        //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
-                        //     {
-                        //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
-                        //         return;
-                        //     }
-                        // }
+                    if (transform.parent.parent != null)
+                    {
+                        Debug.Log("Before Parent: " + transform.parent.parent.gameObject.name);
+                        //Destroy(transform.parent.gameObject);
+                        transform.parent.parent = GameManager.Instance.deadEnemies.transform;
                         //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-                        Debug.Log("Parent: " + transform.parent.gameObject);
-                        Destroy(transform.parent.gameObject);
-                        Debug.Log("Finished setting parent");
+                        Debug.Log("After Parent: " + transform.parent.parent.gameObject.name);
                     }
-                    else
-                    {
-                        Debug.Log(CurHealth + " <= " + -gibAlive);
-                    }
-
-                    if (IsDead())
-                    {
-                        Debug.Log("Start IsDead from !IsDead");
-
-                        // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
-                        // bloodFlowGo.transform.parent = transform;
-
-                        // Destroy(transform.parent.GetChild(2).gameObject);
-
-                        Die();
-                        Debug.Log("Finished IsDead from !IsDead");
-                    }
-                    //else StartCoroutine(GetHit());
                 }
                 else
                 {
-                    // DECREASES ARMOR
-                    CurArmor -= amount;
-                    //StartCoroutine(GetHit());
-
-                    // float randValue = Random.value;
-                    // if (randValue < painChance)
-                    // {
-                    //     Debug.Log("Pain");
-                    //     enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-                    //     StartCoroutine(GetHit());
-                    // }
-
+                    Debug.Log(CurHealth + " <= " + -gibAlive);
                 }
+
+                if (IsDead())
+                {
+                    Debug.Log("Start IsDead from !IsDead");
+
+                    // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
+                    // bloodFlowGo.transform.parent = transform;
+
+                    // Destroy(transform.parent.GetChild(2).gameObject);
+
+                    Die();
+                    Debug.Log("Finished IsDead from !IsDead");
+                }
+                //else StartCoroutine(GetHit());
+
                 Debug.Log("Finished Not-Dead Gibs");
             }
         }
@@ -262,6 +241,7 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log("Die");
             animator.SetTrigger("Dead");
+
             enemySounds.DeathSound();
 
             Vector3 size = GetComponent<BoxCollider>().size;
@@ -272,12 +252,14 @@ namespace EightDirectionalSpriteSystem
 
             //Debug.Log(GameManager.Instance.DeadEnemies.transform);
             //transform.parent = GameManager.Instance.deadEnemies.transform;
-            //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
+            transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
             Debug.Log("My Parent: " + transform.parent.gameObject.name);
-            Destroy(transform.parent.gameObject);
+            Debug.Log("My Parent's Parent: " + transform.parent.parent.gameObject.name);
+            //Destroy(transform.parent.gameObject);
 
             Debug.Log("Set Parent From Die");
+            //enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
         }
 
         private IEnumerator GetHit()

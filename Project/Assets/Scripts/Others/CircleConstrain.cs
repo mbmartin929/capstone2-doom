@@ -33,39 +33,29 @@ public class CircleConstrain : MonoBehaviour
         // offset = offset.normalized * radius;
         // transform.position = offset;
 
-        if (isNear)
-        {
-            float elapsedTime = 0;
-            float startValue = spriteRenderer.color.a;
+        // if (isNear)
+        // {
 
-            while (elapsedTime < duration)
-            {
-                elapsedTime += Time.deltaTime;
-                float newAlpha = Mathf.Lerp(startValue, targetAlpha, elapsedTime / duration);
-                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
-            }
-        }
-        else if (!isNear)
-        {
-            float elapsedTime = 0;
-            float startValue = spriteRenderer.color.a;
 
-            while (elapsedTime < duration)
-            {
-                elapsedTime += Time.deltaTime;
-                float newAlpha = Mathf.Lerp(startValue, 0, elapsedTime / duration);
-                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
-            }
-        }
+
+        // }
+        // else if (!isNear)
+        // {
+
+        // }
+
+
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) isNear = true;
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player")) isNear = false;
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.0f);
     }
 }

@@ -176,11 +176,16 @@ public class EndGameText : MonoBehaviour
                 string _text = null;
                 try
                 {
-                    if (_text != null) _text = textToWrite.Substring(0, characterIndex);
+                    _text = textToWrite.Substring(0, characterIndex);
+                    if (_text == null)
+                    {
+                        throw new System.ArgumentOutOfRangeException("Ignore ArgumentOutOfRangeException");
+                    }
+                    //if (text != null) text = textToWrite.Substring(0, characterIndex);
                 }
                 catch (System.ArgumentOutOfRangeException ex)
                 {
-                    Debug.LogException(ex);
+                    Debug.Log(ex.Message);
                 }
 
                 if (invisibleCharacters)

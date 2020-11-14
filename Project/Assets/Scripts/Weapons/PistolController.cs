@@ -256,7 +256,8 @@ namespace EightDirectionalSpriteSystem
                         break;
 
                     default:
-                        Debug.Log("Pistol Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
+                        Debug.Log("Pistol Hit Raycast Hit Something Else Name: " + hit.transform.gameObject.name);
+                        Debug.Log("Pistol Hit Raycast Hit Something Else Tag: " + hit.transform.gameObject.tag);
                         break;
                 }
 

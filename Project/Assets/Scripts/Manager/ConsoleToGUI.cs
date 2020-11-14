@@ -10,13 +10,21 @@ public class ConsoleToGUI : MonoBehaviour
     public float screenHeight = 420f;
     public float screenWidth = 1000f;
 
+    public static ConsoleToGUI Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void OnEnable() { Application.logMessageReceived += Log; }
     void OnDisable() { Application.logMessageReceived -= Log; }
     void Update() { if (Input.GetKeyDown(KeyCode.Space)) { doShow = !doShow; } }
     public void Log(string logString, string stackTrace, LogType type)
     {
         // for onscreen...
-        myLog = myLog + "\n" + logString;
+        //myLog = myLog + CrashReport.reports +"\n" + logString;
+        myLog = CrashReport.reports + "\n" + logString;
         if (myLog.Length > kChars) { myLog = myLog.Substring(myLog.Length - kChars); }
 
         // for the file ...

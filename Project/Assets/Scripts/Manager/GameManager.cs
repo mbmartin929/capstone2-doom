@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject deadEnemies;
 
+    [SerializeField] private GameObject internal_player;
 
     public float restartSceneTime = 2.9f;
     private Scene currentScene;
@@ -37,9 +38,42 @@ public class GameManager : MonoBehaviour
         // Sets Singleton
         Instance = this;
 
+        Debug.Log(CrashReport.lastReport);
+        Debug.Log(CrashReport.reports);
+
+        if (level == 1)
+        {
+            SettingsManager.Instance.RestartSettingsManager();
+
+            if (GameObject.Find("Player_LVL 1.1"))
+            {
+                Debug.Log("Player already exists");
+                playerGo = GameObject.FindGameObjectWithTag("Player");
+            }
+            else
+            {
+                Debug.Log("Instantiates Player");
+                playerGo = Instantiate(internal_player);
+            }
+            //if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log(gameObject.name + " Found Player");
+        }
+        else if (level == 2)
+        {
+            // if (GameObject.Find("Player_LVL 1.1"))
+            // {
+            //     Debug.Log("Player already exists");
+            //     playerGo = GameObject.FindGameObjectWithTag("Player");
+            // }
+            // else
+            // {
+            //     Debug.Log("Instantiates Player");
+            //     playerGo = Instantiate(internal_player);
+            // }
+        }
+
         // Gets player gameobject
-        playerGo = GameObject.FindGameObjectWithTag("Player");
-        if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log(gameObject.name + " Found Player");
+        // playerGo = GameObject.FindGameObjectWithTag("Player");
+        // if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log(gameObject.name + " Found Player");
 
         // Sets Framerate
         Application.targetFrameRate = frameRate;
@@ -48,21 +82,28 @@ public class GameManager : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
 
-        if (level == 1)
-        {
-            Debug.Log("Added Player on DontDestroyOnLoad");
-            DontDestroyOnLoad(playerGo.transform.gameObject);
-        }
-    }
-
-    private void Start()
-    {
         if (introEnabled)
         {
+            Debug.Log("Intro is enabled");
             if (level == 2)
             {
+                Debug.Log("Level: " + level);
+                playerGo = GameObject.FindGameObjectWithTag("Player");
+
+                if (playerGo != null)
+                {
+                    Debug.Log("Player already exists");
+                    //playerGo = GameObject.FindGameObjectWithTag("Player");
+                }
+                else
+                {
+                    Debug.Log("Instantiates Player");
+                    playerGo = Instantiate(internal_player);
+                }
+
                 Debug.Log("Transferring Player");
 
+                EndGameScreen.Instance.active = false;
 
                 playerGo.transform.position = new Vector3(-21.1f, -14.1f, 110.3f);
                 playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
@@ -76,6 +117,31 @@ public class GameManager : MonoBehaviour
 
                 SettingsManager.Instance.RestartSettingsManager();
             }
+        }
+    }
+
+    private void Start()
+    {
+
+    }
+
+    void OnGUI()
+    {
+        var reports = CrashReport.reports;
+        GUILayout.Label("Crash reports:");
+        foreach (var r in reports)
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Crash: " + r.time);
+            if (GUILayout.Button("Log"))
+            {
+                Debug.Log(r.text);
+            }
+            if (GUILayout.Button("Remove"))
+            {
+                r.Remove();
+            }
+            GUILayout.EndHorizontal();
         }
     }
 

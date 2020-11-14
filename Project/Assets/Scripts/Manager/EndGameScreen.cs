@@ -37,6 +37,8 @@ public class EndGameScreen : MonoBehaviour
     public GameObject blackOverlay;
     public GameObject endScreen;
 
+    public bool active = false;
+
     private AudioSource audioSource;
 
     void Awake()
@@ -52,6 +54,8 @@ public class EndGameScreen : MonoBehaviour
 
     public void StartEndLevelScreen()
     {
+        active = true;
+
         blackOverlay.SetActive(true);
         TimeManager.Instance.StopTimer();
         MusicManager.Instance.FadeOutActiveMusicCaller();

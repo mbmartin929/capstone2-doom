@@ -62,6 +62,7 @@ public class ShotgunController : WeaponController
         if ((Input.GetMouseButtonDown(0)) && (canAttack))
         {
             Shoot();
+            //StartCoroutine(Shoot());
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
@@ -173,11 +174,10 @@ public class ShotgunController : WeaponController
         //Debug.Log(transform.localPosition);
     }
 
-    void Shoot()
+    private void Shoot()
     {
         if (PauseManager.Instance.pressEscape) { return; }
 
-        RaycastHit hit;
         if (CurAmmo <= 0)
         {
             Debug.Log("No Ammo, please Reload");
@@ -221,9 +221,9 @@ public class ShotgunController : WeaponController
             direction = transform.TransformDirection(direction.normalized); //converting the Vector3.forward to transform.forward
             Ray ray = new Ray(fpsCam.transform.position, direction);
 
+            RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(ray, out hit, range))
             {
-
                 Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
 
                 switch (hit.transform.tag)
@@ -296,6 +296,10 @@ public class ShotgunController : WeaponController
                         Debug.Log("Shotgun Hit Raycast Hit Something Else Tag: " + hit.transform.gameObject.tag);
                         break;
                 }
+
+                //yield return null;
+
+                //yield return new WaitForSecondsRealtime(0.0001f);
 
                 // if (hit.transform.tag == "Level")
                 // {
@@ -383,10 +387,10 @@ public class ShotgunController : WeaponController
                 //     hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
                 // }
                 // else
-                {
-                    Debug.Log("Shotgun Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
-                    //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                }
+                //{
+                //Debug.Log("Shotgun Hit Raycast Hit Something Else: " + hit.transform.gameObject.name);
+                //Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                //}
             }
         }
         canAttack = false;

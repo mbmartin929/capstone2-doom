@@ -35,10 +35,10 @@ public class SettingsManager : MonoBehaviour
 
     private void Start()
     {
-        volume = GameManager.Instance.volume;
-        volume.profile.TryGet(out liftGammaGain);
-        curGamma = liftGammaGain.gamma.value.w;
-        curGammaText.text = "" + (liftGammaGain.gamma.value.w * 10).ToString("F0");
+        // volume = GameManager.Instance.volume;
+        // volume.profile.TryGet(out liftGammaGain);
+        // curGamma = liftGammaGain.gamma.value.w;
+        // curGammaText.text = "" + (liftGammaGain.gamma.value.w * 10).ToString("F0");
     }
 
     private void Update()

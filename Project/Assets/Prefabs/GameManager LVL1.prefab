@@ -672,12 +672,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc1b7388bd4214d95dfe84bd5342c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introEnabled: 1
+  introEnabled: 0
   frameRate: 200
+  volume: {fileID: 1205639326}
   playerGo: {fileID: 0}
-  deadEnemiesNumber: 0
+  all: {fileID: 0}
   enableHeadBob: 1
   deadEnemies: {fileID: 7360741690320949187}
+  internal_player: {fileID: 3855021722727778593, guid: c2ee50d32027e164a9032014d956cdf8,
+    type: 3}
   restartSceneTime: 2.9
   level: 1
 --- !u!114 &7360741691027915934
@@ -697,10 +700,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   entranceDoor: {fileID: 0}
-  introEnabled: 1
   movePodium: 0
   gameTitleTime: 4
-  gameTitle: {fileID: 0}
   arenaManager: {fileID: 0}
 --- !u!82 &1023408256
 AudioSource:

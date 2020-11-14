@@ -152,7 +152,8 @@ public class PlayerController : UnitController
         else
         {
             if (powerUpInvulnerable) { Debug.Log("Take No Damage From Power Ups"); return; }
-            if (CheatsManager.Instance.enableGodMode) { Debug.Log("Take No Damage From Cheats"); return; }
+            else if (CheatsManager.Instance.enableGodMode) { Debug.Log("Take No Damage From Cheats"); return; }
+            else if (EndGameScreen.Instance.active) { Debug.Log("Take No Damage From EndGameScreen"); return; }
             else
             {
                 bloodOverlay.ChangeActiveBloodOverlayOpacity();
@@ -189,7 +190,7 @@ public class PlayerController : UnitController
                     Debug.Log("Player Dies");
                     CurHealth = 0;
                     gameOverScreen.SetActive(true);
-
+                    gameOverScreen.GetComponent<GameOverScreen>().StartGameOver();
                     gameObject.GetComponent<CapsuleCollider>().enabled = false;
                     gameObject.GetComponent<Rigidbody>().useGravity = false;
                     gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

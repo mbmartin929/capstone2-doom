@@ -95,13 +95,18 @@ public class TextWriter : MonoBehaviour
                 string text = null;
                 try
                 {
-                    //text = textToWrite.Substring(0, characterIndex);
-                    if (text != null) text = textToWrite.Substring(0, characterIndex);
+                    text = textToWrite.Substring(0, characterIndex);
+                    if (text == null)
+                    {
+                        throw new System.ArgumentOutOfRangeException("Ignore ArgumentOutOfRangeException");
+                    }
+                    //if (text != null) text = textToWrite.Substring(0, characterIndex);
                 }
                 catch (System.ArgumentOutOfRangeException ex)
                 {
-                    Debug.LogException(ex);
+                    Debug.Log(ex.Message);
                 }
+
 
                 if (invisibleCharacters)
                 {

@@ -69,7 +69,9 @@ public class PauseManager : MonoBehaviour
             {
                 //Time.timeScale = 1;
                 animator.SetTrigger("Escape");
+                //Cursor.visible = false;
                 ExitAllWindows();
+                //PressResume();
             }
         }
     }
