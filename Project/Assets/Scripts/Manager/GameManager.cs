@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
         if (level == 1)
         {
-            SettingsManager.Instance.RestartSettingsManager();
+            //SettingsManager.Instance.RestartSettingsManager();
 
             if (GameObject.Find("Player_LVL 1.1"))
             {

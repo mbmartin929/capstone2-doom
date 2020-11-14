@@ -267,13 +267,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc1b7388bd4214d95dfe84bd5342c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introEnabled: 0
+  introEnabled: 1
   frameRate: 200
   volume: {fileID: 6932275111484795738}
   playerGo: {fileID: 0}
-  deadEnemiesNumber: 0
+  all: {fileID: 0}
   enableHeadBob: 1
   deadEnemies: {fileID: 437685814633479175}
+  internal_player: {fileID: 3855021722727778593, guid: c2ee50d32027e164a9032014d956cdf8,
+    type: 3}
   restartSceneTime: 2.9
   level: 2
 --- !u!114 &437685813949052762
@@ -293,10 +295,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   entranceDoor: {fileID: 0}
-  introEnabled: 1
   movePodium: 0
   gameTitleTime: 4
-  gameTitle: {fileID: 0}
   arenaManager: {fileID: 0}
 --- !u!82 &6932275111906396996
 AudioSource:
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437685813949052766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79401b27e7788d3418c42ce881dde4e3, type: 3}
   m_Name: 
@@ -484,8 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3c226696fa0f642ac9c1361d2e7a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVolume: 0
-  speed: 0
+  maxVolume: 0.18
+  speed: 0.18
   useMidi: 0
   musicTrackMidi:
   - {fileID: 8300000, guid: 665ce837e4552194ca0fb13ed754ed78, type: 3}
@@ -496,6 +496,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d4ef30f66c1e9fa46b98adea211a2a9a, type: 3}
   - {fileID: 8300000, guid: a4a15932ccbca234bbbef18a89ee9f27, type: 3}
   - {fileID: 8300000, guid: 6263542607b702440b174abd9dced790, type: 3}
+  - {fileID: 8300000, guid: dd35671a5423e0148a2d1c5af4ee1988, type: 3}
+  - {fileID: 8300000, guid: 3789036a75864ec47832c0d8416ca298, type: 3}
+  - {fileID: 8300000, guid: 75d2ec353728deb4dac0b5d69387ad33, type: 3}
+  - {fileID: 8300000, guid: 4b6a021775e5fc04882a34e32ba6c2ff, type: 3}
   bgmAudioSource: {fileID: 6932275111124725013}
   activeAudioSource: {fileID: 6932275111013996854}
   ambientAudioSource: {fileID: 6932275111574741143}
