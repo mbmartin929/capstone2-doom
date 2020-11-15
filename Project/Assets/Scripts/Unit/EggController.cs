@@ -47,7 +47,7 @@ public class EggController : MonoBehaviour
     {
         Debug.Log("Die Egg");
 
-        int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
+        //int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
 
         if (eggCount != 0)
         {
@@ -90,16 +90,6 @@ public class EggController : MonoBehaviour
 
         // eggCount = 0;
     }
-
-    // private IEnumerator SpawnEnemies()
-    // {
-    //     yield return new WaitForSeconds(spawnTime);
-
-    //     foreach (GameObject enemy in enemySpawns)
-    //     {
-    //         enemy.SetActive(true);
-    //     }
-    // }
 
     private void SpawnEnemies()
     {
