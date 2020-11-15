@@ -28,17 +28,11 @@ namespace EightDirectionalSpriteSystem
                                                     agent.transform.position.y,
                                                     playerGo.transform.position.z);
 
-                //agent.transform.LookAt(targetRotation);
-
                 if (Vector3.Distance(agent.transform.position, targetRotation) > enemyAI.distanceToAttack)
                 {
                     Debug.Log("Chase from Attack");
                     enemyAI.anim.SetTrigger("Chase");
                 }
-            }
-            else
-            {
-                //agent.GetComponent<AISFM>().singleAnim.SetTrigger("Dead");
             }
         }
 

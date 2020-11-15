@@ -19,6 +19,7 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             cameraGo = GameObject.FindGameObjectWithTag("Player");
+
             FindObjectwithTag("MainCamera");
 
             FOV = fpsCam.fieldOfView;
@@ -26,11 +27,26 @@ namespace EightDirectionalSpriteSystem
             canAttack = true;
 
             TextManager.Instance.UpdateAmmoText();
+
+            Invoke("LateStart", 0.1f);
+        }
+
+        private void LateStart()
+        {
+            FindObjectwithTag("MainCamera");
+
+            cameraGo = GameObject.FindGameObjectWithTag("Player");
+
+            FOV = fpsCam.fieldOfView;
+
+            fpsCam = Camera.main;
         }
 
         // Update is called once per frame
         void Update()
         {
+            fpsCam = Camera.main;
+
             fpsCam.transform.eulerAngles += camRotation;
             fpsCam.fieldOfView = FOV;
         }

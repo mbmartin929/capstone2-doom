@@ -66,36 +66,32 @@ namespace EightDirectionalSpriteSystem
         {
             //CurrentHealth = CurHealth;W
 
-            if (getHit)
-            {
-                if (painStrength <= 0) painStrength = 0;
-                Debug.Log("Pain Strength: " + painStrength);
-                //Debug.Log("Pain: " + (transform.forward * (painStrength - painResistance)));
-                transform.parent.position += (transform.forward * (painStrength - painResistance)) * Time.deltaTime;
-            }
+            // if (getHit)
+            // {
+            //     if (painStrength <= 0) painStrength = 0;
+            //     Debug.Log("Pain Strength: " + painStrength);
+            //     //Debug.Log("Pain: " + (transform.forward * (painStrength - painResistance)));
+            //     transform.parent.position += (transform.forward * (painStrength - painResistance)) * Time.deltaTime;
+            // }
         }
 
         public void TakeDamage(int amount)
         {
-            // for (int i = 0; i <= 1; i++)
-            // {
-
-            // }
-            //int id = Random.Range(0, bloodSplatGos.Length);
-
             RaycastHit hit;
             int layerMask = LayerMask.GetMask("Ground");
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 50f, layerMask))
             {
                 int randomBloodNumber = Random.Range(1, 5);
-                float randomBloodTimer = Random.Range(0.1f, 0.25f);
 
-                StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
+                //float randomBloodTimer = Random.Range(0.1f, 0.25f);
+                //StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f, randomBloodTimer));
+
+                GetComponent<DecalPainter>().PaintVoid(hit.point + hit.normal * 1f, randomBloodNumber, 1.0f);
             }
 
             if (IsDead())
             {
-                Debug.Log("Spawning Dead Gibs");
+                //Debug.Log("Spawning Dead Gibs");
                 enemySounds.BloodSplatterSound();
 
                 // DECREASES HEALTH
@@ -112,40 +108,29 @@ namespace EightDirectionalSpriteSystem
                         contributedGib = true;
                     }
 
-                    gameObject.SetActive(false);
+                    //gameObject.SetActive(false);
 
                     if (useGib)
                     {
-                        Debug.Log("Dead Use Gib");
+                        //Debug.Log("Dead Use Gib");
                         for (int i = 0; i < gibsAmount; i++)
                         {
                             GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
-                            Debug.Log("Finish Spawning Gibs");
+                            //Debug.Log("Finish Spawning Gibs");
                         }
                     }
 
                     GetComponent<EnemyDrops>().Drop();
 
-                    Debug.Log("Parent: " + transform.parent.gameObject);
+                    // Debug.Log("Parent: " + transform.parent.gameObject);
                     Destroy(transform.parent.gameObject);
-
-                    Debug.Log("Dead Gib!");
-
-                    // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
-                    // {
-                    //     if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
-                    //     {
-                    //         ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
-                    //         return;
-                    //     }
-                    // }
-                    Destroy(gameObject, 5.0f);
+                    // Debug.Log("Dead Gib!");
                 }
-                Debug.Log("Finished Dead Gibs");
+                //Debug.Log("Finished Dead Gibs");
             }
             else if (!IsDead())
             {
-                Debug.Log("Spawning Not-Dead Gibs");
+                //Debug.Log("Spawning Not-Dead Gibs");
                 //GetComponent<AudioSource>().Play();
 
                 enemySounds.BloodSplatterSound();
@@ -154,20 +139,20 @@ namespace EightDirectionalSpriteSystem
                 CurHealth -= amount;
 
                 // Checks Hurt Chance
-                float randValue = Random.value;
-                if (randValue < painChance)
-                {
-                    //Debug.Log("Pain");
-                    //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
-                    enemySounds.PainSound();
+                // float randValue = Random.value;
+                // if (randValue < painChance)
+                // {
+                //     //Debug.Log("Pain");
+                //     //enemyAI.actor.SetCurrentState(DemoActor.State.PAIN);
+                //     enemySounds.PainSound();
 
-                    if (currentCoroutine != null)
-                    {
-                        StopCoroutine(currentCoroutine);
-                    }
+                //     if (currentCoroutine != null)
+                //     {
+                //         StopCoroutine(currentCoroutine);
+                //     }
 
-                    currentCoroutine = StartCoroutine(GetHit());
-                }
+                //     currentCoroutine = StartCoroutine(GetHit());
+                // }
 
                 if (CurHealth <= -gibAlive)
                 {
@@ -180,17 +165,13 @@ namespace EightDirectionalSpriteSystem
                     if (useGib)
                     {
                         enemySounds.GibExplosionSound();
-                        Debug.Log("Not-Dead Use Gib");
+                        //Debug.Log("Not-Dead Use Gib");
                         for (int i = 0; i < gibsAmount; i++)
                         {
                             GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
-                            Debug.Log("Finish Spawning Gibs");
+                            //Debug.Log("Finish Spawning Gibs");
                         }
                     }
-
-                    //Destroy(gameObject, 5.0f);
-
-                    Debug.Log("Gib!");
 
                     // for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
                     // {
@@ -204,32 +185,24 @@ namespace EightDirectionalSpriteSystem
 
                     if (transform.parent.parent != null)
                     {
-                        Debug.Log("Before Parent: " + transform.parent.parent.gameObject.name);
+                        //Debug.Log("Before Parent: " + transform.parent.parent.gameObject.name);
                         //Destroy(transform.parent.gameObject);
                         transform.parent.parent = GameManager.Instance.deadEnemies.transform;
                         //transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
-                        Debug.Log("After Parent: " + transform.parent.parent.gameObject.name);
+                        //Debug.Log("After Parent: " + transform.parent.parent.gameObject.name);
+                    }
+
+                    if (IsDead())
+                    {
+                        Debug.Log("Start IsDead from !IsDead");
+                        Die();
+                        // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
+                        // bloodFlowGo.transform.parent = transform;
+
+
+                        //Debug.Log("Finished IsDead from !IsDead");
                     }
                 }
-                else
-                {
-                    Debug.Log(CurHealth + " <= " + -gibAlive);
-                }
-
-                if (IsDead())
-                {
-                    Debug.Log("Start IsDead from !IsDead");
-
-                    // GameObject bloodFlowGo = Instantiate(bloodFlow, transform.position, bloodFlow.transform.rotation);
-                    // bloodFlowGo.transform.parent = transform;
-
-                    // Destroy(transform.parent.GetChild(2).gameObject);
-
-                    Die();
-                    Debug.Log("Finished IsDead from !IsDead");
-                }
-                //else StartCoroutine(GetHit());
-
                 Debug.Log("Finished Not-Dead Gibs");
             }
         }
@@ -254,11 +227,11 @@ namespace EightDirectionalSpriteSystem
             //transform.parent = GameManager.Instance.deadEnemies.transform;
             transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
-            Debug.Log("My Parent: " + transform.parent.gameObject.name);
-            Debug.Log("My Parent's Parent: " + transform.parent.parent.gameObject.name);
+            // Debug.Log("My Parent: " + transform.parent.gameObject.name);
+            // Debug.Log("My Parent's Parent: " + transform.parent.parent.gameObject.name);
             //Destroy(transform.parent.gameObject);
 
-            Debug.Log("Set Parent From Die");
+            //Debug.Log("Set Parent From Die");
             //enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
         }
 

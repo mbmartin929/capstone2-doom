@@ -30,13 +30,9 @@ namespace EightDirectionalSpriteSystem
                 if (Time.time > nextActionTime)
                 {
                     nextActionTime += period;
-                    //Debug.Log("Stop Wait Time");
                     //AISFM.GoToDestination();
 
                     Vector3 newPos = EnemyAI.RandomNavSphere(NPC.transform.position, 5.0f, 0);
-                    //Debug.Log(NPC.gameObject.name + ": " + NPC.transform.position + "," + newPos);
-
-                    //Vector3 newPos = Random.insideUnitSphere * 1.0f;
                     agent.SetDestination(newPos);
 
                     enemyAI.CallRandomPatrolSound();
@@ -58,12 +54,9 @@ namespace EightDirectionalSpriteSystem
                 //     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 // }
 
-                enemyAI.EnemyRaycast();
-                //enemyAI.FindVisibleTargets();
-                enemyAI.StartCoroutine(enemyAI.FindVisibleTargetsCoroutine());
-
-
-                //AISFM.EnemyRaycast();
+                //enemyAI.EnemyRaycast();
+                enemyAI.FindVisibleTargets();
+                //enemyAI.StartCoroutine(enemyAI.FindVisibleTargetsCoroutine());
             }
         }
 

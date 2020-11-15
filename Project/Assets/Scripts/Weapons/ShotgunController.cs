@@ -53,6 +53,8 @@ public class ShotgunController : WeaponController
     // Update is called once per frame
     void Update()
     {
+        fpsCam = Camera.main;
+
         fpsCam.transform.eulerAngles += camRotation;
         fpsCam.fieldOfView = FOV;
     }

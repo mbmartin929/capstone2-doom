@@ -55,15 +55,10 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         private void FindPlayer()
         {
             visibleTargets.Add(GameManager.Instance.playerGo.transform);
+            anim.SetTrigger("Chase");
         }
 
         public void AgentSetDestinationPatrol()
@@ -186,7 +181,7 @@ namespace EightDirectionalSpriteSystem
 
                     if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                     {
-                        if (target.gameObject.tag == "Player") visibleTargets.Add(target);
+                        if (target.gameObject.tag == "Player") visibleTargets.Add(target); anim.SetTrigger("Chase");
                     }
                 }
             }

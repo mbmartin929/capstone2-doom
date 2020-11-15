@@ -7,7 +7,7 @@ public class ObjectiveManager : MonoBehaviour
 {
     public static ObjectiveManager Instance;
 
-    public int targetNumber = 10;
+    public int targetNumber = 6;
     public int currentNumber = 0;
     public GameObject eggDoor;
 
@@ -73,6 +73,7 @@ public class ObjectiveManager : MonoBehaviour
         }
         else if (GameManager.Instance.level == 2)
         {
+            targetNumber = 6;
             currentObjective.AddWriter("Current Objective:", 0.09f, true);
             yield return new WaitForSeconds(0.69f);
             StartCoroutine(TypeObjective("Exterminate Eggs " + currentNumber + "/" + targetNumber, 0.069f, 0f));

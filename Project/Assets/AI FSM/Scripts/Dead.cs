@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace EightDirectionalSpriteSystem
 {
-
-
     public class Dead : NPCbaseFSM
     {
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            //Debug.Log("Dead State");
-
             base.OnStateEnter(animator, stateInfo, layerIndex);
             enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
-            //Debug.Log(agent.name);
-            //agent.isStopped = true;
-
 
             agent.enabled = false;
         }

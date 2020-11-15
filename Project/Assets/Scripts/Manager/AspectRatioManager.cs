@@ -56,80 +56,105 @@ public class AspectRatioManager : MonoBehaviour
         //     Camera.main.rect = rect;
         // }
 
-        if (Camera.main.aspect >= 1.8)
-        {
-            // Debug.Log("21:9");
-            // foreach (var overlay in bloodOverlays)
-            // {
-            //     RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
-            //     rt.sizeDelta = new Vector2(bloodOverlayScale[0].x, bloodOverlayScale[0].y);
-            // }
+        // if (Camera.main.aspect >= 1.8)
+        // {
+        //     // Debug.Log("21:9");
+        //     // foreach (var overlay in bloodOverlays)
+        //     // {
+        //     //     RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     //     rt.sizeDelta = new Vector2(bloodOverlayScale[0].x, bloodOverlayScale[0].y);
+        //     // }
 
-            // //RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // //RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
 
-            // // weaponRect.pivot = new Vector2(0.5f, -0.2f);
-            // // weaponRect.anchorMax = new Vector2(0.29f, 0.5f);
+        //     // // weaponRect.pivot = new Vector2(0.5f, -0.2f);
+        //     // // weaponRect.anchorMax = new Vector2(0.29f, 0.5f);
 
-            // // Code Below is required for 21:9 fix
-            // //weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
+        //     // // Code Below is required for 21:9 fix
+        //     // //weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
 
-            // RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
-            // healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
+        //     // RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
 
-            // RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-            // weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
-            // weaponRect.pivot = new Vector2(2.0f, 0.35f);
+        //     // RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
+        //     // weaponRect.pivot = new Vector2(2.0f, 0.35f);
 
-            // // RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
-            // // ammoIconRect.localPosition = ammoIconRectVector3;
+        //     // // RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // // ammoIconRect.localPosition = ammoIconRectVector3;
 
-            // // RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
-            // // WBorderRect.localPosition = WBorderRectVector3;
+        //     // // RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // // WBorderRect.localPosition = WBorderRectVector3;
 
-            // RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-            // dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
-        }
-        else if (Camera.main.aspect >= 1.7)
-        {
-            Debug.Log("16:9");
-            foreach (var overlay in bloodOverlays)
-            {
-                RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
-                rt.sizeDelta = new Vector2(bloodOverlayScale[1].x, bloodOverlayScale[1].y);
-            }
+        //     // RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
+        // }
+        // else if (Camera.main.aspect >= 1.7)
+        // {
+        //     Debug.Log("16:9");
+        //     foreach (var overlay in bloodOverlays)
+        //     {
+        //         RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
+        //         rt.sizeDelta = new Vector2(bloodOverlayScale[1].x, bloodOverlayScale[1].y);
+        //     }
 
-            RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
-            healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
+        //     RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
 
-            RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-            weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
-            weaponRect.pivot = new Vector2(2.0f, 0.35f);
+        //     RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
+        //     weaponRect.pivot = new Vector2(2.0f, 0.35f);
 
-            RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
-            ammoIconRect.localPosition = ammoIconRectVector3;
+        //     RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
+        //     ammoIconRect.localPosition = ammoIconRectVector3;
 
-            RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
-            WBorderRect.localPosition = WBorderRectVector3;
+        //     RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
+        //     WBorderRect.localPosition = WBorderRectVector3;
 
-            RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
-            dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
+        //     RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
 
-            // RectTransform objectiveRect = objectiveGo.GetComponent(typeof(RectTransform)) as RectTransform;
-            // objectiveRect.localPosition = new Vector2(objectivePos[1].x, objectivePos[1].y);
-        }
-        else if (Camera.main.aspect >= 1.5) Debug.Log("3:2");
-        else Debug.Log("4:3");
+        //     // RectTransform objectiveRect = objectiveGo.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     // objectiveRect.localPosition = new Vector2(objectivePos[1].x, objectivePos[1].y);
+        // }
+        // else if (Camera.main.aspect >= 1.5) Debug.Log("3:2");
+        // else Debug.Log("4:3");
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        // if (Camera.main.aspect >= 1.8)
+        // {
 
-    }
+        // }
+        // else if (Camera.main.aspect >= 1.7)
+        // {
+        //     Debug.Log("16:9");
+        //     foreach (var overlay in bloodOverlays)
+        //     {
+        //         RectTransform rt = overlay.GetComponent(typeof(RectTransform)) as RectTransform;
+        //         rt.sizeDelta = new Vector2(bloodOverlayScale[1].x, bloodOverlayScale[1].y);
+        //     }
 
-    // Update is called once per frame
-    void Update()
-    {
+        //     RectTransform healthRect = HSBox.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     healthRect.localPosition = new Vector2(healthHolderPos[1].x, healthHolderPos[1].y);
 
+        //     RectTransform weaponRect = weaponHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     weaponRect.localPosition = new Vector2(weaponHolderPos[1].x, weaponHolderPos[1].y);
+        //     weaponRect.pivot = new Vector2(2.0f, 0.35f);
+
+        //     RectTransform ammoIconRect = weaponHolder.transform.GetChild(2).GetComponent(typeof(RectTransform)) as RectTransform;
+        //     ammoIconRect.localPosition = ammoIconRectVector3;
+
+        //     RectTransform WBorderRect = weaponHolder.transform.GetChild(3).GetComponent(typeof(RectTransform)) as RectTransform;
+        //     WBorderRect.localPosition = WBorderRectVector3;
+
+        //     RectTransform dialogueRect = dialogueHolder.GetComponent(typeof(RectTransform)) as RectTransform;
+        //     dialogueRect.localPosition = new Vector2(dialogueHolderPos[1].x, dialogueHolderPos[1].y);
+
+        // }
+        // else if (Camera.main.aspect >= 1.5) Debug.Log("3:2");
+        // else Debug.Log("4:3");
     }
 }

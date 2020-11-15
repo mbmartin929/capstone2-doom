@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public bool introEnabled = false;
     public int frameRate = 200;
     public Volume volume;
-    [HideInInspector] public GameObject playerGo;
+    public GameObject playerGo;
     public GameObject all;
     #endregion 
 
@@ -38,27 +38,36 @@ public class GameManager : MonoBehaviour
         // Sets Singleton
         Instance = this;
 
-        Debug.Log(CrashReport.lastReport);
-        Debug.Log(CrashReport.reports);
+        // Debug.Log(CrashReport.lastReport);
+        // Debug.Log(CrashReport.reports);
 
         if (level == 1)
         {
             //SettingsManager.Instance.RestartSettingsManager();
 
-            if (GameObject.Find("Player_LVL 1.1"))
+            if (GameObject.FindGameObjectWithTag("Player"))
             {
                 Debug.Log("Player already exists");
                 playerGo = GameObject.FindGameObjectWithTag("Player");
+                playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
             }
             else
             {
                 Debug.Log("Instantiates Player");
                 playerGo = Instantiate(internal_player);
+                playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
             }
             //if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log(gameObject.name + " Found Player");
         }
         else if (level == 2)
         {
+            // if (GameObject.Find("Player_LVL 1.1"))
+            // {
+            //     Debug.Log("Player already exists");
+            //     playerGo = GameObject.FindGameObjectWithTag("Player");
+            //     playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
+            // }
+
             // if (GameObject.Find("Player_LVL 1.1"))
             // {
             //     Debug.Log("Player already exists");
@@ -88,18 +97,28 @@ public class GameManager : MonoBehaviour
             if (level == 2)
             {
                 Debug.Log("Level: " + level);
+
                 playerGo = GameObject.FindGameObjectWithTag("Player");
 
                 if (playerGo != null)
                 {
                     Debug.Log("Player already exists");
-                    //playerGo = GameObject.FindGameObjectWithTag("Player");
+
+                    playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
+
+                    internal_player = playerGo.GetComponent<PlayerController>().restartPlayerGo;
+
+                    playerGo = null;
+
+                    playerGo = internal_player;
                 }
                 else
                 {
                     Debug.Log("Instantiates Player");
                     playerGo = Instantiate(internal_player);
                 }
+
+
 
                 Debug.Log("Transferring Player");
 
@@ -122,7 +141,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        // if (GameObject.Find("Player_LVL 1.1"))
+        // {
+        //     Debug.Log("Player already exists");
+        //     playerGo = GameObject.FindGameObjectWithTag("Player");
+        //     playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
+        // }
+        // else
+        // {
+        //     Debug.Log("Instantiates Player");
+        //     playerGo = Instantiate(internal_player);
+        //     playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
+        // }
     }
 
     void OnGUI()
@@ -169,8 +199,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator RestartCurrentScene(float time)
     {
         Debug.Log("Restarting Scene");
+        //internal_player = playerGo.GetComponent<PlayerController>().restartPlayerGo;
         yield return new WaitForSeconds(restartSceneTime + time);
+
+
+        Instantiate(internal_player);
+        Destroy(playerGo);
+        playerGo = internal_player;
+        // Destroy(playerGo);
+        // Instantiate(internal_player);
+        // playerGo = internal_player;
+
         SceneManager.LoadScene(currentScene.name);
+        Debug.Log("Finish Restarting Scene");
     }
 
     IEnumerator LoadScene(string sceneName)

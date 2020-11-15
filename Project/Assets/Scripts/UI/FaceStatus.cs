@@ -62,6 +62,9 @@ namespace EightDirectionalSpriteSystem
         void Start()
         {
             playerController = GameManager.Instance.playerGo.GetComponent<PlayerController>();
+
+            Debug.Log("Face Status found playerController");
+
             //spriteRenderer = GetComponent<SpriteRenderer>();
             //rawImage = GetComponent<RawImage>();
             //image = GetComponent<Image>();

@@ -26,8 +26,6 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioSource activeAudioSource;
     [SerializeField] AudioSource ambientAudioSource;
 
-    private bool afterIntro = false;
-
     void Awake()
     {
         Instance = this;
@@ -37,24 +35,12 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        //InvokeRepeating("AfterIntro", 20f, 5f);
+
     }
 
     void Update()
     {
-        // if (afterIntro)
-        // {
-        //     
-        // }
-    }
 
-    private void AfterIntro()
-    {
-        if (!activeAudioSource.isPlaying && !ambientAudioSource.isPlaying)
-        {
-            Debug.Log("After Intro");
-            FadeInAmbientMusicCaller(2, true);
-        }
     }
 
     public void FadeInActiveMusicCaller(int track, bool loop, int nextTrack)

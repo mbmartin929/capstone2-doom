@@ -9,9 +9,6 @@ namespace EightDirectionalSpriteSystem
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            //Debug.Log("Get Hit State");
-
-
             base.OnStateEnter(animator, stateInfo, layerIndex);
             if (!enemyController.IsDead())
             {
