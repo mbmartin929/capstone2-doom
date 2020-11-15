@@ -63,7 +63,7 @@ public class ParticleCollideBlood : MonoBehaviour
                     }
                     i++;
                     Destroy(gameObject);
-                    return;
+                    break;
                     // if (i >= 2)
                     // {
                     //     Debug.Log("i: " + i);

@@ -148,6 +148,7 @@ public class DecalPainter : MonoBehaviour
 
         // Generate multiple decals in once
         int n = 0;
+        if (drops <= 0) drops = 1;
         while (n < drops)
         {
             var dir = transform.TransformDirection(Random.onUnitSphere * SplashRange);
