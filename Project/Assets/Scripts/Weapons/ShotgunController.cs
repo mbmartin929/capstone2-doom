@@ -205,7 +205,7 @@ public class ShotgunController : WeaponController
         else CurAmmo--;
 
         anim.SetTrigger("Shoot");
-        StartCoroutine("MuzzleLight");
+        //StartCoroutine("MuzzleLight");
         StartCoroutine(Wait(0.2f));
         Vector3 rotationVector = transform.rotation.eulerAngles;
         //GameObject bulletCasingGo = Instantiate(bulletCasingParticleGo, (bulletCasingLoc.position + new Vector3(0f, 0f, 0f)), Quaternion.Euler(new Vector3(0, rotationVector.y + 60.0f, 0)));
@@ -900,7 +900,8 @@ public class ShotgunController : WeaponController
 
     private IEnumerator Wait(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
+        //yield return new WaitForSeconds(seconds);
+        yield return new WaitForFixedUpdate();
         canAttack = true;
     }
 }

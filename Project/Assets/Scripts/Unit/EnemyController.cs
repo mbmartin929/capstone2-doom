@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using EightDirectionalSpriteSystem;
 
-
 public class EnemyController : UnitController
 {
     public int damage = 15;
@@ -20,7 +19,6 @@ public class EnemyController : UnitController
     public GameObject[] bloodSplashGos;
     public GameObject[] bloodSplatGos;
 
-    public int CurrentHealth;
 
     public bool useGib = true;
     public GameObject gibGo;
@@ -28,15 +26,8 @@ public class EnemyController : UnitController
     public int gibAlive = 15;
     public int gibDeath = 30;
 
-    public float projectileSpeed;
-
-    public EnemyAI enemyAI;
     public Animator animator;
 
-    public float velocity;
-
-    private bool getHit = false;
-    private Coroutine currentCoroutine = null;
     private EnemySounds enemySounds;
 
     private bool contributedGib = false;

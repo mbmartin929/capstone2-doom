@@ -49,27 +49,27 @@ public class EggController : MonoBehaviour
 
         //int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
 
-        if (eggCount != 0)
-        {
-            // for (int i = 0; i < random; i++)
-            // {
-            //     Debug.Log("Spawning Baby Worms from Egg");
-            //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-            //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-            // }
+        // if (eggCount != 0)
+        // {
+        //     // for (int i = 0; i < random; i++)
+        //     // {
+        //     //     Debug.Log("Spawning Baby Worms from Egg");
+        //     //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        //     //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+        //     // }
 
-            Debug.Log("Spawning Baby Worms from Egg");
-            Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-            GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-        }
+        //     Debug.Log("Spawning Baby Worms from Egg");
+        //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+        // }
 
-        //StartCoroutine(SpawnEnemies());
-        SpawnEnemies();
+        // //StartCoroutine(SpawnEnemies());
+        // SpawnEnemies();
 
-        ObjectiveManager.Instance.currentNumber += eggCount;
-        eggCount = 0;
-        ObjectiveManager.Instance.UpdateTargetNumberObjective();
-        Destroy(gameObject);
+        // ObjectiveManager.Instance.currentNumber += eggCount;
+        // eggCount = 0;
+        // ObjectiveManager.Instance.UpdateTargetNumberObjective();
+        // Destroy(gameObject);
 
         // if (eggCount != 0)
         // {
@@ -89,6 +89,17 @@ public class EggController : MonoBehaviour
         // }
 
         // eggCount = 0;
+
+
+        Debug.Log("Spawning Baby Worms from Egg");
+        Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+
+        SpawnEnemies();
+
+        ObjectiveManager.Instance.currentNumber += eggCount;
+        ObjectiveManager.Instance.UpdateTargetNumberObjective();
+        Destroy(gameObject);
     }
 
     private void SpawnEnemies()

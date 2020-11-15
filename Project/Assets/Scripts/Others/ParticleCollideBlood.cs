@@ -56,7 +56,9 @@ public class ParticleCollideBlood : MonoBehaviour
                         //                                                       Quaternion.LookRotation(hit.normal)
                         //                                                       ) as GameObject;
 
-                        StartCoroutine(GetComponent<DecalPainter>().Paint(pos + 0.01f * hit.normal, 1, 1.0f, 0));
+                        //StartCoroutine(GetComponent<DecalPainter>().Paint(pos + 0.01f * hit.normal, 1, 1.0f, 0));
+
+                        GetComponent<DecalPainter>().PaintVoid(pos + 0.01f * hit.normal, 1, 1.0f);
                     }
                     i++;
 

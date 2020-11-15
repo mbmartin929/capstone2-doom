@@ -161,7 +161,8 @@ public class EnemyGibs : MonoBehaviour
                 //Debug.Log("Gib Blood Paint");
                 //Debug.Log(hit.transform.gameObject.name);
 
-                StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
+                //StartCoroutine(GetComponent<DecalPainter>().Paint(hit.point + hit.normal * 1f, 1, 1.0f, 0));
+                GetComponent<DecalPainter>().PaintVoid(hit.point + hit.normal * 1f, 1, 1.0f);
             }
         }
     }

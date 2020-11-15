@@ -23,7 +23,7 @@ public class ConsoleToGUI : MonoBehaviour
     public void Log(string logString, string stackTrace, LogType type)
     {
         // for onscreen...
-        myLog = myLog + "\n" + logString;
+        myLog = stackTrace + "\n" + logString;
         //myLog = CrashReport.reports + "\n" + logString;
         if (myLog.Length > kChars) { myLog = myLog.Substring(myLog.Length - kChars); }
 

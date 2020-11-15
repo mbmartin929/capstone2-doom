@@ -163,7 +163,7 @@ namespace EightDirectionalSpriteSystem
                         }
                     }
                     enemy.TakeDamage(damage);
-                    enemy.painStrength = painStrength;
+                    //enemy.painStrength = painStrength;
                     PlayRandomPunchSound();
                 }
                 else if (hit.transform.tag == "Destructible")

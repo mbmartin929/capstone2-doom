@@ -49,7 +49,7 @@ namespace EightDirectionalSpriteSystem
 
         public void Drop()
         {
-            Debug.Log("Going to drop resources");
+            //Debug.Log("Going to drop resources");
 
             int index;
             int amount;
@@ -58,12 +58,12 @@ namespace EightDirectionalSpriteSystem
             {
                 if (Random.value > 0.5)
                 {
-                    Debug.Log("Low Health! Will drop lots of health");
+                    //Debug.Log("Low Health! Will drop lots of health");
 
                     amount = Random.Range(minAmountOfDropsLow, maxAmountOfDropsLow);
-                    Debug.Log("Amount: " + amount);
+                    //Debug.Log("Amount: " + amount);
 
-                    for (int i = 0; i <= amount; i++)
+                    for (int i = 0; i < amount; i++)
                     {
                         index = Random.Range(0, healthDrops.Length - 1);
 
@@ -71,18 +71,18 @@ namespace EightDirectionalSpriteSystem
                         healthDrop.GetComponent<ItemExplosion>().isExplode = true;
                     }
                 }
-                else Debug.Log("Low Health! Will drop nothing");
+                //else Debug.Log("Low Health! Will drop nothing");
             }
             else if (AmmoInventory.Instance.curPistolAmmo <= lowPistolAmmo)
             {
                 if (Random.value > 0.5)
                 {
-                    Debug.Log("Low Pistol Ammo! Will drop lots of pistol ammo");
+                    //Debug.Log("Low Pistol Ammo! Will drop lots of pistol ammo");
 
                     amount = Random.Range(minAmountOfPistolAmmoNormal, maxAmountOfPistolAmmoNormal);
-                    Debug.Log("Amount: " + amount);
+                    //Debug.Log("Amount: " + amount);
 
-                    for (int i = 0; i <= amount; i++)
+                    for (int i = 0; i < amount; i++)
                     {
                         index = Random.Range(0, pistolAmmoDrops.Length - 1);
 
@@ -92,16 +92,16 @@ namespace EightDirectionalSpriteSystem
                         pistolAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 6);
                     }
                 }
-                else Debug.Log("Low Pistol Ammo! Will drop nothing");
+                //else Debug.Log("Low Pistol Ammo! Will drop nothing");
             }
-            else if (AmmoInventory.Instance.curShotgunAmmo <= lowShotgunAmmo)
+            else if (AmmoInventory.Instance.curShotgunAmmo < lowShotgunAmmo)
             {
-                Debug.Log("Low Shotgun Ammo! Will drop lots of shotgun ammo");
+                //Debug.Log("Low Shotgun Ammo! Will drop lots of shotgun ammo");
 
                 amount = Random.Range(minAmountOfShotgunAmmoNormal, maxAmountOfShotgunAmmoNormal);
-                Debug.Log("Amount: " + amount);
+                //Debug.Log("Amount: " + amount);
 
-                for (int i = 0; i <= amount; i++)
+                for (int i = 0; i < amount; i++)
                 {
                     index = Random.Range(0, shotgunAmmoDrops.Length - 1);
 
@@ -129,7 +129,7 @@ namespace EightDirectionalSpriteSystem
 
                 if (Random.value > 0.7) //%30 percent chance (1 - 0.7 is 0.3)
                 {
-                    Debug.Log("Will drop anything");
+                    //Debug.Log("Will drop anything");
 
                     amount = Random.Range(minAmountOfDropsNormal, maxAmountOfDropsNormal);
                     //Debug.Log("Amount: " + amount);
@@ -142,7 +142,7 @@ namespace EightDirectionalSpriteSystem
                         itemDrop.GetComponent<ItemExplosion>().isExplode = true;
                     }
                 }
-                else Debug.Log("Will drop nothing");
+                //else Debug.Log("Will drop nothing");
             }
         }
     }

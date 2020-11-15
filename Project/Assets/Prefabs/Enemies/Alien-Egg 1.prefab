@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 2736204917347859583}
   - component: {fileID: 2736204917347859569}
   - component: {fileID: 2736204917347859571}
-  - component: {fileID: 2736204917347859572}
   - component: {fileID: 2736204917347859573}
   m_Layer: 12
   m_Name: Alien-Egg 1
@@ -225,6 +224,8 @@ MonoBehaviour:
   hp: 42
   eggCount: 1
   isObjective: 1
+  enemySpawns: []
+  spawnTime: 1.29
   bloodSplashGos:
   - {fileID: 4620955818151352605, guid: ba1da82d1a182fa4abbd028e6976d77f, type: 3}
   - {fileID: 4620955818151352605, guid: 992b4d8b0690fca4cb51a6f8646c8ed1, type: 3}
@@ -255,40 +256,6 @@ MonoBehaviour:
   MaxScale: 0.42
   SplashRange: 5.5
   PoolSize: 300
---- !u!114 &2736204917347859572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736204917347859580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d3c633aacc50743909ec13ad0619de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minPatrolSoundTime: 1.5
-  maxPatrolSoundTime: 5
-  idle:
-  - {fileID: 8300000, guid: 4e446eeae13a480499fda79ca8e92bf0, type: 3}
-  - {fileID: 8300000, guid: b667f2374583b4b46b329e0345a12944, type: 3}
-  chase:
-  - {fileID: 8300000, guid: 4d60de79518e8b54589d8deca0598c66, type: 3}
-  fire:
-  - {fileID: 8300000, guid: 20d707e088d67c741a75f93bdc9f82aa, type: 3}
-  pain:
-  - {fileID: 8300000, guid: 20d707e088d67c741a75f93bdc9f82aa, type: 3}
-  death:
-  - {fileID: 8300000, guid: e6dc795413bf5dc49a41a06156975f9e, type: 3}
-  splatter:
-  - {fileID: 8300000, guid: caeb579e4c30fee41a8f41f67e334d43, type: 3}
-  gibExplosion:
-  - {fileID: 8300000, guid: 64eb27a65182bb541847f33b2c3c77a3, type: 3}
-  - {fileID: 8300000, guid: b3b41ba555549b3428765c5dd295bf17, type: 3}
-  - {fileID: 8300000, guid: aabe9040a9f7109438856c7c9a2ad16b, type: 3}
-  - {fileID: 8300000, guid: b7407b1556f54564db6f3a3074f2f1ef, type: 3}
-  - {fileID: 8300000, guid: a5c52c79c0a7d844a94bd5829b14a836, type: 3}
-  painSound: 29
 --- !u!82 &2736204917347859573
 AudioSource:
   m_ObjectHideFlags: 0

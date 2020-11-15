@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorTransform: {fileID: 6423949439062104480}
   slimeShockwave: {fileID: 0}
-  currentFrameIndex: 0
+  currentFrameIndex: 2
   enemy: 0
   materials: []
 --- !u!65 &6423949438595970575
@@ -245,16 +245,12 @@ MonoBehaviour:
   - {fileID: 4620955818151352605, guid: 992b4d8b0690fca4cb51a6f8646c8ed1, type: 3}
   bloodSplatGos:
   - {fileID: 897968338700256403, guid: da34b8e5ed918884c91bebd5527c9c69, type: 3}
-  CurrentHealth: 0
   useGib: 1
   gibGo: {fileID: 1257690072450890127, guid: 50f7d37bf31d5634db3b5fb8f2fd5e1d, type: 3}
   gibsAmount: 12
   gibAlive: 15
   gibDeath: 30
-  projectileSpeed: 929
-  enemyAI: {fileID: 6423949439062104482}
   animator: {fileID: 6423949439062104487}
-  velocity: 0
 --- !u!82 &6423949438595970561
 AudioSource:
   m_ObjectHideFlags: 0
@@ -435,7 +431,7 @@ MonoBehaviour:
   - {fileID: 4394127949990291611, guid: 79a5acea210757048b08160485c13fbf, type: 3}
   minAmountOfDropsNormal: 0
   maxAmountOfDropsNormal: 1
-  minAmountOfDropsLow: 1
+  minAmountOfDropsLow: 0
   maxAmountOfDropsLow: 2
   minAmountOfPistolAmmoNormal: 0
   maxAmountOfPistolAmmoNormal: 5
