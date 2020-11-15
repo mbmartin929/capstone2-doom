@@ -5,12 +5,12 @@ namespace EightDirectionalSpriteSystem
 {
     public class Chase : NPCbaseFSM
     {
-        private float nextActionTime = 1.0f;
-        private float period = 0.0f;
+        // private float nextActionTime = 1.0f;
+        // private float period = 0.0f;
 
-        private bool oneTime = false;
+        // private bool oneTime = false;
 
-        private float tempTime;
+        // private float tempTime;
 
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,9 +20,6 @@ namespace EightDirectionalSpriteSystem
             if (!agent.enabled) return;
             else agent.isStopped = false;
 
-            //Debug.Log("Chase State");
-
-            //AISFM.DisableEightDirection();
             enemyAI.actor.SetCurrentState(DemoActor.State.WALKING);
         }
 
@@ -63,8 +60,6 @@ namespace EightDirectionalSpriteSystem
                     if (Vector3.Distance(agent.transform.position, targetPosition) <= enemyAI.distanceToAttack - 0.5f)
                     {
                         enemyAI.anim.SetTrigger("Attack");
-                        //Debug.Log("Spider Attack");
-                        //.actor.SetCurrentState(DemoActor.State.SHOOT);
                     }
                 }
                 else if (enemyAI.billboard.enemy == ActorBillboard.Enemy.Snail)

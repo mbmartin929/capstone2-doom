@@ -21,7 +21,7 @@ public class EggController : MonoBehaviour
 
     private void Start()
     {
-        ObjectiveManager.Instance.targetNumber++;
+        //ObjectiveManager.Instance.targetNumber++;
     }
 
     public void TakeDamage(int damage)
@@ -41,38 +41,35 @@ public class EggController : MonoBehaviour
                 //bloodGo.transform.parent = hit.transform;
             }
         }
-
-
     }
 
     private void Die()
     {
         Debug.Log("Die Egg");
-        // if (isObjective)
-        // {
-
-        // }
-        //Debug.Log("Is Objective Egg");
 
         int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
 
         if (eggCount != 0)
         {
-            for (int i = 0; i < random; i++)
-            {
-                Debug.Log("Spawning Baby Worms from Egg");
-                Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-                GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-            }
+            // for (int i = 0; i < random; i++)
+            // {
+            //     Debug.Log("Spawning Baby Worms from Egg");
+            //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+            //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+            // }
+
+            Debug.Log("Spawning Baby Worms from Egg");
+            Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+            GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
         }
 
-        StartCoroutine(SpawnEnemies());
+        //StartCoroutine(SpawnEnemies());
+        SpawnEnemies();
 
         ObjectiveManager.Instance.currentNumber += eggCount;
         eggCount = 0;
         ObjectiveManager.Instance.UpdateTargetNumberObjective();
         Destroy(gameObject);
-
 
         // if (eggCount != 0)
         // {
@@ -94,10 +91,18 @@ public class EggController : MonoBehaviour
         // eggCount = 0;
     }
 
-    private IEnumerator SpawnEnemies()
-    {
-        yield return new WaitForSeconds(spawnTime);
+    // private IEnumerator SpawnEnemies()
+    // {
+    //     yield return new WaitForSeconds(spawnTime);
 
+    //     foreach (GameObject enemy in enemySpawns)
+    //     {
+    //         enemy.SetActive(true);
+    //     }
+    // }
+
+    private void SpawnEnemies()
+    {
         foreach (GameObject enemy in enemySpawns)
         {
             enemy.SetActive(true);

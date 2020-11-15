@@ -17,6 +17,8 @@ public class PlayerController : UnitController
 
     public int keyAmount = 0;
 
+    public bool fromRestart = false;
+
     [HideInInspector] public bool powerUpInvulnerable = false;
 
     public GameObject gameOverScreen;
@@ -40,6 +42,9 @@ public class PlayerController : UnitController
     [SerializeField]
     private BloodOverlay passiveBloodOverlay;
 
+    private PlayerController restartPlayer;
+    [HideInInspector] public GameObject restartPlayerGo;
+
     void Start()
     {
         CurHealth = startingHealth;
@@ -48,6 +53,8 @@ public class PlayerController : UnitController
         CurGold = currentGold;
 
         TextManager.Instance.UpdateHealthArmorText();
+
+
     }
 
     // Update is called once per frame
@@ -55,6 +62,19 @@ public class PlayerController : UnitController
     {
         currentGold = CurGold;
         playerRayCast();
+    }
+
+    public void SetBeginningLevelStats()
+    {
+        //restartPlayer = this;
+        restartPlayerGo = gameObject;
+    }
+
+    public void Restart()
+    {
+        //this = restartPlayer;
+        //gameObject = restartPlayerGo;
+
     }
 
     public void RecoverHealth(int amount)
@@ -213,7 +233,7 @@ public class PlayerController : UnitController
     private IEnumerator GetDamaged()
     {
         damaged = true;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.27f);
         damaged = false;
     }
 

@@ -136,6 +136,40 @@ public class DecalPainter : MonoBehaviour
         }
     }
 
+    public void PaintVoid(Vector3 location, int drops, float scaleBonus = 1f)
+    {
+#if UNITY_EDITOR
+        mHitPoint = location;
+        mRaysDebug.Clear();
+        mDrawDebug = true;
+#endif
+
+        RaycastHit hit;
+
+        // Generate multiple decals in once
+        int n = 0;
+        while (n < drops)
+        {
+            var dir = transform.TransformDirection(Random.onUnitSphere * SplashRange);
+
+            // Avoid raycast backward as we're in a 2D space
+            if (dir.z < 0) dir.z = Random.Range(0f, 1f);
+
+            // Raycast around the position to splash everwhere we can
+            if (Physics.Raycast(location, dir, out hit, SplashRange))
+            {
+                //Debug.Log("Decal Painter: " + hit.transform.gameObject.name);
+
+                PaintDecal(hit, scaleBonus);
+
+#if UNITY_EDITOR
+                mRaysDebug.Add(new Ray(location, dir));
+#endif
+                n++;
+            }
+        }
+    }
+
     public void PaintDecal(RaycastHit hit, float scaleBonus)
     {
         // Create a splash if we found a surface
