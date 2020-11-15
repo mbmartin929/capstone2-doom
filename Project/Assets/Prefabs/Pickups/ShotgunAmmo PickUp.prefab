@@ -322,12 +322,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExplode: 0
-  minY: 690
-  maxY: 1000
-  minX: 222
-  maxX: 690
-  minZ: 222
-  maxZ: 690
+  minY: 360
+  maxY: 420
+  minX: 111
+  maxX: 222
+  minZ: 111
+  maxZ: 222
 --- !u!54 &-9021545737521551175
 Rigidbody:
   m_ObjectHideFlags: 0

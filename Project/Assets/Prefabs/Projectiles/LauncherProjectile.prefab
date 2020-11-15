@@ -304,6 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: 1
   damage: 0
+  speed: 69
+  upwardsMultiplier: 2.9
   duration: 1
   enemyAI: {fileID: 0}
   forwardMultiplier: 420
@@ -322,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 6.9
   timer: 2
-  damage: 80
+  damage: 90
   explosionParticle: {fileID: 8829317504927706190, guid: adfa8409024ebde4984d0d0674035311,
     type: 3}
   grenadeCrater: {fileID: 7383955542766930432, guid: 97a4c898d29e21446a1c94ada2b23409,

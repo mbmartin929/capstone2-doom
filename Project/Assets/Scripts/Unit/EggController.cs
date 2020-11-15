@@ -47,29 +47,29 @@ public class EggController : MonoBehaviour
     {
         Debug.Log("Die Egg");
 
-        int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
+        //int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
 
-        if (eggCount != 0)
-        {
-            // for (int i = 0; i < random; i++)
-            // {
-            //     Debug.Log("Spawning Baby Worms from Egg");
-            //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-            //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-            // }
+        // if (eggCount != 0)
+        // {
+        //     // for (int i = 0; i < random; i++)
+        //     // {
+        //     //     Debug.Log("Spawning Baby Worms from Egg");
+        //     //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        //     //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+        //     // }
 
-            Debug.Log("Spawning Baby Worms from Egg");
-            Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-            GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-        }
+        //     Debug.Log("Spawning Baby Worms from Egg");
+        //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+        // }
 
-        //StartCoroutine(SpawnEnemies());
-        SpawnEnemies();
+        // //StartCoroutine(SpawnEnemies());
+        // SpawnEnemies();
 
-        ObjectiveManager.Instance.currentNumber += eggCount;
-        eggCount = 0;
-        ObjectiveManager.Instance.UpdateTargetNumberObjective();
-        Destroy(gameObject);
+        // ObjectiveManager.Instance.currentNumber += eggCount;
+        // eggCount = 0;
+        // ObjectiveManager.Instance.UpdateTargetNumberObjective();
+        // Destroy(gameObject);
 
         // if (eggCount != 0)
         // {
@@ -89,17 +89,18 @@ public class EggController : MonoBehaviour
         // }
 
         // eggCount = 0;
+
+
+        Debug.Log("Spawning Baby Worms from Egg");
+        Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
+        GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
+
+        SpawnEnemies();
+
+        ObjectiveManager.Instance.currentNumber += eggCount;
+        ObjectiveManager.Instance.UpdateTargetNumberObjective();
+        Destroy(gameObject);
     }
-
-    // private IEnumerator SpawnEnemies()
-    // {
-    //     yield return new WaitForSeconds(spawnTime);
-
-    //     foreach (GameObject enemy in enemySpawns)
-    //     {
-    //         enemy.SetActive(true);
-    //     }
-    // }
 
     private void SpawnEnemies()
     {

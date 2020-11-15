@@ -100,53 +100,6 @@ public class Grenade : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider nearbyObject in colliders)
         {
-            // RaycastHit hit;
-            // if (Physics.Linecast(transform.position, nearbyObject.transform.position, out hit))
-            // {
-            //     if (hit.collider == nearbyObject)
-            //     {
-            //         if (hit.collider.tag == "Player")
-            //         {
-            //             Debug.Log("Hit Player");
-            //             // hit.rigidbody.AddExplosionForce(0, transform.position, radius);
-            //             GameManager.Instance.playerGo.GetComponent<PlayerController>().TakeDamage(damage);
-            //         }
-            //         else if (hit.collider.tag == "Enemy")
-            //         {
-            //             Debug.Log("Hit Enemy");
-            //             hit.collider.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
-
-            //             EnemyController enemy = hit.transform.GetComponent<EnemyController>();
-
-            //             foreach (GameObject item in enemy.bloodSplashGos)
-            //             {
-            //                 for (int i = 0; i < 3; i++)
-            //                 {
-            //                     if (item.tag == "Hit Normal")
-            //                     {
-            //                         GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
-            //                         //bloodGo.transform.parent = hit.transform;
-            //                     }
-            //                     else
-            //                     {
-            //                         GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
-            //                                                          item.transform.rotation);
-            //                         //bloodGo.transform.parent = hit.transform;
-            //                     }
-            //                 }
-            //             }
-            //         }
-            //         else if (hit.collider.tag == "Barricade")
-            //         {
-            //             Debug.Log("Hit Barricade");
-            //             // hit.rigidbody.AddExplosionForce(0, transform.position, radius);
-            //             Destroy(hit.collider.gameObject);
-            //         }
-
-            //     }
-            // }
-
-
             if (nearbyObject.tag == "Player")
             {
                 Debug.Log("Hit Player");

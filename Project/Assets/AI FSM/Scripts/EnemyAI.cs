@@ -300,7 +300,6 @@ namespace EightDirectionalSpriteSystem
             if (audioSource == null)
             {
                 Destroy(gameObject);
-                yield return null;
             }
 
             audioSource.clip = patrolSound;
