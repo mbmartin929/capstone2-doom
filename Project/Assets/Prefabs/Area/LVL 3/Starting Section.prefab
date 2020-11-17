@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326054539637
 Transform:
@@ -2145,7 +2145,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326069987723
 Transform:
@@ -2364,7 +2364,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326128301515
 Transform:
@@ -2410,7 +2410,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326156283510
 Transform:
@@ -5840,7 +5840,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326172776450
 Transform:
@@ -7723,12 +7723,12 @@ GameObject:
   - component: {fileID: 7871910326181544738}
   - component: {fileID: 7871910326181544739}
   - component: {fileID: 7871910326181544748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326181544749
 Transform:
@@ -9865,7 +9865,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326200103902
 Transform:
@@ -11855,7 +11855,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326288133087
 Transform:
@@ -12198,7 +12198,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326306677788
 Transform:
@@ -12208,7 +12208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871910326306677785}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.7900314, y: 7.290004, z: -11.442472}
+  m_LocalPosition: {x: -4.7900314, y: 7.43, z: -11.442472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7871910327717940168}
@@ -14357,7 +14357,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326371635248
 Transform:
@@ -16277,7 +16277,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326485037426
 Transform:
@@ -16500,7 +16500,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326595503070
 Transform:
@@ -18447,7 +18447,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326629877029
 Transform:
@@ -18670,7 +18670,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326633381919
 Transform:
@@ -19460,7 +19460,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326658734467
 Transform:
@@ -21809,7 +21809,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326789542923
 Transform:
@@ -28256,7 +28256,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326864068799
 Transform:
@@ -28508,7 +28508,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910326981949365
 Transform:
@@ -30683,7 +30683,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327042642984
 Transform:
@@ -36089,7 +36089,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327067441718
 Transform:
@@ -38156,7 +38156,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327097725778
 Transform:
@@ -40044,7 +40044,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327226120355
 Transform:
@@ -40781,7 +40781,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327284198589
 Transform:
@@ -42609,7 +42609,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327313033791
 Transform:
@@ -46039,7 +46039,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327331619042
 Transform:
@@ -47927,7 +47927,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327362262998
 Transform:
@@ -54152,7 +54152,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327412573522
 Transform:
@@ -54375,7 +54375,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327414132211
 Transform:
@@ -54597,7 +54597,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327441598186
 Transform:
@@ -55987,7 +55987,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327473174906
 Transform:
@@ -56690,7 +56690,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327511891815
 Transform:
@@ -58616,7 +58616,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327580260884
 Transform:
@@ -60683,7 +60683,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327609299574
 Transform:
@@ -62810,7 +62810,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327629018000
 Transform:
@@ -64937,7 +64937,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327631564659
 Transform:
@@ -65487,7 +65487,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327665827793
 Transform:
@@ -66518,7 +66518,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327679068159
 Transform:
@@ -68690,7 +68690,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327733750420
 Transform:
@@ -72120,7 +72120,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327748859587
 Transform:
@@ -72405,7 +72405,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327854837131
 Transform:
@@ -74352,7 +74352,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327868504089
 Transform:
@@ -75142,7 +75142,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327890928034
 Transform:
@@ -75519,7 +75519,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910327986111489
 Transform:
@@ -76631,7 +76631,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328028841807
 Transform:
@@ -77181,7 +77181,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328052247733
 Transform:
@@ -79248,7 +79248,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328057053818
 Transform:
@@ -83171,7 +83171,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328078656425
 Transform:
@@ -85059,7 +85059,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328098541744
 Transform:
@@ -85526,7 +85526,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328140440925
 Transform:
@@ -87725,7 +87725,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7871910328195212393
 Transform:
@@ -89589,10 +89589,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 451163721455413649, guid: 3d1e1591031c6df4681297db65a87c82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 451163721455413653, guid: 3d1e1591031c6df4681297db65a87c82,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 451163721511595616, guid: 3d1e1591031c6df4681297db65a87c82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 451163721511595619, guid: 3d1e1591031c6df4681297db65a87c82,
         type: 3}
@@ -89603,6 +89613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 451163721834150348, guid: 3d1e1591031c6df4681297db65a87c82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 451163721834150351, guid: 3d1e1591031c6df4681297db65a87c82,
         type: 3}
@@ -89618,6 +89633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SS Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 451163721838384218, guid: 3d1e1591031c6df4681297db65a87c82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 451163721838384221, guid: 3d1e1591031c6df4681297db65a87c82,
         type: 3}
@@ -90064,6 +90084,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7871910326219493743}
     m_Modifications:
+    - target: {fileID: 4188533536428313936, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313937, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -90072,17 +90097,17 @@ PrefabInstance:
     - target: {fileID: 4188533536428313938, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 154
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313938, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313938, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313938, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -114739,6 +114764,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536480152182, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536480152183, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -114748,6 +114778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536595783764, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536595783765, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -114764,10 +114799,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536647794935, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765578, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536869765590, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765591, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -114778,6 +114823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch 44 Pillar Lighting (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536970963009, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536970963010, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115114,6 +115164,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7871910326219493743}
     m_Modifications:
+    - target: {fileID: 4188533536428313936, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313937, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -115129,6 +115184,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536480152182, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536480152183, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -115138,6 +115198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536595783764, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536595783765, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115154,10 +115219,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536647794935, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765578, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536869765590, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765591, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115168,6 +115243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch 44 Pillar Lighting (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536970963009, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536970963010, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115364,6 +115444,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7871910326219493743}
     m_Modifications:
+    - target: {fileID: 4188533536428313936, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313937, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -115379,6 +115464,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536480152182, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536480152183, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -115388,6 +115478,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536595783764, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536595783765, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115404,10 +115499,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536647794935, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765578, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536869765590, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765591, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115418,6 +115523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch 44 Pillar Lighting (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536970963009, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536970963010, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115739,6 +115849,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7871910326219493743}
     m_Modifications:
+    - target: {fileID: 4188533536428313936, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536428313937, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -115754,6 +115869,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536480152182, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536480152183, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
@@ -115763,6 +115883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536595783764, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536595783765, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115779,10 +115904,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4188533536647794935, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765578, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536869765590, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536869765591, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
@@ -115793,6 +115928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch 44 Pillar Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188533536970963009, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4188533536970963010, guid: 917b0e3634ba2cd47a0aa6abbdf12262,
         type: 3}
