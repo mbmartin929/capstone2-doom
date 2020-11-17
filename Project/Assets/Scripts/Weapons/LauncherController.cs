@@ -61,8 +61,32 @@ public class LauncherController : WeaponController
         {
             Shoot();
         }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
     }
 
+    private void Reload()
+    {
+        //transform.localPosition = startPos;
+        Debug.Log("CurAmmo: " + CurAmmo);
+        Debug.Log("ClipAmmo: " + clipAmmo);
+        Debug.Log("CurLauncherAmmo: " + AmmoInventory.Instance.curLauncherAmmo);
+
+
+        if (CurAmmo == 0)
+        {
+            if (AmmoInventory.Instance.curLauncherAmmo > 0)
+            {
+                Debug.Log("You have no ammo reload");
+                anim.SetTrigger("Reload");
+                //canAttack = false;
+            }
+        }
+
+        TextManager.Instance.UpdateAmmoText();
+    }
 
     public void CanAttackState()
     {
