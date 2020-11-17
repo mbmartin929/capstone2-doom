@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4188533535559680891}
   - component: {fileID: 4188533535559680890}
   - component: {fileID: 4188533535559680889}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Change Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188533535642185071}
   - component: {fileID: 4188533535642185070}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Area Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188533536021583853}
   - component: {fileID: 4188533536021583854}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,9 +307,9 @@ GameObject:
   - component: {fileID: 4188533536428313939}
   - component: {fileID: 4188533536428313938}
   - component: {fileID: 4188533536428313937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5057,7 +5057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188533536470124790}
   - component: {fileID: 4188533536470124789}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Area Light (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5152,9 +5152,9 @@ GameObject:
   - component: {fileID: 4188533536480152169}
   - component: {fileID: 4188533536480152168}
   - component: {fileID: 4188533536480152183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (2)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6320,7 +6320,7 @@ GameObject:
   - component: {fileID: 4188533536574032963}
   - component: {fileID: 4188533536574032962}
   - component: {fileID: 4188533536574032961}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fire_2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6451,9 +6451,9 @@ GameObject:
   - component: {fileID: 4188533536595783767}
   - component: {fileID: 4188533536595783766}
   - component: {fileID: 4188533536595783765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7619,9 +7619,9 @@ GameObject:
   - component: {fileID: 4188533536647794922}
   - component: {fileID: 4188533536647794921}
   - component: {fileID: 4188533536647794920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (3)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8787,9 +8787,9 @@ GameObject:
   - component: {fileID: 4188533536869765577}
   - component: {fileID: 4188533536869765576}
   - component: {fileID: 4188533536869765591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9951,9 +9951,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4188533536970963010}
-  m_Layer: 0
-  m_Name: Pillar Lighting
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: Torch 44 Pillar Lighting
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
