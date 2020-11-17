@@ -47,6 +47,7 @@ public class ObjectiveManager : MonoBehaviour
 
         if (currentNumber >= targetNumber)
         {
+            Debug.Log(currentNumber + " >= " + targetNumber);
             if (GameManager.Instance.level == 2)
             {
                 StartCoroutine(TypeObjective("Regroup with Kaichi", 0.069f, 2.9f));
