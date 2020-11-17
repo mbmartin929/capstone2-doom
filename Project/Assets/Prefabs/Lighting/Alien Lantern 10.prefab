@@ -89,7 +89,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.00004368293, y: -106.99902, z: 6.32e-43, w: 2.426e-42}
+  m_BoundingSphereOverride: {x: 6.53e-43, y: 8.112017e-14, z: 6.53e-43, w: 25}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -125,7 +125,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1421927658
 Transform:
@@ -153,10 +153,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.68972236, b: 0.6564169, a: 1}
-  m_Intensity: 1.69
+  m_Intensity: 1.21
   m_Range: 7.5
-  m_SpotAngle: 125.3776
-  m_InnerSpotAngle: 125.3776
+  m_SpotAngle: 143.89484
+  m_InnerSpotAngle: 52.54312
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -195,10 +195,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 6.9
+  m_BounceIntensity: 7.5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 5.2578e-41, y: 5.9e-44, z: 4.114e-42, w: 0}
+  m_BoundingSphereOverride: {x: -1.7814783e+38, y: 0.08984375, z: 0.12890625, w: 48}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

@@ -212,96 +212,96 @@ public class ShotgunController : WeaponController
 
         TextManager.Instance.UpdateAmmoText();
 
-        SingleRaycasts();
+        //SingleRaycasts();
 
         //ShootDetection(GameManager.Instance.playerGo.transform.position, soundRadius);
 
-        // for (int i = 0; i < pelletCount; ++i)
-        // {
-        //     bulletTracerParticle.Play();
+        for (int i = 0; i < pelletCount; ++i)
+        {
+            bulletTracerParticle.Play();
 
-        //     Vector3 direction = Random.insideUnitCircle * scaleLimit; //Random XY point inside a circle
-        //     direction.z = z;// circle is at Z units 
-        //     direction = transform.TransformDirection(direction.normalized); //converting the Vector3.forward to transform.forward
-        //     Ray ray = new Ray(fpsCam.transform.position, direction);
+            Vector3 direction = Random.insideUnitCircle * scaleLimit; //Random XY point inside a circle
+            direction.z = z;// circle is at Z units 
+            direction = transform.TransformDirection(direction.normalized); //converting the Vector3.forward to transform.forward
+            Ray ray = new Ray(fpsCam.transform.position, direction);
 
-        //     RaycastHit hit = new RaycastHit();
-        //     if (Physics.Raycast(ray, out hit, range))
-        //     {
-        //         Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
+            RaycastHit hit = new RaycastHit();
+            if (Physics.Raycast(ray, out hit, range))
+            {
+                Debug.DrawRay(fpsCam.transform.position, direction * range, Color.red);
 
-        //         switch (hit.transform.tag)
-        //         {
-        //             case "Level":
-        //                 Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-        //                 Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
-        //                 Debug.Log("Finish Hit Level");
-        //                 break;
+                switch (hit.transform.tag)
+                {
+                    case "Level":
+                        Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
+                        Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+                        Debug.Log("Finish Hit Level");
+                        break;
 
-        //             case "Enemy":
-        //                 Debug.Log("Hit Enemy");
-        //                 EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+                    case "Enemy":
+                        Debug.Log("Hit Enemy");
+                        EnemyController enemy = hit.transform.GetComponent<EnemyController>();
 
-        //                 foreach (GameObject item in enemy.bloodSplashGos)
-        //                 {
-        //                     if (item.tag == "Hit Normal")
-        //                     {
-        //                         GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
-        //                         //bloodGo.transform.parent = hit.transform;
-        //                     }
-        //                     else
-        //                     {
-        //                         GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
-        //                                                          item.transform.rotation);
-        //                         //bloodGo.transform.parent = hit.transform;
-        //                     }
-        //                 }
-        //                 enemy.TakeDamage(damage);
-        //                 break;
+                        foreach (GameObject item in enemy.bloodSplashGos)
+                        {
+                            if (item.tag == "Hit Normal")
+                            {
+                                GameObject bloodGo = Instantiate(item, hit.point, Quaternion.LookRotation(hit.normal));
+                                //bloodGo.transform.parent = hit.transform;
+                            }
+                            else
+                            {
+                                GameObject bloodGo = Instantiate(item, hit.point /*+ (hit.transform.forward * 1f)*/,
+                                                                 item.transform.rotation);
+                                //bloodGo.transform.parent = hit.transform;
+                            }
+                        }
+                        enemy.TakeDamage(damage);
+                        break;
 
-        //             case "Destructible":
-        //                 Debug.Log("Hit Destructible");
-        //                 DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
+                    case "Destructible":
+                        Debug.Log("Hit Destructible");
+                        DestructibleDoor door = hit.transform.GetComponent<DestructibleDoor>();
 
-        //                 door.health -= damage;
-        //                 if (door.health <= 0)
-        //                 {
-        //                     door.DestroyMesh();
-        //                 }
-        //                 break;
+                        door.health -= damage;
+                        if (door.health <= 0)
+                        {
+                            door.DestroyMesh();
+                        }
+                        break;
 
-        //             case "Egg":
-        //                 Debug.Log("Hit Egg");
-        //                 hit.transform.GetComponent<EggController>().TakeDamage(damage);
-        //                 break;
+                    case "Egg":
+                        Debug.Log("Hit Egg");
+                        hit.transform.GetComponent<EggController>().TakeDamage(damage);
+                        break;
 
-        //             case "Resource Block":
-        //                 Debug.Log("Hit Resource Block");
-        //                 ResourceBlock block = hit.transform.GetComponent<ResourceBlock>();
+                    case "Resource Block":
+                        Debug.Log("Hit Resource Block");
+                        ResourceBlock block = hit.transform.GetComponent<ResourceBlock>();
 
-        //                 foreach (GameObject item in block.crystalEffects)
-        //                 {
-        //                     if (item.tag == "Hit Normal")
-        //                     {
-        //                         ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
+                        foreach (GameObject item in block.crystalEffects)
+                        {
+                            if (item.tag == "Hit Normal")
+                            {
+                                ParticleSystem particleSys = item.GetComponent<ParticleSystem>();
 
-        //                         GameObject crystalHitGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
-        //                     }
-        //                     else
-        //                     {
-        //                         GameObject crystalHitGo = Instantiate(item, hit.transform.position, item.transform.rotation);
-        //                     }
-        //                 }
-        //                 hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
-        //                 break;
+                                GameObject crystalHitGo = Instantiate(item, hit.transform.position, Quaternion.LookRotation(hit.normal));
+                            }
+                            else
+                            {
+                                GameObject crystalHitGo = Instantiate(item, hit.transform.position, item.transform.rotation);
+                            }
+                        }
+                        hit.transform.GetComponent<ResourceBlock>().TakeDamage(damage);
+                        break;
 
-        //             default:
-        //                 Debug.Log("Shotgun Hit Raycast Hit Something Else Name: " + hit.transform.gameObject.name);
-        //                 Debug.Log("Shotgun Hit Raycast Hit Something Else Tag: " + hit.transform.gameObject.tag);
-        //                 break;
-        //         }
-        //     }
-        // }
+                    default:
+                        Debug.Log("Shotgun Hit Raycast Hit Something Else Name: " + hit.transform.gameObject.name);
+                        Debug.Log("Shotgun Hit Raycast Hit Something Else Tag: " + hit.transform.gameObject.tag);
+                        break;
+                }
+            }
+        }
         canAttack = false;
         //readyToFire = false;
         Debug.Log("Finish Shooting");

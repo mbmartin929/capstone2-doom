@@ -139,7 +139,7 @@ namespace EightDirectionalSpriteSystem
                     transform.GetChild(0).transform.parent = null;
                 }
 
-                //Debug.Log("Collided with Level");
+                Debug.Log("Worm Projectile Collided with Level");
                 Destroy(gameObject);
             }
             else if (other.CompareTag("Player"))
