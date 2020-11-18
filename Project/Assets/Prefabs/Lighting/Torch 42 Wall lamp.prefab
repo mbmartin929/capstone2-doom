@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 8032315447757226244}
   - component: {fileID: 8032315447757226245}
   - component: {fileID: 8032315447757226250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8032315447757226246
 Transform:
@@ -1629,7 +1629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032315448128358378}
   - component: {fileID: 8032315448128358373}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Area Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1724,7 +1724,7 @@ GameObject:
   - component: {fileID: 8032315448177608151}
   - component: {fileID: 8032315448177608148}
   - component: {fileID: 8032315448177608149}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fire_2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1852,7 +1852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032315448226562892}
   - component: {fileID: 8032315448226562895}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Area Light (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1947,12 +1947,12 @@ GameObject:
   - component: {fileID: 8032315448509881980}
   - component: {fileID: 8032315448509881981}
   - component: {fileID: 8032315448509881954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube(Clone)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8032315448509881982
 Transform:
@@ -3457,12 +3457,12 @@ GameObject:
   - component: {fileID: 8032315448556280050}
   - component: {fileID: 8032315448556280051}
   - component: {fileID: 8032315448556280048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8032315448556280012
 Transform:
@@ -4967,12 +4967,12 @@ GameObject:
   - component: {fileID: 8032315448591791258}
   - component: {fileID: 8032315448591791259}
   - component: {fileID: 8032315448591791256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8032315448591791252
 Transform:
@@ -6474,7 +6474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032315448696220896}
   - component: {fileID: 8032315448696220899}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6565,12 +6565,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8032315448809931979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch 42 Wall lamp
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8032315448809931979
 Transform:
@@ -6605,7 +6605,7 @@ GameObject:
   - component: {fileID: 8032315448877626027}
   - component: {fileID: 8032315448877626021}
   - component: {fileID: 8032315448877626026}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Change Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

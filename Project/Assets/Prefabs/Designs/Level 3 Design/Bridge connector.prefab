@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7992311266707004018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridge connector
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7992311266707004018
 Transform:
@@ -46,12 +46,12 @@ GameObject:
   - component: {fileID: 7992311267379004944}
   - component: {fileID: 7992311267379004945}
   - component: {fileID: 7992311267379004958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7992311267379004959
 Transform:
@@ -837,12 +837,12 @@ GameObject:
   - component: {fileID: 7992311267943341712}
   - component: {fileID: 7992311267943341713}
   - component: {fileID: 7992311267943341726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (8)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7992311267943341727
 Transform:
@@ -1628,12 +1628,12 @@ GameObject:
   - component: {fileID: 7992311268510425870}
   - component: {fileID: 7992311268510425871}
   - component: {fileID: 7992311268510425868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7992311268510425869
 Transform:

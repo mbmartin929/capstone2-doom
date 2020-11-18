@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 3468816831190552321}
   - component: {fileID: 3468816831190552320}
   - component: {fileID: 3468816831190552323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube(Clone)(Clone)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3468816831190552322
 Transform:
@@ -1283,12 +1283,12 @@ GameObject:
   - component: {fileID: 3468816831639004942}
   - component: {fileID: 3468816831639004929}
   - component: {fileID: 3468816831639004928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube(Clone)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3468816831639004931
 Transform:
@@ -2549,12 +2549,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3468816832116261518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 'Shield Barricade '
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3468816832116261518
 Transform:
@@ -2586,12 +2586,12 @@ GameObject:
   - component: {fileID: 3468816832445457800}
   - component: {fileID: 3468816832445457803}
   - component: {fileID: 3468816832445457802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube(Clone)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3468816832445457805
 Transform:
