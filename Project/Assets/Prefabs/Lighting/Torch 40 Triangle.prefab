@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4967381421497686341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.337, y: 2.47, z: -2.41}
+  m_LocalPosition: {x: -8.337, y: 2.35, z: -2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5819594692868323915}
@@ -134,9 +134,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95898014, b: 0.79607844, a: 1}
-  m_Intensity: 0.4
-  m_Range: 9.29
+  m_Color: {r: 0.79607844, g: 0.99815506, b: 1, a: 1}
+  m_Intensity: 0.69
+  m_Range: 4.2
   m_SpotAngle: 90.16188
   m_InnerSpotAngle: 53.492867
   m_CookieSize: 10
@@ -177,7 +177,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.29
+  m_BounceIntensity: 0.18
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
@@ -3711,13 +3711,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819594693382230715}
-  m_LocalRotation: {x: 0.7048998, y: 0.055823807, z: 0.055823825, w: 0.7048998}
-  m_LocalPosition: {x: -8.8, y: 2.32, z: -2.41}
+  m_LocalRotation: {x: 0.6888082, y: 0.0735314, z: 0.04564009, w: 0.7197593}
+  m_LocalPosition: {x: -9.08, y: 2.66, z: -2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5819594692868323915}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 99.056, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 99.98901, y: -103.42499, z: -105.694}
 --- !u!108 &5819594693382230713
 Light:
   m_ObjectHideFlags: 0
@@ -3729,11 +3729,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6745283, g: 0.9950686, b: 1, a: 1}
-  m_Intensity: 2
-  m_Range: 9.29
-  m_SpotAngle: 119.93718
-  m_InnerSpotAngle: 60.23069
+  m_Color: {r: 0.5747152, g: 0.98555577, b: 0.990566, a: 1}
+  m_Intensity: 7.5
+  m_Range: 11.11
+  m_SpotAngle: 111.16267
+  m_InnerSpotAngle: 66.49819
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3772,7 +3772,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2.9
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}

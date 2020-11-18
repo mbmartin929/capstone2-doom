@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 6932275111906396996}
   - component: {fileID: 1879677563}
   m_Layer: 0
-  m_Name: GameManager LVL2
+  m_Name: GameManager LVL3
   m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,10 +274,9 @@ MonoBehaviour:
   all: {fileID: 0}
   enableHeadBob: 1
   deadEnemies: {fileID: 437685814633479175}
-  internal_player: {fileID: 3855021722727778593, guid: 81c7b8689afea3442b3972533cb61455,
-    type: 3}
+  internal_player: {fileID: 0}
   restartSceneTime: 2.9
-  level: 2
+  level: 3
   main: 0
   firstPlayer: 1
 --- !u!114 &437685813949052762
