@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6944590688893697742
 Transform:
@@ -50,7 +50,7 @@ GameObject:
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2138901079967416595
 Transform:
@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138901079967416596}
   m_LocalRotation: {x: 0.50000006, y: 0.5, z: -0.50000006, w: 0.5}
-  m_LocalPosition: {x: 18.123135, y: 8.340004, z: 42.944252}
+  m_LocalPosition: {x: 5.7300034, y: 8.37, z: 1.2042351}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6944590688893697742}
@@ -2036,7 +2036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138901080054057901}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 11.393132, y: -0.8299961, z: 42.440014}
+  m_LocalPosition: {x: -1, y: -0.8, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6944590688893697742}
@@ -2072,6 +2072,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 14140a8e5885d5144b9cb78ea8ae2153, type: 2}
   - {fileID: 2100000, guid: 2ef9710cef3de6d42886a179c69d6baf, type: 2}
   - {fileID: 2100000, guid: 9bfb4ddbccd65b14ebf0c27c4663f2e6, type: 2}
+  - {fileID: 2100000, guid: 8e50f3ddf07bb5842839b8353467a96d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2629,7 +2630,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: 0
     m_TextureGroup: -1
@@ -2680,7 +2681,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: 0
     m_TextureGroup: -1
@@ -3445,7 +3446,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3462,7 +3463,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3496,7 +3497,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3530,7 +3531,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3547,7 +3548,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3564,7 +3565,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3853,7 +3854,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3870,7 +3871,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3887,7 +3888,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3904,7 +3905,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3921,7 +3922,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3938,7 +3939,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 3
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3955,7 +3956,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -3972,7 +3973,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 4
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1

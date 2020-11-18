@@ -47,19 +47,22 @@ public class PlayerController : UnitController
 
     void Start()
     {
+        //Debug.Log("GAME MANAGER PLAYER INSTANCE");
+
         CurHealth = startingHealth;
         CurArmor = startingArmor;
 
         CurGold = currentGold;
 
         TextManager.Instance.UpdateHealthArmorText();
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameManager.Instance.playerGo = this.gameObject;
+        //Debug.Log("UPDATE GAME MANAGER PLAYER INSTANCE");
+
         currentGold = CurGold;
         playerRayCast();
     }
@@ -75,6 +78,11 @@ public class PlayerController : UnitController
         //this = restartPlayer;
         //gameObject = restartPlayerGo;
 
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     public void RecoverHealth(int amount)
