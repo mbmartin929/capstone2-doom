@@ -45,6 +45,7 @@ public class DialogueAssistant : MonoBehaviour
 
         if (GameManager.Instance.level == 1) StartCoroutine(IntroDialogueLvl1());
         else if (GameManager.Instance.level == 2) StartCoroutine(IntroDialogueLvl2());
+        else if (GameManager.Instance.level == 3) StartCoroutine(IntroDialogueLvl3());
     }
 
     public void PlaySound(int index)
@@ -112,6 +113,28 @@ public class DialogueAssistant : MonoBehaviour
         yield return new WaitForSeconds(3.42f);
         textWriter.AddWriter("Split up and we'll cover more ground.", defaultTypeTime + 0.014f, true);
         yield return new WaitForSeconds(3.29f);
+
+        if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.9f));
+        else TimeManager.Instance.StartTimer();
+
+        StartCoroutine(EndTransition());
+        MusicManager.Instance.FadeInAmbientMusicCaller(6, true);
+        FirstPersonAIO.Instance.playerCanMove = true;
+    }
+
+    public IEnumerator IntroDialogueLvl3()
+    {
+        face.texture = faces[6];
+        yield return new WaitForSeconds(2.9f);
+        StartTransition(2);
+        yield return new WaitForSeconds(2.0f);
+
+        textWriter.AddWriter("You will die here killer.", defaultTypeTime + 0.018f, true);
+        yield return new WaitForSeconds(2.42f);
+        textWriter.AddWriter("We will do everything to protect our planet.", defaultTypeTime + 0.014f, true);
+        yield return new WaitForSeconds(3.0f);
+        textWriter.AddWriter("To protect our species.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(3.42f);
 
         if (GameManager.Instance.introEnabled) FirstPersonAIO.Instance.StartCoroutine(FirstPersonAIO.Instance.CanMoveAfterSeconds(2.9f));
         else TimeManager.Instance.StartTimer();
