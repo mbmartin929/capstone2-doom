@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
+using UnityEditor;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,13 +36,34 @@ public class GameManager : MonoBehaviour
 
     private AsyncOperation sceneAsync;
 
+    public static GameObject savedPlayer;
+    string path = "Assets/Save";
+
+    public static GameObject[] GameManagers;
+    [SerializeField] private bool main = false;
+    [SerializeField] private bool firstPlayer = true;
+
     private void Awake()
     {
+        GameManagers = GameObject.FindGameObjectsWithTag("Manager");
+        if (GameManagers.Length >= 2)
+        {
+            if (!main)
+            {
+                Debug.Log("Detecting multiple game managers. Manager Name: " + gameObject.name);
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            main = true;
+            Debug.Log("Number of Game Managers: " + GameManagers.Length);
+            Debug.Log("Manager Name: " + gameObject.name);
+        }
+
         // Sets Singleton
         Instance = this;
-
-        // Debug.Log(CrashReport.lastReport);
-        // Debug.Log(CrashReport.reports);
+        if (Instance == this) Debug.Log("GameManager " + level + " Singleton Initialized");
 
         if (level == 1)
         {
@@ -61,39 +85,24 @@ public class GameManager : MonoBehaviour
         }
         else if (level == 2)
         {
-            // if (GameObject.Find("Player_LVL 1.1"))
-            // {
-            //     Debug.Log("Player already exists");
-            //     playerGo = GameObject.FindGameObjectWithTag("Player");
-            //     playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
-            // }
 
-            // if (GameObject.Find("Player_LVL 1.1"))
-            // {
-            //     Debug.Log("Player already exists");
-            //     playerGo = GameObject.FindGameObjectWithTag("Player");
-            // }
-            // else
-            // {
-            //     Debug.Log("Instantiates Player");
-            //     playerGo = Instantiate(internal_player);
-            // }
         }
-
-        // Gets player gameobject
-        // playerGo = GameObject.FindGameObjectWithTag("Player");
-        // if (playerGo == GameObject.FindGameObjectWithTag("Player")) Debug.Log(gameObject.name + " Found Player");
 
         // Sets Framerate
         Application.targetFrameRate = frameRate;
-
-        if (Instance == this) Debug.Log("GameManager " + level + " Singleton Initialized");
 
         currentScene = SceneManager.GetActiveScene();
 
         if (introEnabled)
         {
             Debug.Log("Intro is enabled");
+
+            if (level == 1)
+            {
+                FirstPersonAIO.Instance.playerCanMove = false;
+                FirstPersonAIO.Instance.controllerPauseState = false;
+            }
+
             if (level == 2)
             {
                 Debug.Log("Level: " + level);
@@ -104,13 +113,16 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("Player already exists");
 
-                    playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
+                    // playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
+                    // internal_player = playerGo.GetComponent<PlayerController>().restartPlayerGo;
 
-                    internal_player = playerGo.GetComponent<PlayerController>().restartPlayerGo;
+                    //Debug.Log("Internal Player is now Restart Player");
 
-                    playerGo = null;
+                    //playerGo = internal_player;
 
-                    playerGo = internal_player;
+                    //playerGo = GameObject.FindGameObjectWithTag("Player");
+                    // Debug.Log("NAME: " + playerGo.name);
+                    // StartCoroutine(LateStart());
                 }
                 else
                 {
@@ -118,7 +130,9 @@ public class GameManager : MonoBehaviour
                     playerGo = Instantiate(internal_player);
                 }
 
-
+                //PrefabUtility.SaveAsPrefabAsset(playerGo, "Assets/Resources/PlayerLVL2.prefab", out bool success);
+                //PrefabUtility.LoadPrefabContents("Assets/Resources/PlayerLVL2.prefab");
+                //GameObject newPlayer = Instantiate(Resources.Load())
 
                 Debug.Log("Transferring Player");
 
@@ -127,32 +141,23 @@ public class GameManager : MonoBehaviour
                 playerGo.transform.position = new Vector3(-21.1f, -14.1f, 110.3f);
                 playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
 
+
                 FirstPersonAIO.Instance.playerCanMove = false;
-                //GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
                 FirstPersonAIO.Instance.controllerPauseState = false;
                 StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl2());
                 StartCoroutine(ObjectiveManager.Instance.SetActive(ObjectiveManager.Instance.starTime - 4.2f));
                 GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
 
                 SettingsManager.Instance.RestartSettingsManager();
+
+
             }
         }
     }
 
     private void Start()
     {
-        // if (GameObject.Find("Player_LVL 1.1"))
-        // {
-        //     Debug.Log("Player already exists");
-        //     playerGo = GameObject.FindGameObjectWithTag("Player");
-        //     playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
-        // }
-        // else
-        // {
-        //     Debug.Log("Instantiates Player");
-        //     playerGo = Instantiate(internal_player);
-        //     playerGo.GetComponent<PlayerController>().SetBeginningLevelStats();
-        // }
+
     }
 
     void OnGUI()
@@ -199,18 +204,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator RestartCurrentScene(float time)
     {
         Debug.Log("Restarting Scene");
-        //internal_player = playerGo.GetComponent<PlayerController>().restartPlayerGo;
         yield return new WaitForSeconds(restartSceneTime + time);
 
+        // GameObject newPlayer = Instantiate(internal_player) as GameObject;
+        // Debug.Log("Instantiate internal player");
 
-        Instantiate(internal_player);
-        Destroy(playerGo);
-        playerGo = internal_player;
-        // Destroy(playerGo);
-        // Instantiate(internal_player);
-        // playerGo = internal_player;
+        playerGo.GetComponent<PlayerController>().Destroy();
+        Debug.Log("Destroy old player");
 
-        SceneManager.LoadScene(currentScene.name);
+        //playerGo = newPlayer;
+
+        //Debug.Log(currentScene.name);
+        if (level == 1) SceneManager.LoadScene("Scene_01_URP_Martin");
+        else if (level == 2) SceneManager.LoadScene("Scene_2_URP_Martin");
         Debug.Log("Finish Restarting Scene");
     }
 
@@ -258,8 +264,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(restartSceneTime + time);
         //SceneManager.LoadSceneAsync("Scene_2_URP_Martin", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Scene_2_URP_Martin", LoadSceneMode.Single);
-
-        yield return new WaitForSeconds(1.0f);
 
         //StartCoroutine(LoadScene("Scene_2_URP_Martin"));
 

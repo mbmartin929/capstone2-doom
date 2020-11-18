@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3c226696fa0f642ac9c1361d2e7a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVolume: 0.6
+  maxVolume: 0.42
   speed: 0.0114
   useMidi: 0
   musicTrackMidi:
@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 7360741691027915934}
   - component: {fileID: 1023408256}
   - component: {fileID: 1252672334}
+  - component: {fileID: 953956951}
   m_Layer: 0
   m_Name: GameManager LVL1
   m_TagString: Untagged
@@ -679,10 +680,12 @@ MonoBehaviour:
   all: {fileID: 0}
   enableHeadBob: 1
   deadEnemies: {fileID: 7360741690320949187}
-  internal_player: {fileID: 3855021722727778593, guid: c2ee50d32027e164a9032014d956cdf8,
+  internal_player: {fileID: 3855021722727778593, guid: 2fe4065fa35a25b4389e10bcd799b74a,
     type: 3}
   restartSceneTime: 2.9
   level: 1
+  main: 0
+  firstPlayer: 1
 --- !u!114 &7360741691027915934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +816,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenHeight: 420
   screenWidth: 1000
+--- !u!114 &953956951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7360741691027915930}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3325f13efd2b0034fa3613d095adf098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnLocs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemies:
+  - {fileID: 2736204917347859580, guid: 1e93ad2b1ec4a184082b0a01feaf4353, type: 3}
+  - {fileID: 2736204917347859580, guid: 1e93ad2b1ec4a184082b0a01feaf4353, type: 3}
+  - {fileID: 4927309833011861588, guid: d6eaa40c5c9feeb4ab2fcc46c43c9ebe, type: 3}
+  - {fileID: 4927309833011861588, guid: d6eaa40c5c9feeb4ab2fcc46c43c9ebe, type: 3}
+  - {fileID: 6423949439062104494, guid: fa6025f1cea12d240a93bc12f405333c, type: 3}
+  - {fileID: 6423949439062104494, guid: fa6025f1cea12d240a93bc12f405333c, type: 3}
+  - {fileID: 4589526530543008625, guid: ac956f5eece7fd2448c139eef3fe4f44, type: 3}
+  - {fileID: 4589526530543008625, guid: ac956f5eece7fd2448c139eef3fe4f44, type: 3}
+  - {fileID: 7328639068343049376, guid: d39ccb31765bca2438ba9e9ea44ddbc4, type: 3}
+  - {fileID: 7328639068343049376, guid: 4b2338eaf3666154b808a0d547a406c7, type: 3}
+  - {fileID: 4927309833011861588, guid: 0fa606dcf37894c40a9e0ded78176ad2, type: 3}
 --- !u!1 &7360741691914517516
 GameObject:
   m_ObjectHideFlags: 0

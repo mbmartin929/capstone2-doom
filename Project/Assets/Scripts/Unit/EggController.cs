@@ -82,7 +82,6 @@ public class EggController : MonoBehaviour
                 Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
                 GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
             }
-
             SpawnEnemies();
             ObjectiveManager.Instance.currentNumber += eggCount;
             ObjectiveManager.Instance.UpdateTargetNumberObjective();

@@ -101,7 +101,7 @@ public class DialogueAssistant : MonoBehaviour
     {
         face.texture = faces[4];
         yield return new WaitForSeconds(2.9f);
-        StartTransition(0);
+        StartTransition(1);
         yield return new WaitForSeconds(2.0f);
 
         textWriter.AddWriter("Hey.", defaultTypeTime + 0.018f, true);
