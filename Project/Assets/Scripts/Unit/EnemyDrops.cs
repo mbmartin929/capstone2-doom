@@ -69,6 +69,8 @@ namespace EightDirectionalSpriteSystem
 
                         GameObject healthDrop = Instantiate(healthDrops[index], transform.position, Quaternion.identity);
                         healthDrop.GetComponent<ItemExplosion>().isExplode = true;
+
+                        Destroy(healthDrop, 6.9f);
                     }
                 }
                 //else Debug.Log("Low Health! Will drop nothing");
@@ -90,6 +92,8 @@ namespace EightDirectionalSpriteSystem
                         pistolAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
 
                         pistolAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 6);
+
+                        Destroy(pistolAmmoDrop, 6.9f);
                     }
                 }
                 //else Debug.Log("Low Pistol Ammo! Will drop nothing");
@@ -109,6 +113,8 @@ namespace EightDirectionalSpriteSystem
                     shotgunAmmoDrop.GetComponent<ItemExplosion>().isExplode = true;
 
                     shotgunAmmoDrop.transform.GetChild(0).GetComponent<AmmoPickUp>().recoverAmount = Random.Range(1, 3);
+
+                    Destroy(shotgunAmmoDrop, 6.9f);
                 }
             }
             else
@@ -140,6 +146,8 @@ namespace EightDirectionalSpriteSystem
 
                         GameObject itemDrop = Instantiate(drops[index], transform.position, Quaternion.identity);
                         itemDrop.GetComponent<ItemExplosion>().isExplode = true;
+
+                        Destroy(itemDrop, 6.9f);
                     }
                 }
                 //else Debug.Log("Will drop nothing");
