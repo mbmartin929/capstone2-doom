@@ -165,7 +165,7 @@ public class DialogueAssistant : MonoBehaviour
 
             StartCoroutine(Surrounded1());
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.69f);
 
             ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Survive!", 0.069f, 0f));
         }

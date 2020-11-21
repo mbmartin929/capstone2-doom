@@ -54,7 +54,7 @@ namespace EightDirectionalSpriteSystem
                 //     enemyAI.actor.SetCurrentState(DemoActor.State.SHOOT);
                 // }
 
-                //enemyAI.EnemyRaycast();
+                enemyAI.EnemyRaycast();
                 enemyAI.FindVisibleTargets();
                 //enemyAI.StartCoroutine(enemyAI.FindVisibleTargetsCoroutine());
             }

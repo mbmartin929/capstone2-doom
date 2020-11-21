@@ -23,6 +23,8 @@ namespace EightDirectionalSpriteSystem
             if (other.CompareTag("Player"))
             {
                 IntroManager.Instance.InstantiateTitle();
+
+                Destroy(gameObject);
             }
         }
     }

@@ -5,24 +5,21 @@ namespace EightDirectionalSpriteSystem
 {
     public class ArenaManager : MonoBehaviour
     {
-        public GameObject[] spawns1;
         public GameObject[] waves;
 
         public int activeWaveID = 0;
 
-        public float exitOpenTime = 1.5f;
         public GameObject exitGo;
+
+        private void Start()
+        {
+            Debug.Log(name);
+        }
 
         public IEnumerator SpawnWaves(float time)
         {
-
+            Debug.Log("Going to spawn wave");
             yield return new WaitForSeconds(time);
-
-            // for (int i = 0; i < waves.Length; i++)
-            // {
-
-            //     waves[i].SetActive(true);
-            // }
 
             if (activeWaveID >= waves.Length)
             {
@@ -42,7 +39,12 @@ namespace EightDirectionalSpriteSystem
             Debug.Log("Open Exit Door");
 
             yield return new WaitForSeconds(time);
-            exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
+
+            if (exitGo != null) exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
+            else
+            {
+                exitGo.GetComponent<Animator>().SetTrigger("Open Gate");
+            }
 
             DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.FinishArena());
             ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find the exit", 0.029f, 0f));
