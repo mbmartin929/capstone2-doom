@@ -40,7 +40,7 @@ namespace EightDirectionalSpriteSystem
 
             yield return new WaitForSeconds(time);
 
-            if (exitGo != null) exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
+            if (exitGo.GetComponent<DoorScript>() != null) exitGo.GetComponent<DoorScript>().ChangeDoorState(true);
             else
             {
                 exitGo.GetComponent<Animator>().SetTrigger("Open Gate");
