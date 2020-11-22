@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using EightDirectionalSpriteSystem;
@@ -86,8 +87,10 @@ public class EnemyController : UnitController
 
                 GetComponent<EnemyDrops>().Drop();
 
+                CheckAvatar();
+
                 Destroy(transform.parent.gameObject);
-                Debug.Log("Destroys transform.parent.gameobject: " + transform.parent.gameObject.name);
+                //Debug.Log("Destroys transform.parent.gameobject: " + transform.parent.gameObject.name);
             }
             else Die();
         }
@@ -112,6 +115,7 @@ public class EnemyController : UnitController
                         GameObject gib = Instantiate(gibGo, transform.position, gibGo.transform.rotation);
                         //Debug.Log("Finish Spawning Gibs");
                     }
+                    CheckAvatar();
                 }
 
                 if (transform.parent.parent != null)
@@ -123,6 +127,8 @@ public class EnemyController : UnitController
                 // {
                 //     Die();
                 // }
+
+                //
             }
         }
     }
@@ -143,16 +149,110 @@ public class EnemyController : UnitController
         GetComponent<BoxCollider>().size = new Vector3(size.x, deadColliderSize.y, size.z);
         GetComponent<BoxCollider>().center = new Vector3(center.x, deadColliderCenter.y, center.z);
 
-        //Debug.Log(GameManager.Instance.DeadEnemies.transform);
-        //transform.parent = GameManager.Instance.deadEnemies.transform;
         transform.parent.SetParent(GameManager.Instance.deadEnemies.transform);
 
         // Debug.Log("My Parent: " + transform.parent.gameObject.name);
-        // Debug.Log("My Parent's Parent: " + transform.parent.parent.gameObject.name);
-        //Destroy(transform.parent.gameObject);
 
         //Debug.Log("Set Parent From Die");
         //enemyAI.actor.SetCurrentState(DemoActor.State.DIE);
+
+        //CheckAvatar();
+    }
+
+    private void CheckAvatar()
+    {
+        if (GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.Spider)
+        {
+            Debug.Log("Avatar is Spider");
+            for (int i = 0; i < ActorAvatarManager.Instance.spiderAvatars.Length; i++)
+            {
+                if (ActorAvatarManager.Instance.spiderAvatars[i] == null)
+                {
+                    Debug.Log("Index: " + i + " is empty.");
+                    ActorAvatarManager.Instance.spiderAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    return;
+                }
+            }
+
+            ActorAvatarManager.Instance.spiderAvatars = ActorAvatarManager.Instance.spiderAvatars.Distinct().ToArray();
+        }
+        else if (GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.GreenSlime)
+        {
+            Debug.Log("Avatar is Green Slime");
+            for (int i = 0; i < ActorAvatarManager.Instance.slimeAvatars.Length; i++)
+            {
+                if (ActorAvatarManager.Instance.slimeAvatars[i] == null)
+                {
+                    Debug.Log("Index: " + i + " is empty.");
+                    ActorAvatarManager.Instance.slimeAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    return;
+                }
+            }
+
+            ActorAvatarManager.Instance.slimeAvatars = ActorAvatarManager.Instance.slimeAvatars.Distinct().ToArray();
+        }
+        else if (GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.Worm)
+        {
+            Debug.Log("Avatar is Worm");
+            for (int i = 0; i < ActorAvatarManager.Instance.wormAvatars.Length; i++)
+            {
+                if (ActorAvatarManager.Instance.wormAvatars[i] == null)
+                {
+                    Debug.Log("Index: " + i + " is empty.");
+                    ActorAvatarManager.Instance.wormAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    return;
+                }
+            }
+
+            ActorAvatarManager.Instance.wormAvatars = ActorAvatarManager.Instance.wormAvatars.Distinct().ToArray();
+        }
+        else if (GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.BbWorm)
+        {
+            Debug.Log("Avatar is Bb Worm");
+            for (int i = 0; i < ActorAvatarManager.Instance.bbWormAvatars.Length; i++)
+            {
+                if (ActorAvatarManager.Instance.bbWormAvatars[i] == null)
+                {
+                    Debug.Log("Index: " + i + " is empty.");
+                    ActorAvatarManager.Instance.bbWormAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    return;
+                }
+            }
+
+            ActorAvatarManager.Instance.bbWormAvatars = ActorAvatarManager.Instance.bbWormAvatars.Distinct().ToArray();
+        }
+        else if (GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.RedSlime)
+        {
+            Debug.Log("Avatar is Red Slime");
+            for (int i = 0; i < ActorAvatarManager.Instance.redSlimeAvatars.Length; i++)
+            {
+                if (ActorAvatarManager.Instance.redSlimeAvatars[i] == null)
+                {
+                    Debug.Log("Index: " + i + " is empty.");
+                    ActorAvatarManager.Instance.redSlimeAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    return;
+                }
+            }
+
+            ActorAvatarManager.Instance.redSlimeAvatars = ActorAvatarManager.Instance.redSlimeAvatars.Distinct().ToArray();
+        }
+        else if (GetComponent<ActorBillboard>().enemy == ActorBillboard.Enemy.Snail)
+        {
+            Debug.Log("Avatar is Snail");
+            for (int i = 0; i < ActorAvatarManager.Instance.snailAvatars.Length; i++)
+            {
+                if (ActorAvatarManager.Instance.snailAvatars[i] == null)
+                {
+                    Debug.Log("Index: " + i + " is empty.");
+                    ActorAvatarManager.Instance.snailAvatars[i] = GetComponent<SpriteRenderer>().material;
+                    return;
+                }
+            }
+
+            ActorAvatarManager.Instance.snailAvatars = ActorAvatarManager.Instance.snailAvatars.Distinct().ToArray();
+        }
+
+
     }
 }
 

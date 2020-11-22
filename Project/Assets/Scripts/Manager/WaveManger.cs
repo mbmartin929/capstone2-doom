@@ -8,7 +8,6 @@ namespace EightDirectionalSpriteSystem
     {
         public ArenaManager arenaManager;
         public bool lastWave = true;
-        public int totalHealth;
 
         // Start is called before the first frame update
         void Start()
@@ -19,13 +18,6 @@ namespace EightDirectionalSpriteSystem
         // Update is called once per frame
         void Update()
         {
-            // foreach (Transform child in transform)
-            // {
-            //     int health = child.GetComponent<EnemyAI>().enemyController.CurHealth;
-
-            //     totalHealth += health;
-            // }
-
             if (transform.childCount == 0)
             {
                 arenaManager.activeWaveID += 1;

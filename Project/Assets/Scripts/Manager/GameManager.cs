@@ -152,6 +152,73 @@ public class GameManager : MonoBehaviour
 
 
             }
+
+            if (level == 3)
+            {
+                Debug.Log("Level: " + level);
+
+                playerGo = GameObject.FindGameObjectWithTag("Player");
+
+                if (playerGo != null)
+                {
+                    Debug.Log("Player already exists");
+
+                }
+                else
+                {
+                    Debug.Log("Instantiates Player");
+                    playerGo = Instantiate(internal_player);
+                }
+
+                Debug.Log("Transferring Player");
+
+                EndGameScreen.Instance.active = false;
+
+                // playerGo.transform.position = new Vector3(-21.1f, -14.1f, 110.3f);
+                // playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+
+                FirstPersonAIO.Instance.playerCanMove = false;
+                FirstPersonAIO.Instance.controllerPauseState = false;
+                StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl3());
+                StartCoroutine(ObjectiveManager.Instance.SetActive(ObjectiveManager.Instance.starTime - 4.2f));
+                GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
+
+                SettingsManager.Instance.RestartSettingsManager();
+
+
+            }
+        }
+        else
+        if (level == 3)
+        {
+            Debug.Log("Level: " + level);
+
+            playerGo = GameObject.FindGameObjectWithTag("Player");
+
+            if (playerGo != null)
+            {
+                Debug.Log("Player already exists");
+
+            }
+            else
+            {
+                Debug.Log("Instantiates Player");
+                playerGo = Instantiate(internal_player);
+            }
+
+            Debug.Log("Transferring Player");
+
+            EndGameScreen.Instance.active = false;
+
+            // playerGo.transform.position = new Vector3(-21.1f, -14.1f, 110.3f);
+            // playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+
+            StartCoroutine(ObjectiveManager.Instance.SetActive(ObjectiveManager.Instance.starTime - 4.2f));
+            GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
+
+            SettingsManager.Instance.RestartSettingsManager();
+
+
         }
     }
 
