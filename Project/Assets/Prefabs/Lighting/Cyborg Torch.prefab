@@ -199,7 +199,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &228760722280375055
 Transform:
@@ -399,12 +399,12 @@ GameObject:
   - component: {fileID: 228760723047620450}
   - component: {fileID: 228760723047620453}
   - component: {fileID: 228760723047620452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cyborg Torch
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &228760723047620448
 Transform:
@@ -5934,12 +5934,12 @@ GameObject:
   - component: {fileID: 228760723054842430}
   - component: {fileID: 228760723054842561}
   - component: {fileID: 228760723054842560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &228760723054842428
 Transform:

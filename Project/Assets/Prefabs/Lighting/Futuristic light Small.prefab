@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 5942675186052608683}
   - component: {fileID: 5942675186052608682}
   - component: {fileID: 5942675186052608681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5942675186052608680
 Transform:
@@ -1196,12 +1196,12 @@ GameObject:
   - component: {fileID: 5942675186382099072}
   - component: {fileID: 5942675186382099087}
   - component: {fileID: 5942675186382099086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5942675186382099074
 Transform:

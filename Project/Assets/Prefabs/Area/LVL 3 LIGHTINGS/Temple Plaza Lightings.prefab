@@ -1,0 +1,1424 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &459676512083811839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459676512083811824}
+  m_Layer: 0
+  m_Name: Temple Plaza Lightings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &459676512083811824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459676512083811839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.727859, y: 1.724496, z: 510.19305}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7573256930418562685}
+  - {fileID: 7573256930683710378}
+  - {fileID: 7573256931691697827}
+  - {fileID: 7573256930799485438}
+  - {fileID: 7573256931799641101}
+  - {fileID: 7573256931426461835}
+  - {fileID: 7573256931525363706}
+  - {fileID: 7573256931806182199}
+  - {fileID: 7573256929886895985}
+  - {fileID: 7573256930659983286}
+  - {fileID: 7573256930961836660}
+  - {fileID: 7573256930810298603}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &459676511417166022
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.04786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -33.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256931799641101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676511417166022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676511425839100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.534498
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -34.87693
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256931806182199 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676511425839100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676511508451944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.04786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -43.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256931691697827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676511508451944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676511682118449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -44.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256931525363706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676511682118449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676511780383808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.04786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256931426461835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676511780383808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676512120737471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.734497
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.326927
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256930961836660 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676512120737471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676512298419509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.04786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -38.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256930799485438 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676512298419509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676512304776224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.334497
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.00693
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256930810298603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676512304776224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676512381579105
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.04786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256930683710378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676512381579105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676512429415293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.674498
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.656929
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256930659983286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676512429415293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676512655758006
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.04786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.945504
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -53.203064
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256930418562685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676512655758006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &459676513195703226
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459676512083811824}
+    m_Modifications:
+    - target: {fileID: 8032315447757226247, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315447757226250, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881954, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448509881983, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280013, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448556280048, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791253, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448591791256, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931976, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch 48 Wall lamp 2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.814497
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -39.986927
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94d8b6125827e8f4ebc668bee37c983e, type: 3}
+--- !u!4 &7573256929886895985 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032315448809931979, guid: 94d8b6125827e8f4ebc668bee37c983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 459676513195703226}
+  m_PrefabAsset: {fileID: 0}
