@@ -2507,7 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5819594692868323915}
   m_Layer: 8
-  m_Name: Torch 40 Triangle
+  m_Name: Torch 54 Triangle
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3711,13 +3711,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819594693382230715}
-  m_LocalRotation: {x: 0.6888082, y: 0.0735314, z: 0.04564009, w: 0.7197593}
-  m_LocalPosition: {x: -9.08, y: 2.66, z: -2.41}
+  m_LocalRotation: {x: 0.6756533, y: 0.17641713, z: 0.112273455, w: 0.7069402}
+  m_LocalPosition: {x: -9.41, y: 2.53, z: -2.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5819594692868323915}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 99.98901, y: -103.42499, z: -105.694}
+  m_LocalEulerAnglesHint: {x: 113.698, y: -93.52899, z: -98.84198}
 --- !u!108 &5819594693382230713
 Light:
   m_ObjectHideFlags: 0
@@ -3730,10 +3730,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.5747152, g: 0.98555577, b: 0.990566, a: 1}
-  m_Intensity: 7.5
-  m_Range: 11.11
-  m_SpotAngle: 111.16267
-  m_InnerSpotAngle: 66.49819
+  m_Intensity: 1.29
+  m_Range: 6.9
+  m_SpotAngle: 145.78156
+  m_InnerSpotAngle: 101.11707
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3772,7 +3772,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
+  m_BounceIntensity: 2.9
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}

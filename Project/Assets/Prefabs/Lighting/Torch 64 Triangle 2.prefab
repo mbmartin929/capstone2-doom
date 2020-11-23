@@ -2507,7 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5819594692868323915}
   m_Layer: 8
-  m_Name: Torch 40 Triangle
+  m_Name: Torch 64 Triangle 2
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3730,9 +3730,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.5747152, g: 0.98555577, b: 0.990566, a: 1}
-  m_Intensity: 7.5
-  m_Range: 11.11
-  m_SpotAngle: 111.16267
+  m_Intensity: 1.69
+  m_Range: 4.2
+  m_SpotAngle: 179
   m_InnerSpotAngle: 66.49819
   m_CookieSize: 10
   m_Shadows:
@@ -3772,7 +3772,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
+  m_BounceIntensity: 4.2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
