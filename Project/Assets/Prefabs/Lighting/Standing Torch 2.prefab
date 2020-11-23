@@ -105,12 +105,12 @@ GameObject:
   - component: {fileID: 9144863161983204322}
   - component: {fileID: 9144863161983204333}
   - component: {fileID: 9144863161983204332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9144863161983204320
 Transform:
@@ -4157,7 +4157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9144863163419547829}
   m_Layer: 0
-  m_Name: Standing Torch
+  m_Name: Standing Torch 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
