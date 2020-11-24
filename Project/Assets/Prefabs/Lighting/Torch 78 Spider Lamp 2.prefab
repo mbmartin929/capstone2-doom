@@ -2282,13 +2282,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850627965272774043}
-  m_LocalRotation: {x: 0.52323276, y: -0.52267724, z: 0.45564356, w: 0.49540377}
-  m_LocalPosition: {x: -0.066999435, y: 1.129, z: -0.587}
+  m_LocalRotation: {x: -0.50998974, y: 0.4898066, z: -0.4898066, w: -0.50998974}
+  m_LocalPosition: {x: -0.01, y: 2.62, z: -0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 850627965640655212}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 95.884, y: 23.610992, z: -248.702}
+  m_LocalEulerAnglesHint: {x: 90, y: 23.610992, z: -248.702}
 --- !u!108 &850627965272774036
 Light:
   m_ObjectHideFlags: 0
@@ -2301,9 +2301,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.58461297, g: 0.745283, b: 0.46755964, a: 1}
-  m_Intensity: 7.5
-  m_Range: 11.11
-  m_SpotAngle: 111.16267
+  m_Intensity: 4.2
+  m_Range: 4.29
+  m_SpotAngle: 179
   m_InnerSpotAngle: 66.49819
   m_CookieSize: 10
   m_Shadows:
@@ -2343,10 +2343,11 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
+  m_BounceIntensity: 1.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: -4.0950638e+11, y: -5.336972e+35, z: -1.1161122e-16,
+    w: 1.1665062e-14}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2374,13 +2375,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850627965551301665}
-  m_LocalRotation: {x: -0.046095047, y: -0.74146944, z: -0.6680608, w: 0.042346712}
+  m_LocalRotation: {x: 0.04427646, y: 0.70571923, z: 0.70571923, w: -0.04427646}
   m_LocalPosition: {x: 0.03970337, y: 0.7182598, z: -0.47833252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 850627965640655212}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 275.95898, y: -179.33301, z: 366.513}
+  m_LocalEulerAnglesHint: {x: -90, y: -179.33301, z: 366.513}
 --- !u!108 &850627965551301666
 Light:
   m_ObjectHideFlags: 0
@@ -2393,8 +2394,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.069
-  m_Range: 1.29
+  m_Intensity: 2.9
+  m_Range: 4.2
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
   m_CookieSize: 10
@@ -2435,10 +2436,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.29
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 12, y: 0, z: -1.7014118e+38, w: 0.6015625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3560,7 +3561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 850627965640655212}
   m_Layer: 0
-  m_Name: Torch 56 Spider Lamp
+  m_Name: Torch 78 Spider Lamp 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6049,7 +6050,8 @@ Light:
   m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0.00005319277, y: -0.0000051206625, z: -4.472762e+36,
+    w: -2.9578565e-26}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

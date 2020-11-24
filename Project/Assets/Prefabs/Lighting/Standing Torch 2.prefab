@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144863161807096206}
-  m_LocalRotation: {x: 0.52323276, y: -0.52267724, z: 0.45564356, w: 0.49540377}
-  m_LocalPosition: {x: -1.234, y: 2.205, z: 1.7663296}
+  m_LocalRotation: {x: -0.50998974, y: 0.4898066, z: -0.4898066, w: -0.50998974}
+  m_LocalPosition: {x: -1.234, y: 2.73, z: 1.7663296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9144863163419547829}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 95.884, y: 23.610992, z: -248.702}
+  m_LocalEulerAnglesHint: {x: 90, y: 23.610992, z: -248.702}
 --- !u!108 &9144863161807096204
 Light:
   m_ObjectHideFlags: 0
@@ -43,10 +43,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8018868, g: 0.46538788, b: 0.2004717, a: 1}
-  m_Intensity: 2.9
-  m_Range: 4.2
-  m_SpotAngle: 167.16379
-  m_InnerSpotAngle: 105.18989
+  m_Intensity: 4.69
+  m_Range: 6.9
+  m_SpotAngle: 126.35293
+  m_InnerSpotAngle: 80.67457
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.69
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 12, y: 0, z: NaN, w: 0.859375}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4051,7 +4051,7 @@ Light:
   m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4143,7 +4143,7 @@ Light:
   m_BounceIntensity: 1.29
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 37, z: 14, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
