@@ -43,8 +43,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.069
-  m_Range: 1.29
+  m_Intensity: 0.114
+  m_Range: 1.69
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
   m_CookieSize: 10
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.29
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2855,13 +2855,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5962577809246501111}
-  m_LocalRotation: {x: -0.053087223, y: -0.6807946, z: 0.72976017, w: -0.03392174}
+  m_LocalRotation: {x: -0.04353103, y: -0.7057656, z: 0.7057656, w: -0.04353103}
   m_LocalPosition: {x: -11.334946, y: 0.36399984, z: -0.62500525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5942675187420935274}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 94.26199, y: -204.905, z: -17.846008}
+  m_LocalEulerAnglesHint: {x: 90, y: -204.905, z: -17.846008}
 --- !u!108 &5766236970883073806
 Light:
   m_ObjectHideFlags: 0
@@ -2874,8 +2874,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95898014, b: 0.79607844, a: 1}
-  m_Intensity: 1.29
-  m_Range: 4.2
+  m_Intensity: 1.42
+  m_Range: 2.9
   m_SpotAngle: 164.58481
   m_InnerSpotAngle: 77.18269
   m_CookieSize: 10
@@ -2916,7 +2916,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2.9
+  m_BounceIntensity: 1.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 1.8407422e-13}
@@ -3011,7 +3011,7 @@ Light:
   m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 12, y: 0, z: -1.7281006e+38, w: 0.2578125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
