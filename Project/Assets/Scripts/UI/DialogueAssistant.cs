@@ -393,6 +393,83 @@ public class DialogueAssistant : MonoBehaviour
         StartCoroutine(EndTransition());
     }
 
+    public IEnumerator EndDialogue1()
+    {
+        ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Leave or Kill", 0.018f, 0.69f));
+
+        StartTransition(0);
+        face.texture = faces[0];
+        yield return new WaitForSeconds(1.69f);
+
+        textWriter.AddWriter("There it is.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.0f);
+        textWriter.AddWriter("Quickly! Kill the eggs!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.29f);
+        textWriter.AddWriter("We can end the fight with this!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+
+        face.texture = faces[6];
+        nameTag.AddWriter("Unknown", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("No! Please!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("Please spare us.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("You can have this planet.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("We'll leave you humans. Just leave us alone!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+
+        face.texture = faces[0];
+        nameTag.AddWriter("Commander", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("Hurry up!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("What are you waiting for?", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.929f);
+        textWriter.AddWriter("KILL THEM!!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.42f);
+
+        face.texture = faces[6];
+        nameTag.AddWriter("Unknown", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("Just leave us alone..", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("You only need the planet right?", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("You only want the resources..", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("You can have it!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.42f);
+        textWriter.AddWriter("You don't need to kill us anymore..", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("We surrender..", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+
+        face.texture = faces[2];
+        nameTag.AddWriter("Commander", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("KILL!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(0.929f);
+        textWriter.AddWriter("KILL!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(0.929f);
+        textWriter.AddWriter("KILL!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+
+        face.texture = faces[6];
+        nameTag.AddWriter("Unknown", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("These are unborn babies!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("Just spare us..", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.929f);
+        textWriter.AddWriter("Just leave, and we'll leave this planet.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.9f);
+
+
+        StartCoroutine(EndTransition());
+    }
+
     private void StartTransition(int nametagID)
     {
         Debug.Log("Start Transition");

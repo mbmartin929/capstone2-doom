@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueCollider : MonoBehaviour
 {
     //public bool specialDialogue = false;
-    public enum NumberOfSentences { One, Two, Three, Four, Five };
+    public enum NumberOfSentences { One, Two, Three, Four, Five, Special };
     public int nametagID = 0;
     public int faceID = 0;
     public NumberOfSentences numberOfSentences = NumberOfSentences.One;
@@ -15,7 +15,10 @@ public class DialogueCollider : MonoBehaviour
     public float additionalTime = 0.01f;
 
     public bool kaichiDeath = false;
+    public bool endDialogue = false;
     public GameObject door;
+
+    public GameObject leaveDoor;
 
     void OnTriggerEnter(Collider other)
     {
@@ -73,6 +76,14 @@ public class DialogueCollider : MonoBehaviour
                     door.GetComponent<ImportantDoor>().StartCoroutine(door.GetComponent<ImportantDoor>().PlayAnimation());
                     ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Find a way out", 0.069f, 21f));
                 }
+            }
+            else if (numberOfSentences == NumberOfSentences.Special)
+            {
+                Debug.Log("End Dialogue");
+
+                leaveDoor.SetActive(true);
+
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.EndDialogue1());
             }
 
             GetComponent<BoxCollider>().enabled = false;
