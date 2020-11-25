@@ -180,7 +180,7 @@ Light:
   m_BounceIntensity: 0.18
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 13, y: 0, z: -1.7814783e+38, w: 0.10546875}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2398,7 +2398,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.29
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: NaN, w: 0}
@@ -2493,7 +2493,7 @@ Light:
   m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 57.782074, y: 28.209778, z: 14.44413, w: 59}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2507,7 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5819594692868323915}
   m_Layer: 8
-  m_Name: Torch 40 Triangle
+  m_Name: Torch 62 Triangle 1
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3729,9 +3729,9 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.5747152, g: 0.98555577, b: 0.990566, a: 1}
-  m_Intensity: 7.5
-  m_Range: 11.11
+  m_Color: {r: 0.7688679, g: 1, b: 0.9119336, a: 1}
+  m_Intensity: 3.69
+  m_Range: 6.9
   m_SpotAngle: 111.16267
   m_InnerSpotAngle: 66.49819
   m_CookieSize: 10
@@ -3772,10 +3772,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
+  m_BounceIntensity: 1.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

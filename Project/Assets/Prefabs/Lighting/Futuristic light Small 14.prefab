@@ -43,8 +43,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
-  m_Intensity: 0.069
-  m_Range: 1.29
+  m_Intensity: 0.42
+  m_Range: 2.69
   m_SpotAngle: 179
   m_InnerSpotAngle: 119.318954
   m_CookieSize: 10
@@ -85,10 +85,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.29
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 11, y: 1.0465956e-10, z: -1.7014118e+38, w: 0.71875}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2806,7 +2806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5942675187420935274}
   m_Layer: 0
-  m_Name: Futuristic light Small 6
+  m_Name: Futuristic light Small 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2819,7 +2819,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5942675187420935273}
-  m_LocalRotation: {x: -0, y: -0.9992725, z: -0, w: -0.038137075}
+  m_LocalRotation: {x: -0, y: -0.99927264, z: 0, w: -0.038134668}
   m_LocalPosition: {x: -21.06, y: 4.99, z: 241.754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2855,13 +2855,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5962577809246501111}
-  m_LocalRotation: {x: -0.053087223, y: -0.6807946, z: 0.72976017, w: -0.03392174}
-  m_LocalPosition: {x: -11.334946, y: 0.36399984, z: -0.62500525}
+  m_LocalRotation: {x: -0.05639153, y: -0.59938806, z: 0.79797554, w: -0.02808803}
+  m_LocalPosition: {x: -11.3100195, y: 0.35000038, z: -0.80000114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5942675187420935274}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 94.26199, y: -204.905, z: -17.846008}
+  m_LocalEulerAnglesHint: {x: 106.30899, y: -191.571, z: -4.6519775}
 --- !u!108 &5766236970883073806
 Light:
   m_ObjectHideFlags: 0
@@ -2874,9 +2874,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95898014, b: 0.79607844, a: 1}
-  m_Intensity: 0.27
-  m_Range: 6.9
-  m_SpotAngle: 164.58481
+  m_Intensity: 1.29
+  m_Range: 2.9
+  m_SpotAngle: 179
   m_InnerSpotAngle: 102.25272
   m_CookieSize: 10
   m_Shadows:
@@ -2916,10 +2916,10 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 12.12
+  m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 11, y: 0, z: NaN, w: 0.71875}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3011,7 +3011,7 @@ Light:
   m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.8e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3, y: 0, z: -1.7014118e+38, w: 0.6015625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
