@@ -173,6 +173,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 17da97792f5b68e4a8c80b840600995f, type: 2}
   - {fileID: 2100000, guid: e9160664eab0a4f4fb535ca008ad1fec, type: 2}
   - {fileID: 2100000, guid: 0a19b1227bca6f64ea46a18ef685ce51, type: 2}
+  - {fileID: 2100000, guid: 83cd9ec3023dfcf42bcb3e1dcc36fddd, type: 2}
+  - {fileID: 2100000, guid: b410c40cb7ecd1045a46daab60164a10, type: 2}
+  - {fileID: 2100000, guid: e5136953210d38b43ac2f27436837240, type: 2}
+  - {fileID: 2100000, guid: 373e7d5dd07dbde478917b76ecf1a54d, type: 2}
+  - {fileID: 2100000, guid: 37bd336521820a4459d210f04e8b4f75, type: 2}
+  - {fileID: 2100000, guid: 9c00ec869839b8949bd6367949ff2285, type: 2}
+  - {fileID: 2100000, guid: 87054755a1cac8b458f384bc6e7decf0, type: 2}
+  - {fileID: 2100000, guid: 4cc699f46ca3f194cb8321aa391d02ed, type: 2}
+  - {fileID: 2100000, guid: f59e9d4f59b940544ac497c312b82fdd, type: 2}
+  - {fileID: 2100000, guid: db30295ff9322ad469a7704c2a5aaf82, type: 2}
+  - {fileID: 2100000, guid: 1aaebd102dd8f5440a62d21b08025e2e, type: 2}
+  - {fileID: 2100000, guid: db7aa9bdd585b9649a5c2750730b291e, type: 2}
   snailAvatars:
   - {fileID: 2100000, guid: a8a5fe45a4396134bab13c753939672b, type: 2}
   - {fileID: 2100000, guid: e21bf925f8595614688ab8e2309016f7, type: 2}
@@ -226,7 +238,6 @@ GameObject:
   m_Component:
   - component: {fileID: 437685813949052764}
   - component: {fileID: 437685813949052765}
-  - component: {fileID: 437685813949052762}
   - component: {fileID: 6932275111906396996}
   - component: {fileID: 1879677563}
   m_Layer: 0
@@ -267,38 +278,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc1b7388bd4214d95dfe84bd5342c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introEnabled: 1
+  introEnabled: 0
   frameRate: 200
   volume: {fileID: 6932275111484795738}
   playerGo: {fileID: 0}
   all: {fileID: 0}
   enableHeadBob: 1
   deadEnemies: {fileID: 437685814633479175}
-  internal_player: {fileID: 0}
+  internal_player: {fileID: 8230940985279911816, guid: 328d5597ed10aa74b8e9b4454317c698,
+    type: 3}
   restartSceneTime: 2.9
   level: 3
   main: 0
   firstPlayer: 1
---- !u!114 &437685813949052762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437685813949052766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37651405e310f94d83500f65cab0c3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledGos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  entranceDoor: {fileID: 0}
-  movePodium: 0
-  gameTitleTime: 4
-  arenaManager: {fileID: 0}
 --- !u!82 &6932275111906396996
 AudioSource:
   m_ObjectHideFlags: 0

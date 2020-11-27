@@ -334,7 +334,7 @@ public class GameManager : MonoBehaviour
 
         //StartCoroutine(LoadScene("Scene_2_URP_Martin"));
 
-        Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(level += 1);
+        //Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(level += 1);
 
         // SceneManager.MoveGameObjectToScene(playerGo, sceneToLoad);
         // GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
@@ -342,21 +342,50 @@ public class GameManager : MonoBehaviour
         EndGameScreen.Instance.endScreen.SetActive(false);
         EndGameScreen.Instance.blackOverlay.SetActive(false);
 
+        // if (level == 1)
+        // {
+        //     Debug.Log("Repositioning Player");
 
-        if (level == 1)
-        {
-            Debug.Log("Repositioning Player");
+        //     SceneManager.UnloadSceneAsync("Scene_01_URP_Martin");
+        //     playerGo.transform.position = new Vector3(-21.1f, -14.0f, 110.3f);
+        //     playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
 
-            //SceneManager.UnloadSceneAsync("Scene_01_URP_Martin");
-            // playerGo.transform.position = new Vector3(-21.1f, -14.0f, 110.3f);
-            // playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+        //     DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl2());
+        //     GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
+        // }
+        // else if (level == 2)
+        // {
 
-            // DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl2());
-            // GameManager.Instance.playerGo.GetComponent<FirstPersonAIO>().ControllerPause();
-        }
-        else if (level == 2)
-        {
+        // }
+    }
 
-        }
+    public IEnumerator LoadThirdScene(float time)
+    {
+        Debug.Log("Loading Third Scene");
+        yield return new WaitForSeconds(restartSceneTime + time);
+        SceneManager.LoadSceneAsync("Scene_3_URP_Martin", LoadSceneMode.Single);
+
+        EndGameScreen.Instance.endScreen.SetActive(false);
+        EndGameScreen.Instance.blackOverlay.SetActive(false);
+    }
+
+    public IEnumerator LoadBadScene(float time)
+    {
+        Debug.Log("Loading Bad Scene");
+        yield return new WaitForSeconds(restartSceneTime + time);
+        SceneManager.LoadSceneAsync("Scene_4_URP_BadEnd", LoadSceneMode.Single);
+
+        EndGameScreen.Instance.endScreen.SetActive(false);
+        EndGameScreen.Instance.blackOverlay.SetActive(false);
+    }
+
+    public IEnumerator LoadGoodScene(float time)
+    {
+        Debug.Log("Loading Good Scene");
+        yield return new WaitForSeconds(restartSceneTime + time);
+        SceneManager.LoadSceneAsync("Scene_4_URP_GoodEnd", LoadSceneMode.Single);
+
+        EndGameScreen.Instance.endScreen.SetActive(false);
+        EndGameScreen.Instance.blackOverlay.SetActive(false);
     }
 }

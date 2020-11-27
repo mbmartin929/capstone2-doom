@@ -7,6 +7,8 @@ public class EndGameScreen : MonoBehaviour
     // Instantiates Singleton
     public static EndGameScreen Instance { set; get; }
 
+    public bool badEnd = false;
+
     [SerializeField] private TextWriter evaluationTitle;
     [SerializeField] private TextWriter nameTitle;
 
@@ -74,16 +76,25 @@ public class EndGameScreen : MonoBehaviour
 
     public void LoadNextScene()
     {
-        if (GameManager.Instance.level == 1) StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
-        else if (GameManager.Instance.level == 2) StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
+        Debug.Log("Load Next Scene");
 
+        if (GameManager.Instance.level == 1) StartCoroutine(GameManager.Instance.LoadSecondScene(-1.69f));
+        else if (GameManager.Instance.level == 2) StartCoroutine(GameManager.Instance.LoadThirdScene(-1.69f));
+        else if (GameManager.Instance.level == 3 && !badEnd) StartCoroutine(GameManager.Instance.LoadGoodScene(-1.69f));
+        else if (GameManager.Instance.level == 3 && badEnd) StartCoroutine(GameManager.Instance.LoadBadScene(-1.69f));
+        else Debug.Log("Nothing else here");
     }
 
     private IEnumerator EndScreenActive(float time)
     {
         yield return new WaitForSeconds(time);
 
-        MusicManager.Instance.FadeInActiveMusicCaller(5, true, 2);
+        int track = 5;
+        if (GameManager.Instance.level == 1) track = 5;
+        else if (GameManager.Instance.level == 2) track = 7;
+        else if (GameManager.Instance.level == 3) track = 9;
+
+        MusicManager.Instance.FadeInActiveMusicCaller(track, true, 2);
 
         Debug.Log("EndScreen Active");
         endScreen.SetActive(true);
