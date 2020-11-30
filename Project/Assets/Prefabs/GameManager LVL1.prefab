@@ -546,7 +546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &181108794733687454
 Transform:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5115042798176270234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a3c226696fa0f642ac9c1361d2e7a78, type: 3}
   m_Name: 
@@ -633,7 +633,6 @@ GameObject:
   - component: {fileID: 7360741691027915929}
   - component: {fileID: 7360741691027915934}
   - component: {fileID: 1023408256}
-  - component: {fileID: 1252672334}
   - component: {fileID: 953956951}
   m_Layer: 0
   m_Name: GameManager LVL1
@@ -680,12 +679,14 @@ MonoBehaviour:
   all: {fileID: 0}
   enableHeadBob: 1
   deadEnemies: {fileID: 7360741690320949187}
-  internal_player: {fileID: 3855021722727778593, guid: 2fe4065fa35a25b4389e10bcd799b74a,
+  internal_player: {fileID: 3855021722727778593, guid: a56fe6e15ba9b544981be9efae6f25ec,
     type: 3}
   restartSceneTime: 2.9
   level: 1
   main: 0
   firstPlayer: 1
+  trapDoor: {fileID: 0}
+  arenaDoor: {fileID: 0}
 --- !u!114 &7360741691027915934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,6 +707,7 @@ MonoBehaviour:
   movePodium: 0
   gameTitleTime: 4
   arenaManager: {fileID: 0}
+  level3Gate: 0
 --- !u!82 &1023408256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -802,20 +804,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1252672334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360741691027915930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79401b27e7788d3418c42ce881dde4e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenHeight: 420
-  screenWidth: 1000
 --- !u!114 &953956951
 MonoBehaviour:
   m_ObjectHideFlags: 0

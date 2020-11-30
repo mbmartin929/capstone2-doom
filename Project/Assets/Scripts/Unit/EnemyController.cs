@@ -33,6 +33,8 @@ public class EnemyController : UnitController
 
     private bool contributedGib = false;
 
+    [SerializeField] private bool endBoss = false;
+
     void Awake()
     {
         //enemyAI = GetComponent<EnemyAI>();
@@ -91,6 +93,12 @@ public class EnemyController : UnitController
 
                 Destroy(transform.parent.gameObject);
                 //Debug.Log("Destroys transform.parent.gameobject: " + transform.parent.gameObject.name);
+
+                if (endBoss)
+                {
+                    DialogueAssistant.Instance.StopAllCoroutines();
+                    GameManager.Instance.arenaDoor.GetComponent<Animator>().SetTrigger("Open");
+                }
             }
             else Die();
         }

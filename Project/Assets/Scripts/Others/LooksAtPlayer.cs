@@ -12,7 +12,8 @@ public class LooksAtPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
+        //target = GameObject.FindGameObjectWithTag("Player");
+        target = Camera.main.gameObject;
     }
 
     // Update is called once per frame

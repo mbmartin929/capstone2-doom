@@ -24,6 +24,8 @@ public class DialogueCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            DialogueAssistant.Instance.StopAllCoroutines();
+
             if (numberOfSentences == NumberOfSentences.One)
             {
                 DialogueAssistant.Instance.StartCoroutine
