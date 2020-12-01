@@ -35,7 +35,7 @@ namespace EightDirectionalSpriteSystem
                     Vector3 newPos = EnemyAI.RandomNavSphere(NPC.transform.position, 5.0f, 0);
                     agent.SetDestination(newPos);
 
-                    enemyAI.CallRandomPatrolSound();
+                    if (enemyAI != null) enemyAI.CallRandomPatrolSound();
                 }
 
                 float dist = agent.remainingDistance;

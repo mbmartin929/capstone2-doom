@@ -9,6 +9,7 @@ public class EggController : MonoBehaviour
     public int eggCount;
 
     public bool isObjective = false;
+    public bool isEnd = false;
 
     public GameObject[] enemySpawns;
     public float spawnTime = 1.29f;
@@ -27,6 +28,7 @@ public class EggController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+
         if (hp <= 0) Die();
         foreach (GameObject item in bloodSplashGos)
         {
@@ -41,36 +43,25 @@ public class EggController : MonoBehaviour
                 //bloodGo.transform.parent = hit.transform;
             }
         }
+
+        if (isEnd)
+        {
+            if (!DialogueAssistant.Instance.playBadEnd)
+            {
+                DialogueAssistant.Instance.playBadEnd = true;
+
+                DialogueAssistant.Instance.StopAllCoroutines();
+                DialogueAssistant.Instance.StartCoroutine(DialogueAssistant.Instance.BadEndDialogue1());
+                isEnd = false;
+
+                GameManager.Instance.trapDoor.SetActive(true);
+            }
+            else { }
+        }
     }
 
     private void Die()
     {
-        Debug.Log("Die Egg");
-
-        //int random = Random.Range(minNumberBabySpawns, maxNumberBabySpawns);
-
-        // if (eggCount != 0)
-        // {
-        //     // for (int i = 0; i < random; i++)
-        //     // {
-        //     //     Debug.Log("Spawning Baby Worms from Egg");
-        //     //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-        //     //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-        //     // }
-
-        //     Debug.Log("Spawning Baby Worms from Egg");
-        //     Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-        //     GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-        // }
-
-        // //StartCoroutine(SpawnEnemies());
-        // SpawnEnemies();
-
-        // ObjectiveManager.Instance.currentNumber += eggCount;
-        // eggCount = 0;
-        // ObjectiveManager.Instance.UpdateTargetNumberObjective();
-        // Destroy(gameObject);
-
         if (eggCount != 0)
         {
             Debug.Log("Die Egg");
@@ -89,17 +80,6 @@ public class EggController : MonoBehaviour
         }
 
         eggCount = 0;
-
-
-        // Debug.Log("Spawning Baby Worms from Egg");
-        // Vector3 newPos = (Vector3)Random.insideUnitCircle * 1.14f + transform.position;
-        // GameObject babyWorm = Instantiate(babyWormGo, newPos, Quaternion.identity);
-
-        // SpawnEnemies();
-
-        // ObjectiveManager.Instance.currentNumber += eggCount;
-        // ObjectiveManager.Instance.UpdateTargetNumberObjective();
-        // Destroy(gameObject);
     }
 
     private void SpawnEnemies()

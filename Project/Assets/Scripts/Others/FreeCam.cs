@@ -49,8 +49,15 @@ public class FreeCam : MonoBehaviour
     /// </summary>
     private bool looking = false;
 
+    private void Start()
+    {
+        if (GameManager.Instance.useFreeCam) Destroy(GameManager.Instance.playerGo);
+    }
+
     void Update()
     {
+        //if (GameManager.Instance.useFreeCam) Destroy(GameManager.Instance.playerGo);
+
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         var movementSpeed = fastMode ? this.fastMovementSpeed : this.movementSpeed;
 

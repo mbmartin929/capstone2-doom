@@ -59,6 +59,33 @@ namespace EightDirectionalSpriteSystem
             }
         }
 
+        public void EndArena()
+        {
+            Debug.Log("Intro Manager Lvl: " + GameManager.Instance.level);
+            if (GameManager.Instance.level == 1)
+            {
+                foreach (GameObject item in disabledGos)
+                {
+                    Destroy(item, 0f);
+                }
+
+                movePodium = true;
+
+                entranceDoor.SetActive(true);
+
+                StartCoroutine(GameTitle(gameTitleTime));
+            }
+            else if (GameManager.Instance.level == 3)
+            {
+                if (level3Gate)
+                {
+                    anim.SetTrigger("Open Door");
+
+                    StartCoroutine(OpenBigGate(4.2f));
+                }
+            }
+        }
+
         private IEnumerator OpenBigGate(float time)
         {
             yield return new WaitForSeconds(time);

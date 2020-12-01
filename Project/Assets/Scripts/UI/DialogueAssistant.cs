@@ -28,6 +28,8 @@ public class DialogueAssistant : MonoBehaviour
     [SerializeField] private int switchPistolTutorial = 0;
     [SerializeField] private int switchShotgunTutorial = 0;
 
+    public bool playBadEnd = false;
+
     void Awake()
     {
         Instance = this;
@@ -46,6 +48,15 @@ public class DialogueAssistant : MonoBehaviour
         if (GameManager.Instance.level == 1) StartCoroutine(IntroDialogueLvl1());
         else if (GameManager.Instance.level == 2) StartCoroutine(IntroDialogueLvl2());
         else if (GameManager.Instance.level == 3) StartCoroutine(IntroDialogueLvl3());
+    }
+
+    private void Update()
+    {
+        // if (playBadEnd)
+        // {
+        //     StartCoroutine(BadEndDialogue1());
+        //     //playBadEnd = false;
+        // }
     }
 
     public void PlaySound(int index)
@@ -466,6 +477,50 @@ public class DialogueAssistant : MonoBehaviour
         textWriter.AddWriter("Just leave, and we'll leave this planet.", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.9f);
 
+
+        StartCoroutine(EndTransition());
+    }
+
+    public IEnumerator BadEndDialogue1()
+    {
+        ObjectiveManager.Instance.StartCoroutine(ObjectiveManager.Instance.TypeObjective("Kill Everything", 0.018f, 0.69f));
+
+        StartTransition(2);
+        face.texture = faces[6];
+        yield return new WaitForSeconds(1.69f);
+
+        textWriter.AddWriter("NOOOOOOOOO!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.0f);
+        textWriter.AddWriter("MY CHILDREN!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.29f);
+
+        face.texture = faces[0];
+        nameTag.AddWriter("Commander", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("HAHAHAHAHAHA!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.0f);
+        textWriter.AddWriter("GOOD JOB!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.29f);
+
+        face.texture = faces[6];
+        nameTag.AddWriter("Unknown", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("YOU WILL NOT LEAVE THIS PLACE!", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.69f);
+        textWriter.AddWriter("YOU'RE GOING TO DIE HERE LIKE MY CHILDREN", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.69f);
+
+        face.texture = faces[0];
+        nameTag.AddWriter("Commander", defaultTypeTime + 0.01f, true);
+
+        textWriter.AddWriter("It seems you're stuck there'", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.42f);
+        textWriter.AddWriter("We'll not wait for you", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(1.29f);
+        textWriter.AddWriter("We're going to bomb that place to kingdom come!'", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.29f);
+        textWriter.AddWriter("Too many monsters converging in your area, can't risk it.", defaultTypeTime + 0.01f, true);
+        yield return new WaitForSeconds(2.69f);
 
         StartCoroutine(EndTransition());
     }

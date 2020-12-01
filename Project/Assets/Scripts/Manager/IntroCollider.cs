@@ -6,6 +6,8 @@ namespace EightDirectionalSpriteSystem
 {
     public class IntroCollider : MonoBehaviour
     {
+        public bool isEnd = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -23,6 +25,11 @@ namespace EightDirectionalSpriteSystem
             if (other.CompareTag("Player"))
             {
                 IntroManager.Instance.InstantiateTitle();
+
+                if (isEnd)
+                {
+
+                }
 
                 Destroy(gameObject);
             }
