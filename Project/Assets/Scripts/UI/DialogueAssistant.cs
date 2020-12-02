@@ -561,7 +561,7 @@ public class DialogueAssistant : MonoBehaviour
         textWriter.AddWriter(" ", defaultTypeTime, true);
     }
 
-    private IEnumerator EndTransition()
+    public IEnumerator EndTransition()
     {
         dialogueAnim.SetTrigger("Exit");
         yield return new WaitForSeconds(0.79f);

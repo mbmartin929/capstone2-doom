@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144863161807096206}
-  m_LocalRotation: {x: 0.52323276, y: -0.52267724, z: 0.45564356, w: 0.49540377}
-  m_LocalPosition: {x: -1.234, y: 2.205, z: 1.7663296}
+  m_LocalRotation: {x: -0.50998974, y: 0.4898066, z: -0.4898066, w: -0.50998974}
+  m_LocalPosition: {x: -1.234, y: 3.75, z: 1.7663296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9144863163419547829}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 95.884, y: 23.610992, z: -248.702}
+  m_LocalEulerAnglesHint: {x: 90, y: 23.610992, z: -248.702}
 --- !u!108 &9144863161807096204
 Light:
   m_ObjectHideFlags: 0
@@ -42,11 +42,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.8018868, g: 0.46538788, b: 0.2004717, a: 1}
-  m_Intensity: 7.5
-  m_Range: 11.11
-  m_SpotAngle: 111.16267
-  m_InnerSpotAngle: 66.49819
+  m_Color: {r: 0.764151, g: 0.61164117, b: 0.34242615, a: 1}
+  m_Intensity: 4.2
+  m_Range: 6.9
+  m_SpotAngle: 74.81114
+  m_InnerSpotAngle: 57.723682
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4157,7 +4157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9144863163419547829}
   m_Layer: 0
-  m_Name: Standing Torch 4
+  m_Name: Standing Torch 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -96,8 +96,9 @@ public class EnemyController : UnitController
 
                 if (endBoss)
                 {
-                    DialogueAssistant.Instance.StopAllCoroutines();
-                    GameManager.Instance.arenaDoor.GetComponent<Animator>().SetTrigger("Open");
+                    //DialogueAssistant.Instance.StopAllCoroutines();
+                    //DialogueAssistant.Instance.end
+                    GameManager.Instance.StartCoroutine(GameManager.Instance.OpenArenaDoorInTime(4.2f));
                 }
             }
             else Die();

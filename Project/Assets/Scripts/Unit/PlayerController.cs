@@ -215,24 +215,32 @@ public class PlayerController : UnitController
 
                 if (CurHealth <= 0)
                 {
-                    Debug.Log("Player Dies");
-                    CurHealth = 0;
-                    gameOverScreen.SetActive(true);
-                    gameOverScreen.GetComponent<GameOverScreen>().StartGameOver();
-                    gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                    gameObject.GetComponent<Rigidbody>().useGravity = false;
-                    gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    if (EndGameScreen.Instance.badEnd)
+                    {
+                        Debug.Log("Bad End Die");
+                        EndGameScreen.Instance.StartEndLevelScreen();
+                        //StartCoroutine(GameManager.Instance.LoadBadScene(1.69f));
+                    }
+                    else
+                    {
+                        Debug.Log("Player Dies");
+                        CurHealth = 0;
+                        gameOverScreen.SetActive(true);
+                        gameOverScreen.GetComponent<GameOverScreen>().StartGameOver();
+                        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                        gameObject.GetComponent<Rigidbody>().useGravity = false;
+                        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-                    GetComponent<FirstPersonAIO>().ControllerPause();
-                    GetComponent<FirstPersonAIO>().enabled = false;
-                    //Time.timeScale = 0;
+                        GetComponent<FirstPersonAIO>().ControllerPause();
+                        GetComponent<FirstPersonAIO>().enabled = false;
+                        //Time.timeScale = 0;
 
-                    transform.GetChild(3).gameObject.SetActive(false);
+                        transform.GetChild(3).gameObject.SetActive(false);
 
+                        Debug.Log("Paused");
 
-                    Debug.Log("Paused");
-
-                    //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+                        //StartCoroutine(GameManager.Instance.RestartCurrentScene());
+                    }
                 }
             }
         }

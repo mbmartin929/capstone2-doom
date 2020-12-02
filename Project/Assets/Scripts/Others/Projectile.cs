@@ -195,6 +195,12 @@ namespace EightDirectionalSpriteSystem
                     //Debug.Log("Collided with: " + other.gameObject.name);
                     Destroy(gameObject);
                 }
+                else if (other.gameObject.CompareTag("Egg"))
+                {
+                    GetComponent<Grenade>().LauncherExplode();
+                    Debug.Log("Collided with: " + other.gameObject.name);
+                    Destroy(gameObject);
+                }
             }
             // Debug.Log("Projectile Damage: " + damage);
             // Debug.Log("Grenade Damage: " + GetComponent<Grenade>().damage);

@@ -24,12 +24,12 @@ namespace EightDirectionalSpriteSystem
         {
             if (other.CompareTag("Player"))
             {
-                IntroManager.Instance.InstantiateTitle();
-
                 if (isEnd)
                 {
-
+                    IntroManager.Instance.EndArena();
                 }
+                else IntroManager.Instance.InstantiateTitle();
+
 
                 Destroy(gameObject);
             }

@@ -55,6 +55,7 @@ public class EggController : MonoBehaviour
                 isEnd = false;
 
                 GameManager.Instance.trapDoor.SetActive(true);
+                EndGameScreen.Instance.badEnd = true;
             }
             else { }
         }

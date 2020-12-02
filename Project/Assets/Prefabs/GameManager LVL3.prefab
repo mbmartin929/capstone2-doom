@@ -291,6 +291,9 @@ MonoBehaviour:
   level: 3
   main: 0
   firstPlayer: 1
+  trapDoor: {fileID: 0}
+  arenaDoor: {fileID: 0}
+  useFreeCam: 0
 --- !u!82 &6932275111906396996
 AudioSource:
   m_ObjectHideFlags: 0
