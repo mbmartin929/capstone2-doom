@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject trapDoor;
     public GameObject arenaDoor;
+    // public bool isEnding;
 
     public bool useFreeCam = false;
 
@@ -258,14 +259,12 @@ public class GameManager : MonoBehaviour
             GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
 
             SettingsManager.Instance.RestartSettingsManager();
-
-
         }
     }
 
     private void Start()
     {
-
+        // isEnding = false;
     }
 
     void OnGUI()
@@ -307,6 +306,13 @@ public class GameManager : MonoBehaviour
             Debug.Log("Press PageDown");
             //SceneManager.UnloadSceneAsync("Scene_01_URP_Martin");
         }
+    }
+
+    public IEnumerator OpenArenaDoorInTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        arenaDoor.GetComponent<Animator>().SetTrigger("Open");
     }
 
     public IEnumerator RestartCurrentScene(float time)

@@ -17,6 +17,7 @@ namespace EightDirectionalSpriteSystem
         public float gameTitleTime = 3.5f;
 
         public ArenaManager arenaManager;
+        public ArenaManager endArenaManager;
 
         [SerializeField] private bool level3Gate = false;
 
@@ -30,6 +31,11 @@ namespace EightDirectionalSpriteSystem
             if (Instance == this) Debug.Log("IntroManager Singleton Initialized");
 
             anim = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            GameManager.Instance.trapDoor.SetActive(false);
         }
 
         public void InstantiateTitle()
@@ -61,28 +67,21 @@ namespace EightDirectionalSpriteSystem
 
         public void EndArena()
         {
-            Debug.Log("Intro Manager Lvl: " + GameManager.Instance.level);
-            if (GameManager.Instance.level == 1)
+            Debug.Log("End Arena");
+
+            if (GameManager.Instance.level == 3)
             {
-                foreach (GameObject item in disabledGos)
-                {
-                    Destroy(item, 0f);
-                }
+                // GameManager.Instance.isEnding = true;
 
-                movePodium = true;
+                // GameManager.Instance.trapDoor.SetActive(true);
 
-                entranceDoor.SetActive(true);
+                Debug.Log("Changing Music");
+                MusicManager.Instance.FadeOutAmbientMusicCaller();
+                MusicManager.Instance.FadeInActiveMusicCaller(4, false, 2);
 
-                StartCoroutine(GameTitle(gameTitleTime));
-            }
-            else if (GameManager.Instance.level == 3)
-            {
-                if (level3Gate)
-                {
-                    anim.SetTrigger("Open Door");
+                Debug.Log("Spawning First Wave");
 
-                    StartCoroutine(OpenBigGate(4.2f));
-                }
+                StartCoroutine(endArenaManager.SpawnWaves(1.69f));
             }
         }
 
