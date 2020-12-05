@@ -10,6 +10,7 @@ public class DialogueCollider : MonoBehaviour
     public int faceID = 0;
     public NumberOfSentences numberOfSentences = NumberOfSentences.One;
 
+    public AudioClip[] voices;
     public string[] sentences;
     public float[] timePerSentence;
     public float additionalTime = 0.01f;
@@ -30,6 +31,7 @@ public class DialogueCollider : MonoBehaviour
             {
                 DialogueAssistant.Instance.StartCoroutine
                 (DialogueAssistant.Instance.Dialogue1(
+                voices[0],
                 sentences[0],
                 timePerSentence[0],
                 additionalTime, faceID, nametagID));
@@ -38,6 +40,7 @@ public class DialogueCollider : MonoBehaviour
             {
                 DialogueAssistant.Instance.StartCoroutine
                 (DialogueAssistant.Instance.Dialogue2(
+                voices[0], voices[1],
                 sentences[0], timePerSentence[0],
                 sentences[1], timePerSentence[1],
                 additionalTime, faceID, nametagID));
@@ -46,6 +49,7 @@ public class DialogueCollider : MonoBehaviour
             {
                 DialogueAssistant.Instance.StartCoroutine
                 (DialogueAssistant.Instance.Dialogue3(
+                voices[0], voices[1], voices[2],
                 sentences[0], timePerSentence[0],
                 sentences[1], timePerSentence[1],
                 sentences[2], timePerSentence[2],
@@ -55,6 +59,7 @@ public class DialogueCollider : MonoBehaviour
             {
                 DialogueAssistant.Instance.StartCoroutine
                 (DialogueAssistant.Instance.Dialogue4(
+                voices[0], voices[1], voices[2], voices[3],
                 sentences[0], timePerSentence[0],
                 sentences[1], timePerSentence[1],
                 sentences[2], timePerSentence[2],
@@ -65,6 +70,7 @@ public class DialogueCollider : MonoBehaviour
             {
                 DialogueAssistant.Instance.StartCoroutine
                 (DialogueAssistant.Instance.Dialogue5(
+                voices[0], voices[1], voices[2], voices[3], voices[4],
                 sentences[0], timePerSentence[0],
                 sentences[1], timePerSentence[1],
                 sentences[2], timePerSentence[2],

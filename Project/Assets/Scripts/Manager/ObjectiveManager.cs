@@ -31,6 +31,7 @@ public class ObjectiveManager : MonoBehaviour
     {
         if (GameManager.Instance.level == 1) StartCoroutine(SetActive(starTime));
         else if (GameManager.Instance.level == 2) StartCoroutine(SetActive(starTime - 4.2f));
+        else if (GameManager.Instance.level == 3) StartCoroutine(SetActive(starTime - 2.9f));
 
         //Debug.Log("Found Door from Objective Manager");
     }

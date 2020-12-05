@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 437685813949052762}
   - component: {fileID: 6932275111906396996}
   - component: {fileID: 1879677563}
+  - component: {fileID: 7620376983348897260}
   m_Layer: 0
   m_Name: GameManager LVL2
   m_TagString: Manager
@@ -280,6 +281,9 @@ MonoBehaviour:
   level: 2
   main: 0
   firstPlayer: 1
+  trapDoor: {fileID: 0}
+  arenaDoor: {fileID: 0}
+  useFreeCam: 0
 --- !u!114 &437685813949052762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +304,8 @@ MonoBehaviour:
   movePodium: 0
   gameTitleTime: 4
   arenaManager: {fileID: 0}
+  endArenaManager: {fileID: 0}
+  level3Gate: 0
 --- !u!82 &6932275111906396996
 AudioSource:
   m_ObjectHideFlags: 0
@@ -318,7 +324,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -410,6 +416,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenHeight: 754
   screenWidth: 1100
+--- !u!114 &7620376983348897260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437685813949052766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4811a110d3aaac439fd2f1584765556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introLvl1: []
+  introLvl2: []
+  introLvl3: []
+  switchPistol: []
+  switchShotgun: []
+  surrounded1: []
+  finishArena: []
+  needKey: []
+  foundKey: []
 --- !u!1 &437685814633479175
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,10 +92,13 @@ public class DialogueAssistant : MonoBehaviour
         StartTransition(0);
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl1[0]);
         textWriter.AddWriter("Soldier! You are deep in enemy territory.", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(4.75f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl1[1]);
         textWriter.AddWriter("You have one objective when you encounter monsters.", defaultTypeTime + 0.01f, true);
-        yield return new WaitForSeconds(4.42f);
+        yield return new WaitForSeconds(4.29f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl1[2]);
         face.texture = faces[2];
         textWriter.AddWriter("KILL.", defaultTypeTime + 0.21f, true);
         yield return new WaitForSeconds(3.42f);
@@ -116,12 +119,16 @@ public class DialogueAssistant : MonoBehaviour
         StartTransition(1);
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl2[0]);
         textWriter.AddWriter("Hey.", defaultTypeTime + 0.018f, true);
         yield return new WaitForSeconds(2.1f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl2[1]);
         textWriter.AddWriter("We've got our orders.", defaultTypeTime + 0.014f, true);
         yield return new WaitForSeconds(2.0f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl2[2]);
         textWriter.AddWriter("EXTERMINATE  All  Alien  EGGS", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(3.42f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl2[3]);
         textWriter.AddWriter("Split up and we'll cover more ground.", defaultTypeTime + 0.014f, true);
         yield return new WaitForSeconds(3.29f);
 
@@ -140,10 +147,13 @@ public class DialogueAssistant : MonoBehaviour
         StartTransition(2);
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[0]);
         textWriter.AddWriter("You will die here killer.", defaultTypeTime + 0.018f, true);
         yield return new WaitForSeconds(2.42f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[1]);
         textWriter.AddWriter("We will do everything to protect our planet.", defaultTypeTime + 0.014f, true);
         yield return new WaitForSeconds(3.0f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[2]);
         textWriter.AddWriter("To protect our species.", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(3.42f);
 
@@ -163,10 +173,14 @@ public class DialogueAssistant : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
 
             face.texture = faces[0];
+
+            VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.switchPistol[0]);
             textWriter.AddWriter("Soldier!", defaultTypeTime, true);
             yield return new WaitForSeconds(1.42f);
+            VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.switchPistol[1]);
             textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
             yield return new WaitForSeconds(3.69f);
+            VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.switchPistol[2]);
             textWriter.AddWriter("Switch to your PISTOL!", defaultTypeTime, true);
             yield return new WaitForSeconds(4.0f);
 
@@ -193,8 +207,10 @@ public class DialogueAssistant : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
 
             face.texture = faces[0];
+            VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.switchShotgun[0]);
             textWriter.AddWriter("You picked up a NEW WEAPON!", defaultTypeTime, true);
             yield return new WaitForSeconds(3.09f);
+            VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.switchShotgun[1]);
             textWriter.AddWriter("Switch to your SHOTGUN!", defaultTypeTime, true);
             yield return new WaitForSeconds(0.29f);
             // textWriter.AddWriter("", defaultTypeTime, true);
@@ -222,13 +238,17 @@ public class DialogueAssistant : MonoBehaviour
         face.texture = faces[2];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.surrounded1[0]);
         textWriter.AddWriter("You are SURROUNDED", defaultTypeTime + 0.00f, true);
         yield return new WaitForSeconds(2.0f);
         face.texture = faces[1];
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.surrounded1[1]);
         textWriter.AddWriter("SHOOT!", defaultTypeTime + 0.00f, true);
         yield return new WaitForSeconds(2.0f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.surrounded1[2]);
         textWriter.AddWriter("KILL", defaultTypeTime + 0.00f, true);
         yield return new WaitForSeconds(2.0f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.surrounded1[3]);
         textWriter.AddWriter("MASSACRE", defaultTypeTime + 0.00f, true);
 
         yield return new WaitForSeconds(2.9f);
@@ -241,6 +261,7 @@ public class DialogueAssistant : MonoBehaviour
         StartTransition(0);
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
+
 
         textWriter.AddWriter("Multiple MONSTERS converging on you! ", defaultTypeTime + 0.00f, true);
         yield return new WaitForSeconds(2.42f);
@@ -258,9 +279,11 @@ public class DialogueAssistant : MonoBehaviour
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.finishArena[0]);
         textWriter.AddWriter("Good job Soldier!", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.29f);
         face.texture = faces[1];
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.finishArena[1]);
         textWriter.AddWriter("You got them all!", defaultTypeTime + 0.069f, true);
         yield return new WaitForSeconds(2.9f);
 
@@ -274,8 +297,10 @@ public class DialogueAssistant : MonoBehaviour
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.needKey[0]);
         textWriter.AddWriter("You need a KEY before continuing", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(2.42f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.needKey[1]);
         textWriter.AddWriter("Find it!", defaultTypeTime + 0.069f, true);
         yield return new WaitForSeconds(2.9f);
 
@@ -290,8 +315,10 @@ public class DialogueAssistant : MonoBehaviour
         face.texture = faces[0];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.foundKey[0]);
         textWriter.AddWriter("You found the KEY!", defaultTypeTime + 0.042f, true);
         yield return new WaitForSeconds(2.9f);
+        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.foundKey[1]);
         textWriter.AddWriter("Now get to the EXIT!", defaultTypeTime + 0.042f, true);
         yield return new WaitForSeconds(2.9f);
 
@@ -326,78 +353,93 @@ public class DialogueAssistant : MonoBehaviour
         StartCoroutine(EndTransition());
     }
 
-    public IEnumerator Dialogue1(string sentence1, float time1, float additionalTime, int faceID, int nametagID)
+    public IEnumerator Dialogue1(AudioClip clip1, string sentence1, float time1, float additionalTime, int faceID, int nametagID)
     {
         StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(clip1);
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time1);
 
         StartCoroutine(EndTransition());
     }
-    public IEnumerator Dialogue2(string sentence1, float time1, string sentence2, float time2, float additionalTime, int faceID, int nametagID)
+    public IEnumerator Dialogue2(AudioClip clip1, AudioClip clip2, string sentence1, float time1, string sentence2, float time2, float additionalTime, int faceID, int nametagID)
     {
         StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(clip1);
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(2.29f);
+        VoiceManager.Instance.PlayDialogueClip(clip2);
         textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
 
         yield return new WaitForSeconds(4.2f);
 
         StartCoroutine(EndTransition());
     }
-    public IEnumerator Dialogue3(string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, float additionalTime, int faceID, int nametagID)
+    public IEnumerator Dialogue3(AudioClip clip1, AudioClip clip2, AudioClip clip3, string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, float additionalTime, int faceID, int nametagID)
     {
         StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(clip1);
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time1);
+        VoiceManager.Instance.PlayDialogueClip(clip2);
         textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time2);
+        VoiceManager.Instance.PlayDialogueClip(clip3);
         textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time3);
 
         StartCoroutine(EndTransition());
     }
-    public IEnumerator Dialogue4(string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, string sentence4, float time4, float additionalTime, int faceID, int nametagID)
+    public IEnumerator Dialogue4(AudioClip clip1, AudioClip clip2, AudioClip clip3, AudioClip clip4, string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, string sentence4, float time4, float additionalTime, int faceID, int nametagID)
     {
         StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(clip1);
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time1);
+        VoiceManager.Instance.PlayDialogueClip(clip2);
         textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time2);
+        VoiceManager.Instance.PlayDialogueClip(clip3);
         textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time3);
+        VoiceManager.Instance.PlayDialogueClip(clip4);
         textWriter.AddWriter(sentence4, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time4);
 
         StartCoroutine(EndTransition());
     }
 
-    public IEnumerator Dialogue5(string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, string sentence4, float time4, string sentence5, float time5, float additionalTime, int faceID, int nametagID)
+    public IEnumerator Dialogue5(AudioClip clip1, AudioClip clip2, AudioClip clip3, AudioClip clip4, AudioClip clip5, string sentence1, float time1, string sentence2, float time2, string sentence3, float time3, string sentence4, float time4, string sentence5, float time5, float additionalTime, int faceID, int nametagID)
     {
         StartTransition(nametagID);
         face.texture = faces[faceID];
         yield return new WaitForSeconds(2.0f);
 
+        VoiceManager.Instance.PlayDialogueClip(clip1);
         textWriter.AddWriter(sentence1, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time1);
+        VoiceManager.Instance.PlayDialogueClip(clip2);
         textWriter.AddWriter(sentence2, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time2);
+        VoiceManager.Instance.PlayDialogueClip(clip3);
         textWriter.AddWriter(sentence3, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time3);
+        VoiceManager.Instance.PlayDialogueClip(clip4);
         textWriter.AddWriter(sentence4, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time4);
+        VoiceManager.Instance.PlayDialogueClip(clip5);
         textWriter.AddWriter(sentence5, defaultTypeTime + additionalTime, true);
         yield return new WaitForSeconds(time5);
 

@@ -196,7 +196,8 @@ namespace EightDirectionalSpriteSystem
                 {
                     case "Level":
                         Instantiate(hitEffectGo, hit.point, Quaternion.LookRotation(hit.normal));
-                        Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal));
+                        GameObject _bulletHole = Instantiate(bulletHole, hit.point + 0.01f * hit.normal, Quaternion.LookRotation(hit.normal)) as GameObject;
+                        _bulletHole.transform.SetParent(hit.transform);
                         Debug.Log("Finish Hit Level");
                         break;
 

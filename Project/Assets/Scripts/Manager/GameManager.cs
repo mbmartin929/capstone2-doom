@@ -216,8 +216,8 @@ public class GameManager : MonoBehaviour
 
                 EndGameScreen.Instance.active = false;
 
-                // playerGo.transform.position = new Vector3(-21.1f, -14.1f, 110.3f);
-                // playerGo.transform.eulerAngles = new Vector3(0, 181.2f, 0);
+                playerGo.transform.position = new Vector3(58.32f, -0.32f, -10.64f);
+                playerGo.transform.eulerAngles = new Vector3(-17.545f, -86.033f, -1.073f);
 
                 FirstPersonAIO.Instance.playerCanMove = false;
                 FirstPersonAIO.Instance.controllerPauseState = false;

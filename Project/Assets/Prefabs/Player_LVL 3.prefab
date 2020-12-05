@@ -16777,6 +16777,7 @@ MonoBehaviour:
   breakWallsTutorial: 0
   switchPistolTutorial: 0
   switchShotgunTutorial: 0
+  playBadEnd: 0
 --- !u!95 &5135762611210471527
 Animator:
   serializedVersion: 3
@@ -18437,7 +18438,7 @@ MonoBehaviour:
   projectileGo: {fileID: 0}
   maxHealth: 150
   maxArmor: 100
-  startingHealth: 150
+  startingHealth: 100
   startingArmor: 100
   isDamaged: 0
   damaged: 0
