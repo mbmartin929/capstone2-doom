@@ -35,7 +35,7 @@ namespace EightDirectionalSpriteSystem
 
         private void Start()
         {
-            GameManager.Instance.trapDoor.SetActive(false);
+            if (GameManager.Instance.level == 3) GameManager.Instance.trapDoor.SetActive(false);
         }
 
         public void InstantiateTitle()

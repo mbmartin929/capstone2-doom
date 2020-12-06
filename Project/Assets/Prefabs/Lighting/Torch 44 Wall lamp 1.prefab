@@ -1602,9 +1602,17 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  m_SelectedVertices: 00000000000000000000000000000000
 --- !u!64 &8032315447757226250
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1644,7 +1652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8032315448128358379}
   m_LocalRotation: {x: 0.0006855031, y: -0.55502546, z: 0.83154225, w: -0.021995774}
-  m_LocalPosition: {x: -4.3424463, y: 8.688552, z: 14.802696}
+  m_LocalPosition: {x: -4.3424463, y: 9.44, z: 14.802696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8032315448809931979}
@@ -1662,7 +1670,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95898014, b: 0.79607844, a: 1}
-  m_Intensity: 0.27
+  m_Intensity: 0.69
   m_Range: 6.9
   m_SpotAngle: 164.58481
   m_InnerSpotAngle: 102.25272
@@ -1704,7 +1712,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 12.12
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 4.5221e-41, y: 5.9e-44, z: 0, w: 0}
@@ -1884,7 +1892,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.99001354, b: 0.9009434, a: 1}
+  m_Color: {r: 0.9433962, g: 0.9282339, b: 0.84994656, a: 1}
   m_Intensity: 0.069
   m_Range: 1.29
   m_SpotAngle: 179
@@ -3428,8 +3436,10 @@ MonoBehaviour:
   assetGuid: 
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  m_SelectedVertices: 0000000000000000
 --- !u!64 &8032315448509881954
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6566,7 +6576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032315448809931979}
   m_Layer: 8
-  m_Name: Torch 42 Wall lamp
+  m_Name: Torch 44 Wall lamp 1
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
