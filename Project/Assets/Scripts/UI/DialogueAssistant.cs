@@ -147,13 +147,13 @@ public class DialogueAssistant : MonoBehaviour
         StartTransition(2);
         yield return new WaitForSeconds(2.0f);
 
-        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[0]);
+        //VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[0]);
         textWriter.AddWriter("You will die here killer.", defaultTypeTime + 0.018f, true);
         yield return new WaitForSeconds(2.42f);
-        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[1]);
+        //VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[1]);
         textWriter.AddWriter("We will do everything to protect our planet.", defaultTypeTime + 0.014f, true);
         yield return new WaitForSeconds(3.0f);
-        VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[2]);
+        //VoiceManager.Instance.PlayDialogueClip(VoiceManager.Instance.introLvl3[2]);
         textWriter.AddWriter("To protect our species.", defaultTypeTime + 0.01f, true);
         yield return new WaitForSeconds(3.42f);
 
