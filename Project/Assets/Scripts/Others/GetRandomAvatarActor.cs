@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace EightDirectionalSpriteSystem
 {
@@ -9,6 +10,13 @@ namespace EightDirectionalSpriteSystem
         // Start is called before the first frame update
         void Start()
         {
+            ActorAvatarManager.Instance.slimeAvatars = ActorAvatarManager.Instance.slimeAvatars.Distinct().ToArray();
+            ActorAvatarManager.Instance.redSlimeAvatars = ActorAvatarManager.Instance.redSlimeAvatars.Distinct().ToArray();
+            ActorAvatarManager.Instance.spiderAvatars = ActorAvatarManager.Instance.spiderAvatars.Distinct().ToArray();
+            ActorAvatarManager.Instance.wormAvatars = ActorAvatarManager.Instance.wormAvatars.Distinct().ToArray();
+            ActorAvatarManager.Instance.bbWormAvatars = ActorAvatarManager.Instance.bbWormAvatars.Distinct().ToArray();
+            ActorAvatarManager.Instance.snailAvatars = ActorAvatarManager.Instance.snailAvatars.Distinct().ToArray();
+
             GameObject avatar = transform.GetChild(0).gameObject;
             Material chosenMaterial;
 

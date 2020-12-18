@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
 
                 FirstPersonAIO.Instance.playerCanMove = false;
                 FirstPersonAIO.Instance.controllerPauseState = false;
-                StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl3());
+                //StartCoroutine(DialogueAssistant.Instance.IntroDialogueLvl3());
                 StartCoroutine(ObjectiveManager.Instance.SetActive(ObjectiveManager.Instance.starTime - 4.2f));
                 GameManager.Instance.playerGo.transform.GetChild(3).gameObject.SetActive(true);
 
